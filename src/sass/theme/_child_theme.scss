@@ -90,3 +90,23 @@ for (; i < all.length; i++) {
   border-radius: 0;
 }
 
+a.has-arrow {
+  position: relative;
+  padding-right: 1.5rem;
+  text-decoration: none;
+  display: inline-block;
+  &:after {
+    content: "\f105"; // FontAwesome angle right
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: var(--transition);
+  }
+  &:hover:after,
+  &:focus:after {
+    transform: translateY(-50%) translateX(5px);
+  }
+}

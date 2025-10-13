@@ -100,3 +100,96 @@ function understrap_child_customize_controls_js() {
 	);
 }
 add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_controls_js' );
+
+/**
+ * AJAX handler for post search functionality
+ */
+function cb_ajax_search_posts() {
+	// Verify nonce for security.
+	if ( ! wp_verify_nonce( $_POST['nonce'], 'post_search_nonce' ) ) {
+		wp_die( 'Security check failed' );
+	}
+
+	$search_term = sanitize_text_field( $_POST['search_term'] );
+	$category    = sanitize_text_field( $_POST['category'] );
+	$year        = sanitize_text_field( $_POST['year'] );
+
+	$args = array(
+		'post_type'      => 'post',
+		'post_status'    => array( 'publish', 'future' ),
+		'posts_per_page' => -1,
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+	);
+
+	// Add search term if provided.
+	if ( ! empty( $search_term ) ) {
+		$args['s'] = $search_term;
+	}
+
+	// Add category filter if provided.
+	if ( ! empty( $category ) && 'all' !== $category ) {
+		$args['category_name'] = $category;
+	}
+
+	// Add year filter if provided.
+	if ( ! empty( $year ) && 'all' !== $year ) {
+		$args['date_query'] = array(
+			array(
+				'year' => intval( $year ),
+			),
+		);
+	}
+
+	$query = new WP_Query( $args );
+
+	ob_start();
+
+	if ( $query->have_posts() ) {
+		$d = 0;
+		while ( $query->have_posts() ) {
+			$query->the_post();
+
+			// Get categories for data attribute
+			$categories = get_the_category();
+			if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
+				$first_category = $categories[0];
+				if ( count( $categories ) > 1 ) {
+					$categories = array_slice( $categories, 0, 1 );
+				}
+				$categories = implode( ' ', wp_list_pluck( $categories, 'slug' ) );
+			} else {
+				$categories = '';
+			}
+			?>
+			<div class="col-md-6 col-lg-4" data-aos="fade" data-aos-delay="<?= esc_attr( $d ); ?>" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
+				<a href="<?= esc_url( get_permalink() ); ?>" class="latest-insights__item">
+					<div class="latest-insights__img-wrapper">
+						<?= get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'img-fluid mb-3' ) ); ?>
+					</div>
+					<div class="latest-insights__inner">
+						<h3><?= esc_html( get_the_title() ); ?></h3>
+						<div class="latest-insights__meta">
+							<span><i class="fa-regular fa-calendar"></i> <?= esc_html( get_the_date( 'jS F Y' ) ); ?></span>
+							<span><i class="fa-regular fa-clock"></i> <?= wp_kses_post( estimate_reading_time_in_minutes( get_the_content() ) ); ?> minute read</span>
+						</div>
+						<div class="text-secondary-900"><?= esc_html( get_the_excerpt() ); ?></div>
+					</div>
+				</a>
+			</div>
+			<?php
+			$d += 100;
+		}
+	} else {
+		echo '<div class="col-12"><p class="text-center">No posts found matching your criteria.</p></div>';
+	}
+
+	wp_reset_postdata();
+
+	$html = ob_get_clean();
+
+	wp_send_json_success( array( 'html' => $html ) );
+}
+
+add_action( 'wp_ajax_search_posts', 'cb_ajax_search_posts' );
+add_action( 'wp_ajax_nopriv_search_posts', 'cb_ajax_search_posts' );

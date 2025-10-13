@@ -12,30 +12,32 @@ $page_for_posts = get_option( 'page_for_posts' );
 get_header();
 ?>
 <main id="main">
-	<section class="page-hero">
-		<?=
-		get_the_post_thumbnail(
-			$page_for_posts,
-			'full',
-			array(
-				'class'    => 'page-hero__image',
-			)
-		);
-		?>
-		<div class="page-hero__overlay"></div>
-		<div class="container">
-			<div class="row h-100 align-items-center">
-				<div class="col-md-8 col-lg-6 col-xl-4 page-hero__content">
-					<h1>News &amp; Insights</h1>
-					<p class="subtitle">Expert advice, industry updates, and company news.</p>
-				</div>
-			</div>
-		</div>
-	</section>
+	<?php
+	// Display ACF blocks and content from the "page for posts".
+	if ( $page_for_posts ) {
+		// Get the page for posts object.
+		$posts_page = get_post( $page_for_posts );
+
+		if ( $posts_page && $posts_page->post_content ) {
+			// Set up global $post for ACF and content functions.
+			global $post;
+			$original_post = $post;
+			$post          = $posts_page;
+			setup_postdata( $post );
+
+			// Output the page content (which includes ACF blocks).
+			echo apply_filters( 'the_content', $posts_page->post_content );
+
+			// Restore original post data.
+			$post = $original_post;
+			wp_reset_postdata();
+		}
+	}
+	?>
     <section class="latest_posts mt-5">
         <div class="container pb-5">
+			<h3>Search</h3>
             <?php
-			/*
             // Get all categories for filter buttons.
             $all_categories = get_categories(
 				array(
@@ -48,22 +50,42 @@ get_header();
             if ( ! empty( $all_categories ) ) {
                 ?>
                 <div class="row mb-4">
-                    <div class="col-12">
-                        <div class="filter-buttons text-center">
-                            <button class="btn btn-outline-primary filter-btn active" data-filter="all">All</button>
+                    <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                        <div class="position-relative">
+                            <input type="text" class="form-control" id="search-input" placeholder="Search posts..." autocomplete="off">
+                            <div id="search-suggestions" class="search-suggestions position-absolute w-100 bg-white border rounded shadow-sm mt-1" style="display: none; z-index: 1000; max-height: 300px; overflow-y: auto;"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-lg-4 mb-3 mb-lg-0">
+                        <select class="form-select filter-select" id="category-filter" data-filter-type="category">
+                            <option value="all" selected>All Categories</option>
                             <?php
 							foreach ( $all_categories as $category ) {
 								?>
-                                <button class="btn btn-outline-primary filter-btn" data-filter="<?= esc_attr( $category->slug ); ?>"><?= esc_html( $category->name ); ?></button>
+                                <option value="<?= esc_attr( $category->slug ); ?>"><?= esc_html( $category->name ); ?></option>
                             	<?php
 							}
 							?>
-                        </div>
+                        </select>
+                    </div>
+                    <div class="col-6 col-lg-4">
+                        <select class="form-select filter-select" id="year-filter" data-filter-type="year">
+                            <option value="all" selected>All Years</option>
+                            <?php
+                            // Get all unique post years.
+                            global $wpdb;
+                            $years = $wpdb->get_col( "SELECT DISTINCT YEAR(post_date) FROM {$wpdb->posts} WHERE post_status = 'publish' AND post_type = 'post' ORDER BY post_date DESC" );
+                            foreach ( $years as $year ) {
+                                ?>
+                                <option value="<?= esc_attr( $year ); ?>"><?= esc_html( $year ); ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
                     </div>
                 </div>
                 <?php
             }
-				*/
             ?>
             <div class="row g-4 w-100">
             <?php
@@ -96,13 +118,13 @@ get_header();
 						$categories = implode( ' ', wp_list_pluck( $categories, 'slug' ) );
 					}
 					?>
-					<div class="col-md-6 col-lg-4" data-aos="fade" data-aos-delay="<?= esc_attr( $d ); ?>" data-category="<?= esc_attr( $categories ); ?>">
-						<a href="<?= esc_url( get_permalink() ) ?>" class="latest-insights__item">
+					<div class="col-md-6 col-lg-4" data-aos="fade" data-aos-delay="<?= esc_attr( $d ); ?>" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
+						<a href="<?= esc_url( get_permalink() ); ?>" class="latest-insights__item">
 							<div class="latest-insights__img-wrapper">
 								<?= get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'img-fluid mb-3' ) ); ?>
 							</div>
 							<div class="latest-insights__inner">
-								<h3><?= esc_html( get_the_title() ) ?></h3>
+								<h3><?= esc_html( get_the_title() ); ?></h3>
 								<div class="latest-insights__meta">
 									<span><i class="fa-regular fa-calendar"></i> <?= esc_html( get_the_date( 'jS F Y' ) ); ?></span>
 									<span><i class="fa-regular fa-clock"></i> <?= wp_kses_post( estimate_reading_time_in_minutes( get_the_content() ) ); ?> minute read</span>
@@ -127,34 +149,129 @@ get_header();
 </main>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const posts = document.querySelectorAll('[data-category]');
+    const filterSelects = document.querySelectorAll('.filter-select');
+    const searchInput = document.getElementById('search-input');
+    const searchSuggestions = document.getElementById('search-suggestions');
+    const postsContainer = document.querySelector('.row.g-4.w-100');
+    const originalPosts = postsContainer.innerHTML; // Store original posts
 
-    // Add post-item class to all posts
-    posts.forEach(post => {
-        post.classList.add('post-item');
+    let searchTimeout;
+    let abortController;
+
+    // Client-side filtering for category/year when no search
+    function filterExistingPosts() {
+        const posts = document.querySelectorAll('[data-category]');
+        const categoryFilter = document.getElementById('category-filter').value;
+        const yearFilter = document.getElementById('year-filter').value;
+        
+        posts.forEach(post => {
+            const postCategories = post.getAttribute('data-category');
+            const postYear = post.getAttribute('data-year');
+            
+            const categoryMatch = categoryFilter === 'all' || (postCategories && postCategories.includes(categoryFilter));
+            const yearMatch = yearFilter === 'all' || postYear === yearFilter;
+            
+            if (categoryMatch && yearMatch) {
+                post.style.display = 'block';
+            } else {
+                post.style.display = 'none';
+            }
+        });
+    }
+
+    // AJAX search function
+    function performAjaxSearch() {
+        const searchQuery = searchInput.value.trim();
+        const categoryFilter = document.getElementById('category-filter').value;
+        const yearFilter = document.getElementById('year-filter').value;
+
+        // If no search term, use client-side filtering
+        if (!searchQuery) {
+            postsContainer.innerHTML = originalPosts;
+            filterExistingPosts();
+            return;
+        }
+
+        // Cancel previous AJAX request
+        if (abortController) {
+            abortController.abort();
+        }
+
+        // Create new abort controller
+        abortController = new AbortController();
+
+        // Show loading state
+        postsContainer.innerHTML = '<div class="col-12 text-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>';
+
+        // Perform AJAX search
+        fetch('<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                action: 'search_posts',
+                search_term: searchQuery,
+                category: categoryFilter,
+                year: yearFilter,
+                nonce: '<?php echo esc_attr( wp_create_nonce( 'post_search_nonce' ) ); ?>'
+            }),
+            signal: abortController.signal
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                postsContainer.innerHTML = data.data.html;
+                // Reinitialize AOS for new elements
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+            } else {
+                postsContainer.innerHTML = '<div class="col-12"><p class="text-center">Error loading search results.</p></div>';
+            }
+        })
+        .catch(error => {
+            if (error.name !== 'AbortError') {
+                console.error('Search error:', error);
+                postsContainer.innerHTML = '<div class="col-12"><p class="text-center">Error loading search results.</p></div>';
+            }
+        });
+    }
+
+    // Search input with debounce
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            performAjaxSearch();
+        }, 500);
     });
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filterValue = this.getAttribute('data-filter');
-            
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Filter posts
-            posts.forEach(post => {
-                const postCategories = post.getAttribute('data-category');
-                const shouldShow = filterValue === 'all' || (postCategories && postCategories.includes(filterValue));
-                
-                if (shouldShow) {
-                    post.style.display = 'block';
-                } else {
-                    post.style.display = 'none';
-                }
-            });
+    // Filter selects - trigger search if there's a search term, otherwise filter client-side
+    filterSelects.forEach(select => {
+        select.addEventListener('change', function() {
+            const searchQuery = searchInput.value.trim();
+            if (searchQuery) {
+                performAjaxSearch();
+            } else {
+                filterExistingPosts();
+            }
         });
+    });
+
+    // Clear search
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            this.value = '';
+            postsContainer.innerHTML = originalPosts;
+            filterExistingPosts();
+        }
+    });
+
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.position-relative')) {
+            searchSuggestions.style.display = 'none';
+        }
     });
 });
 </script>

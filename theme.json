@@ -74,6 +74,12 @@
           "slug": "simco-bluegrey-50",
           "color": "#C3C9D7",
           "origin": "theme"
+        },
+        {
+          "name": "simco-skygrey",
+          "slug": "simco-skygrey",
+          "color": "#6F94C1",
+          "origin": "theme"
         }
       ]
     },

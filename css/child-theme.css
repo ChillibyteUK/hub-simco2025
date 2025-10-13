@@ -23,6 +23,7 @@
   --col-lightest-grey: #F8F8F7;
   --col-light-grey: #EAECF1;
   --col-simco-bluegrey-50: #C3C9D7;
+  --col-simco-skygrey: #6F94C1;
   /* =========================
      TYPOGRAPHY (families/weights)
      ========================= */
@@ -52,7 +53,7 @@
   --fw-h2-page-subtitle: 400;
   --fs-h3-page-subtitle: 1.4rem; /* 22.4px */
   --lh-h3-page-subtitle: 1.79;
-  --fw-h3-page-subtitle: 700;
+  --fw-h3-page-subtitle: 400;
   --fs-h4-body-bold: 1.3rem; /* 20.8px */
   --lh-h4-body-bold: 1.38;
   --fw-h4-body-bold: 700;
@@ -22466,6 +22467,26 @@ for (; i < all.length; i++) {
 */
 .form-control {
   border-radius: 0;
+}
+
+a.has-arrow {
+  position: relative;
+  padding-right: 1.5rem;
+  text-decoration: none;
+  display: inline-block;
+}
+a.has-arrow:after {
+  content: "\f105";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--transition);
+}
+a.has-arrow:hover:after, a.has-arrow:focus:after {
+  transform: translateY(-50%) translateX(5px);
 }
 
 .has-blue-color,

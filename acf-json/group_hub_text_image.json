@@ -165,6 +165,110 @@
             "allow_in_bindings": 0,
             "layout": "horizontal",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_68ecfb2ff69b3",
+            "label": "Background",
+            "name": "bg_colour",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "black": "Black",
+                "simco-navy": "simco-navy",
+                "simco-red": "simco-red",
+                "simco-mid-blue": "simco-mid-blue",
+                "dark-grey": "dark-grey",
+                "simco-gold": "simco-gold",
+                "light-gold": "light-gold",
+                "simco-grey": "simco-grey",
+                "lightest-grey": "lightest-grey",
+                "light-grey": "light-grey",
+                "simco-bluegrey-50": "simco-bluegrey-50"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 1,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_68ecfb3ff69b4",
+            "label": "Foreground",
+            "name": "fg_colour",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "black": "Black",
+                "simco-navy": "simco-navy",
+                "simco-red": "simco-red",
+                "simco-mid-blue": "simco-mid-blue",
+                "dark-grey": "dark-grey",
+                "simco-gold": "simco-gold",
+                "light-gold": "light-gold",
+                "simco-grey": "simco-grey",
+                "lightest-grey": "lightest-grey",
+                "light-grey": "light-grey",
+                "simco-bluegrey-50": "simco-bluegrey-50"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 1,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_68ecfa9664e37",
+            "label": "Has Slant?",
+            "name": "has_slant",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Yes": "Yes"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
         }
     ],
     "location": [
@@ -186,5 +290,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760019713
+    "modified": 1760361288
 }
