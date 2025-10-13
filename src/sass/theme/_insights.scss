@@ -18,30 +18,7 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            color: var(--col-white);
-            padding: 0.5rem 1rem;
-            font-size: var(--fs-xs);
-            font-weight: var(--fw-bold);
             z-index: 2;
-            min-width: 50%;
-            &.research {
-                background-color: #BA736C;
-            }
-            &.case-study {
-                background-color: var(--col-simco-gold);
-            }
-            &.video {
-                background-color: #178447;
-            }
-            &.podcast {
-                background-color: #1582C0;
-            }
-            &.news {
-                background-color: #152634;
-            }
-            &.interview {
-                background-color: #47658D;
-            }
         }
         img {
             position: absolute;
@@ -59,5 +36,32 @@
             font-weight: var(--fw-bold);
             margin-bottom: 0.5rem;
         }
+    }
+}
+
+.category {
+    color: var(--col-white);
+    padding: 0.5rem 1rem;
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    display: inline-block;
+    min-width: 50%;
+    &.research {
+        background-color: #BA736C;
+    }
+    &.case-study {
+        background-color: var(--col-simco-gold);
+    }
+    &.video {
+        background-color: #178447;
+    }
+    &.podcast {
+        background-color: #1582C0;
+    }
+    &.news {
+        background-color: #152634;
+    }
+    &.interview {
+        background-color: #47658D;
     }
 }

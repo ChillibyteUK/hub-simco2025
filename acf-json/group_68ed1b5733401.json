@@ -1,13 +1,13 @@
 {
-    "key": "group_68ed108297e5e",
-    "title": "Insight - Research",
+    "key": "group_68ed1b5733401",
+    "title": "Insight - Podcast",
     "fields": [
         {
-            "key": "field_68ed10832f1bf",
-            "label": "Research PDF",
-            "name": "pdf",
+            "key": "field_68ed1b5851186",
+            "label": "Video Link",
+            "name": "video_link",
             "aria-label": "",
-            "type": "file",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,12 +16,12 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "id",
-            "library": "all",
-            "min_size": "",
-            "max_size": "",
-            "mime_types": "",
-            "allow_in_bindings": 0
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -29,7 +29,7 @@
             {
                 "param": "post_category",
                 "operator": "==",
-                "value": "category:research"
+                "value": "category:podcast"
             }
         ]
     ],
@@ -43,5 +43,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760369490
+    "modified": 1760369523
 }
