@@ -101,7 +101,6 @@ get_header();
             $q = new WP_Query( $args );
 
             if ( $q->have_posts() ) {
-				$d = 0;
 				while ( $q->have_posts() ) {
 					$q->the_post();
 					// get categories.
@@ -117,24 +116,27 @@ get_header();
 						// Convert to space separated list.
 						$categories = implode( ' ', wp_list_pluck( $categories, 'slug' ) );
 					}
+
+					$plink  = get_permalink();
+					$target = '_self';
+					if ( 'research' === $first_category->slug ) {
+						$plink  = wp_get_attachment_url( get_field( 'pdf', get_the_ID() ) );
+						$target = '_blank';
+					}
 					?>
-					<div class="col-md-6 col-lg-4" data-aos="fade" data-aos-delay="<?= esc_attr( $d ); ?>" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
-						<a href="<?= esc_url( get_permalink() ); ?>" class="latest-insights__item">
+					<div class="col-md-6 col-lg-4" data-aos="fade" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
+						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
 							<div class="latest-insights__img-wrapper">
-								<?= get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'img-fluid mb-3' ) ); ?>
+								<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $first_category->name ); ?></div>
+								<?= get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'img-fluid' ) ); ?>
 							</div>
 							<div class="latest-insights__inner">
 								<h3><?= esc_html( get_the_title() ); ?></h3>
-								<div class="latest-insights__meta">
-									<span><i class="fa-regular fa-calendar"></i> <?= esc_html( get_the_date( 'jS F Y' ) ); ?></span>
-									<span><i class="fa-regular fa-clock"></i> <?= wp_kses_post( estimate_reading_time_in_minutes( get_the_content() ) ); ?> minute read</span>
-								</div>
 								<div class="text-secondary-900"><?= esc_html( get_the_excerpt() ); ?></div>
 							</div>
 						</a>
 					</div>
 					<?php
-					$d += 100;
                 }
             } else {
                 echo '<p>No posts found.</p>';
