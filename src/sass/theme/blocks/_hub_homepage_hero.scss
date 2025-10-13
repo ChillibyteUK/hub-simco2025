@@ -1,0 +1,50 @@
+.homepage-hero {
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    color: var(--col-white);
+
+    &__background {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+        animation: gentle-scale 5s ease-out forwards;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='727' height='830' viewBox='0 0 727 830' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M543.5 0L957.893 829.5H129.107L543.5 0Z' fill='white' fill-opacity='0.8'/%3E%3Cpath d='M226.5 385L452.1 835.75H0.900375L226.5 385Z' fill='%23AB965F'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: contain;
+        opacity: 0.8;
+        z-index: -1;
+    }
+
+    &__title {
+        font-size: var(--fs-h1-big-page-title);
+    }
+}
+
+@keyframes gentle-scale {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+

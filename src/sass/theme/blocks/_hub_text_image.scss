@@ -1,0 +1,26 @@
+.image-16x9 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+a.image-16x9 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  display: block;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}

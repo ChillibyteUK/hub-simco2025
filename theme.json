@@ -1,0 +1,135 @@
+{
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "name": "white",
+          "slug": "white",
+          "color": "hsl(0 0% 100%)",
+          "origin": "theme"
+        },
+        {
+          "name": "black",
+          "slug": "black",
+          "color": "hsl(0 0% 0%)",
+          "origin": "theme"
+        },
+        {
+          "name": "simco-navy",
+          "slug": "simco-navy",
+          "color": "hsl(210 30% 20%)",
+          "origin": "theme"
+        },
+        {
+          "name": "simco-red",
+          "slug": "simco-red",
+          "color": "hsl(353 60% 38%)",
+          "origin": "theme"
+        },
+        {
+          "name": "simco-mid-blue",
+          "slug": "simco-mid-blue",
+          "color": "hsl(214 33% 42%)",
+          "origin": "theme"
+        },
+        {
+          "name": "dark-grey",
+          "slug": "dark-grey",
+          "color": "hsl(0 0% 44%)",
+          "origin": "theme"
+        },
+        {
+          "name": "simco-gold",
+          "slug": "simco-gold",
+          "color": "hsl(43 31% 52%)",
+          "origin": "theme"
+        },
+        {
+          "name": "light-gold",
+          "slug": "light-gold",
+          "color": "hsl(47 18% 90%)",
+          "origin": "theme"
+        },
+        {
+          "name": "simco-grey",
+          "slug": "simco-grey",
+          "color": "hsl(47 18% 90%)",
+          "origin": "theme"
+        },
+        {
+          "name": "lightest-grey",
+          "slug": "lightest-grey",
+          "color": "#F8F8F7",
+          "origin": "theme"
+        },
+        {
+          "name": "light-grey",
+          "slug": "light-grey",
+          "color": "#EAECF1",
+          "origin": "theme"
+        },
+        {
+          "name": "simco-bluegrey-50",
+          "slug": "simco-bluegrey-50",
+          "color": "#C3C9D7",
+          "origin": "theme"
+        }
+      ]
+    },
+    "typography": {
+      "fontSizes": [
+        {
+          "name": "base",
+          "slug": "base",
+          "size": "16px"
+        },
+        {
+          "name": "body",
+          "slug": "body",
+          "size": "1rem"
+        },
+        {
+          "name": "body-medium",
+          "slug": "body-medium",
+          "size": "1.3rem"
+        },
+        {
+          "name": "h1-big-page-title",
+          "slug": "h1-big-page-title",
+          "size": "2.67rem"
+        },
+        {
+          "name": "h2-page-subtitle",
+          "slug": "h2-page-subtitle",
+          "size": "1.8rem"
+        },
+        {
+          "name": "h3-page-subtitle",
+          "slug": "h3-page-subtitle",
+          "size": "1.4rem"
+        },
+        {
+          "name": "h4-body-bold",
+          "slug": "h4-body-bold",
+          "size": "1.3rem"
+        },
+        {
+          "name": "large-text-on-image",
+          "slug": "large-text-on-image",
+          "size": "1.8rem"
+        },
+        {
+          "name": "button-text",
+          "slug": "button-text",
+          "size": "1rem"
+        },
+        {
+          "name": "stat",
+          "slug": "stat",
+          "size": "3.33rem"
+        }
+      ]
+    }
+  }
+}

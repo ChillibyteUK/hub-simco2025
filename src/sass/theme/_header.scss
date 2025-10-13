@@ -1,0 +1,114 @@
+header {
+  background-color: var(--col-white);
+  transition: var(--transition);
+
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+
+  font-family: var(--ff-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+
+  .navbar-toggler {
+    i {
+      color: var(--col-simco-red);
+    }
+  }
+
+  .navbar-nav {
+    margin-block: 0;
+  }
+
+  a,
+  a.nav-link {
+    font-family: var(--ff-body);
+    font-size: var(--fs-base);
+    line-height: var(--lh-body);
+    color: var(--col-black);
+    transition: var(--transition);
+    display: inline-block;
+    text-decoration: none;
+    padding: 0;
+    position: relative;
+    // @media (min-width: 992px) {
+    //   &:hover {
+    //     color: var(--col-accent-400);
+    //     text-decoration: none;
+    //   }
+    // }
+    // &:focus {
+    //   color: var(--col-accent-400);
+    //   text-decoration: none;
+    // }
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: transparent;
+    }
+  }
+
+  .logo-container {
+    max-width: 240px;
+    margin-right: 1rem;
+  }
+  .logo {
+    background-image: url(../img/simco-logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    aspect-ratio: 964 / 243;
+    width: 200px;
+    height: 50px;
+    max-width: 100%;
+  }
+
+  .current_page_item > .nav-link,
+  .current_page_parent > .nav-link,
+  .current-menu-ancestor > .nav-link,
+  .current-menu-parent > .nav-link,
+  .dropdown.current-page-ancestor > .nav-link,
+  .dropdown.current-menu-item > .nav-link {
+    &:before {
+      width: 100%;
+      background: var(--col-simco-gold);
+    }
+  }
+
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      min-height: 100svh;
+      /* Do not set display:flex or height, let Bootstrap animate */
+    }
+    .navbar-nav {
+      width: 100%;
+      padding-bottom: 2rem;
+    }
+    .nav-link,
+    .navbar-nav .nav-link {
+      font-size: var(--fs-base);
+      padding: 1rem 0;
+    }
+    .dropdown-item {
+      font-size: var(--fs-base);
+    }
+
+    .fs-subtle a {
+      font-size: var(--fs-base);
+    }
+  }
+
+  // Override Bootstrap dropdown arrow with Font Awesome icon
+  .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    content: "\f107"; // Font Awesome angle-down icon
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    border: none;
+  }
+}
