@@ -124,8 +124,9 @@ get_header();
 						$target = '_blank';
 					}
 					if ( 'video' === $first_category->slug ) {
-						if ( $plink && ! ( str_contains( $plink, 'youtube.com' ) || str_contains( $plink, 'vimeo.com' ) ) ) {
-							$plink  = get_field( 'video_link', get_the_ID() );
+						$video_link = get_field( 'video_link', get_the_ID() );
+						if ( $video_link && ! ( str_contains( $video_link, 'youtube.com' ) || str_contains( $video_link, 'vimeo.com' ) ) ) {
+							$plink  = $video_link;
 							$target = '_blank';
 						}
 					}
