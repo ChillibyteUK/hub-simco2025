@@ -36,7 +36,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 					if ( $video ) {
 						?>
 				<div class="ratio ratio-16x9 mb-4">
-					<iframe src="<?= esc_attr( $video ); ?>"></iframe>
+					<iframe src="<?= esc_attr( $video ); ?>"></iframe>	
 				</div>
 						<?php
 					}

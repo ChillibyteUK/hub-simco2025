@@ -123,6 +123,12 @@ get_header();
 						$plink  = wp_get_attachment_url( get_field( 'pdf', get_the_ID() ) );
 						$target = '_blank';
 					}
+					if ( 'video' === $first_category->slug ) {
+						if ( $plink && ! ( str_contains( $plink, 'youtube.com' ) || str_contains( $plink, 'vimeo.com' ) ) ) {
+							$plink  = get_field( 'video_link', get_the_ID() );
+							$target = '_blank';
+						}
+					}
 					?>
 					<div class="col-md-6 col-lg-4" data-aos="fade" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
 						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
