@@ -1,6 +1,6 @@
 {
     "key": "group_68ed1b5733401",
-    "title": "Insight - Podcast",
+    "title": "Insight - Podcast \/ Video",
     "fields": [
         {
             "key": "field_68ed1b5851186",
@@ -31,6 +31,13 @@
                 "operator": "==",
                 "value": "category:podcast"
             }
+        ],
+        [
+            {
+                "param": "post_category",
+                "operator": "==",
+                "value": "category:video"
+            }
         ]
     ],
     "menu_order": 0,
@@ -43,5 +50,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760369523
+    "modified": 1760372128
 }
