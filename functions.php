@@ -8,7 +8,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-define( 'CB_THEME_DIR', WP_CONTENT_DIR . '/themes/hub-sequoia2025' );
+define( 'CB_THEME_DIR', get_stylesheet_directory() );
 
 require_once CB_THEME_DIR . '/inc/cb-theme.php';
 
