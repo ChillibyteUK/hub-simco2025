@@ -87,7 +87,7 @@ get_header();
                 <?php
             }
             ?>
-            <div class="row g-4 w-100">
+            <div class="row g-4">
             <?php
             // Custom query to include both published and scheduled posts.
             $args = array(
