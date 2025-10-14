@@ -9,9 +9,6 @@ defined( 'ABSPATH' ) || exit;
 
 $page_link = get_field( 'link' ) ?? null;
 if ( ! $page_link ) {
-	// Debug: Show what we're getting
-	echo '<!-- DEBUG: Link field is empty or null -->';
-	echo '<!-- DEBUG: get_field result: ' . esc_html( print_r( get_field( 'link' ), true ) ) . ' -->';
 	return;
 }
 ?>
