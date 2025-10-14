@@ -131,7 +131,7 @@ get_header();
 						}
 					}
 					?>
-					<div class="col-md-6 col-lg-4" data-aos="fade" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
+					<div class="col-md-6 col-lg-4" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
 						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
 							<div class="latest-insights__img-wrapper">
 								<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $first_category->name ); ?></div>
