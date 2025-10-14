@@ -22,7 +22,7 @@ if ( ! $q->have_posts() ) {
 ?>
 <section class="latest-insights">
 	<div class="container py-5">
-		<h2 class="mb-4">Insights</h2>
+		<h2 class="mb-4" data-aos="fade-right">Insights</h2>
 		<?php
 		if ( $q->have_posts() ) {
 			?>
@@ -58,7 +58,7 @@ if ( ! $q->have_posts() ) {
 						}
 					}
 					?>
-					<div class="col-md-6 col-lg-4" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
+					<div class="col-md-6 col-lg-4" data-aos="fade-up">
 						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
 							<div class="latest-insights__img-wrapper">
 								<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $first_category->name ); ?></div>
