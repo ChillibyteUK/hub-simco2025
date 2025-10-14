@@ -68,7 +68,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
 					<div class=""><?= wp_kses_post( get_field( 'screen_1_post_country_select', 'option' ) ); ?></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="country-continue" disabled>Continue</button>
+                    <button type="button" class="btn btn--mid-blue" id="country-continue" disabled>Continue</button>
                 </div>
             </div>
 
@@ -98,8 +98,8 @@ $modal_id = 'disclaimer-modal-' . uniqid();
                         <?= wp_kses_post( $disclaimer_content ); ?>
                     </div>
                     <div class="mt-3">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="disclaimer-acknowledge" disabled>
+                        <div class="form-check d-flex align-items-center">
+                            <input class="form-check-input me-2" type="checkbox" id="disclaimer-acknowledge" disabled>
                             <label class="form-check-label text-muted" for="disclaimer-acknowledge" id="acknowledge-label">
                                 Please scroll to the end of the disclaimer to continue
                             </label>
@@ -108,7 +108,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" id="disclaimer-back-btn">Back</button>
-                    <button type="button" class="btn btn-primary" id="disclaimer-accept" disabled>Accept & Continue</button>
+                    <button type="button" class="btn btn--mid-blue" id="disclaimer-accept" disabled>Accept & Continue</button>
                 </div>
             </div>
         </div>
