@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterSelects = document.querySelectorAll('.filter-select');
     const searchInput = document.getElementById('search-input');
     const searchSuggestions = document.getElementById('search-suggestions');
-    const postsContainer = document.querySelector('.row.g-4.w-100');
+    const postsContainer = document.querySelector('.row.g-4');
     const originalPosts = postsContainer.innerHTML; // Store original posts
 
     let searchTimeout;
