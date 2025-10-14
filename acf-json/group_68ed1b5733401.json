@@ -1,6 +1,6 @@
 {
     "key": "group_68ed1b5733401",
-    "title": "Insight - Podcast \/ Video",
+    "title": "Insight - Podcast \/ Video \/ Interview",
     "fields": [
         {
             "key": "field_68ed1b5851186",
@@ -38,6 +38,13 @@
                 "operator": "==",
                 "value": "category:video"
             }
+        ],
+        [
+            {
+                "param": "post_category",
+                "operator": "==",
+                "value": "category:interview"
+            }
         ]
     ],
     "menu_order": 0,
@@ -50,5 +57,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760372128
+    "modified": 1760428771
 }
