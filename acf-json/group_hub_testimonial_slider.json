@@ -1,0 +1,23 @@
+{
+  "key": "group_hub_testimonial_slider",
+  "title": "HUB Testimonial Slider",
+  "fields": [
+    {
+      "key": "field_hub_testimonial_slider_title",
+      "label": "HUB Testimonial Slider",
+      "name": "title",
+      "type": "message"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/hub-testimonial-slider"
+      }
+    ]
+  ],
+  "active": 1,
+  "description": ""
+}

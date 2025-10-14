@@ -54,6 +54,7 @@ defined( 'ABSPATH' ) || exit;
 						</div>
 						<?php
 					}
+					wp_reset_postdata();
 					?>
 				</div>
 			</div>

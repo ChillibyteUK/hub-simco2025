@@ -22592,6 +22592,35 @@ a.image-16x9 img {
   transition: var(--transition);
 }
 
+.testimonial-slider {
+  background-color: var(--col-simco-gold);
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_2' data-name='Layer 2' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 570.17 706.5'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %23d1ba7f; %7D .cls-2 %7B fill: none; %7D .cls-3 %7B fill: %23152634; %7D .cls-4 %7B clip-path: url(%23clippath); %7D %3C/style%3E%3CclipPath id='clippath'%3E%3Crect class='cls-2' width='570.17' height='706.5'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cg class='cls-4'%3E%3Cg%3E%3Cpath class='cls-1' d='M390.49,0l352.91,706.5H37.58L390.49,0Z'/%3E%3Cpath class='cls-3' d='M109.99,485.25l109.99,221.25H0l109.99-221.25Z'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.testimonial-slider__quote {
+  font-size: var(--fs-body-medium);
+}
+.testimonial-slider .swiper-pagination {
+  position: relative !important;
+  bottom: auto !important;
+  margin-top: 20px;
+}
+.testimonial-slider .swiper-pagination-bullet {
+  background: var(--col-white);
+  opacity: 0.7;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+.testimonial-slider .swiper-pagination-bullet-active {
+  background: var(--col-black);
+  opacity: 1;
+  width: 16px;
+  height: 16px;
+}
+
 body {
   background-color: var(--col-neutral-50);
 }

@@ -77,6 +77,7 @@ if ( ! $q->have_posts() ) {
 			</div>
 			<?php
 		}
+		wp_reset_postdata()
 		?>
 	</div>
 </section>
