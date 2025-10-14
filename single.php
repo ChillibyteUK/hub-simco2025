@@ -46,7 +46,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 					}
 				}
 
-				echo wp_kses_post( get_the_content() );
+				echo apply_filters( 'the_content', get_the_content() );
 				?>
 			</div>
 		</div>
