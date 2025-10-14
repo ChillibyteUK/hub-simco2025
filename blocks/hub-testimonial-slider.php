@@ -35,8 +35,8 @@ defined( 'ABSPATH' ) || exit;
 									<div class="testimonial-slider__slide p-4 h-100 d-flex flex-column justify-content-between text-center">
 										<div class="testimonial-slider__quote mb-4">"<?= esc_html( wp_strip_all_tags( get_the_content() ) ); ?>"</div>
 										<div class="testimonial-slider__author mt-auto">
-											<div class="fw-bold"><?php echo esc_html( get_the_title() ); ?></div>
-											<div class="text-secondary-900"><?php echo esc_html( $company ); ?></div>
+											<div><?php echo esc_html( get_the_title() ); ?></div>
+											<div><?php echo esc_html( $company ); ?></div>
 										</div>
 									</div>
 								</div>

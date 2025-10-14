@@ -42,7 +42,7 @@ defined( 'ABSPATH' ) || exit;
 									<div class="swiper-slide">
 										<div class="news-slide">
 											<div class="fw-bold fs-body-medium mb-3"><?= esc_html( get_the_title() ); ?></div>
-											<div class="text-secondary-900 mb-4"><?= esc_html( get_the_excerpt() ); ?></div>
+											<div class="mb-4"><?= esc_html( get_the_excerpt() ); ?></div>
 											<a href="/insights/" class="read-more">Read More</a>
 										</div>
 									</div>

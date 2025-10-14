@@ -140,7 +140,7 @@ get_header();
 							</div>
 							<div class="latest-insights__inner">
 								<h3><?= esc_html( get_the_title() ); ?></h3>
-								<div class="text-secondary-900"><?= esc_html( get_the_excerpt() ); ?></div>
+								<div><?= esc_html( get_the_excerpt() ); ?></div>
 							</div>
 							<div class="read-more">Read More</div>
 						</a>
