@@ -123,7 +123,7 @@ get_header();
 						$plink  = wp_get_attachment_url( get_field( 'pdf', get_the_ID() ) );
 						$target = '_blank';
 					}
-					if ( 'video' === $first_category->slug ) {
+					if ( 'video' === $first_category->slug || 'podcast' === $first_category->slug ) {
 						$video_link = get_field( 'video_link', get_the_ID() );
 						if ( $video_link && ! ( str_contains( $video_link, 'youtube.com' ) || str_contains( $video_link, 'vimeo.com' ) ) ) {
 							$plink  = $video_link;
