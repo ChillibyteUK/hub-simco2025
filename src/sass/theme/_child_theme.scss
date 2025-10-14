@@ -111,3 +111,126 @@ a.has-arrow {
     transform: translateY(-50%) translateX(5px);
   }
 }
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  background-color: var(--col-light-grey);
+  border: 1px solid var(--col-light-grey);
+  border-radius: 0;
+}
+
+.has-light-grey-background-color {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    background-color: var(--col-white);
+    border: 1px solid var(--col-neutral-300);
+  }
+}
+
+// Gravity Forms file upload styling
+input[type="file"] {
+  &::file-selector-button {
+    // Copy .btn and .btn--mid-blue styles directly since @extend doesn't work in pseudo-elements
+    display: inline-block !important;
+    padding: 0.5rem 1rem !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    border: 2px solid #eae8e1 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border-radius: 6px !important;
+    
+    // btn--mid-blue styles with fallback colors
+    background-color: #eae8e1 !important;
+    color: #000 !important;
+    
+    &:hover {
+      background-color: #3a5578 !important;
+      border-color: #3a5578 !important;
+    }
+  }
+  
+  // Alternative for older browsers - webkit prefix
+  &::-webkit-file-upload-button {
+    display: inline-block !important;
+    padding: 0.5rem 1rem !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    border: 2px solid #eae8e1 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border-radius: 6px !important;
+    background-color: #eae8e1 !important;
+    color: #000 !important;
+    
+    &:hover {
+      background-color: #3a5578 !important;
+      border-color: #3a5578 !important;
+    }
+  }
+  
+  // Style the filename text area
+  font-size: 1rem !important;
+  color: #666 !important;
+  border: 1px solid #ddd !important;
+  background-color: white;
+  padding: 0.5rem !important;
+}
+
+// Target Gravity Forms specifically
+.gform_wrapper input[type="file"] {
+  &::file-selector-button,
+  &::-webkit-file-upload-button {
+    display: inline-block !important;
+    padding: 0.5rem 1rem !important;
+    background-color: #eae8e1 !important;
+    color: #000 !important;
+    border: 2px solid #eae8e1 !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+  }
+}
+
+input[type="submit"] {
+  @extend .btn;
+  @extend .btn--mid-blue;
+}
+
+// Custom checkbox styling
+input[type="checkbox"] {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  border-radius: 0 !important;
+  border: 2px solid #ddd !important;
+  background-color: #fff !important;
+  cursor: pointer !important;
+  
+  &:checked {
+    background-color: #47658D !important;
+    border-color: #47658D !important;
+  }
+  
+  &:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(71, 101, 141, 0.3) !important;
+  }
+}
+
+// Target Gravity Forms checkboxes specifically
+.gform_wrapper input[type="checkbox"] {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  border-radius: 0 !important;
+  border: 2px solid #ddd !important;
+  background-color: #fff !important;
+  cursor: pointer !important;
+  
+  &:checked {
+    background-color: #47658D !important;
+    border-color: #47658D !important;
+  }
+}

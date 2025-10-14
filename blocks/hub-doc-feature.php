@@ -18,8 +18,8 @@ defined( 'ABSPATH' ) || exit;
 				$l     = get_field( 'featured_doc_file' );
 				if ( $image ) {
 					?>
-					<a href="<?= $l['url']; ?>" target="_blank">
-						<?= wp_get_attachment_image( $image, 'full', false, array( 'class' => '', 'data-aos' => 'fade-up' ) ); ?>
+					<a href="<?= esc_url( $l['url'] ); ?>" target="_blank">
+						<?= wp_get_attachment_image( $image, 'full', false, array( 'data-aos' => 'fade-up' ) ); ?>
 					</a>
 					<?php
 				}
