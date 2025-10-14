@@ -7,24 +7,24 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// Get disclaimer content from options page
+// Get disclaimer content from options page.
 $disclaimer_content = get_field( 'disclaimer', 'option' );
 
 if ( ! $disclaimer_content ) {
     return;
 }
 
-// Countries list - you can modify this as needed.
+// Country lists - modify as needed.
 $allowed_countries = array(
-    'AU'    => 'Australia',
-    'CA'    => 'Canada',
-    'FR'    => 'France',
-    'DE'    => 'Germany',
-    'JP'    => 'Japan',
-    'NZ'    => 'New Zealand',
-    'SG'    => 'Singapore',
-    'CH'    => 'Switzerland',
-    'GB'    => 'United Kingdom',
+    'AU' => 'Australia',
+    'CA' => 'Canada',
+    'FR' => 'France',
+    'DE' => 'Germany',
+    'JP' => 'Japan',
+    'NZ' => 'New Zealand',
+    'SG' => 'Singapore',
+    'CH' => 'Switzerland',
+    'GB' => 'United Kingdom',
 );
 
 $denied_countries = array(
@@ -36,12 +36,12 @@ $denied_countries = array(
 	'US' => 'United States',
 );
 
-// Combine all countries for dropdown
-$all_countries = array_merge( $allowed_countries, $denied_countries );
+// Combine all countries for dropdown.
+$all_countries          = array_merge( $allowed_countries, $denied_countries );
 $all_countries['OTHER'] = 'Other';
-asort( $all_countries ); // Sort alphabetically
+asort( $all_countries ); // Sort alphabetically.
 
-// Generate unique modal ID
+// Generate unique modal ID.
 $modal_id = 'disclaimer-modal-' . uniqid();
 ?>
 
@@ -52,10 +52,10 @@ $modal_id = 'disclaimer-modal-' . uniqid();
             <!-- Step 1: Country Selection -->
             <div id="country-step" class="disclaimer-step">
                 <div class="modal-header">
-					<div class="h2"><?= get_field( 'screen_1_title', 'option' ); ?></div>
+					<div class="h2"><?= esc_html( get_field( 'screen_1_title', 'option' ) ); ?></div>
                 </div>
                 <div class="modal-body">
-					<div class=""><?= get_field( 'screen_1_pre_country_select', 'option' ); ?></div>
+					<div class=""><?= wp_kses_post( get_field( 'screen_1_pre_country_select', 'option' ) ); ?></div>
                     <p>Please select your country to continue:</p>
                     <div class="mb-3">
                         <select class="form-select" id="country-select" required>
@@ -65,7 +65,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
                             <?php endforeach; ?>
                         </select>
                     </div>
-					<div class=""><?= get_field( 'screen_1_post_country_select', 'option' ); ?></div>
+					<div class=""><?= wp_kses_post( get_field( 'screen_1_post_country_select', 'option' ) ); ?></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="country-continue" disabled>Continue</button>
@@ -75,7 +75,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
             <!-- Step 2a: Access Denied -->
             <div id="access-denied-step" class="disclaimer-step" style="display: none;">
                 <div class="modal-header">
-					<div class="h2"><?= esc_html( get_field( 'access_denied_title', 'option' ) ?: 'Access Denied' ); ?></div>
+					<div class="h2"><?= esc_html( get_field( 'access_denied_title', 'option' ) ); ?></div>
                 </div>
                 <div class="modal-body">
                     <div class="mb-4">
