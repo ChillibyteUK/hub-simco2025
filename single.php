@@ -31,7 +31,11 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 			<div class="col-md-9 pb-5">
 				<h1 class="h2"><?= esc_html( get_the_title() ); ?></h1>
 				<?php
-				if ( $first_category && ( 'podcast' === $first_category->slug || 'video' === $first_category->slug ) ) {
+				if ( $first_category && (
+					'podcast' === $first_category->slug ||
+					'video' === $first_category->slug ||
+					'interview' === $first_category->slug
+					) ) {
 					$video = get_field( 'video_link' );
 					if ( $video ) {
 						?>
