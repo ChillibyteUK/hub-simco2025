@@ -21942,34 +21942,41 @@ header .dropdown-toggle::after {
   height: auto;
 }
 
-.latest-insights__item {
+.latest-insights__item,
+.latest_posts__item {
   background-color: #F5F5F5;
   text-decoration: none;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
-.latest-insights__item:hover {
+.latest-insights__item:hover,
+.latest_posts__item:hover {
   text-decoration: none;
 }
 .latest-insights__item:hover .read-more:after,
-.latest-insights__item:hover .read-more:focus:after {
+.latest-insights__item:hover .read-more:focus:after,
+.latest_posts__item:hover .read-more:after,
+.latest_posts__item:hover .read-more:focus:after {
   transform: translateY(-50%) translateX(5px);
 }
-.latest-insights__img-wrapper {
+.latest-insights__img-wrapper,
+.latest_posts__img-wrapper {
   position: relative;
   aspect-ratio: 488.6/267.73;
   overflow: hidden;
   width: 100%;
   isolation: isolate;
 }
-.latest-insights__img-wrapper .category {
+.latest-insights__img-wrapper .category,
+.latest_posts__img-wrapper .category {
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 2;
 }
-.latest-insights__img-wrapper img {
+.latest-insights__img-wrapper img,
+.latest_posts__img-wrapper img {
   position: absolute;
   inset: 0;
   -o-object-fit: cover;
@@ -21978,15 +21985,19 @@ header .dropdown-toggle::after {
   width: 100%;
   height: 100%;
 }
-.latest-insights__inner {
+.latest-insights__inner,
+.latest_posts__inner {
   padding: 1rem;
 }
-.latest-insights__inner h3, .latest-insights__inner .h3 {
+.latest-insights__inner h3, .latest-insights__inner .h3,
+.latest_posts__inner h3,
+.latest_posts__inner .h3 {
   font-size: var(--fs-h3);
   font-weight: var(--fw-bold);
   margin-bottom: 0.5rem;
 }
-.latest-insights .read-more {
+.latest-insights .read-more,
+.latest_posts .read-more {
   padding: 1rem;
   margin-top: auto;
   font-size: var(--fs-body-medium);
@@ -21996,7 +22007,8 @@ header .dropdown-toggle::after {
   display: inline-block;
   align-self: flex-start;
 }
-.latest-insights .read-more:after {
+.latest-insights .read-more:after,
+.latest_posts .read-more:after {
   content: "\f105";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
