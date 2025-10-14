@@ -21998,7 +21998,6 @@ header .dropdown-toggle::after {
 }
 .latest-insights .read-more,
 .latest_posts .read-more {
-  padding: 1rem;
   margin-top: auto;
   font-size: var(--fs-body-medium);
   position: relative;
@@ -22504,6 +22503,56 @@ a.image-16x9 img {
 .accordion-block .accordion-button {
   background-color: var(--col-light-grey);
   font-size: var(--fs-body-medium);
+}
+
+.three-col-link-cards__card {
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.three-col-link-cards__card:hover {
+  text-decoration: none;
+}
+.three-col-link-cards__card:hover .read-more:after,
+.three-col-link-cards__card:hover .read-more:focus:after {
+  transform: translateY(-50%) translateX(5px);
+}
+.three-col-link-cards__card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  -o-object-fit: contain;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+.three-col-link-cards__card-body {
+  padding-inline: 1rem;
+}
+.three-col-link-cards__card-body h3, .three-col-link-cards__card-body .h3 {
+  font-size: var(--fs-body-medium);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  text-wrap: balance;
+}
+.three-col-link-cards .read-more {
+  margin-top: auto;
+  font-size: var(--fs-body-medium);
+  position: relative;
+  padding: 1rem 1.5rem 1rem 1rem;
+  text-decoration: none;
+  display: inline-block;
+  align-self: flex-start;
+}
+.three-col-link-cards .read-more:after {
+  content: "\f105";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--transition);
 }
 
 body {

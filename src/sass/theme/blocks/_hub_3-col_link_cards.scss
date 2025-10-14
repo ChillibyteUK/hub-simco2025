@@ -1,0 +1,51 @@
+.three-col-link-cards {
+    &__card {
+        text-decoration: none;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        &:hover {
+            text-decoration: none;
+            .read-more:after,
+            .read-more:focus:after {
+                transform: translateY(-50%) translateX(5px);
+            }
+        }
+    }
+    &__card-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        margin-bottom: 0.5rem;
+    }
+    &__card-body {
+        padding-inline: 1rem;
+        h3 {
+            font-size: var(--fs-body-medium);
+            font-weight: var(--fw-bold);
+            line-height: var(--lh-snug);
+            text-wrap: balance;
+        }
+    }
+
+    .read-more {
+        margin-top: auto;
+        font-size: var(--fs-body-medium);
+        position: relative;
+        padding: 1rem 1.5rem 1rem 1rem;
+        text-decoration: none;
+        display: inline-block;
+        align-self: flex-start;
+        &:after {
+            content: "\f105"; // FontAwesome angle right
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: var(--transition);
+        }
+    } 
+}

@@ -25,8 +25,10 @@ $bg = get_field( 'bg_colour' ) ? 'has-' . get_field( 'bg_colour' ) . '-backgroun
 $fg = get_field( 'fg_colour' ) ? 'has-' . get_field( 'fg_colour' ) . '-color' : '';
 $sl = get_field( 'has_slant' ) ? 'has-slanted-bg' : 'py-5';
 
+$section_id = $block['anchor'] ?? null;
+
 ?>
-<section class="text-image <?= esc_attr( $bg . ' ' . $fg . ' ' . $sl ); ?>">
+<section class="text-image <?= esc_attr( $bg . ' ' . $fg . ' ' . $sl ); ?>" id="<?= esc_attr( $section_id ); ?>">
 	<div class="container py-5">
 		<div class="row g-5">
 			<div class="<?= esc_attr( $text_width ); ?> <?= esc_attr( $text_order ); ?>" data-aos="<?= esc_attr( $text_aos ); ?>">
