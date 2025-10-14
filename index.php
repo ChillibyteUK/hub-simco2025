@@ -141,6 +141,7 @@ get_header();
 								<h3><?= esc_html( get_the_title() ); ?></h3>
 								<div class="text-secondary-900"><?= esc_html( get_the_excerpt() ); ?></div>
 							</div>
+							<div class="read-more">Read More</div>
 						</a>
 					</div>
 					<?php
