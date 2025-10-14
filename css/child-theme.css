@@ -21750,7 +21750,8 @@ p, ul, ol, blockquote, figure {
 }
 
 /* Base button */
-.btn {
+.btn,
+.btn a {
   --_bg: var(--col-white);
   --_fg: var(--col-simco-red);
   --_bd: var(--col-white);
@@ -21770,7 +21771,8 @@ p, ul, ol, blockquote, figure {
   line-height: 1;
   transition: background-color var(--btn-transition), border-color var(--btn-transition), color var(--btn-transition), transform var(--btn-transition);
 }
-.btn:hover {
+.btn:hover,
+.btn a:hover {
   background-color: var(--_fg);
   color: var(--_bg);
   border-color: var(--_bg);

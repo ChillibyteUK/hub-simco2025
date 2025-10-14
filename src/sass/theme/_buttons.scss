@@ -12,7 +12,8 @@
 }
 
 /* Base button */
-.btn {
+.btn,
+.btn a {
   --_bg: var(--col-white);
   --_fg: var(--col-simco-red);
   --_bd: var(--col-white);
