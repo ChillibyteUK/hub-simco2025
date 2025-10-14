@@ -106,7 +106,7 @@ add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_co
  */
 function cb_ajax_search_posts() {
 	// Verify nonce for security.
-	if ( ! wp_verify_nonce( $_POST['nonce'], 'post_search_nonce' ) ) {
+	if ( ! wp_verify_nonce( $_POST['nonce'], 'post_search_nonce' ) ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
 		wp_die( 'Security check failed' );
 	}
 

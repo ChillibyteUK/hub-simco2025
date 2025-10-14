@@ -22348,6 +22348,25 @@ a.image-16x9 img {
   width: 16px;
   height: 16px;
 }
+.homepage-hero .read-more {
+  margin-top: auto;
+  font-size: var(--fs-body-medium);
+  position: relative;
+  padding-right: 1.5rem;
+  text-decoration: none;
+  display: inline-block;
+  align-self: flex-start;
+}
+.homepage-hero .read-more:after {
+  content: "\f105";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: var(--transition);
+}
 
 @keyframes gentle-scale {
   0% {

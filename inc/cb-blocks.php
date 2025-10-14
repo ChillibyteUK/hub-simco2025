@@ -466,7 +466,7 @@ add_action( 'acf/init', 'acf_blocks' );
 // Auto-sync ACF field groups from acf-json folder.
 add_filter(
 	'acf/settings/save_json',
-	function ( $path ) {
+	function ( $path ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 		return get_stylesheet_directory() . '/acf-json';
 	}
 );
@@ -509,7 +509,7 @@ add_filter( 'register_block_type_args', 'core_block_type_args', 10, 3 );
  * @return bool True if footer.php is being rendered, false otherwise.
  */
 function is_footer_rendering() {
-    $backtrace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS );
+    $backtrace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_debug_backtrace
     foreach ( $backtrace as $trace ) {
         if ( isset( $trace['file'] ) && basename( $trace['file'] ) === 'footer.php' ) {
             return true;

@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<?php
 					$q = new WP_Query(
 						array(
@@ -42,7 +42,8 @@ defined( 'ABSPATH' ) || exit;
 									<div class="swiper-slide">
 										<div class="news-slide">
 											<div class="fw-bold fs-body-medium mb-3"><?= esc_html( get_the_title() ); ?></div>
-											<div class="text-secondary-900"><?= esc_html( get_the_excerpt() ); ?></div>
+											<div class="text-secondary-900 mb-4"><?= esc_html( get_the_excerpt() ); ?></div>
+											<a href="/insights/" class="read-more">Read More</a>
 										</div>
 									</div>
 									<?php
