@@ -7,8 +7,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$page_link = get_field( 'link' );
+$page_link = get_field( 'link' ) ?? null;
+if ( ! $page_link ) {
+	return;
+}
 ?>
-<div class="container d-flex justify-content-end my-5">
-	<a href="<?= esc_url( $page_link['url'] ); ?>" target="<?= esc_attr( $page_link['target'] ); ?>" class="link-button"><?= esc_html( $page_link['title'] ); ?></a>
-</div>
+<a href="<?= esc_url( $page_link['url'] ); ?>" target="<?= esc_attr( $page_link['target'] ); ?>" class="link-button"><?= esc_html( $page_link['title'] ); ?></a>
