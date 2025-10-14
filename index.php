@@ -22,14 +22,14 @@ get_header();
 			// Set up global $post for ACF and content functions.
 			global $post;
 			$original_post = $post;
-			$post          = $posts_page;
+			$post          = $posts_page; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 			setup_postdata( $post );
 
 			// Output the page content (which includes ACF blocks).
-			echo apply_filters( 'the_content', $posts_page->post_content );
+			echo apply_filters( 'the_content', $posts_page->post_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 			// Restore original post data.
-			$post = $original_post;
+			$post = $original_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 			wp_reset_postdata();
 		}
 	}
@@ -74,10 +74,11 @@ get_header();
                             <?php
                             // Get all unique post years.
                             global $wpdb;
+							// phpcs:ignore WordPress.DB.DirectDatabaseQuery
                             $years = $wpdb->get_col( "SELECT DISTINCT YEAR(post_date) FROM {$wpdb->posts} WHERE post_status = 'publish' AND post_type = 'post' ORDER BY post_date DESC" );
-                            foreach ( $years as $year ) {
+                            foreach ( $years as $yr ) {
                                 ?>
-                                <option value="<?= esc_attr( $year ); ?>"><?= esc_html( $year ); ?></option>
+                                <option value="<?= esc_attr( $yr ); ?>"><?= esc_html( $yr ); ?></option>
                                 <?php
                             }
                             ?>

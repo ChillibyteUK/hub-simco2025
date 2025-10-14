@@ -46,7 +46,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 					}
 				}
 
-				echo apply_filters( 'the_content', get_the_content() );
+				echo apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				?>
 			</div>
 		</div>

@@ -110,9 +110,9 @@ function cb_ajax_search_posts() {
 		wp_die( 'Security check failed' );
 	}
 
-	$search_term = sanitize_text_field( $_POST['search_term'] );
-	$category    = sanitize_text_field( $_POST['category'] );
-	$year        = sanitize_text_field( $_POST['year'] );
+	$search_term = isset( $_POST['search_term'] ) ? sanitize_text_field( wp_unslash( $_POST['search_term'] ) ) : '';
+	$category    = isset( $_POST['category'] ) ? sanitize_text_field( wp_unslash( $_POST['category'] ) ) : '';
+	$year        = isset( $_POST['year'] ) ? sanitize_text_field( wp_unslash( $_POST['year'] ) ) : '';
 
 	$args = array(
 		'post_type'      => 'post',
@@ -150,7 +150,7 @@ function cb_ajax_search_posts() {
 		while ( $query->have_posts() ) {
 			$query->the_post();
 
-			// Get categories for data attribute
+			// Get categories for data attribute.
 			$categories = get_the_category();
 			if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 				$first_category = $categories[0];
