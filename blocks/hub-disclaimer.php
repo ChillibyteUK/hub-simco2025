@@ -16,15 +16,25 @@ if ( ! $disclaimer_content ) {
 
 // Country lists - modify as needed.
 $allowed_countries = array(
-    'AU' => 'Australia',
-    'CA' => 'Canada',
-    'FR' => 'France',
-    'DE' => 'Germany',
-    'JP' => 'Japan',
-    'NZ' => 'New Zealand',
-    'SG' => 'Singapore',
-    'CH' => 'Switzerland',
-    'GB' => 'United Kingdom',
+	'AT' => 'Austria',
+	'BE' => 'Belgium',
+	'DK' => 'Denmark',
+	'FI' => 'Finland',
+	'FR' => 'France',
+	'DE' => 'Germany',
+	'IE' => 'Ireland',
+	'IT' => 'Italy',
+	'JP' => 'Japan',
+	'KP' => 'North Korea',
+	'KR' => 'South Korea',
+	'LU' => 'Luxembourg',
+	'NL' => 'Netherlands',
+	'NO' => 'Norway',
+	'PT' => 'Portugal',
+	'ES' => 'Spain',
+	'SE' => 'Sweden',
+	'CH' => 'Switzerland',
+	'GB' => 'United Kingdom',
 );
 
 $denied_countries = array(
@@ -34,11 +44,12 @@ $denied_countries = array(
     'RU' => 'Russia',
     'SY' => 'Syria',
 	'US' => 'United States',
+	'OT' => 'Other Territories',
 );
 
 // Combine all countries for dropdown.
-$all_countries          = array_merge( $allowed_countries, $denied_countries );
-$all_countries['OTHER'] = 'Other';
+$all_countries = array_merge( $allowed_countries, $denied_countries );
+// $all_countries['OTHER'] = 'Other';.
 asort( $all_countries ); // Sort alphabetically.
 
 // Generate unique modal ID.
