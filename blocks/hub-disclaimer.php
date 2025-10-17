@@ -40,7 +40,6 @@ $allowed_countries = array(
 $denied_countries = array(
 	'CN' => 'China',
     'IR' => 'Iran',
-    'KP' => 'North Korea',
     'RU' => 'Russia',
     'SY' => 'Syria',
 	'US' => 'United States',
