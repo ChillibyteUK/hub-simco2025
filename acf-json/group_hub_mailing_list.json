@@ -64,8 +64,8 @@
         },
         {
             "key": "field_68ee5edda1678",
-            "label": "MC Shortcode",
-            "name": "mc_shortcode",
+            "label": "GF Shortcode",
+            "name": "gf_shortcode",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -103,5 +103,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760452324
+    "modified": 1760956431
 }
