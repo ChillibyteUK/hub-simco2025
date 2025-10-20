@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="mailing-list__content mb-5"><?= wp_kses_post( get_field( 'content' ) ); ?></div>
 			</div>
 			<div class="col-md-6">
-				MAILCHIMP FORM SHORTCODE GOES HERE
+				<?= do_shortcode( get_field( 'shortcode' ) ); ?>
 			</div>
 		</div>
 	</div>
