@@ -19,6 +19,23 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'hub_simcap_contact',
+                'title'           => __( 'HUB SIMCAP Contact' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/hub-simcap-contact.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'hub_knowledge_disclaimer',
                 'title'           => __( 'HUB Knowledge Disclaimer' ),
                 'category'        => 'layout',
