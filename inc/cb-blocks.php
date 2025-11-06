@@ -19,6 +19,23 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'hub_knowledge_disclaimer',
+                'title'           => __( 'HUB Knowledge Disclaimer' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/hub-knowledge-disclaimer.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'hub_doc_feature',
                 'title'           => __( 'HUB Doc Feature' ),
                 'category'        => 'layout',

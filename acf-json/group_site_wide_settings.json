@@ -328,6 +328,83 @@
             "rows": "",
             "placeholder": "",
             "new_lines": "br"
+        },
+        {
+            "key": "field_690c8dddc5c55",
+            "label": "Knowledge Disclaimer",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_690c8e05c5c57",
+            "label": "Knowledge Disclaimer Title",
+            "name": "knowledge_disclaimer_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_690c8dedc5c56",
+            "label": "Knowledge Disclaimer Content",
+            "name": "knowledge_disclaimer_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_690c8e14c5c58",
+            "label": "Redirect On Decline",
+            "name": "redirect_on_decline",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -349,5 +426,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760435467
+    "modified": 1762430510
 }
