@@ -202,6 +202,13 @@ input[type="submit"] {
   @extend .btn--mid-blue;
 }
 
+.simcap-contact {
+  input[type="submit"] {
+    @extend .btn;
+    @extend .btn--dark;
+  }
+}
+
 // Custom checkbox styling
 input[type="checkbox"] {
   width: 1.5rem !important;

@@ -70,6 +70,16 @@
     border-color: hsl( var(--col-simco-red-hsl) / 50% );
   }
 }
+.btn--dark {
+  --_bg: var(--col-simco-navy);
+  --_fg: var(--col-white);
+  --_bd: var(--col-simco-navy);
+  &:hover {
+    background-color: hsl( var(--col-simco-navy-hsl) / 50% );
+    color: var(--col-white);
+    border-color: hsl( var(--col-simco-navy-hsl) / 50% );
+  }
+}
 
 .btn:focus-visible {
   outline: 2px solid var(--col-accent-400);
