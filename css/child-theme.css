@@ -22758,6 +22758,7 @@ textarea {
 .has-light-grey-background-color input[type=text],
 .has-light-grey-background-color input[type=email],
 .has-light-grey-background-color input[type=tel],
+.has-light-grey-background-color select,
 .has-light-grey-background-color textarea {
   background-color: var(--col-white);
   border: 1px solid var(--col-neutral-300);
