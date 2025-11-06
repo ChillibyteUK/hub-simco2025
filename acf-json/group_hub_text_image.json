@@ -30,7 +30,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -56,7 +56,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -69,8 +69,51 @@
             "allow_null": 0,
             "other_choice": 0,
             "allow_in_bindings": 0,
-            "layout": "horizontal",
+            "layout": "vertical",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_690c935cfde18",
+            "label": "Link",
+            "name": "link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_690c9987df705",
+            "label": "Show Button",
+            "name": "show_button",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Yes": "Yes"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
         },
         {
             "key": "field_68a04b729de1e",
@@ -82,7 +125,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "100",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -124,7 +167,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -167,6 +210,32 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_690c9375fde19",
+            "label": "Link image",
+            "name": "link_image",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Yes": "Yes"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Add new choice"
+        },
+        {
             "key": "field_68ecfb2ff69b3",
             "label": "Background",
             "name": "bg_colour",
@@ -192,7 +261,8 @@
                 "simco-grey": "simco-grey",
                 "lightest-grey": "lightest-grey",
                 "light-grey": "light-grey",
-                "simco-bluegrey-50": "simco-bluegrey-50"
+                "simco-bluegrey-50": "simco-bluegrey-50",
+                "simco-skygrey": "simco-skygrey"
             },
             "default_value": false,
             "return_format": "value",
@@ -231,7 +301,8 @@
                 "simco-grey": "simco-grey",
                 "lightest-grey": "lightest-grey",
                 "light-grey": "light-grey",
-                "simco-bluegrey-50": "simco-bluegrey-50"
+                "simco-bluegrey-50": "simco-bluegrey-50",
+                "simco-skygrey": "simco-skygrey"
             },
             "default_value": false,
             "return_format": "value",
@@ -290,5 +361,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1760361288
+    "modified": 1762433540
 }
