@@ -21811,6 +21811,17 @@ input[type=submit] a:hover {
   border-color: var(--col-simco-bluegrey-50);
 }
 
+.btn--simco-red {
+  --_bg: var(--col-simco-red);
+  --_fg: var(--col-white);
+  --_bd: var(--col-simco-red);
+}
+.btn--simco-red:hover {
+  background-color: hsl(var(--col-simco-red-hsl)/50%);
+  color: var(--col-white);
+  border-color: hsl(var(--col-simco-red-hsl)/50%);
+}
+
 .btn:focus-visible, input[type=submit]:focus-visible {
   outline: 2px solid var(--col-accent-400);
   outline-offset: 2px;

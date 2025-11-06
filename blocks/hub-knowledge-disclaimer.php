@@ -31,7 +31,7 @@ $decline_link = get_field( 'redirect_on_decline', 'option' ) ? get_field( 'redir
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn--mid-blue" id="accept-disclaimer-<?= esc_attr( $modal_id ); ?>">Accept</button>
-                <button type="button" class="btn btn--mid-blue" id="decline-disclaimer-<?= esc_attr( $modal_id ); ?>">Decline</button>
+                <button type="button" class="btn btn--simco-red" id="decline-disclaimer-<?= esc_attr( $modal_id ); ?>">Decline</button>
             </div>
         </div>
     </div>
