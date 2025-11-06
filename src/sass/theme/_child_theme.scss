@@ -236,3 +236,15 @@ input[type="checkbox"] {
     border-color: #47658D !important;
   }
 }
+
+.ginput_container.ginput_container_consent {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  .gform-field-label.gform-field-label--type-inline.gfield_consent_label {
+    font-size: 14px;
+    .gfield_required.gfield_required_text {
+      display: none !important;
+    }
+  }
+}

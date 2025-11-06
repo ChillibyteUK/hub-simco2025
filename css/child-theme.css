@@ -22828,6 +22828,18 @@ input[type=checkbox]:focus {
   border-color: #47658D !important;
 }
 
+.ginput_container.ginput_container_consent {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.ginput_container.ginput_container_consent .gform-field-label.gform-field-label--type-inline.gfield_consent_label {
+  font-size: 14px;
+}
+.ginput_container.ginput_container_consent .gform-field-label.gform-field-label--type-inline.gfield_consent_label .gfield_required.gfield_required_text {
+  display: none !important;
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;
