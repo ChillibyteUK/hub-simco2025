@@ -22422,8 +22422,8 @@ a.image-16x9 img {
 .awards__item img {
   max-height: 200px;
   max-width: 100%;
-  -o-object-fit: contain;
-  object-fit: contain;
+  -o-object-fit: cover;
+  object-fit: cover;
   margin-inline: auto;
 }
 
