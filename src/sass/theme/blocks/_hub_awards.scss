@@ -1,13 +1,15 @@
 .awards {
     background-color: var(--col-light-gold);
+
     &__item {
         display: grid;
         grid-template-rows: 200px auto auto;
         align-items: center;
+
         img {
             max-height: 200px;
             max-width: 100%;
-            object-fit: cover;
+            object-fit: contain;
             margin-inline: auto;
         }
     }
