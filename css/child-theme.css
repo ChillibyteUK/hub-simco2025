@@ -22074,7 +22074,7 @@ header .dropdown-toggle::after {
   display: inline-block;
   min-width: 50%;
 }
-.category.research {
+.category.research, .category.research-text {
   background-color: #BA736C;
 }
 .category.case-study {

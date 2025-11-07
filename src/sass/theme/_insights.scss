@@ -71,7 +71,8 @@
     font-weight: var(--fw-bold);
     display: inline-block;
     min-width: 50%;
-    &.research {
+    &.research,
+    &.research-text {
         background-color: #BA736C;
     }
     &.case-study {
