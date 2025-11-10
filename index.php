@@ -131,11 +131,16 @@ get_header();
 							$target = '_blank';
 						}
 					}
+
+                    // strip ' PDF' from research category name.
+                    $catname = $first_category->name;
+                    $catname = str_replace( ' PDF', '', $catname );
+                    }
 					?>
 					<div class="col-md-6 col-lg-4" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
 						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
 							<div class="latest-insights__img-wrapper">
-								<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $first_category->name ); ?></div>
+								<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $catname ); ?></div>
 								<?= get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'img-fluid' ) ); ?>
 							</div>
 							<div class="latest-insights__inner">
