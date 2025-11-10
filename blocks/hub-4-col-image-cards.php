@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 						<?php
 						$image = get_sub_field( 'image' );
 						if ( $image ) {
-							echo wp_get_attachment_image( $image, 'medium', false, array( 'class' => 'four-col-image-cards__card-image' ) );
+							echo wp_get_attachment_image( $image, 'full', false, array( 'class' => 'four-col-image-cards__card-image' ) );
 						}
 						?>
 						<div class="four-col-image-cards__card-body">
