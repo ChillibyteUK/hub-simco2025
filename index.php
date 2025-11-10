@@ -135,7 +135,7 @@ get_header();
                     // strip ' PDF' from research category name.
                     $catname = $first_category->name;
                     $catname = str_replace( ' PDF', '', $catname );
-                    }
+
 					?>
 					<div class="col-md-6 col-lg-4" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
 						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
