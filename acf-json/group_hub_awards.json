@@ -167,6 +167,23 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_6912040efb991",
+            "label": "Award Link",
+            "name": "award_link_1",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_68e67f03fe8d8",
             "label": "Award 2",
             "name": "",
@@ -253,6 +270,23 @@
             "preview_size": "medium"
         },
         {
+            "key": "field_6912041ffb992",
+            "label": "Award Link",
+            "name": "award_link_2",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_68e67f1afe8dc",
             "label": "Award 3",
             "name": "",
@@ -337,6 +371,23 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "medium"
+        },
+        {
+            "key": "field_69120424fb993",
+            "label": "Award Link",
+            "name": "award_link_3",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -358,5 +409,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1759936862
+    "modified": 1762788395
 }
