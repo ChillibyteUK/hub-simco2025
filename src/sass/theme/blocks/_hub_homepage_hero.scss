@@ -1,5 +1,6 @@
 .homepage-hero {
-    height: 600px;
+    min-height: 600px;
+    padding-top: var(--h-top);
     position: relative;
     overflow: hidden;
     isolation: isolate;
@@ -41,7 +42,9 @@
 
     .swiper-pagination {
         text-align: start;
-        bottom: 2rem;
+        position: relative;
+        bottom: auto;
+        margin-top: 1rem;
     }
     .swiper-pagination-bullet {
         background: var(--col-white);

@@ -22346,7 +22346,8 @@ a.image-16x9 img {
 }
 
 .homepage-hero {
-  height: 600px;
+  min-height: 600px;
+  padding-top: var(--h-top);
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -22387,7 +22388,9 @@ a.image-16x9 img {
 }
 .homepage-hero .swiper-pagination {
   text-align: start;
-  bottom: 2rem;
+  position: relative;
+  bottom: auto;
+  margin-top: 1rem;
 }
 .homepage-hero .swiper-pagination-bullet {
   background: var(--col-white);
