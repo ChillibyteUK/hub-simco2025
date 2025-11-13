@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="container h-100 d-flex justify-content-between">
 		<div class="row my-auto w-100 justify-content-between h-100">
 			<div class="row">
-				<div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+				<div class="col-12 col-md-6 mb-4 d-flex flex-column justify-content-center">
 					<div class="homepage-hero__title"><?= wp_kses_post( get_field( 'message' ) ); ?></div>
 				</div>
 			</div>
@@ -33,7 +33,7 @@ defined( 'ABSPATH' ) || exit;
 					);
 					if ( $q->have_posts() ) {
 						?>
-						<div class="hero-swiper swiper d-flex flex-column justify-content-between" style="height: 100%;">
+						<div class="hero-swiper swiper d-flex flex-column justify-content-between h-100" style="height: 100%;">
 							<div class="swiper-wrapper">
 								<?php
 								while ( $q->have_posts() ) {
@@ -50,7 +50,7 @@ defined( 'ABSPATH' ) || exit;
 								}
 								?>
 							</div>
-							<div class="swiper-pagination"></div>
+							<div class="swiper-pagination pb-5"></div>
 						</div>
 						<?php
 					}

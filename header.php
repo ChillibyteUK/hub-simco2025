@@ -104,8 +104,8 @@ if ( session_status() === PHP_SESSION_NONE ) {
 <header id="wrapper-navbar" class="fixed-top p-0">
 	<nav class="navbar navbar-expand-lg">
 		<div class="container gap-4">
-            <div class="d-flex justify-content-between w-100 w-lg-auto align-items-center py-3 py-lg-0">
-                <div class="logo-container"><a href="/" class="logo navbar-brand" aria-label="simco Homepage"></a></div>
+            <div class="d-flex justify-content-between w-100 w-lg-auto align-items-center py-0 py-lg-0">
+                <div class="logo-container"><a href="/" class="logo navbar-brand" aria-label="SIMCo Homepage"></a></div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false"
                     aria-label="Toggle navigation">
