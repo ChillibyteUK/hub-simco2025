@@ -98,32 +98,32 @@
         {
           "name": "body-medium",
           "slug": "body-medium",
-          "size": "1.3rem"
+          "size": "clamp(1.1rem, 2.4vw, 1.3rem)"
         },
         {
           "name": "h1-big-page-title",
           "slug": "h1-big-page-title",
-          "size": "2.67rem"
+          "size": "clamp(2.259rem, 6.4vw, 2.67rem)"
         },
         {
           "name": "h2-page-subtitle",
           "slug": "h2-page-subtitle",
-          "size": "1.8rem"
+          "size": "clamp(1.523rem, 4.2vw, 1.8rem)"
         },
         {
           "name": "h3-page-subtitle",
           "slug": "h3-page-subtitle",
-          "size": "1.4rem"
+          "size": "clamp(1.185rem, 3.2vw, 1.4rem)"
         },
         {
           "name": "h4-body-bold",
           "slug": "h4-body-bold",
-          "size": "1.3rem"
+          "size": "clamp(1.1rem, 2.4vw, 1.3rem)"
         },
         {
           "name": "large-text-on-image",
           "slug": "large-text-on-image",
-          "size": "1.8rem"
+          "size": "clamp(1.523rem, 4.2vw, 1.8rem)"
         },
         {
           "name": "button-text",
@@ -133,7 +133,7 @@
         {
           "name": "stat",
           "slug": "stat",
-          "size": "3.33rem"
+          "size": "clamp(2.818rem, 8vw, 3.33rem)"
         }
       ]
     }
