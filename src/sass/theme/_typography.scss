@@ -33,33 +33,33 @@ body,
 // =========================
 
 // Headings
-h1, .h1, .h1-big-page-title {
+h1, .h1 {
   font-family: var(--ff-body);
-  font-size: var(--fs-h1-big-page-title);
-  line-height: var(--lh-h1-big-page-title);
-  font-weight: var(--fw-h1-big-page-title);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  font-weight: var(--fw-h1);
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
-h2, .h2, .h2-page-subtitle {
+h2, .h2 {
   font-family: var(--ff-body);
-  font-size: var(--fs-h2-page-subtitle);
-  line-height: var(--lh-h2-page-subtitle);
-  font-weight: var(--fw-h2-page-subtitle);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  font-weight: var(--fw-h2);
   letter-spacing: -0.005em;
   text-wrap: balance;
 }
-h3, .h3, .h3-page-subtitle {
+h3, .h3 {
   font-family: var(--ff-body);
-  font-size: var(--fs-h3-page-subtitle);
-  line-height: var(--lh-h3-page-subtitle);
-  font-weight: var(--fw-h3-page-subtitle);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  font-weight: var(--fw-h3);
   text-wrap: balance;
 }
-h4, .h4, .h4-body-bold {
+h4, .h4 {
   font-family: var(--ff-heading);
-  font-size: var(--fs-h4-body-bold);
-  line-height: var(--lh-h4-body-bold);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
   font-weight: var(--fw-bold);
   text-wrap: balance;
 }
@@ -78,16 +78,16 @@ body, .body {
 }
 .body-medium {
   font-family: var(--ff-body);
-  font-size: var(--fs-body-medium);
-  line-height: var(--lh-body-medium);
-  font-weight: var(--fw-body-medium);
+  font-size: var(--fs-lead-in);
+  line-height: var(--lh-lead-in);
+  font-weight: var(--fw-lead-in);
 }
 
 // Large text on image
 .large-text-on-image {
   font-family: var(--ff-body);
-  font-size: var(--fs-large-text-on-image);
-  line-height: var(--lh-large-text-on-image);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
 }
 
 // Button text
@@ -106,8 +106,8 @@ body, .body {
 .fs-body { font-size: var(--fs-body); }
 .fs-body-medium { font-size: var(--fs-body-medium); }
 .fs-h1-big-page-title { font-size: var(--fs-h1-big-page-title); }
-.fs-h2-page-subtitle { font-size: var(--fs-h2-page-subtitle); }
-.fs-h3-page-subtitle { font-size: var(--fs-h3-page-subtitle); }
+.fs-h2 { font-size: var(--fs-h2); }
+.fs-h3 { font-size: var(--fs-h3); }
 .fs-h4-body-bold { font-size: var(--fs-h4-body-bold); }
 .fs-large-text-on-image { font-size: var(--fs-large-text-on-image); }
 .fs-button-text { font-size: var(--fs-button-text); }

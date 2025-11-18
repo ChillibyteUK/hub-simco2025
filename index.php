@@ -90,10 +90,10 @@ get_header();
             ?>
             <div class="row g-4">
             <?php
-            // Custom query to include both published and scheduled posts.
+            // Custom query to include published posts.
             $args = array(
                 'post_type'      => 'post',
-                'post_status'    => array( 'publish', 'future' ), // Include published and scheduled posts.
+                'post_status'    => array( 'publish' ), // Include published posts.
                 'orderby'        => 'date',
                 'order'          => 'DESC', // Descending order.
                 'posts_per_page' => -1,    // Get all posts.

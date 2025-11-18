@@ -37,7 +37,7 @@
     }
 
     &__title {
-        font-size: var(--fs-h1-big-page-title);
+        font-size: var(--fs-h1);
         line-height: 1.4;
     }
 
@@ -63,7 +63,7 @@
 
     .read-more {
         margin-top: auto;
-        font-size: var(--fs-body-medium);
+        font-size: var(--fs-lead-in);
         position: relative;
         padding-right: 1.5rem;
         text-decoration: none;

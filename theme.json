@@ -88,7 +88,7 @@
         {
           "name": "base",
           "slug": "base",
-          "size": "16px"
+          "size": "18px"
         },
         {
           "name": "body",
@@ -134,6 +134,36 @@
           "name": "stat",
           "slug": "stat",
           "size": "clamp(2.818rem, 8vw, 3.33rem)"
+        },
+        {
+          "name": "small",
+          "slug": "small",
+          "size": "0.889rem"
+        },
+        {
+          "name": "lead-in",
+          "slug": "lead-in",
+          "size": "clamp(1rem, 1rem + 0.2vw, 1.111rem)"
+        },
+        {
+          "name": "h3",
+          "slug": "h3",
+          "size": "clamp(1.222rem, 1rem + 1vw, 1.556rem)"
+        },
+        {
+          "name": "h2",
+          "slug": "h2",
+          "size": "clamp(1.333rem, 1rem + 1.6vw, 2rem)"
+        },
+        {
+          "name": "h1",
+          "slug": "h1",
+          "size": "clamp(1.444rem, 1rem + 2.5vw, 2.667rem)"
+        },
+        {
+          "name": "ticker",
+          "slug": "ticker",
+          "size": "clamp(1.556rem, 1rem + 3vw, 3.111rem)"
         }
       ]
     }
