@@ -139,42 +139,42 @@ $col-light: #f2f2f2;
 
   /* small text (16px) */
   --fs-small: 0.889rem;
-  --lh-small: 1.333;
+  --lh-small: 1;
   --fw-small: var(--fw-light);
 
   /* body */
   --fs-body: 1rem; /* 18px */
-  --lh-body: 1.667;
+  --lh-body: 1.4;
   --fw-body: var(--fw-light);
 
   /* lead-in (20px → 1.111rem) */
   /* minimum: 1rem (18px), max: 1.111rem */
   --fs-lead-in: clamp(1rem, 1rem + 0.2vw, 1.111rem);
-  --lh-lead-in: 1.778;
+  --lh-lead-in: 1.4;
   --fw-lead-in: var(--fw-regular);
 
   /* h3 (28px → 1.556rem) */
   /* minimum shrinks close to lead-in: 1.222rem (22px) */
   --fs-h3: clamp(1.222rem, 1rem + 1vw, 1.556rem);
-  --lh-h3: 2;
+  --lh-h3: 1.2;
   --fw-h3: var(--fw-semi);
 
   /* h2 (36px → 2rem) */
   /* minimum compressed strongly: 1.333rem (24px) */
   --fs-h2: clamp(1.333rem, 1rem + 1.6vw, 2rem);
-  --lh-h2: 2.556;
+  --lh-h2: 1.2;
   --fw-h2: var(--fw-semi);
 
   /* h1 (48px → 2.667rem) */
   /* minimum: 1.444rem (26px) */
   --fs-h1: clamp(1.444rem, 1rem + 2.5vw, 2.667rem);
-  --lh-h1: 3.222;
+  --lh-h1: 1.2;
   --fw-h1: var(--fw-bold);
 
   /* tickers (56px → 3.111rem) */
   /* minimum: 1.556rem (28px) */
   --fs-ticker: clamp(1.556rem, 1rem + 3vw, 3.111rem);
-  --lh-ticker: 3.556;
+  --lh-ticker: 1.2;
   --fw-ticker: var(--fw-bold);
 
 
