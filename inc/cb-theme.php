@@ -173,6 +173,100 @@ function lc_theme_enqueue() {
 add_action( 'wp_enqueue_scripts', 'lc_theme_enqueue' );
 
 
+// ===========================================================================
+// Gravity Forms WCAG 2.1 AA 1.3.5 Compliance - Add autocomplete attributes
+// ===========================================================================
+
+/**
+ * Add autocomplete attributes to Gravity Forms fields for WCAG 2.1 AA 1.3.5 compliance.
+ *
+ * @param string $field_content The field HTML content.
+ * @param object $field         The field object.
+ * @return string Modified field HTML with autocomplete attribute.
+ */
+function add_autocomplete_to_gform_fields( $field_content, $field ) {
+	// Map Gravity Forms field labels to autocomplete values.
+	$autocomplete_map = array(
+		// Name fields.
+		'name'         => 'name',
+		'first name'   => 'given-name',
+		'first'        => 'given-name',
+		'last name'    => 'family-name',
+		'last'         => 'family-name',
+		'full name'    => 'name',
+		
+		// Contact fields.
+		'email'        => 'email',
+		'phone'        => 'tel',
+		'telephone'    => 'tel',
+		'mobile'       => 'tel-national',
+		
+		// Address fields.
+		'address'      => 'street-address',
+		'street'       => 'address-line1',
+		'city'         => 'address-level2',
+		'state'        => 'address-level1',
+		'zip'          => 'postal-code',
+		'postcode'     => 'postal-code',
+		'country'      => 'country-name',
+		
+		// Company fields.
+		'company'      => 'organization',
+		'organization' => 'organization',
+		
+		// Other common fields.
+		'job title'    => 'organization-title',
+		'website'      => 'url',
+	);
+
+	// Get field label in lowercase for comparison.
+	$field_label = strtolower( trim( $field->label ) );
+
+	// Determine autocomplete value.
+	$autocomplete_value = '';
+	
+	// Check for exact matches first.
+	if ( isset( $autocomplete_map[ $field_label ] ) ) {
+		$autocomplete_value = $autocomplete_map[ $field_label ];
+	} else {
+		// Check for partial matches.
+		foreach ( $autocomplete_map as $key => $value ) {
+			if ( strpos( $field_label, $key ) !== false ) {
+				$autocomplete_value = $value;
+				break;
+			}
+		}
+	}
+
+	// Add autocomplete attribute if a match was found.
+	if ( ! empty( $autocomplete_value ) && strpos( $field_content, 'autocomplete=' ) === false ) {
+		// For text, email, tel, and url inputs.
+		if ( in_array( $field->type, array( 'text', 'email', 'phone', 'website' ), true ) ) {
+			$field_content = str_replace( '<input', '<input autocomplete="' . esc_attr( $autocomplete_value ) . '"', $field_content );
+		}
+	}
+
+	// Handle name fields specifically (they have sub-fields).
+	if ( 'name' === $field->type ) {
+		// First name - add both autocomplete and aria-label.
+		$field_content = preg_replace(
+			'/(<input[^>]*name=[\'"]input_' . $field->id . '\.3[\'"][^>]*)(>)/i',
+			'$1 autocomplete="given-name" aria-label="First Name"$2',
+			$field_content
+		);
+		// Last name - add both autocomplete and aria-label.
+		$field_content = preg_replace(
+			'/(<input[^>]*name=[\'"]input_' . $field->id . '\.6[\'"][^>]*)(>)/i',
+			'$1 autocomplete="family-name" aria-label="Last Name"$2',
+			$field_content
+		);
+	}
+
+	return $field_content;
+}
+add_filter( 'gform_field_content', 'add_autocomplete_to_gform_fields', 10, 2 );
+
+
 // phpcs:disable
 function add_custom_menu_item($items, $args)
 {
