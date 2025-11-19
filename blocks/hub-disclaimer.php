@@ -48,7 +48,6 @@ $denied_countries = array(
 
 // Combine all countries for dropdown.
 $all_countries = array_merge( $allowed_countries, $denied_countries );
-// $all_countries['OTHER'] = 'Other';.
 asort( $all_countries ); // Sort alphabetically.
 
 // Generate unique modal ID.
@@ -66,9 +65,9 @@ $modal_id = 'disclaimer-modal-' . uniqid();
                 </div>
                 <div class="modal-body">
 					<div class=""><?= wp_kses_post( get_field( 'screen_1_pre_country_select', 'option' ) ); ?></div>
-                    <p>Please select your country to continue:</p>
                     <div class="mb-3">
-                        <select class="form-select" id="country-select" required>
+                        <label for="country-select" class="form-label">Please select your country to continue:</label>
+                        <select class="form-select" id="country-select" required aria-required="true">
                             <option value="">Choose your country...</option>
                             <?php foreach ( $all_countries as $code => $name ) : ?>
                                 <option value="<?= esc_attr( $code ); ?>"><?= esc_html( $name ); ?></option>
@@ -100,17 +99,17 @@ $modal_id = 'disclaimer-modal-' . uniqid();
             <!-- Step 2b: Disclaimer Content -->
             <div id="disclaimer-step" class="disclaimer-step" style="display: none;">
                 <div class="modal-header">
-                    <h5 class="modal-title">Important Disclaimer</h5>
+                    <h2 class="modal-title h2">Important Disclaimer</h2>
                     <button type="button" class="btn-close" aria-label="Go back" id="disclaimer-back"></button>
                 </div>
                 <div class="modal-body">
-                    <div id="disclaimer-content" style="max-height: 400px; overflow-y: auto; border: 1px solid #dee2e6; padding: 20px; border-radius: 0.375rem;">
+                    <div id="disclaimer-content" style="max-height: 400px; overflow-y: auto; border: 1px solid #dee2e6; padding: 20px; border-radius: 0.375rem;" tabindex="0" role="region" aria-label="Disclaimer content - scroll to read all">
                         <?= wp_kses_post( $disclaimer_content ); ?>
                     </div>
                     <div class="mt-3">
                         <div class="form-check d-flex align-items-center">
-                            <input class="form-check-input me-2" type="checkbox" id="disclaimer-acknowledge" disabled>
-                            <label class="form-check-label text-muted" for="disclaimer-acknowledge" id="acknowledge-label">
+                            <input class="form-check-input me-2" type="checkbox" id="disclaimer-acknowledge" disabled aria-describedby="acknowledge-label">
+                            <label class="form-check-label text-muted" for="disclaimer-acknowledge" id="acknowledge-label" aria-live="polite">
                                 Please scroll to the end of the disclaimer to continue
                             </label>
                         </div>
@@ -170,9 +169,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (deniedCountries.includes(selectedCountry)) {
             // Show access denied screen
             accessDeniedStep.style.display = 'block';
+            // Focus on the heading for screen readers
+            setTimeout(() => {
+                const heading = accessDeniedStep.querySelector('.h2, h2');
+                if (heading) heading.focus();
+            }, 100);
         } else {
             // Show disclaimer screen
             disclaimerStep.style.display = 'block';
+            // Focus on the content area for screen readers
+            setTimeout(() => {
+                disclaimerContent.focus();
+            }, 100);
         }
     });
     
@@ -182,6 +190,10 @@ document.addEventListener('DOMContentLoaded', function() {
             disclaimerStep.style.display = 'none';
             accessDeniedStep.style.display = 'none';
             countryStep.style.display = 'block';
+            // Restore focus to country select
+            setTimeout(() => {
+                countrySelect.focus();
+            }, 100);
         });
     });
     
