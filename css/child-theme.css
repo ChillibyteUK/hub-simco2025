@@ -22854,7 +22854,7 @@ a.image-16x9 img {
 }
 .homepage-hero__title {
   font-size: var(--fs-h1);
-  line-height: 1.4;
+  line-height: 1.2;
 }
 .homepage-hero .swiper-pagination {
   text-align: start;
