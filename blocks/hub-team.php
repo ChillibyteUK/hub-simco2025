@@ -65,7 +65,11 @@ if ( $post && 'simcap' === $post->post_name ) {
 				</div>
 			</button>
 			<div class="detail-content" id="team-detail-<?= esc_attr( $person_id ); ?>" role="region" aria-label="<?= esc_attr( get_the_title( $person_id ) . ' details' ); ?>" hidden>
-				<p><?= wp_kses_post( get_the_content() ); ?></p>
+				<div class="row">
+					<div class="col-md-8 offset-md-2">
+						<?= wp_kses_post( get_the_content() ); ?>
+					</div>
+				</div>
 			</div>
 			<?php
 		}
