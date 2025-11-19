@@ -21664,8 +21664,7 @@ body, .body {
   font-size: var(--fs-body);
   line-height: var(--lh-body);
   font-weight: var(--fw-body);
-  color: var(--col-neutral-900);
-  background: var(--col-secondary-100);
+  color: var(--col-simco-navy);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
