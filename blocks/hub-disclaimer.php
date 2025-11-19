@@ -109,10 +109,11 @@ $modal_id = 'disclaimer-modal-' . uniqid();
                     <div class="mt-3">
                         <div class="form-check d-flex align-items-center">
                             <input class="form-check-input me-2" type="checkbox" id="disclaimer-acknowledge" disabled aria-describedby="acknowledge-label">
-                            <label class="form-check-label text-muted" for="disclaimer-acknowledge" id="acknowledge-label" aria-live="polite">
+                            <label class="form-check-label text-muted" for="disclaimer-acknowledge" id="acknowledge-label">
                                 Please scroll to the end of the disclaimer to continue
                             </label>
                         </div>
+                        <div id="acknowledge-announcement" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -154,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const acknowledgeLabel = document.getElementById('acknowledge-label');
     const disclaimerAccept = document.getElementById('disclaimer-accept');
     const backButtons = document.querySelectorAll('#disclaimer-back, #disclaimer-back-btn, #access-denied-back');
+    const acknowledgeAnnouncement = document.getElementById('acknowledge-announcement');
     
     // Country selection logic
     countrySelect.addEventListener('change', function() {
@@ -214,8 +216,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!scrolledToEnd) {
                     scrolledToEnd = true;
                     acknowledgeCheckbox.disabled = false;
-                    acknowledgeLabel.textContent = 'I understand and agree';
+                    acknowledgeLabel.innerHTML = 'I understand and agree';
                     acknowledgeLabel.classList.remove('text-muted');
+                    // Announce to screen readers
+                    if (acknowledgeAnnouncement) {
+                        acknowledgeAnnouncement.textContent = 'Checkbox enabled. You may now check the box to continue.';
+                    }
                 }
             }
         });
