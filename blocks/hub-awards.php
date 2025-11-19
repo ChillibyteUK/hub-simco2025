@@ -10,12 +10,9 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <section class="awards">
 	<div class="container py-5">
-		<div class="row">
-			<div class="col-md-3 my-auto" data-aos="fade-right">
-				<h2 class="h3"><?= esc_html( get_field( 'intro_title' ) ); ?></h2>
-				<div><?= wp_kses_post( get_field( 'intro_content' ) ); ?></div>
-			</div>
-			<div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+		<h2 class="h3 mb-4 text-center" data-aos="fade-up"><?= esc_html( get_field( 'intro_title' ) ); ?></h2>
+		<div class="row g-5">
+			<div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
 				<?php
 				if ( get_field( 'award_link_1' ) ) {
 					$l1 = get_field( 'award_link_1' );
@@ -53,7 +50,7 @@ defined( 'ABSPATH' ) || exit;
 				}
 				?>
 			</div>
-			<div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+			<div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
 				<?php
 				if ( get_field( 'award_link_2' ) ) {
 					$l2 = get_field( 'award_link_2' );
@@ -91,7 +88,7 @@ defined( 'ABSPATH' ) || exit;
 				}
 				?>
 			</div>
-			<div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+			<div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
 				<?php
 				if ( get_field( 'award_link_3' ) ) {
 					$l3 = get_field( 'award_link_3' );
