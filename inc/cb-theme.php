@@ -262,6 +262,23 @@ function add_autocomplete_to_gform_fields( $field_content, $field ) {
 		);
 	}
 
+	// Handle CAPTCHA fields - ensure proper labeling and autocomplete.
+	if ( 'captcha' === $field->type ) {
+		// Add autocomplete="off" to CAPTCHA input fields.
+		$field_content = preg_replace(
+			'/(<input[^>]*type=[\'"]text[\'"][^>]*)(>)/i',
+			'$1 autocomplete="off" aria-label="CAPTCHA verification code"$2',
+			$field_content
+		);
+		
+		// Ensure the CAPTCHA image has proper alt text.
+		$field_content = preg_replace(
+			'/(<img[^>]*class=[\'"][^\'\"]*gfield_captcha[^\'\"]*[\'"][^>]*)(\/?>)/i',
+			'$1 alt="CAPTCHA verification image - please enter the characters shown"$2',
+			$field_content
+		);
+	}
+
 	return $field_content;
 }
 add_filter( 'gform_field_content', 'add_autocomplete_to_gform_fields', 10, 2 );
