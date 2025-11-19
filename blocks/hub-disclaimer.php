@@ -61,7 +61,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
             <!-- Step 1: Country Selection -->
             <div id="country-step" class="disclaimer-step">
                 <div class="modal-header">
-					<div class="h2"><?= esc_html( get_field( 'screen_1_title', 'option' ) ); ?></div>
+					<h2 class="h2" id="<?= esc_attr( $modal_id ); ?>Label"><?= esc_html( get_field( 'screen_1_title', 'option' ) ); ?></h2>
                 </div>
                 <div class="modal-body">
 					<div class=""><?= wp_kses_post( get_field( 'screen_1_pre_country_select', 'option' ) ); ?></div>
@@ -84,7 +84,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
             <!-- Step 2a: Access Denied -->
             <div id="access-denied-step" class="disclaimer-step" style="display: none;">
                 <div class="modal-header">
-					<div class="h2"><?= esc_html( get_field( 'access_denied_title', 'option' ) ); ?></div>
+					<h2 class="h2" id="access-denied-heading"><?= esc_html( get_field( 'access_denied_title', 'option' ) ); ?></h2>
                 </div>
                 <div class="modal-body">
                     <div class="mb-4">
@@ -99,7 +99,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
             <!-- Step 2b: Disclaimer Content -->
             <div id="disclaimer-step" class="disclaimer-step" style="display: none;">
                 <div class="modal-header">
-                    <h2 class="modal-title h2">Important Disclaimer</h2>
+                    <h2 class="modal-title h2" id="disclaimer-heading">Important Disclaimer</h2>
                     <button type="button" class="btn-close" aria-label="Go back" id="disclaimer-back"></button>
                 </div>
                 <div class="modal-body">
@@ -169,6 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (deniedCountries.includes(selectedCountry)) {
             // Show access denied screen
             accessDeniedStep.style.display = 'block';
+            modal.setAttribute('aria-labelledby', 'access-denied-heading');
             // Focus on the heading for screen readers
             setTimeout(() => {
                 const heading = accessDeniedStep.querySelector('.h2, h2');
@@ -177,6 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // Show disclaimer screen
             disclaimerStep.style.display = 'block';
+            modal.setAttribute('aria-labelledby', 'disclaimer-heading');
             // Focus on the content area for screen readers
             setTimeout(() => {
                 disclaimerContent.focus();
@@ -190,6 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
             disclaimerStep.style.display = 'none';
             accessDeniedStep.style.display = 'none';
             countryStep.style.display = 'block';
+            modal.setAttribute('aria-labelledby', modalId + 'Label');
             // Restore focus to country select
             setTimeout(() => {
                 countrySelect.focus();
