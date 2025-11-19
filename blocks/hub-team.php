@@ -11,8 +11,15 @@ $team = get_field( 'team' );
 
 $cards = get_field( 'cards' ) ? get_field( 'cards' ) : 'three-cards';
 
+// if simcap page slug add extra class
+$class = '';
+$simcap_page = get_page_by_path( 'simcap' );
+if ( $simcap_page && is_page( $simcap_page->ID ) ) {
+	$class = ' hub-team--simcap';
+}
+
 ?>
-<section class="hub-team mb-4">
+<section class="hub-team <?= esc_attr( $class ); ?> mb-4">
 	<div class="container">
 		<h2 class="mb-4"><?= esc_html( $team->name ); ?></h2>
 	</div>

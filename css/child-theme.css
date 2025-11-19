@@ -22602,6 +22602,14 @@ a.image-16x9 img {
   padding: 1rem 1rem 2rem 1rem;
 }
 
+.hub-team {
+  --_color: var(--col-simco-gold);
+  --_color-hsl: var(--col-simco-gold-hsl);
+}
+.hub-team .hub-team--simcap {
+  --_color: var(--col-simco-red);
+  --_color-hsl: var(--col-simco-red-hsl);
+}
 .hub-team__grid {
   display: grid;
   grid-template-columns: 1fr; /* default = mobile (1 col) */
@@ -22643,11 +22651,11 @@ a.image-16x9 img {
 }
 .hub-team__card:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--col-simco-gold), 0 0 0 6px rgba(171, 150, 95, 0.25);
+  box-shadow: 0 0 0 3px var(--_color), 0 0 0 6px rgba(171, 150, 95, 0.25);
   border-radius: 8px;
 }
 .hub-team__card.active .hub-team__name-holder, .hub-team__card:hover .hub-team__name-holder, .hub-team__card[aria-expanded=true] .hub-team__name-holder {
-  background-color: hsl(var(--col-simco-gold-hsl)/0.4);
+  background-color: hsl(var(--_color-hsl)/0.4);
   color: var(--col-black);
 }
 .hub-team__card.active .hub-team__image-wrapper::after, .hub-team__card:hover .hub-team__image-wrapper::after, .hub-team__card[aria-expanded=true] .hub-team__image-wrapper::after {
@@ -22670,7 +22678,7 @@ a.image-16x9 img {
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: var(--col-simco-gold);
+  background-color: var(--_color);
   width: 56px;
   height: 56px;
   z-index: 1;
@@ -22710,7 +22718,7 @@ a.image-16x9 img {
   color: var(--col-black);
   padding: 1rem 2rem;
   animation: fadeIn 0.3s ease forwards;
-  border-bottom: 4px solid var(--col-simco-gold);
+  border-bottom: 4px solid var(--_color);
 }
 .hub-team .detail[hidden],
 .hub-team .detail-content[hidden] {
