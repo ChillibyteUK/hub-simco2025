@@ -22206,7 +22206,7 @@ header .dropdown-toggle:focus-visible {
   transition: background-color var(--transition);
 }
 .post-navigation .nav-links a:hover {
-  background-color: var(--col-simco-light-gold);
+  background-color: var(--col-light-gold);
 }
 
 .skip-link {
