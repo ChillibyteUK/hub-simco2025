@@ -66,13 +66,89 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 			</div>
 		</div>
 		<?php
-		// navigation
-		the_post_navigation(
-			array(
-				'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous Insight', 'hub-sequoia2025' ) . '</span><span class="nav-title">%title</span>',
-				'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next Insight', 'hub-sequoia2025' ) . '</span><span class="nav-title">%title</span>',
-			)
+		// Custom navigation - exclude research category.
+		// Get previous post (newer).
+		$prev_post  = null;
+		$prev_args  = array(
+			'post_type'      => 'post',
+			'posts_per_page' => 1,
+			'post_status'    => 'publish',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'date_query'     => array(
+				array(
+					'after'     => get_the_date( 'Y-m-d H:i:s' ),
+					'inclusive' => false,
+				),
+			),
+			'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+				array(
+					'taxonomy' => 'category',
+					'field'    => 'slug',
+					'terms'    => 'research',
+					'operator' => 'NOT IN',
+				),
+			),
 		);
+		$prev_query = new WP_Query( $prev_args );
+		if ( $prev_query->have_posts() ) {
+			$prev_post = $prev_query->posts[0];
+		}
+		wp_reset_postdata();
+
+		// Get next post (older).
+		$next_post  = null;
+		$next_args  = array(
+			'post_type'      => 'post',
+			'posts_per_page' => 1,
+			'post_status'    => 'publish',
+			'orderby'        => 'date',
+			'order'          => 'ASC',
+			'date_query'     => array(
+				array(
+					'before'    => get_the_date( 'Y-m-d H:i:s' ),
+					'inclusive' => false,
+				),
+			),
+			'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+				array(
+					'taxonomy' => 'category',
+					'field'    => 'slug',
+					'terms'    => 'research',
+					'operator' => 'NOT IN',
+				),
+			),
+		);
+		$next_query = new WP_Query( $next_args );
+		if ( $next_query->have_posts() ) {
+			$next_post = $next_query->posts[0];
+		}
+		wp_reset_postdata();
+
+		if ( $prev_post || $next_post ) {
+			?>
+			<nav class="navigation post-navigation" aria-label="Posts">
+				<div class="nav-links">
+					<?php if ( $prev_post ) : ?>
+						<div class="nav-previous">
+							<a href="<?= esc_url( get_permalink( $prev_post->ID ) ); ?>" rel="prev">
+								<span class="nav-subtitle"><?= esc_html__( 'Previous Insight', 'hub-sequoia2025' ); ?></span>
+								<span class="nav-title"><?= esc_html( get_the_title( $prev_post->ID ) ); ?></span>
+							</a>
+						</div>
+					<?php endif; ?>
+					<?php if ( $next_post ) : ?>
+						<div class="nav-next">
+							<a href="<?= esc_url( get_permalink( $next_post->ID ) ); ?>" rel="next">
+								<span class="nav-subtitle"><?= esc_html__( 'Next Insight', 'hub-sequoia2025' ); ?></span>
+								<span class="nav-title"><?= esc_html( get_the_title( $next_post->ID ) ); ?></span>
+							</a>
+						</div>
+					<?php endif; ?>
+				</div>
+			</nav>
+			<?php
+		}
 		?>
 		<?php
 		// Related posts - exclude current post and research category.
