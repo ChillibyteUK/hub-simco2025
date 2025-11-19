@@ -22199,10 +22199,14 @@ header .dropdown-toggle:focus-visible {
 }
 .post-navigation .nav-links a {
   border: 1px solid var(--col-black);
-  padding: 1rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 100vw;
   text-decoration: none;
   background-color: var(--col-simco-gold);
+  transition: background-color var(--transition);
+}
+.post-navigation .nav-links a:hover {
+  background-color: var(--col-simco-light-gold);
 }
 
 .skip-link {
