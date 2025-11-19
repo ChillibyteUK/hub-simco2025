@@ -65,7 +65,7 @@ if ( ! $q->have_posts() ) {
 					<div class="col-md-6 col-lg-4" data-aos="fade-up">
 						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
 						<div class="latest-insights__img-wrapper">
-							<div class="category <?= esc_attr( $first_category->slug ); ?>">\/\/ <?= esc_html( $catname ); ?></div>
+							<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $catname ); ?></div>
 							<?php
 							$thumbnail_id = get_post_thumbnail_id( get_the_ID() );
 							if ( $thumbnail_id ) {

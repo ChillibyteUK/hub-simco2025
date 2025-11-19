@@ -194,13 +194,13 @@ function add_autocomplete_to_gform_fields( $field_content, $field ) {
 		'last name'    => 'family-name',
 		'last'         => 'family-name',
 		'full name'    => 'name',
-		
+
 		// Contact fields.
 		'email'        => 'email',
 		'phone'        => 'tel',
 		'telephone'    => 'tel',
 		'mobile'       => 'tel-national',
-		
+
 		// Address fields.
 		'address'      => 'street-address',
 		'street'       => 'address-line1',
@@ -209,11 +209,11 @@ function add_autocomplete_to_gform_fields( $field_content, $field ) {
 		'zip'          => 'postal-code',
 		'postcode'     => 'postal-code',
 		'country'      => 'country-name',
-		
+
 		// Company fields.
 		'company'      => 'organization',
 		'organization' => 'organization',
-		
+
 		// Other common fields.
 		'job title'    => 'organization-title',
 		'website'      => 'url',
@@ -224,7 +224,7 @@ function add_autocomplete_to_gform_fields( $field_content, $field ) {
 
 	// Determine autocomplete value.
 	$autocomplete_value = '';
-	
+
 	// Check for exact matches first.
 	if ( isset( $autocomplete_map[ $field_label ] ) ) {
 		$autocomplete_value = $autocomplete_map[ $field_label ];
@@ -270,7 +270,7 @@ function add_autocomplete_to_gform_fields( $field_content, $field ) {
 			'$1 autocomplete="off" aria-label="CAPTCHA verification code"$2',
 			$field_content
 		);
-		
+
 		// Ensure the CAPTCHA image has proper alt text.
 		$field_content = preg_replace(
 			'/(<img[^>]*class=[\'"][^\'\"]*gfield_captcha[^\'\"]*[\'"][^>]*)(\/?>)/i',

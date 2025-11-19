@@ -256,3 +256,76 @@ document.querySelectorAll('.hub-team__grid').forEach(grid => {
     // Check initial scroll position
     toggleBackToTop();
 })();
+
+// Highlight search term from URL parameter
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchTerm = urlParams.get('highlight');
+    if (searchTerm) {
+        highlightText(searchTerm);
+    }
+
+    function highlightText(searchTerm) {
+        const content = document.querySelector('main');
+        if (!content) return;
+
+        const walker = document.createTreeWalker(
+            content,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode: function(node) {
+                    // Skip script and style elements
+                    if (node.parentElement.tagName === 'SCRIPT' || 
+                        node.parentElement.tagName === 'STYLE' ||
+                        node.parentElement.classList.contains('search-result-item')) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        const nodesToReplace = [];
+        let node;
+        while (node = walker.nextNode()) {
+            const text = node.nodeValue;
+            const regex = new RegExp(searchTerm, 'gi');
+            if (regex.test(text)) {
+                nodesToReplace.push(node);
+            }
+        }
+
+        nodesToReplace.forEach(node => {
+            const text = node.nodeValue;
+            const regex = new RegExp('(' + searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+            const parent = node.parentElement;
+            const fragment = document.createDocumentFragment();
+            
+            let lastIndex = 0;
+            text.replace(regex, function(match, p1, offset) {
+                if (offset > lastIndex) {
+                    fragment.appendChild(document.createTextNode(text.slice(lastIndex, offset)));
+                }
+                const mark = document.createElement('mark');
+                mark.textContent = match;
+                mark.style.backgroundColor = '#AB965F';
+                mark.style.color = '#fff';
+                mark.style.padding = '2px 4px';
+                fragment.appendChild(mark);
+                lastIndex = offset + match.length;
+            });
+            
+            if (lastIndex < text.length) {
+                fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+            }
+            
+            parent.replaceChild(fragment, node);
+        });
+
+        // Scroll to first highlight
+        const firstMark = content.querySelector('mark');
+        if (firstMark) {
+            firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+})();

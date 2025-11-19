@@ -5,6 +5,7 @@
 @import "footer";
 @import "insights";
 @import "a11y";
+@import "search";
 @import "blocks/blocks";
 
 body {
@@ -88,9 +89,9 @@ for (; i < all.length; i++) {
 // 	font-size: clamp(#{if($min-value > $max-value, $max-value, $min-value)}, #{$calc-value}, #{if($min-value > $max-value, $min-value, $max-value)});
 // }
 
-.form-control {
-  border-radius: 0;
-}
+// .form-control {
+//   border-radius: 0;
+// }
 
 a.has-arrow {
   position: relative;

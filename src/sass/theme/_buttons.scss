@@ -60,6 +60,11 @@
     border-color:  var(--col-simco-bluegrey-50);
   }
 }
+
+.search-button {
+  min-height: 38px !important;
+}
+
 .btn--simco-red {
   --_bg: var(--col-simco-red);
   --_fg: var(--col-white);

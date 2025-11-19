@@ -36,6 +36,7 @@ get_header();
 	?>
     <section class="latest_posts mt-5">
         <div class="container pb-5">
+			<h3>Search</h3>
             <?php
             // Get all categories for filter buttons.
             $all_categories = get_categories(
@@ -49,14 +50,14 @@ get_header();
             if ( ! empty( $all_categories ) ) {
                 ?>
                 <div class="row mb-4">
-                    <div class="col-12 col-lg-8 mb-3 mb-lg-0">
-                        <form role="search" method="get" class="d-flex gap-2 align-items-center" action="<?= esc_url( home_url( '/' ) ); ?>">
+                    <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                        <div class="position-relative">
                             <label for="search-input" class="visually-hidden">Search posts</label>
-                            <input type="search" class="form-control" id="search-input" name="s" placeholder="Search posts..." autocomplete="off" value="<?= esc_attr( get_search_query() ); ?>" aria-label="Search posts">
-                            <button type="submit" class="btn btn--mid-blue search-button">Search</button>
-                        </form>
+                            <input type="text" class="form-control" id="search-input" placeholder="Search posts..." autocomplete="off" aria-describedby="search-suggestions">
+                            <div id="search-suggestions" class="search-suggestions position-absolute w-100 bg-white border rounded shadow-sm mt-1" style="display: none; z-index: 1000; max-height: 300px; overflow-y: auto;" role="listbox" aria-label="Search suggestions"></div>
+                        </div>
                     </div>
-                    <div class="col-6 col-lg-2 mb-3 mb-lg-0">
+                    <div class="col-6 col-lg-4 mb-3 mb-lg-0">
                         <label for="category-filter" class="visually-hidden">Filter by category</label>
                         <select class="form-select filter-select" id="category-filter" data-filter-type="category" aria-label="Filter by category">
                             <option value="all" selected>All Categories</option>
@@ -69,7 +70,7 @@ get_header();
 							?>
                         </select>
                     </div>
-                    <div class="col-6 col-lg-2">
+                    <div class="col-6 col-lg-4">
                         <label for="year-filter" class="visually-hidden">Filter by year</label>
                         <select class="form-select filter-select" id="year-filter" data-filter-type="year" aria-label="Filter by year">
                             <option value="all" selected>All Years</option>
@@ -181,9 +182,16 @@ get_header();
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const filterSelects = document.querySelectorAll('.filter-select');
-    
-    // Client-side filtering for category/year
-    function filterPosts() {
+    const searchInput = document.getElementById('search-input');
+    const searchSuggestions = document.getElementById('search-suggestions');
+    const postsContainer = document.querySelector('.row.g-4');
+    const originalPosts = postsContainer.innerHTML; // Store original posts
+
+    let searchTimeout;
+    let abortController;
+
+    // Client-side filtering for category/year when no search
+    function filterExistingPosts() {
         const posts = document.querySelectorAll('[data-category]');
         const categoryFilter = document.getElementById('category-filter').value;
         const yearFilter = document.getElementById('year-filter').value;
@@ -203,9 +211,99 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Filter on change
+    // AJAX search function
+    function performAjaxSearch() {
+        const searchQuery = searchInput.value.trim();
+        const categoryFilter = document.getElementById('category-filter').value;
+        const yearFilter = document.getElementById('year-filter').value;
+
+        // If no search term, use client-side filtering
+        if (!searchQuery) {
+            postsContainer.innerHTML = originalPosts;
+            filterExistingPosts();
+            return;
+        }
+
+        // Cancel previous AJAX request
+        if (abortController) {
+            abortController.abort();
+        }
+
+        // Create new abort controller
+        abortController = new AbortController();
+
+        // Show loading state
+        postsContainer.innerHTML = '<div class="col-12 text-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>';
+
+        // Perform AJAX search
+        fetch('<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                action: 'search_posts',
+                search_term: searchQuery,
+                category: categoryFilter,
+                year: yearFilter,
+                nonce: '<?php echo esc_attr( wp_create_nonce( 'post_search_nonce' ) ); ?>'
+            }),
+            signal: abortController.signal
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                postsContainer.innerHTML = data.data.html;
+                // Reinitialize AOS for new elements
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+            } else {
+                postsContainer.innerHTML = '<div class="col-12"><p class="text-center">Error loading search results.</p></div>';
+            }
+        })
+        .catch(error => {
+            if (error.name !== 'AbortError') {
+                console.error('Search error:', error);
+                postsContainer.innerHTML = '<div class="col-12"><p class="text-center">Error loading search results.</p></div>';
+            }
+        });
+    }
+
+    // Search input with debounce
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            performAjaxSearch();
+        }, 500);
+    });
+
+    // Filter selects - trigger search if there's a search term, otherwise filter client-side
     filterSelects.forEach(select => {
-        select.addEventListener('change', filterPosts);
+        select.addEventListener('change', function() {
+            const searchQuery = searchInput.value.trim();
+            if (searchQuery) {
+                performAjaxSearch();
+            } else {
+                filterExistingPosts();
+            }
+        });
+    });
+
+    // Clear search
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            this.value = '';
+            postsContainer.innerHTML = originalPosts;
+            filterExistingPosts();
+        }
+    });
+
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.position-relative')) {
+            searchSuggestions.style.display = 'none';
+        }
     });
 });
 </script>
