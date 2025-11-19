@@ -11,10 +11,11 @@ $team = get_field( 'team' );
 
 $cards = get_field( 'cards' ) ? get_field( 'cards' ) : 'three-cards';
 
-// if simcap page slug add extra class
+// If simcap page slug add extra class.
 $class = '';
-$simcap_page = get_page_by_path( 'simcap' );
-if ( $simcap_page && is_page( $simcap_page->ID ) ) {
+
+global $post;
+if ( $post && 'simcap' === $post->post_name ) {
 	$class = ' hub-team--simcap';
 }
 
