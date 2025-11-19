@@ -23,7 +23,7 @@
         padding-inline: 1rem;
         h3 {
             font-size: var(--fs-lead-in);
-            font-weight: var(--fw-lead-in);
+            font-weight: var(--fw-semi);
             line-height: var(--lh-lead-in);
             text-wrap: balance;
         }
@@ -31,7 +31,7 @@
 
     .read-more {
         margin-top: auto;
-        font-size: var(--fs-lead-in);
+        font-size: var(--fs-body);
         position: relative;
         padding: 1rem 1.5rem 1rem 1rem;
         text-decoration: none;
