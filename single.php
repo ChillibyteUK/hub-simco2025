@@ -37,7 +37,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 		}
 		?>
 		<div class="pt-5 pb-4">
-			<div class="h2">Insights</div>
+			<h1 class="h2"><?= esc_html( get_the_title() ); ?></h1>
 			<?php
 			if ( function_exists( 'yoast_breadcrumb' ) ) {
 				?>
@@ -53,7 +53,6 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 				<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $first_category->name ); ?></div>
 			</div>
 			<div class="col-md-9 pb-5">
-				<h1 class="h2"><?= esc_html( get_the_title() ); ?></h1>
 				<?php
 				if ( $first_category && (
 					'podcast' === $first_category->slug ||
