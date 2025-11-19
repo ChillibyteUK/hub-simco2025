@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-md-4">
 					<?php
 					$q = new WP_Query(
 						array(
