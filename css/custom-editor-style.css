@@ -6,9 +6,9 @@
   --col-white-hsl: 0 0% 100%; /* #FFFFFF – pure white */
   --col-white: hsl(var(--col-white-hsl));
   --col-black-hsl: 0 0% 0%; /* #000000 – pure black */
-  --col-black: hsl(var(--col-black-hsl));
   --col-simco-navy-hsl: 210 30% 20%; /* #152634 – simco navy */
   --col-simco-navy: hsl(var(--col-simco-navy-hsl));
+  --col-black: hsl(var(--col-simco-navy-hsl));
   --col-simco-red-hsl: 353 60% 38%; /* #9a2634 – simco red */
   --col-simco-red: hsl(var(--col-simco-red-hsl));
   --col-simco-mid-blue-hsl: 214 33% 42%; /* #47658D – simco mid blue */
@@ -87,9 +87,9 @@
   --col-white-hsl: 0 0% 100%; /* #FFFFFF – pure white */
   --col-white: hsl(var(--col-white-hsl));
   --col-black-hsl: 0 0% 0%; /* #000000 – pure black */
-  --col-black: hsl(var(--col-black-hsl));
   --col-simco-navy-hsl: 210 30% 20%; /* #152634 – simco navy */
   --col-simco-navy: hsl(var(--col-simco-navy-hsl));
+  --col-black: hsl(var(--col-simco-navy-hsl));
   --col-simco-red-hsl: 353 60% 38%; /* #9a2634 – simco red */
   --col-simco-red: hsl(var(--col-simco-red-hsl));
   --col-simco-mid-blue-hsl: 214 33% 42%; /* #47658D – simco mid blue */

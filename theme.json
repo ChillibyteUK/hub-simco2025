@@ -10,14 +10,14 @@
           "origin": "theme"
         },
         {
-          "name": "black",
-          "slug": "black",
-          "color": "hsl(0 0% 0%)",
+          "name": "simco-navy",
+          "slug": "simco-navy",
+          "color": "hsl(210 30% 20%)",
           "origin": "theme"
         },
         {
-          "name": "simco-navy",
-          "slug": "simco-navy",
+          "name": "black",
+          "slug": "black",
           "color": "hsl(210 30% 20%)",
           "origin": "theme"
         },
