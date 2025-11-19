@@ -21618,6 +21618,10 @@ readers do not read off random characters that represent icons */
 /* =========================
    TYPOGRAPHY
    ========================= */
+html {
+  font-size: 18px;
+}
+
 body,
 .body {
   font-family: var(--ff-body);
@@ -23054,6 +23058,10 @@ a.image-16x9 img {
   clip-path: polygon(0 4rem, 100% 0, 100% calc(100% - 4rem), 0 100%);
   padding-top: 6rem;
   padding-bottom: 6rem;
+}
+
+.full-width p {
+  max-width: 72ch;
 }
 
 .accordion-block .accordion-item {

@@ -24,3 +24,9 @@
     padding-top: 6rem;
     padding-bottom: 6rem;
 }
+
+.full-width {
+    p {
+        max-width: 72ch;
+    }
+}
