@@ -11,16 +11,16 @@ $level = get_field( 'level' ) ? get_field( 'level' ) : 'h2';
 
 $split = get_field( 'split' );
 
-$left = 'col-md-5';
+$left  = 'col-md-5';
 $right = 'col-md-7';
 
 switch ( $split ) {
 	case '50-50':
-		$left = 'col-md-6';
+		$left  = 'col-md-6';
 		$right = 'col-md-6';
 		break;
 	case '60-40':
-		$left = 'col-md-7';
+		$left  = 'col-md-7';
 		$right = 'col-md-5';
 		break;
 }
@@ -28,7 +28,13 @@ switch ( $split ) {
 ?>
 <section class="text-video">
 	<div class="container py-5">
+		<?php
+		if ( get_field( 'title' ) ) {
+			?>
 		<<?= esc_html( $level ); ?> class="<?= esc_html( $level ); ?> mb-4" data-aos="fade-right"><?= wp_kses_post( get_field( 'title' ) ); ?></<?= esc_html( $level ); ?>>
+			<?php
+		}
+		?>
 		<div class="row g-5">
 			<div class="<?= esc_attr( $left ); ?>">
 				<div class="text-video__content" data-aos="fade-right">
@@ -45,7 +51,23 @@ switch ( $split ) {
 			</div>
 			<div class="<?= esc_attr( $right ); ?>">
 				<div class="ratio ratio-16x9">
-					<iframe src="https://player.vimeo.com/video/<?= esc_attr( get_field( 'vimeo_id' ) ); ?>"></iframe>
+					<?php
+					$vimeo_id    = get_field( 'vimeo_id' );
+					$block_title = get_field( 'title' );
+
+					// Try to get title from Vimeo API if video is publicly embeddable.
+					$video_title = get_vimeo_data_from_id( $vimeo_id, 'title' );
+
+					// Fallback hierarchy: Vimeo title -> Block title -> Generic description.
+					if ( ! empty( $video_title ) ) {
+						$iframe_title = $video_title;
+					} elseif ( ! empty( $block_title ) ) {
+						$iframe_title = wp_strip_all_tags( $block_title );
+					} else {
+						$iframe_title = 'Video player';
+					}
+					?>
+					<iframe src="https://player.vimeo.com/video/<?= esc_attr( $vimeo_id ); ?>" title="<?= esc_attr( $iframe_title ); ?>" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>

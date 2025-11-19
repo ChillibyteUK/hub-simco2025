@@ -19,7 +19,17 @@ defined( 'ABSPATH' ) || exit;
 				if ( $image ) {
 					?>
 					<a href="<?= esc_url( $l['url'] ); ?>" target="_blank">
-						<?= wp_get_attachment_image( $image, 'full', false, array( 'data-aos' => 'fade-up' ) ); ?>
+						<?=
+						wp_get_attachment_image(
+							$image,
+							'full',
+							false,
+							array(
+								'data-aos' => 'fade-up',
+								'alt'      => esc_attr( get_field( 'title' ) ),
+							)
+						);
+						?>
 					</a>
 					<?php
 				}

@@ -25,11 +25,30 @@
     }
 
     &__card {
+        display: grid;
         cursor: pointer;
         font-size: initial;
         background: none;
-        &.active,
+        border: none;
+        padding: 0;
+        width: 100%;
+        text-align: left;
+        transition: opacity var(--transition), transform 0.2s ease;
+        
         &:hover {
+            transform: translateY(-4px);
+        }
+        
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--col-simco-gold), 
+                        0 0 0 6px rgba(171, 150, 95, 0.25);
+            border-radius: 8px;
+        }
+        
+        &.active,
+        &:hover,
+        &[aria-expanded="true"] {
             .hub-team__name-holder {
                 background-color: hsl( var(--col-simco-gold-hsl) / 0.4);
                 color: var(--col-black);
@@ -49,6 +68,9 @@
         overflow: hidden;
         position: relative;
         isolation: isolate;
+        display: block;
+        line-height: 0;
+        
         &::before {
             content: '';
             display: block;
@@ -89,15 +111,21 @@
         z-index: 0;
     }
 
-    .detail {
+    .detail,
+    .detail-content {
       grid-column: 1 / -1;
       background: var(--col-white);
       color: var(--col-black);
       padding: 1rem 2rem;
       animation: fadeIn 0.3s ease forwards;
       border-bottom: 4px solid var(--col-simco-gold);
+      
+      &[hidden] {
+        display: none;
+      }
     }
-    .detail.fade-out {
+    .detail.fade-out,
+    .detail-content.fade-out {
       animation: fadeOut 0.3s ease forwards;
     }
 

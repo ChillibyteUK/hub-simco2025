@@ -64,15 +64,24 @@ if ( ! $q->have_posts() ) {
 					?>
 					<div class="col-md-6 col-lg-4" data-aos="fade-up">
 						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
-							<div class="latest-insights__img-wrapper">
-								<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $catname ); ?></div>
-								<?= get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'img-fluid' ) ); ?>
-							</div>
+						<div class="latest-insights__img-wrapper">
+							<div class="category <?= esc_attr( $first_category->slug ); ?>">\/\/ <?= esc_html( $catname ); ?></div>
+							<?=
+							get_the_post_thumbnail(
+								get_the_ID(),
+								'large',
+								array(
+									'class' => 'img-fluid',
+									'alt'   => esc_attr( get_the_title() ),
+								)
+							);
+							?>
+						</div>
 							<div class="latest-insights__inner">
 								<h3><?= esc_html( get_the_title() ); ?></h3>
 								<div><?= esc_html( get_the_excerpt() ); ?></div>
 							</div>
-							<div class="read-more">Read More</div>
+							<div class="read-more" aria-label="Read more about <?= esc_attr( get_the_title() ); ?>">Read More</div>
 						</a>
 					</div>
 					<?php

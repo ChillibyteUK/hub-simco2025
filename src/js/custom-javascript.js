@@ -93,6 +93,7 @@ document.querySelectorAll('.hub-team__grid').forEach(grid => {
         }
 
         if (openCard) openCard.classList.remove('active');
+        if (openCard) openCard.setAttribute('aria-expanded', 'false');
         grid.classList.remove('has-detail');
         openCard = null;
     }
@@ -110,8 +111,15 @@ document.querySelectorAll('.hub-team__grid').forEach(grid => {
         // clear previous detail
         closeDetail(false);
 
-        // clone hidden HTML inside this card
-        const hidden = card.querySelector('.detail-content');
+        // Find the detail-content sibling (now outside the button)
+        const detailId = card.getAttribute('aria-controls');
+        const hidden = detailId ? document.getElementById(detailId) : card.nextElementSibling;
+        
+        if (!hidden || !hidden.classList.contains('detail-content')) {
+            console.error('detail-content not found');
+            return;
+        }
+        
         const detail = document.createElement('div');
         detail.className = 'detail';
         detail.innerHTML = hidden.innerHTML;
@@ -122,14 +130,39 @@ document.querySelectorAll('.hub-team__grid').forEach(grid => {
         const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
         const rowEnd = Math.ceil((index + 1) / cols) * cols - 1;
         const insertAfter = cards[Math.min(rowEnd, cards.length - 1)];
-        insertAfter.insertAdjacentElement('afterend', detail);
+        
+        // Find the detail-content element after insertAfter card
+        let insertPoint = insertAfter;
+        if (insertAfter.nextElementSibling && insertAfter.nextElementSibling.classList.contains('detail-content')) {
+            insertPoint = insertAfter.nextElementSibling;
+        }
+        
+        insertPoint.insertAdjacentElement('afterend', detail);
 
         // mark active states
         card.classList.add('active');
+        card.setAttribute('aria-expanded', 'true');
         grid.classList.add('has-detail');
 
         openDetail = detail;
         openCard = card;
+    });
+
+    // Keyboard support for team cards
+    grid.addEventListener('keydown', e => {
+        const card = e.target.closest('.hub-team__card');
+        if (!card) return;
+        
+        // Enter or Space to toggle
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+        }
+        // Escape to close
+        else if (e.key === 'Escape' && openCard === card) {
+            e.preventDefault();
+            closeDetail();
+        }
     });
 
     // click outside to close

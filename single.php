@@ -19,7 +19,16 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 <main id="main" class="blog">
 	<div class="container">
 		<div class="post_hero">
-			<?= get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'blog_hero__image' ) ); ?>
+			<?=
+			get_the_post_thumbnail(
+				get_the_ID(),
+				'full',
+				array(
+					'class' => 'blog_hero__image',
+					'alt'   => esc_attr( get_the_title() ),
+				)
+			);
+			?>
 		</div>
 		<div class="pt-5 pb-4">
 			<div class="h2">Insights</div>
@@ -40,7 +49,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 					if ( $video ) {
 						?>
 				<div class="ratio ratio-16x9 mb-4">
-					<iframe src="<?= esc_attr( $video ); ?>"></iframe>	
+					<iframe src="<?= esc_attr( $video ); ?>" title="<?= esc_attr( get_the_title() ); ?>" allowfullscreen></iframe>	
 				</div>
 						<?php
 					}

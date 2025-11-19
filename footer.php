@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
     <div class="container">
         <div class="row pb-4 g-4">
 			<div class="col-sm-4">
-				<div class="footer-title h3">Contact Us</div>
+				<h2 class="h3">Contact Us</h2>
 				<div class="mb-2">
 					<?= do_shortcode( '[contact_address]' ); ?>
 				</div>
@@ -26,6 +26,7 @@ defined( 'ABSPATH' ) || exit;
 				<?= do_shortcode( '[social_icons class="fa-2x"]' ); ?>
 			</div>
 			<div class="col-sm-4 pt-sm-5">
+				<nav aria-label="Footer menu 1">
 				<?=
 				wp_nav_menu(
 					array(
@@ -34,8 +35,10 @@ defined( 'ABSPATH' ) || exit;
 					)
 				);
 				?>
+				</nav>
             </div>
             <div class="col-sm-4 pt-sm-5">
+				<nav aria-label="Footer menu 2">
 				<?=
 				wp_nav_menu(
 					array(
@@ -44,6 +47,7 @@ defined( 'ABSPATH' ) || exit;
 					)
 				);
 				?>
+				</nav>
 				<div class="mt-3">
 					&copy; <?= esc_html( gmdate( 'Y' ) ); ?> Sequoia Investment Management Company Limited
 				</div>

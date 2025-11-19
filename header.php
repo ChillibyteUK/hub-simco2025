@@ -87,6 +87,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 
 <body <?php body_class( is_front_page() ? 'homepage' : '' ); ?>
     <?php understrap_body_attributes(); ?>>
+    <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'hub-sequoia2025' ); ?></a>
     <?php
 	do_action( 'wp_body_open' );
 	if ( ! is_user_logged_in() ) {
@@ -102,14 +103,15 @@ if ( session_status() === PHP_SESSION_NONE ) {
 	}
 	?>
 <header id="wrapper-navbar" class="fixed-top p-0">
-	<nav class="navbar navbar-expand-lg">
+	<nav class="navbar navbar-expand-lg" aria-label="Main navigation">
 		<div class="container gap-4">
             <div class="d-flex justify-content-between w-100 w-lg-auto align-items-center py-0 py-lg-0">
                 <div class="logo-container"><a href="/" class="logo navbar-brand" aria-label="SIMCo Homepage"></a></div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false"
                     aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                    <span class="sr-only">Menu</span>
                 </button>
             </div>
             <div id="navbar" class="collapse navbar-collapse">

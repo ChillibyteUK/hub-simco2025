@@ -27,8 +27,8 @@ $sl = get_field( 'has_slant' ) ? 'has-slanted-bg' : 'py-5';
 
 $section_id = $block['anchor'] ?? null;
 
-$link = get_field( 'link' );
-$link_url = $link ? $link['url'] : '';
+$button_link = get_field( 'link' );
+$link_url    = $button_link ? $button_link['url'] : '';
 
 $link_image  = get_field( 'link_image' )[0] ?? null;
 $show_button = get_field( 'show_button' )[0] ?? null;
@@ -43,7 +43,7 @@ $show_button = get_field( 'show_button' )[0] ?? null;
 				<?php
 				if ( $show_button && $link_url ) {
 					?>
-					<a href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $link['target'] ); ?>" class="btn btn--mid-blue mt-3"><?= esc_html( $link['title'] ); ?></a>
+					<a href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $button_link['target'] ); ?>" class="btn btn--mid-blue mt-3"><?= esc_html( $button_link['title'] ); ?></a>
 					<?php
 				}
 				?>
@@ -54,11 +54,29 @@ $show_button = get_field( 'show_button' )[0] ?? null;
 					if ( $link_image && $link_url ) {
 						?>
 						<a href="<?= esc_url( $link_url ); ?>">
-							<?= wp_get_attachment_image( get_field( 'image' ), 'full', false, array( 'class' => '' ) ); ?>
+							<?=
+							wp_get_attachment_image(
+								get_field( 'image' ),
+								'full',
+								false,
+								array(
+									'class' => '',
+									'alt'   => esc_attr( get_field( 'title' ) ),
+								)
+							);
+							?>
 						</a>
 						<?php
 					} else {
-						echo wp_get_attachment_image( get_field( 'image' ), 'full', false, array( 'class' => '' ) );
+						echo wp_get_attachment_image(
+							get_field( 'image' ),
+							'full',
+							false,
+							array(
+								'class' => '',
+								'alt'   => esc_attr( get_field( 'title' ) ),
+							)
+						);
 					}
 					?>
 				</div>

@@ -28,7 +28,17 @@ defined( 'ABSPATH' ) || exit;
 					<?php
 				}
 				?>
-				<?= wp_get_attachment_image( get_field( 'award_logo_1' ), 'full', false, array( 'class' => 'awards__image mb-3' ) ); ?>
+				<?=
+				wp_get_attachment_image(
+					get_field( 'award_logo_1' ),
+					'full',
+					false,
+					array(
+						'class' => 'awards__image mb-3',
+						'alt'   => esc_attr( get_field( 'award_title_1' ) ),
+					)
+				);
+				?>
 				<h2 class="h3 fw-bold"><?= esc_html( get_field( 'award_title_1' ) ); ?></h2>
 				<div><?= wp_kses_post( get_field( 'award_detail_1' ) ); ?></div>
 				<?php
@@ -56,7 +66,17 @@ defined( 'ABSPATH' ) || exit;
 					<?php
 				}
 				?>
-				<?= wp_get_attachment_image( get_field( 'award_logo_2' ), 'full', false, array( 'class' => 'awards__image mb-3' ) ); ?>
+				<?=
+				wp_get_attachment_image(
+					get_field( 'award_logo_2' ),
+					'full',
+					false,
+					array(
+						'class' => 'awards__image mb-3',
+						'alt'   => esc_attr( get_field( 'award_title_2' ) ),
+					)
+				);
+				?>
 				<h2 class="h3 fw-bold"><?= esc_html( get_field( 'award_title_2' ) ); ?></h2>
 				<div><?= wp_kses_post( get_field( 'award_detail_2' ) ); ?></div>
 				<?php
@@ -84,7 +104,17 @@ defined( 'ABSPATH' ) || exit;
 					<?php
 				}
 				?>
-				<?= wp_get_attachment_image( get_field( 'award_logo_3' ), 'full', false, array( 'class' => 'awards__image mb-3' ) ); ?>
+				<?=
+				wp_get_attachment_image(
+					get_field( 'award_logo_3' ),
+					'full',
+					false,
+					array(
+						'class' => 'awards__image mb-3',
+						'alt'   => esc_attr( get_field( 'award_title_3' ) ),
+					)
+				);
+				?>
 				<h2 class="h3 fw-bold"><?= esc_html( get_field( 'award_title_3' ) ); ?></h2>
 				<div><?= wp_kses_post( get_field( 'award_detail_3' ) ); ?></div>
 				<?php

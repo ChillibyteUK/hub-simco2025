@@ -52,12 +52,14 @@ get_header();
                 <div class="row mb-4">
                     <div class="col-12 col-lg-4 mb-3 mb-lg-0">
                         <div class="position-relative">
-                            <input type="text" class="form-control" id="search-input" placeholder="Search posts..." autocomplete="off">
-                            <div id="search-suggestions" class="search-suggestions position-absolute w-100 bg-white border rounded shadow-sm mt-1" style="display: none; z-index: 1000; max-height: 300px; overflow-y: auto;"></div>
+                            <label for="search-input" class="visually-hidden">Search posts</label>
+                            <input type="text" class="form-control" id="search-input" placeholder="Search posts..." autocomplete="off" aria-describedby="search-suggestions">
+                            <div id="search-suggestions" class="search-suggestions position-absolute w-100 bg-white border rounded shadow-sm mt-1" style="display: none; z-index: 1000; max-height: 300px; overflow-y: auto;" role="listbox" aria-label="Search suggestions"></div>
                         </div>
                     </div>
                     <div class="col-6 col-lg-4 mb-3 mb-lg-0">
-                        <select class="form-select filter-select" id="category-filter" data-filter-type="category">
+                        <label for="category-filter" class="visually-hidden">Filter by category</label>
+                        <select class="form-select filter-select" id="category-filter" data-filter-type="category" aria-label="Filter by category">
                             <option value="all" selected>All Categories</option>
                             <?php
 							foreach ( $all_categories as $category ) {
@@ -69,7 +71,8 @@ get_header();
                         </select>
                     </div>
                     <div class="col-6 col-lg-4">
-                        <select class="form-select filter-select" id="year-filter" data-filter-type="year">
+                        <label for="year-filter" class="visually-hidden">Filter by year</label>
+                        <select class="form-select filter-select" id="year-filter" data-filter-type="year" aria-label="Filter by year">
                             <option value="all" selected>All Years</option>
                             <?php
                             // Get all unique post years.
@@ -138,16 +141,25 @@ get_header();
 
 					?>
 					<div class="col-md-6 col-lg-4" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
-						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
-							<div class="latest-insights__img-wrapper">
-								<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $catname ); ?></div>
-								<?= get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'img-fluid' ) ); ?>
-							</div>
+					<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
+						<div class="latest-insights__img-wrapper">
+							<div class="category <?= esc_attr( $first_category->slug ); ?>">\/\/ <?= esc_html( $catname ); ?></div>
+							<?=
+							get_the_post_thumbnail(
+								get_the_ID(),
+								'large',
+								array(
+									'class' => 'img-fluid',
+									'alt'   => esc_attr( get_the_title() ),
+								)
+							);
+							?>
+						</div>
 							<div class="latest-insights__inner">
 								<h3><?= esc_html( get_the_title() ); ?></h3>
 								<div><?= esc_html( get_the_excerpt() ); ?></div>
 							</div>
-							<div class="read-more">Read More</div>
+							<div class="read-more" aria-label="Read more about <?= esc_attr( get_the_title() ); ?>">Read More</div>
 						</a>
 					</div>
 					<?php

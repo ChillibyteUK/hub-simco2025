@@ -19,8 +19,13 @@ $classes = $block['className'] ?? null;
 $text_alignment = 'Image' === $col_order ? 'text--right' : 'text--left  ';
 
 $img = get_field( 'image' ) ?
-	wp_get_attachment_image( get_field( 'image' ), 'full' ) :
-	'<img src="' . get_stylesheet_directory_uri() . '/img/placeholder-800x450.png">';
+	wp_get_attachment_image(
+		get_field( 'image' ),
+		'full',
+		false,
+		array( 'alt' => esc_attr( get_field( 'title' ) ) )
+	) :
+	'<img src="' . get_stylesheet_directory_uri() . '/img/placeholder-800x450.png" alt="Placeholder image">';
 ?>
 <section class="split <?= esc_attr( $classes ); ?>">
     <div class="container-fluid">

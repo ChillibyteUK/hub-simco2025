@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="mb-5">
 					<?= do_shortcode( '[contact_phone]' ); ?>
 				</div>
-				<iframe src="<?= esc_url( get_field( 'map_embed_code', 'option' ) ); ?>" width="100%" height="auto" style="aspect-ratio:1;border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				<iframe src="<?= esc_url( get_field( 'map_embed_code', 'option' ) ); ?>" width="100%" height="auto" style="aspect-ratio:1;border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SIMCo Office Location Map"></iframe>
 			</div>
 			<div class="col-md-8">
 				<?= do_shortcode( '[gravityform id="' . get_field( 'contact_form_id' ) . '" title="false" ajax="true"]' ); ?>

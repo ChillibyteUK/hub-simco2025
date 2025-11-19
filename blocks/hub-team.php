@@ -36,18 +36,28 @@ $cards = get_field( 'cards' ) ? get_field( 'cards' ) : 'three-cards';
 
 		while ( $q->have_posts() ) {
 			$q->the_post();
+			$person_id = get_the_ID();
 			?>
-			<div class="hub-team__card" data-aos="fade">
+			<button class="hub-team__card" data-aos="fade" type="button" aria-expanded="false" aria-controls="team-detail-<?= esc_attr( $person_id ); ?>" data-person-id="<?= esc_attr( $person_id ); ?>">
 				<div class="hub-team__image-wrapper">
-					<?= get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'hub-team__image' ) ); ?>
+					<?=
+					get_the_post_thumbnail(
+						$person_id,
+						'large',
+						array(
+							'class' => 'hub-team__image',
+							'alt'   => esc_attr( get_the_title( $person_id ) ),
+						)
+					);
+					?>
 				</div>
 				<div class="px-4 py-2 hub-team__name-holder">
-					<div class="hub-team__name pb-2 fw-bold fs-h4-body-bold"><?= esc_html( get_the_title( get_the_ID() ) ); ?></div>
-					<div class="hub-team__title"><?= wp_kses_post( get_field( 'title', get_the_ID() ) ); ?></div>
+					<div class="hub-team__name pb-2 fw-bold fs-h4-body-bold"><?= esc_html( get_the_title( $person_id ) ); ?></div>
+					<div class="hub-team__title"><?= wp_kses_post( get_field( 'title', $person_id ) ); ?></div>
 				</div>
-				<div class="detail-content" hidden>
-					<p><?= wp_kses_post( get_the_content() ); ?></p>
-				</div>
+			</button>
+			<div class="detail-content" id="team-detail-<?= esc_attr( $person_id ); ?>" role="region" aria-label="<?= esc_attr( get_the_title( $person_id ) . ' details' ); ?>" hidden>
+				<p><?= wp_kses_post( get_the_content() ); ?></p>
 			</div>
 			<?php
 		}
@@ -55,3 +65,4 @@ $cards = get_field( 'cards' ) ? get_field( 'cards' ) : 'three-cards';
 		?>
 	</div>
 </section>
+<?php

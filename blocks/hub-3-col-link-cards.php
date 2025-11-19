@@ -27,7 +27,15 @@ defined( 'ABSPATH' ) || exit;
 						<?php
 						$image = get_sub_field( 'image' );
 						if ( $image ) {
-							echo wp_get_attachment_image( $image, 'full', false, array( 'class' => 'three-col-link-cards__card-image' ) );
+							echo wp_get_attachment_image(
+								$image,
+								'full',
+								false,
+								array(
+									'class' => 'three-col-link-cards__card-image',
+									'alt'   => esc_attr( get_sub_field( 'title' ) ),
+								)
+							);
 						}
 						?>
 						<div class="three-col-link-cards__card-body">

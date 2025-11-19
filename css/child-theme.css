@@ -22102,6 +22102,188 @@ header .dropdown-toggle::after {
   background-color: #47658D;
 }
 
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--col-mid-blue, #47658D);
+  color: var(--col-white, #fff);
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  z-index: 10000;
+  font-weight: 700;
+  border-radius: 0 0 0.5rem 0;
+}
+.skip-link:focus {
+  top: 0;
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
+}
+
+.visually-hidden,
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[tabindex]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
+  border-radius: 4px;
+}
+
+.btn:focus, input[type=submit]:focus,
+.btn:focus-visible,
+input[type=submit]:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
+}
+
+.navbar a:focus,
+.nav-link:focus,
+.dropdown-item:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
+  background-color: rgba(171, 150, 95, 0.1);
+  border-radius: 4px;
+}
+
+.navbar-toggler:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
+  border-radius: 4px;
+}
+
+.latest-insights__item:focus,
+.three-col-link-cards__card:focus,
+.hub-team__card:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
+  border-radius: 8px;
+}
+
+.accordion-button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
+  z-index: 3;
+  border-radius: 4px;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+input[type=search]:focus,
+input[type=password]:focus,
+input[type=number]:focus,
+input[type=url]:focus,
+input[type=date]:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
+  border-color: var(--col-mid-blue, #47658D) !important;
+  border-radius: 4px;
+}
+
+input[type=checkbox]:focus,
+input[type=radio]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
+}
+
+.swiper-pagination-bullet:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
+}
+
+.read-more:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
+  text-decoration: underline;
+  border-radius: 4px;
+}
+
+.modal .btn-close:focus,
+[data-bs-dismiss]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
+  border-radius: 50%;
+}
+
+@media (prefers-contrast: high) {
+  a:focus,
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    box-shadow: 0 0 0 4px var(--col-simco-gold, #AB965F) !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+.btn, .simcap-contact input[type=submit],
+input[type=submit],
+button,
+a.read-more,
+.navbar-toggler,
+.swiper-pagination-bullet,
+.accordion-button,
+input[type=button],
+input[type=reset] {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 1rem;
+}
+
+p a,
+li a,
+span a {
+  min-height: auto;
+  min-width: auto;
+}
+
+.has-simco-gold-color {
+  color: #8B7A4F !important;
+}
+
+[aria-live=polite],
+[aria-live=assertive] {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.card:focus-within,
+.hub-team__card:focus-within {
+  box-shadow: 0 0 0 3px rgba(171, 150, 95, 0.5);
+}
+
 .image-16x9 {
   position: relative;
   width: 100%;
@@ -22208,15 +22390,29 @@ a.image-16x9 img {
   opacity: 1;
 }
 .hub-team__card {
+  display: grid;
   cursor: pointer;
   font-size: initial;
   background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  transition: opacity var(--transition), transform 0.2s ease;
 }
-.hub-team__card.active .hub-team__name-holder, .hub-team__card:hover .hub-team__name-holder {
+.hub-team__card:hover {
+  transform: translateY(-4px);
+}
+.hub-team__card:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--col-simco-gold), 0 0 0 6px rgba(171, 150, 95, 0.25);
+  border-radius: 8px;
+}
+.hub-team__card.active .hub-team__name-holder, .hub-team__card:hover .hub-team__name-holder, .hub-team__card[aria-expanded=true] .hub-team__name-holder {
   background-color: hsl(var(--col-simco-gold-hsl)/0.4);
   color: var(--col-black);
 }
-.hub-team__card.active .hub-team__image-wrapper::after, .hub-team__card:hover .hub-team__image-wrapper::after {
+.hub-team__card.active .hub-team__image-wrapper::after, .hub-team__card:hover .hub-team__image-wrapper::after, .hub-team__card[aria-expanded=true] .hub-team__image-wrapper::after {
   transform: rotate(180deg);
 }
 .hub-team__name-holder {
@@ -22227,6 +22423,8 @@ a.image-16x9 img {
   overflow: hidden;
   position: relative;
   isolation: isolate;
+  display: block;
+  line-height: 0;
 }
 .hub-team__image-wrapper::before {
   content: "";
@@ -22267,7 +22465,8 @@ a.image-16x9 img {
   object-position: top;
   z-index: 0;
 }
-.hub-team .detail {
+.hub-team .detail,
+.hub-team .detail-content {
   grid-column: 1/-1;
   background: var(--col-white);
   color: var(--col-black);
@@ -22275,7 +22474,12 @@ a.image-16x9 img {
   animation: fadeIn 0.3s ease forwards;
   border-bottom: 4px solid var(--col-simco-gold);
 }
-.hub-team .detail.fade-out {
+.hub-team .detail[hidden],
+.hub-team .detail-content[hidden] {
+  display: none;
+}
+.hub-team .detail.fade-out,
+.hub-team .detail-content.fade-out {
   animation: fadeOut 0.3s ease forwards;
 }
 @keyframes fadeIn {

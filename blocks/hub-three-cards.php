@@ -28,7 +28,17 @@ defined( 'ABSPATH' ) || exit;
 						<?php
 						if ( ! empty( $c['image'] ) ) {
 							?>
-							<?= wp_get_attachment_image( $c['image'], 'medium', false, array( 'class' => 'card-img-top mb-4 px-4' ) ); ?>
+							<?=
+							wp_get_attachment_image(
+								$c['image'],
+								'medium',
+								false,
+								array(
+									'class' => 'card-img-top mb-4 px-4',
+									'alt'   => esc_attr( $c['title'] ?? '' ),
+								)
+							);
+							?>
 							<?php
 						}
 						?>

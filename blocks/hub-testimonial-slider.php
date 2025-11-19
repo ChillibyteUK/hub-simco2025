@@ -73,6 +73,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			el: '.swiper-pagination',
 			clickable: true,
 		},
+		keyboard: {
+			enabled: true,
+			onlyInViewport: false,
+		},
+		a11y: {
+			prevSlideMessage: 'Previous testimonial',
+			nextSlideMessage: 'Next testimonial',
+			paginationBulletMessage: 'Go to testimonial {{index}}',
+		},
 	});
 });
 </script>
