@@ -22562,6 +22562,11 @@ a.image-16x9 img {
   height: 100%;
 }
 
+.text-image p {
+  max-width: 72ch;
+  text-wrap: pretty;
+}
+
 .hub-cta {
   background-color: var(--col-simco-red);
   color: var(--col-white);
@@ -23062,6 +23067,7 @@ a.image-16x9 img {
 
 .full-width p {
   max-width: 72ch;
+  text-wrap: pretty;
 }
 
 .accordion-block .accordion-item {

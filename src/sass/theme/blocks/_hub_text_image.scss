@@ -24,3 +24,10 @@ a.image-16x9 {
     height: 100%;
   }
 }
+
+.text-image {
+  p {
+    max-width: 72ch;
+    text-wrap: pretty;
+  }
+}
