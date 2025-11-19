@@ -12,7 +12,7 @@ $fg = get_field( 'fg_colour' ) ? 'has-' . get_field( 'fg_colour' ) . '-color' : 
 $sl = get_field( 'has_slant' ) ? 'has-slanted-bg' : 'py-5';
 
 ?>
-<section class="full_width <?= esc_attr( $bg . ' ' . $fg . ' ' . $sl ); ?>">
+<section class="full-width <?= esc_attr( $bg . ' ' . $fg . ' ' . $sl ); ?>">
     <div class="container" data-aos="fade-up">
 		<?php
 		if ( get_field( 'title' ) ) {
