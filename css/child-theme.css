@@ -22347,20 +22347,6 @@ input[type=radio]:focus-visible {
     transform: none !important;
   }
 }
-.btn, .simcap-contact input[type=submit],
-input[type=submit],
-button,
-a.read-more,
-.navbar-toggler,
-.swiper-pagination-bullet,
-.accordion-button,
-input[type=button],
-input[type=reset] {
-  min-height: 44px;
-  min-width: 44px;
-  padding: 0.5rem 1rem;
-}
-
 p a,
 li a,
 span a {

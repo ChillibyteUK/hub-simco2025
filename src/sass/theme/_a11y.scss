@@ -204,19 +204,19 @@ input[type="radio"]:focus-visible {
 // ============================================================================
 
 // Ensure minimum 44x44px touch targets
-.btn,
-button,
-a.read-more,
-.navbar-toggler,
-.swiper-pagination-bullet,
-.accordion-button,
-input[type="submit"],
-input[type="button"],
-input[type="reset"] {
-    min-height: 44px;
-    min-width: 44px;
-    padding: 0.5rem 1rem;
-}
+// .btn,
+// button,
+// a.read-more,
+// .navbar-toggler,
+// .swiper-pagination-bullet,
+// .accordion-button,
+// input[type="submit"],
+// input[type="button"],
+// input[type="reset"] {
+//     min-height: 44px;
+//     min-width: 44px;
+//     padding: 0.5rem 1rem;
+// }
 
 // Exception for inline links within text
 p a,
