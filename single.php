@@ -38,6 +38,15 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 		?>
 		<div class="pt-5 pb-4">
 			<div class="h2">Insights</div>
+			<?php
+			if ( function_exists( 'yoast_breadcrumb' ) ) {
+				?>
+			<section class="breadcrumbs pt-4">
+                <?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
+            </section>
+				<?php
+			}
+			?>
 		</div>
 		<div class="row">
 			<div class="col-md-3">
