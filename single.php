@@ -77,7 +77,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 		// Custom navigation - exclude research category.
 		// Get current post date for comparison.
 		$current_post_date = get_the_date( 'Y-m-d H:i:s' );
-		
+
 		// Get previous post (newer, published after current).
 		$prev_post  = null;
 		$prev_args  = array(
@@ -179,7 +179,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 		);
 
 		$related_query = new WP_Query( $related_args );
-		
+
 		if ( $related_query->have_posts() ) {
 			?>
 		<div class="related-posts pt-5 pb-4">
