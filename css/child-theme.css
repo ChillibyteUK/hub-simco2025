@@ -22606,7 +22606,7 @@ a.image-16x9 img {
   --_color: var(--col-simco-gold);
   --_color-hsl: var(--col-simco-gold-hsl);
 }
-.hub-team .hub-team--simcap {
+.hub-team.hub-team--simcap {
   --_color: var(--col-simco-red);
   --_color-hsl: var(--col-simco-red-hsl);
 }
