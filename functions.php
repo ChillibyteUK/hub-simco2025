@@ -165,7 +165,20 @@ function cb_ajax_search_posts() {
 			<div class="col-md-6 col-lg-4" data-aos="fade" data-aos-delay="<?= esc_attr( $d ); ?>" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
 				<a href="<?= esc_url( get_permalink() ); ?>" class="latest-insights__item">
 					<div class="latest-insights__img-wrapper">
-						<?= get_the_post_thumbnail( get_the_ID(), 'large', array( 'class' => 'img-fluid mb-3' ) ); ?>
+						<?php
+						$thumbnail_id = get_post_thumbnail_id( get_the_ID() );
+						if ( $thumbnail_id ) {
+							echo wp_get_attachment_image(
+								$thumbnail_id,
+								'large',
+								false,
+								array(
+									'class' => 'img-fluid mb-3',
+									'alt'   => '',
+								)
+							);
+						}
+						?>
 					</div>
 					<div class="latest-insights__inner">
 						<h3><?= esc_html( get_the_title() ); ?></h3>

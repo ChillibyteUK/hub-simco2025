@@ -66,15 +66,19 @@ if ( ! $q->have_posts() ) {
 						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
 						<div class="latest-insights__img-wrapper">
 							<div class="category <?= esc_attr( $first_category->slug ); ?>">\/\/ <?= esc_html( $catname ); ?></div>
-							<?=
-							get_the_post_thumbnail(
-								get_the_ID(),
-								'large',
-								array(
-									'class' => 'img-fluid',
-									'alt'   => esc_attr( get_the_title() ),
-								)
-							);
+							<?php
+							$thumbnail_id = get_post_thumbnail_id( get_the_ID() );
+							if ( $thumbnail_id ) {
+								echo wp_get_attachment_image(
+									$thumbnail_id,
+									'large',
+									false,
+									array(
+										'class' => 'img-fluid',
+										'alt'   => '',
+									)
+								);
+							}
 							?>
 						</div>
 							<div class="latest-insights__inner">
