@@ -14,6 +14,7 @@ $q = new WP_Query(
 		'post_status'    => 'publish',
 		'orderby'        => 'date',
 		'order'          => 'DESC',
+		'post__not_in'   => array( get_the_ID() ),
 	)
 );
 if ( ! $q->have_posts() ) {
@@ -94,7 +95,7 @@ if ( ! $q->have_posts() ) {
 			</div>
 			<?php
 		}
-		wp_reset_postdata()
+		wp_reset_postdata();
 		?>
 	</div>
 </section>
