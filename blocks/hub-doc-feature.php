@@ -14,9 +14,23 @@ defined( 'ABSPATH' ) || exit;
 		<div class="row g-5 align-items-center">
 			<div class="col-md-3">
 				<?php
-				$image = get_field( 'featured_doc_cover' );
-				$l     = get_field( 'featured_doc_file' );
+				$image       = get_field( 'featured_doc_cover' );
+				$l           = get_field( 'featured_doc_file' );
+				$block_title = get_field( 'title' );
+
 				if ( $image ) {
+					// Get image alt text from media library.
+					$image_alt = get_post_meta( $image, '_wp_attachment_image_alt', true );
+
+					// If no alt text, try using the file title if different from block title.
+					if ( empty( $image_alt ) && ! empty( $l['title'] ) && $l['title'] !== $block_title ) {
+						$image_alt = $l['title'];
+					}
+
+					// Fall back to generic text.
+					if ( empty( $image_alt ) ) {
+						$image_alt = 'Document cover image';
+					}
 					?>
 					<a href="<?= esc_url( $l['url'] ); ?>" target="_blank">
 						<?=
@@ -26,7 +40,7 @@ defined( 'ABSPATH' ) || exit;
 							false,
 							array(
 								'data-aos' => 'fade-up',
-								'alt'      => esc_attr( get_field( 'title' ) ),
+								'alt'      => esc_attr( $image_alt ),
 							)
 						);
 						?>
