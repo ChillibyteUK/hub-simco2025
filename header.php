@@ -16,12 +16,21 @@ if ( session_status() === PHP_SESSION_NONE ) {
 
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js">
 
 <head>
+    <script>(function(h){h.className=h.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
     <meta
         charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1">
+    <noscript>
+        <style>
+            [data-aos] {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        </style>
+    </noscript>
     <link rel="preload"
         href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/acumin-pro-400.woff2' ); ?>"
         as="font" type="font/woff2" crossorigin="anonymous">

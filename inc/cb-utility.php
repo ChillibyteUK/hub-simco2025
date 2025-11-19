@@ -94,7 +94,7 @@ add_shortcode(
         $email            = get_field( 'contact_email', 'option' );
         $obfuscated_email = antispambot( $email );
 		if ( $obfuscated_email ) {
-			return '<a href="mailto:' . esc_attr( $obfuscated_email ) . '"><i class="fas fa-envelope"></i></a>';
+			return '<a href="mailto:' . esc_attr( $obfuscated_email ) . '" aria-label="Email us"><i class="fas fa-envelope" aria-hidden="true"></i></a>';
 		}
 	}
 );
@@ -127,8 +127,19 @@ function social_icon_shortcode( $atts ) {
 
     $url  = esc_url( $urls[ $atts['type'] ] );
     $icon = esc_attr( $atts['type'] );
+    
+    // Create readable label for accessibility.
+    $labels = array(
+        'facebook'    => 'Facebook',
+        'instagram'   => 'Instagram',
+        'x-twitter'   => 'X (Twitter)',
+        'pinterest'   => 'Pinterest',
+        'youtube'     => 'YouTube',
+        'linkedin-in' => 'LinkedIn',
+    );
+    $label  = $labels[ $atts['type'] ] ?? ucfirst( $atts['type'] );
 
-    return '<a href="' . $url . '" target="_blank" rel="nofollow noopener noreferrer"><i class="fa-brands fa-' . $icon . '"></i></a>';
+    return '<a href="' . $url . '" target="_blank" rel="nofollow noopener noreferrer" aria-label="' . esc_attr( $label ) . '"><i class="fa-brands fa-' . $icon . '" aria-hidden="true"></i></a>';
 }
 
 // Register individual social icon shortcodes.
@@ -168,11 +179,21 @@ add_shortcode(
 			'youtube'   => 'youtube',
 			'linkedin'  => 'linkedin-in',
 		);
+		
+		$labels = array(
+			'twitter'   => 'X (Twitter)',
+			'facebook'  => 'Facebook',
+			'instagram' => 'Instagram',
+			'pinterest' => 'Pinterest',
+			'youtube'   => 'YouTube',
+			'linkedin'  => 'LinkedIn',
+		);
 
 		foreach ( $social_map as $key => $icon ) {
 			if ( ! empty( $social[ $key . '_url' ] ) ) {
 				$url     = esc_url( $social[ $key . '_url' ] );
-				$icons[] = '<a href="' . $url . '" target="_blank" rel="nofollow noopener noreferrer"><i class="fa-brands fa-' . $icon . '"></i></a>';
+				$label   = esc_attr( $labels[ $key ] );
+				$icons[] = '<a href="' . $url . '" target="_blank" rel="nofollow noopener noreferrer" aria-label="' . $label . '"><i class="fa-brands fa-' . $icon . '" aria-hidden="true"></i></a>';
 			}
 		}
 

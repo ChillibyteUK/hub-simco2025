@@ -165,6 +165,12 @@ input[type="radio"]:focus {
 // Reduced Motion Support
 // ============================================================================
 
+// Ensure AOS elements are visible by default (graceful degradation if JS fails).
+.no-js [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

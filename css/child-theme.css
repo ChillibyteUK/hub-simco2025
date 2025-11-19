@@ -22231,6 +22231,11 @@ input[type=radio]:focus {
     box-shadow: 0 0 0 4px var(--col-simco-gold, #AB965F) !important;
   }
 }
+.no-js [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

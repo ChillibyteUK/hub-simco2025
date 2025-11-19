@@ -6871,7 +6871,11 @@
 	AOS.init({
 	  easing: 'ease-out',
 	  once: true,
-	  duration: 600
+	  duration: 600,
+	  disable: function () {
+	    // Disable AOS on devices that prefer reduced motion.
+	    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	  }
 	});
 
 	// (function() {
