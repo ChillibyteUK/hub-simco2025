@@ -41,7 +41,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 			<?php
 			if ( function_exists( 'yoast_breadcrumb' ) ) {
 				?>
-			<section class="breadcrumbs pt-4">
+			<section class="breadcrumbs">
                 <?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
             </section>
 				<?php
