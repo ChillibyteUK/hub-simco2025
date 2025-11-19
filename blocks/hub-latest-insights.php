@@ -84,7 +84,6 @@ if ( ! $q->have_posts() ) {
 						</div>
 							<div class="latest-insights__inner">
 								<h3><?= esc_html( get_the_title() ); ?></h3>
-								<div><?= esc_html( get_the_excerpt() ); ?></div>
 							</div>
 							<div class="read-more" aria-label="Read more about <?= esc_attr( get_the_title() ); ?>">Read More</div>
 						</a>
