@@ -22191,6 +22191,20 @@ header .dropdown-toggle:focus-visible {
   background-color: #47658D;
 }
 
+.post-navigation .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.post-navigation .nav-links a {
+  border: 1px solid var(--col-black);
+  padding: 1rem;
+  border-radius: 100vw;
+  text-decoration: none;
+  background-color: var(--col-simco-gold);
+}
+
 .skip-link {
   position: absolute;
   top: -100px;

@@ -136,7 +136,6 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 						<div class="nav-previous">
 							<a href="<?= esc_url( get_permalink( $prev_post->ID ) ); ?>" rel="prev">
 								<span class="nav-subtitle"><?= esc_html__( 'Previous Insight', 'hub-sequoia2025' ); ?></span>
-								<span class="nav-title"><?= esc_html( get_the_title( $prev_post->ID ) ); ?></span>
 							</a>
 						</div>
 					<?php endif; ?>
@@ -144,7 +143,6 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 						<div class="nav-next">
 							<a href="<?= esc_url( get_permalink( $next_post->ID ) ); ?>" rel="next">
 								<span class="nav-subtitle"><?= esc_html__( 'Next Insight', 'hub-sequoia2025' ); ?></span>
-								<span class="nav-title"><?= esc_html( get_the_title( $next_post->ID ) ); ?></span>
 							</a>
 						</div>
 					<?php endif; ?>
