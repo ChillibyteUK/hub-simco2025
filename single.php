@@ -67,17 +67,20 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 		</div>
 		<?php
 		// Custom navigation - exclude research category.
-		// Get previous post (newer).
+		// Get current post date for comparison.
+		$current_post_date = get_the_date( 'Y-m-d H:i:s' );
+		
+		// Get previous post (newer, published after current).
 		$prev_post  = null;
 		$prev_args  = array(
 			'post_type'      => 'post',
 			'posts_per_page' => 1,
 			'post_status'    => 'publish',
 			'orderby'        => 'date',
-			'order'          => 'DESC',
+			'order'          => 'ASC',
 			'date_query'     => array(
 				array(
-					'after'     => get_the_date( 'Y-m-d H:i:s' ),
+					'after'     => $current_post_date,
 					'inclusive' => false,
 				),
 			),
@@ -96,17 +99,17 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 		}
 		wp_reset_postdata();
 
-		// Get next post (older).
+		// Get next post (older, published before current).
 		$next_post  = null;
 		$next_args  = array(
 			'post_type'      => 'post',
 			'posts_per_page' => 1,
 			'post_status'    => 'publish',
 			'orderby'        => 'date',
-			'order'          => 'ASC',
+			'order'          => 'DESC',
 			'date_query'     => array(
 				array(
-					'before'    => get_the_date( 'Y-m-d H:i:s' ),
+					'before'    => $current_post_date,
 					'inclusive' => false,
 				),
 			),
