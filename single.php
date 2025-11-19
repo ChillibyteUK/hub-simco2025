@@ -18,6 +18,9 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 ?>
 <main id="main" class="blog">
 	<div class="container">
+		<?php
+		if ( 'news' === $first_category ) {
+			?>
 		<div class="post_hero">
 			<?=
 			get_the_post_thumbnail(
@@ -30,6 +33,9 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 			);
 			?>
 		</div>
+			<?php
+		}
+		?>
 		<div class="pt-5 pb-4">
 			<div class="h2">Insights</div>
 		</div>
