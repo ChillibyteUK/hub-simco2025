@@ -33,6 +33,13 @@ $link_url    = $button_link ? $button_link['url'] : '';
 $link_image  = get_field( 'link_image' )[0] ?? null;
 $show_button = get_field( 'show_button' )[0] ?? null;
 
+$block_id = $block['id'] ?? null;
+
+if ( $block_id ) {
+	?>
+<a id="<?= esc_attr( $block_id ); ?>"></a>
+	<?php
+}
 ?>
 <section class="text-image <?= esc_attr( $bg . ' ' . $fg . ' ' . $sl ); ?>" id="<?= esc_attr( $section_id ); ?>">
 	<div class="container py-5">
