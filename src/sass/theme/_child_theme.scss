@@ -108,8 +108,8 @@ a.has-arrow {
     transform: translateY(-50%);
     transition: var(--transition);
   }
-  &:hover:after,
-  &:focus:after {
+    &:hover:after,
+  &:focus-visible:after {
     transform: translateY(-50%) translateX(5px);
   }
 }
@@ -225,7 +225,7 @@ input[type="checkbox"] {
     border-color: #47658D !important;
   }
   
-  &:focus {
+  &:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 2px rgba(71, 101, 141, 0.3) !important;
   }

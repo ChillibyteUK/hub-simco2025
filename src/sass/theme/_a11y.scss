@@ -40,22 +40,33 @@
 // ============================================================================
 // Focus Indicators - Visible keyboard navigation
 // Using box-shadow for rounded, modern focus indicators
+// Using :focus-visible to only show on keyboard navigation
 // ============================================================================
 
-// Global focus style for all interactive elements
-a:focus,
-button:focus,
-input:focus,
-textarea:focus,
-select:focus,
-[tabindex]:focus {
+// Global focus style for all interactive elements - keyboard only
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
     border-radius: 4px;
 }
 
+// Remove focus styles on click
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+[tabindex]:focus:not(:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 // Enhanced focus for specific components
-.btn:focus,
 .btn:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 
@@ -63,9 +74,9 @@ select:focus,
 }
 
 // Navigation links
-.navbar a:focus,
-.nav-link:focus,
-.dropdown-item:focus {
+.navbar a:focus-visible,
+.nav-link:focus-visible,
+.dropdown-item:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
     background-color: rgba(171, 150, 95, 0.1);
@@ -73,7 +84,7 @@ select:focus,
 }
 
 // Mobile menu toggle
-.navbar-toggler:focus {
+.navbar-toggler:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 
                 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
@@ -81,9 +92,9 @@ select:focus,
 }
 
 // Card links - larger radius for cards
-.latest-insights__item:focus,
-.three-col-link-cards__card:focus,
-.hub-team__card:focus {
+.latest-insights__item:focus-visible,
+.three-col-link-cards__card:focus-visible,
+.hub-team__card:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 
                 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
@@ -91,7 +102,7 @@ select:focus,
 }
 
 // Accordion buttons
-.accordion-button:focus {
+.accordion-button:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 
                 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
@@ -99,7 +110,7 @@ select:focus,
     border-radius: 4px;
 }
 
-// Form inputs - override the problematic outline: none
+// Form inputs - keep :focus for form fields as they need visible focus always
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
@@ -116,22 +127,22 @@ textarea:focus {
     border-radius: 4px;
 }
 
-// Checkbox and radio focus - circular for better appearance
-input[type="checkbox"]:focus,
-input[type="radio"]:focus {
+// Checkbox and radio focus
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 
                 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
 }
 
-// Swiper pagination bullets - circular
-.swiper-pagination-bullet:focus {
+// Swiper pagination bullets
+.swiper-pagination-bullet:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
 }
 
 // Read more links
-.read-more:focus {
+.read-more:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
     text-decoration: underline;
@@ -139,8 +150,8 @@ input[type="radio"]:focus {
 }
 
 // Modal close buttons
-.modal .btn-close:focus,
-[data-bs-dismiss]:focus {
+.modal .btn-close:focus-visible,
+[data-bs-dismiss]:focus-visible {
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 
                 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
@@ -152,8 +163,8 @@ input[type="radio"]:focus {
 // ============================================================================
 
 @media (prefers-contrast: high) {
-    a:focus,
-    button:focus,
+    a:focus-visible,
+    button:focus-visible,
     input:focus,
     textarea:focus,
     select:focus {
@@ -245,4 +256,10 @@ span a {
 .card:focus-within,
 .hub-team__card:focus-within {
     box-shadow: 0 0 0 3px rgba(171, 150, 95, 0.5);
+}
+
+// Remove focus-within on mouse interaction
+.card:focus-within:not(:has(*:focus-visible)),
+.hub-team__card:focus-within:not(:has(*:focus-visible)) {
+    box-shadow: none;
 }

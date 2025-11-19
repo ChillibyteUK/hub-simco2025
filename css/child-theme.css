@@ -21907,6 +21907,15 @@ header a.nav-link {
   padding: 0;
   position: relative;
 }
+header a:focus,
+header a.nav-link:focus {
+  outline: none;
+}
+header a:focus-visible,
+header a.nav-link:focus-visible {
+  outline: 2px solid var(--col-simco-gold);
+  outline-offset: 4px;
+}
 header a:before,
 header a.nav-link:before {
   content: "";
@@ -21970,6 +21979,83 @@ header .dropdown-toggle::after {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   border: none;
+}
+header .dropdown-toggle:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+header .dropdown-toggle:focus-visible {
+  outline: 2px solid var(--col-simco-gold);
+  outline-offset: 4px;
+  box-shadow: none !important;
+}
+@media (min-width: 992px) {
+  header .dropdown {
+    position: static;
+  }
+  header .dropdown-menu[data-bs-popper] {
+    margin-top: 0;
+  }
+  header .dropdown-menu {
+    background-color: var(--col-simco-gold);
+    border: none;
+    border-radius: 0;
+    padding: 0 15px;
+    margin-top: 0;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    right: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  header .dropdown-menu.show {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding-block: 0;
+  }
+}
+@media (min-width: 992px) and (min-width: 1400px) {
+  header .dropdown-menu {
+    padding-left: calc((100vw - 1320px) / 2);
+    padding-right: calc((100vw - 1320px) / 2);
+  }
+}
+@media (min-width: 992px) {
+  header .dropdown-item {
+    padding: 0.5rem 1rem;
+    color: var(--col-black);
+    background-color: transparent;
+    border: none;
+    font-family: var(--ff-body);
+    font-size: var(--fs-base);
+    line-height: var(--lh-body);
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  header .dropdown-item:hover, header .dropdown-item:focus-visible {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--col-black);
+    text-decoration: none;
+  }
+  header .dropdown-toggle {
+    position: relative;
+  }
+  header .dropdown-toggle[aria-expanded=true]::before {
+    content: "";
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid var(--col-simco-gold);
+    z-index: 1001;
+  }
 }
 
 .footer {
@@ -22137,48 +22223,56 @@ header .dropdown-toggle::after {
   border: 0 !important;
 }
 
-a:focus,
-button:focus,
-input:focus,
-textarea:focus,
-select:focus,
-[tabindex]:focus {
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
   border-radius: 4px;
 }
 
-.btn:focus, input[type=submit]:focus,
-.btn:focus-visible,
-input[type=submit]:focus-visible {
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+[tabindex]:focus:not(:focus-visible) {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.btn:focus-visible, input[type=submit]:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
 }
 
-.navbar a:focus,
-.nav-link:focus,
-.dropdown-item:focus {
+.navbar a:focus-visible,
+.nav-link:focus-visible,
+.dropdown-item:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
   background-color: rgba(171, 150, 95, 0.1);
   border-radius: 4px;
 }
 
-.navbar-toggler:focus {
+.navbar-toggler:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
   border-radius: 4px;
 }
 
-.latest-insights__item:focus,
-.three-col-link-cards__card:focus,
-.hub-team__card:focus {
+.latest-insights__item:focus-visible,
+.three-col-link-cards__card:focus-visible,
+.hub-team__card:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
   border-radius: 8px;
 }
 
-.accordion-button:focus {
+.accordion-button:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
   z-index: 3;
@@ -22201,34 +22295,34 @@ textarea:focus {
   border-radius: 4px;
 }
 
-input[type=checkbox]:focus,
-input[type=radio]:focus {
+input[type=checkbox]:focus-visible,
+input[type=radio]:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
 }
 
-.swiper-pagination-bullet:focus {
+.swiper-pagination-bullet:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
 }
 
-.read-more:focus {
+.read-more:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F) !important;
   text-decoration: underline;
   border-radius: 4px;
 }
 
-.modal .btn-close:focus,
-[data-bs-dismiss]:focus {
+.modal .btn-close:focus-visible,
+[data-bs-dismiss]:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
   border-radius: 50%;
 }
 
 @media (prefers-contrast: high) {
-  a:focus,
-  button:focus,
+  a:focus-visible,
+  button:focus-visible,
   input:focus,
   textarea:focus,
   select:focus {
@@ -22291,6 +22385,11 @@ span a {
 .card:focus-within,
 .hub-team__card:focus-within {
   box-shadow: 0 0 0 3px rgba(171, 150, 95, 0.5);
+}
+
+.card:focus-within:not(:has(*:focus-visible)),
+.hub-team__card:focus-within:not(:has(*:focus-visible)) {
+  box-shadow: none;
 }
 
 .search-results__list {
@@ -23144,7 +23243,7 @@ a.has-arrow:after {
   transform: translateY(-50%);
   transition: var(--transition);
 }
-a.has-arrow:hover:after, a.has-arrow:focus:after {
+a.has-arrow:hover:after, a.has-arrow:focus-visible:after {
   transform: translateY(-50%) translateX(5px);
 }
 
@@ -23213,7 +23312,7 @@ input[type=checkbox]:checked {
   background-color: #47658D !important;
   border-color: #47658D !important;
 }
-input[type=checkbox]:focus {
+input[type=checkbox]:focus-visible {
   outline: none !important;
   box-shadow: 0 0 0 2px rgba(71, 101, 141, 0.3) !important;
 }

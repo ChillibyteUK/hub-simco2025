@@ -29,6 +29,17 @@ header {
     text-decoration: none;
     padding: 0;
     position: relative;
+    
+    // Only show focus outline for keyboard navigation
+    &:focus {
+      outline: none;
+    }
+    
+    &:focus-visible {
+      outline: 2px solid var(--col-simco-gold);
+      outline-offset: 4px;
+    }
+    
     // @media (min-width: 992px) {
     //   &:hover {
     //     color: var(--col-accent-400);
@@ -110,5 +121,99 @@ header {
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     border: none;
+  }
+  
+  .dropdown-toggle {
+    // Remove focus styles on click
+    &:focus {
+      outline: none;
+      box-shadow: none !important;
+    }
+    
+    // Only show outline for keyboard navigation
+    &:focus-visible {
+      outline: 2px solid var(--col-simco-gold);
+      outline-offset: 4px;
+      box-shadow: none !important;
+    }
+  }
+
+  // Custom dropdown menu styling
+  @media (min-width: 992px) {
+    .dropdown {
+      position: static;
+    }
+
+    .dropdown-menu[data-bs-popper] {
+      margin-top: 0;
+    }
+
+    .dropdown-menu {
+      background-color: var(--col-simco-gold);
+      border: none;
+      border-radius: 0;
+      padding: 0 15px;
+      margin-top: 0;
+      width: 100vw;
+      position: absolute;
+      left: 0;
+      right: 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      
+      // Ensure dropdowns start hidden
+      display: none;
+      
+      &.show {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        padding-block: 0;
+      }
+      
+      // Constrain content like Bootstrap container
+      @media (min-width: 1400px) {
+        padding-left: calc((100vw - 1320px) / 2);
+        padding-right: calc((100vw - 1320px) / 2);
+      }
+    }
+
+    .dropdown-item {
+      padding: 0.5rem 1rem;
+      color: var(--col-black);
+      background-color: transparent;
+      border: none;
+      font-family: var(--ff-body);
+      font-size: var(--fs-base);
+      line-height: var(--lh-body);
+      white-space: nowrap;
+      flex: 0 0 auto;
+      
+      &:hover,
+      &:focus-visible {
+        background-color: rgba(255, 255, 255, 0.15);
+        color: var(--col-black);
+        text-decoration: none;
+      }
+    }
+
+    // Triangle indicator positioned above parent
+    .dropdown-toggle {
+      position: relative;
+      
+      &[aria-expanded="true"]::before {
+        content: "";
+        position: absolute;
+        bottom: -1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 12px solid var(--col-simco-gold);
+        z-index: 1001;
+      }
+    }
   }
 }
