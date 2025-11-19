@@ -38,7 +38,13 @@ $show_button = get_field( 'show_button' )[0] ?? null;
 	<div class="container py-5">
 		<div class="row g-5">
 			<div class="<?= esc_attr( $text_width ); ?> <?= esc_attr( $text_order ); ?>" data-aos="<?= esc_attr( $text_aos ); ?>">
+				<?php
+				if ( get_field( 'title' ) ) {
+					?>
 				<h2><?= wp_kses_post( get_field( 'title' ) ); ?></h2>
+					<?php
+				}
+				?>
 				<?= wp_kses_post( get_field( 'content' ) ); ?>
 				<?php
 				if ( $show_button && $link_url ) {
