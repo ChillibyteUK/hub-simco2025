@@ -21,18 +21,25 @@ defined( 'ABSPATH' ) || exit;
 					<?php
 				} else {
 					?>
-					<div class="text-center awards__item">
+				<div class="text-center awards__item">
 					<?php
 				}
 				?>
+					<?php
+					$award_logo_1     = get_field( 'award_logo_1' );
+					$award_logo_1_alt = get_post_meta( $award_logo_1, '_wp_attachment_image_alt', true );
+					if ( empty( $award_logo_1_alt ) ) {
+						$award_logo_1_alt = get_field( 'award_title_1' );
+					}
+					?>
 				<?=
 				wp_get_attachment_image(
-					get_field( 'award_logo_1' ),
+					$award_logo_1,
 					'full',
 					false,
 					array(
 						'class' => 'awards__image mb-3',
-						'alt'   => esc_attr( get_field( 'award_title_1' ) ),
+						'alt'   => esc_attr( $award_logo_1_alt ),
 					)
 				);
 				?>
@@ -59,18 +66,25 @@ defined( 'ABSPATH' ) || exit;
 					<?php
 				} else {
 					?>
-					<div class="text-center awards__item">
+				<div class="text-center awards__item">
 					<?php
 				}
 				?>
+					<?php
+					$award_logo_2     = get_field( 'award_logo_2' );
+					$award_logo_2_alt = get_post_meta( $award_logo_2, '_wp_attachment_image_alt', true );
+					if ( empty( $award_logo_2_alt ) ) {
+						$award_logo_2_alt = get_field( 'award_title_2' );
+					}
+					?>
 				<?=
 				wp_get_attachment_image(
-					get_field( 'award_logo_2' ),
+					$award_logo_2,
 					'full',
 					false,
 					array(
 						'class' => 'awards__image mb-3',
-						'alt'   => esc_attr( get_field( 'award_title_2' ) ),
+						'alt'   => esc_attr( $award_logo_2_alt ),
 					)
 				);
 				?>
@@ -97,18 +111,25 @@ defined( 'ABSPATH' ) || exit;
 					<?php
 				} else {
 					?>
-					<div class="text-center awards__item">
+				<div class="text-center awards__item">
 					<?php
 				}
 				?>
+					<?php
+					$award_logo_3     = get_field( 'award_logo_3' );
+					$award_logo_3_alt = get_post_meta( $award_logo_3, '_wp_attachment_image_alt', true );
+					if ( empty( $award_logo_3_alt ) ) {
+						$award_logo_3_alt = get_field( 'award_title_3' );
+					}
+					?>
 				<?=
 				wp_get_attachment_image(
-					get_field( 'award_logo_3' ),
+					$award_logo_3,
 					'full',
 					false,
 					array(
 						'class' => 'awards__image mb-3',
-						'alt'   => esc_attr( get_field( 'award_title_3' ) ),
+						'alt'   => esc_attr( $award_logo_3_alt ),
 					)
 				);
 				?>
