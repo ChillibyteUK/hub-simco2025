@@ -28,15 +28,15 @@
      TYPOGRAPHY (families/weights)
      ========================= */
   --ff-heading:
-    "Acumin Pro", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Acumin Pro", "acumin-pro", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --ff-body:
-    "Acumin Pro", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Acumin Pro", "acumin-pro", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif;
   --fw-bold: 700; /* Bold */
   --fw-semi: 600; /* Semi Bold */
   --fw-regular: 400; /* Regular */
-  --fw-light: 300; /* Light */
+  --fw-light: 200; /* XLight */
   /* =========================
     TYPOGRAPHY (from Figma style.txt)
     ========================= */
@@ -21601,20 +21601,6 @@ readers do not read off random characters that represent icons */
   display: block;
 }
 
-@font-face {
-  font-display: swap;
-  font-family: "Acumin Pro";
-  font-style: normal;
-  font-weight: 400;
-  src: url("../fonts/acumin-pro-400.woff2") format("woff2");
-}
-@font-face {
-  font-display: swap;
-  font-family: "Acumin Pro";
-  font-style: normal;
-  font-weight: 700;
-  src: url("../fonts/acumin-pro-700.woff2") format("woff2");
-}
 /* =========================
    TYPOGRAPHY
    ========================= */
@@ -21896,8 +21882,31 @@ header {
   font-size: var(--fs-base);
   line-height: var(--lh-body);
 }
+header .navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+header .navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+header .navbar-toggler:focus-visible {
+  outline: 2px solid var(--col-simco-gold);
+  outline-offset: 2px;
+}
 header .navbar-toggler i {
   color: var(--col-simco-red);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+header .navbar-toggler[aria-expanded=true] i {
+  transform: rotate(90deg);
+}
+header .navbar-toggler[aria-expanded=true] i.fa-bars::before {
+  content: "\f00d";
 }
 header .navbar-nav {
   margin-block: 0;
@@ -21957,25 +21966,45 @@ header .dropdown.current-menu-item > .nav-link:before {
   width: 100%;
   background: var(--col-simco-gold);
 }
-@media (max-width: 991px) {
+header .offcanvas {
+  --bs-offcanvas-width: 75vw;
+  --bs-offcanvas-bg: var(--col-simco-gold);
+}
+header .offcanvas .offcanvas-body {
+  padding: 1rem 1.5rem;
+}
+header .offcanvas .offcanvas-body .navbar-nav {
+  width: 100%;
+}
+header .offcanvas .offcanvas-body .navbar-nav .nav-link {
+  padding: 1rem 0;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+}
+header .offcanvas .offcanvas-body .navbar-nav .dropdown-menu {
+  position: static;
+  float: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+header .offcanvas .offcanvas-body .navbar-nav .dropdown-menu .dropdown-item {
+  padding: 0.75rem 0;
+  font-size: var(--fs-base);
+  font-weight: var(--fw-light);
+  color: var(--col-black);
+  background: transparent;
+}
+header .offcanvas .offcanvas-body .navbar-nav .dropdown-menu .dropdown-item:hover, header .offcanvas .offcanvas-body .navbar-nav .dropdown-menu .dropdown-item:focus {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--col-black);
+}
+@media (min-width: 992px) {
   header .navbar-collapse {
-    min-height: 100svh;
-    /* Do not set display:flex or height, let Bootstrap animate */
-  }
-  header .navbar-nav {
-    width: 100%;
-    padding-bottom: 2rem;
-  }
-  header .nav-link,
-  header .navbar-nav .nav-link {
-    font-size: var(--fs-base);
-    padding: 1rem 0;
-  }
-  header .dropdown-item {
-    font-size: var(--fs-base);
-  }
-  header .fs-subtle a {
-    font-size: var(--fs-base);
+    display: flex !important;
   }
 }
 header .dropdown-toggle::after {
@@ -22063,6 +22092,10 @@ header .dropdown-toggle:focus-visible {
     border-bottom: 12px solid var(--col-simco-gold);
     z-index: 1001;
   }
+}
+
+.offcanvas-backdrop {
+  display: none !important;
 }
 
 .footer {

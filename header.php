@@ -31,12 +31,13 @@ if ( session_status() === PHP_SESSION_NONE ) {
             }
         </style>
     </noscript>
-    <link rel="preload"
+	<link rel="stylesheet" id="ir-font-css" href="https://use.typekit.net/hnr7skm.css?ver=6.8.3" media="all">
+    <!-- <link rel="preload"
         href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/acumin-pro-400.woff2' ); ?>"
         as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload"
         href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/acumin-pro-700.woff2' ); ?>"
-        as="font" type="font/woff2" crossorigin="anonymous">
+        as="font" type="font/woff2" crossorigin="anonymous"> -->
     <?php
     if ( ! is_user_logged_in() ) {
         if ( get_field( 'ga_property', 'options' ) ) {
@@ -116,15 +117,15 @@ if ( session_status() === PHP_SESSION_NONE ) {
 		<div class="container gap-4">
             <div class="d-flex justify-content-between w-100 w-lg-auto align-items-center py-0 py-lg-0">
                 <div class="logo-container"><a href="/" class="logo navbar-brand" aria-label="SIMCo Homepage"></a></div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false"
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <i class="fas fa-bars" aria-hidden="true"></i>
                     <span class="sr-only">Menu</span>
                 </button>
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
-				<!-- Navigation -->
+            <!-- Desktop Navigation -->
+            <div id="navbar" class="collapse navbar-collapse d-none d-lg-flex">
 				<?php
 				wp_nav_menu(
 					array(
@@ -137,6 +138,24 @@ if ( session_status() === PHP_SESSION_NONE ) {
 					)
 				);
 				?>
+            </div>
+            <!-- Mobile Offcanvas Navigation -->
+            <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar" data-bs-backdrop="false" data-bs-scroll="true">
+                <div class="offcanvas-body">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary_nav',
+							'container'      => false,
+							'menu_class'     => 'navbar-nav',
+							'menu_id'        => 'mobile-menu',
+							'fallback_cb'    => '',
+							'depth'          => 3,
+							'walker'         => new Understrap_WP_Bootstrap_Navwalker(),
+						)
+					);
+					?>
+                </div>
             </div>
 		</div>
 	</nav>

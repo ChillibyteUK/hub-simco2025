@@ -329,3 +329,36 @@ document.querySelectorAll('.hub-team__grid').forEach(grid => {
         }
     }
 })();
+
+// Hamburger menu animation - toggle aria-expanded for offcanvas
+(function() {
+    const offcanvasElement = document.getElementById('offcanvasNavbar');
+    const togglerButton = document.querySelector('[data-bs-toggle="offcanvas"]');
+    
+    if (offcanvasElement && togglerButton) {
+        offcanvasElement.addEventListener('show.bs.offcanvas', function () {
+            togglerButton.setAttribute('aria-expanded', 'true');
+        });
+        
+        offcanvasElement.addEventListener('hide.bs.offcanvas', function () {
+            togglerButton.setAttribute('aria-expanded', 'false');
+        });
+        
+        // Fix duplicate IDs - add 'mobile-' prefix to all IDs in mobile menu
+        const mobileMenu = offcanvasElement.querySelector('#mobile-menu');
+        if (mobileMenu) {
+            const elementsWithId = mobileMenu.querySelectorAll('[id]');
+            elementsWithId.forEach(function(element) {
+                const oldId = element.id;
+                const newId = 'mobile-' + oldId;
+                element.id = newId;
+                
+                // Update aria-labelledby references
+                const labelledByElements = mobileMenu.querySelectorAll('[aria-labelledby="' + oldId + '"]');
+                labelledByElements.forEach(function(el) {
+                    el.setAttribute('aria-labelledby', newId);
+                });
+            });
+        }
+    }
+})();
