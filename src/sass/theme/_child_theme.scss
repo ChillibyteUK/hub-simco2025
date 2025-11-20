@@ -97,24 +97,29 @@ for (; i < all.length; i++) {
 //   border-radius: 0;
 // }
 
+.has-arrow a,
 a.has-arrow {
   position: relative;
   padding-right: 1.5rem;
   text-decoration: none;
   display: inline-block;
   &:after {
-    content: "\f105"; // FontAwesome angle right
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
+    content: ""; // FontAwesome angle right
+    background-image: url("data:image/svg+xml,%3Csvg role='img' xmlns='http://www.w3.org/2000/svg' fill='currentColor' width='18' height='18'%3E%3Cpath d='M9.27870968 11.763871l1.15548382 1.1554838 3.8787097-3.87290319-3.8787097-3.87290322-1.15548382 1.15548387 1.85225802 1.85225806H4.1283871v1.63741936h7.0954839L9.27870968 11.763871zM9 18c4.9705627 0 9-4.0294373 9-9 0-4.97056275-4.0294373-9-9-9-4.97056275 0-9 4.02943725-9 9 .00416218 4.9688377 4.0311623 8.9958378 9 9zM9 1.63741935c4.066241 0 7.3625806 3.29633964 7.3625806 7.36258065 0 4.066241-3.2963396 7.3625806-7.3625806 7.3625806-4.06624101 0-7.36258065-3.2963396-7.36258065-7.3625806C1.64381369 4.93641056 4.93641056 1.64381369 9 1.63741935z'%3E%3C/path%3E%3C/svg%3E");
+    width: 18px;
+    height: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
     position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: var(--transition);
+    top: 5px;
+    margin-left: 0.5rem;
+    transition: margin var(--transition);
   }
     &:hover:after,
   &:focus-visible:after {
-    transform: translateY(-50%) translateX(5px);
+    margin-left: 0.75rem;
   }
 }
 

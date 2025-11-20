@@ -107,17 +107,14 @@ body, .body {
 
 // Links
 a {
-  color: var(--col-dark-gold);
   text-decoration: none;
   transition: color 0.2s;
   text-decoration: none;
 }
 a:hover {
-  color: var(--col-mid-blue);
   text-decoration: none;
 }
 a:focus-visible {
-  outline: 2px solid var(--col-mid-blue);
   outline-offset: 2px;
 }
 
