@@ -10,14 +10,14 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <section class="stat_spinner py-5">
 	<div class="container">
-		<div class="row justify-content-center">
+		<div class="stat_spinner__grid">
 			<?php
 			while ( have_rows( 'stat_spinner' ) ) {
 				the_row();
 				$stat  = get_sub_field( 'stat' );
 				$label = get_sub_field( 'label' );
 				?>
-				<div class="col-6 col-md-4 col-lg-2 stat_spinner__item">
+				<div class="stat_spinner__item">
 					<div class="stat_spinner__stat">
 						<?php
 						if ( get_sub_field( 'prefix' ) ) {

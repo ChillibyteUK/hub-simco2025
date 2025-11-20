@@ -21750,13 +21750,6 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
-.with-icon a::after {
-  font-family: "Font Awesome 6 Pro";
-  content: "\f061";
-  margin-left: 0.5em;
-  font-weight: 400;
-}
-
 p, ul, ol, blockquote, figure {
   margin-block: 0.75em;
 }
@@ -22835,10 +22828,29 @@ a.image-16x9 img {
   background-color: var(--col-simco-gold);
   color: var(--col-black);
 }
+.stat_spinner__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
 .stat_spinner__item {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 1 1 calc(20% - 2rem);
+  min-width: 150px;
+  max-width: 250px;
+}
+@media (max-width: 991px) {
+  .stat_spinner__item {
+    flex: 1 1 calc(33.333% - 2rem);
+  }
+}
+@media (max-width: 575px) {
+  .stat_spinner__item {
+    flex: 1 1 calc(50% - 2rem);
+  }
 }
 .stat_spinner__stat {
   font-size: var(--fs-ticker);
@@ -23130,7 +23142,7 @@ a.image-16x9 img {
 }
 .three-col-link-cards__card:hover .read-more:after,
 .three-col-link-cards__card:hover .read-more:focus:after {
-  transform: translateY(-50%) translateX(5px);
+  margin-left: 0.75rem;
 }
 .three-col-link-cards__card-image {
   width: 100%;
@@ -23140,9 +23152,6 @@ a.image-16x9 img {
   object-fit: contain;
   margin-bottom: 0.5rem;
 }
-.three-col-link-cards__card-body {
-  padding-inline: 1rem;
-}
 .three-col-link-cards__card-body h3, .three-col-link-cards__card-body .h3 {
   font-size: var(--fs-lead-in);
   font-weight: var(--fw-semi);
@@ -23150,23 +23159,18 @@ a.image-16x9 img {
   text-wrap: balance;
 }
 .three-col-link-cards .read-more {
-  margin-top: auto;
-  font-size: var(--fs-body);
   position: relative;
-  padding: 1rem 1.5rem 1rem 1rem;
+  padding-right: 1.5rem;
   text-decoration: none;
   display: inline-block;
-  align-self: flex-start;
 }
 .three-col-link-cards .read-more:after {
-  content: "\f105";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: var(--transition);
+  content: "\f061";
+  font-family: var(--ff-fa);
+  font-weight: 600;
+  top: 5px;
+  margin-left: 0.5rem;
+  transition: margin var(--transition);
 }
 
 .testimonial-slider {

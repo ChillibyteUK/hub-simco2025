@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 				the_row();
 				$l = get_sub_field( 'link' );
 				?>
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-lg-4">
 					<a href="<?= esc_url( $l['url'] ); ?>" target="<?= esc_attr( $l['target'] ); ?>" data-aos="fade-up" class="three-col-link-cards__card">
 						<?php
 						$image = get_sub_field( 'image' );
@@ -42,7 +42,7 @@ defined( 'ABSPATH' ) || exit;
 							<h3><?php the_sub_field( 'title' ); ?></h3>
 							<p><?php the_sub_field( 'text' ); ?></p>
 						</div>
-						<div class="has-arrow">Read More</div>
+						<div class="read-more">Read More</div>
 					</a>
 				</div>
 				<?php

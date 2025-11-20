@@ -11,17 +11,17 @@ $level = get_field( 'level' ) ? get_field( 'level' ) : 'h2';
 
 $split = get_field( 'split' );
 
-$left  = 'col-md-5';
-$right = 'col-md-7';
+$left  = 'col-lg-5';
+$right = 'col-lg-7';
 
 switch ( $split ) {
 	case '50-50':
-		$left  = 'col-md-6';
-		$right = 'col-md-6';
+		$left  = 'col-lg-6';
+		$right = 'col-lg-6';
 		break;
 	case '60-40':
-		$left  = 'col-md-7';
-		$right = 'col-md-5';
+		$left  = 'col-lg-7';
+		$right = 'col-lg-5';
 		break;
 }
 

@@ -119,14 +119,6 @@ a:hover {
 a:focus-visible {
   outline-offset: 2px;
 }
-
-.with-icon a::after {
-  font-family: 'Font Awesome 6 Pro';
-  content: '\f061';
-  margin-left: 0.5em;
-  font-weight: 400;
-}
-
 // Media rhythm
 p, ul, ol, blockquote, figure {
   margin-block: 0.75em;
