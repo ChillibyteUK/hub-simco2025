@@ -21741,13 +21741,20 @@ a {
 }
 
 a:hover {
-  color: var(--col-dark-gold);
-  text-decoration: underline;
+  color: var(--col-mid-blue);
+  text-decoration: none;
 }
 
 a:focus-visible {
-  outline: 2px solid var(--col-dark-gold);
+  outline: 2px solid var(--col-mid-blue);
   outline-offset: 2px;
+}
+
+.with-icon a::after {
+  font-family: "Font Awesome 6 Pro";
+  content: "\f061";
+  margin-left: 0.5em;
+  font-weight: 400;
 }
 
 p, ul, ol, blockquote, figure {

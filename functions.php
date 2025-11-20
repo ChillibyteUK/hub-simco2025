@@ -21,12 +21,11 @@ function understrap_remove_scripts() {
 
 	wp_dequeue_script( 'understrap-scripts' );
 	wp_deregister_script( 'understrap-scripts' );
-	
+
 	// Remove WordPress block library styles (mostly cruft).
 	wp_dequeue_style( 'wp-block-library' );
 	wp_dequeue_style( 'wp-block-library-theme' );
 	wp_dequeue_style( 'wc-blocks-style' );
-	wp_dequeue_style( 'global-styles' );
 }
 add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
