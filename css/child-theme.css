@@ -23125,6 +23125,13 @@ a.image-16x9 img {
 .accordion-block .accordion-button {
   background-color: var(--col-light-grey);
   font-size: var(--fs-lead-in);
+  transition: background-color var(--transition);
+}
+.accordion-block .accordion-button:hover, .accordion-block .accordion-button[aria-expanded=true] {
+  background-color: var(--col-simco-gold);
+}
+.accordion-block .accordion-button:not(.collapsed) {
+  box-shadow: none;
 }
 
 .stat_spinner_grid {

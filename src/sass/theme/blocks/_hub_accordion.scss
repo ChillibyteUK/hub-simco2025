@@ -5,5 +5,13 @@
     .accordion-button {
         background-color: var(--col-light-grey);
         font-size: var(--fs-lead-in);
+        transition: background-color var(--transition);
+        &:hover,
+        &[aria-expanded="true"] {
+            background-color: var(--col-simco-gold);
+        }
+        &:not(.collapsed) {
+            box-shadow: none;
+        }
     }
 }
