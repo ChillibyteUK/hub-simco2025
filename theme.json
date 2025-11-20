@@ -52,6 +52,12 @@
           "origin": "theme"
         },
         {
+          "name": "dark-gold",
+          "slug": "dark-gold",
+          "color": "hsl(43 31% 32%)",
+          "origin": "theme"
+        },
+        {
           "name": "simco-grey",
           "slug": "simco-grey",
           "color": "hsl(47 18% 90%)",

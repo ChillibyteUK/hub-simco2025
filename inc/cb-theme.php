@@ -18,10 +18,6 @@ require_once CB_THEME_DIR . '/inc/cb-taxonomies.php';
 
 require_once CB_THEME_DIR . '/inc/cb-blocks.php';
 
-// Remove unwanted SVG filter injection WP.
-remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
-
 /**
  * Editor styles: opt-in so WP loads editor.css in the block editor.
  * With theme.json present, this just adds your custom CSS on top (variables, helpers).
@@ -122,9 +118,6 @@ function widgets_init() {
     add_theme_support( 'disable-custom-colors' );
 }
 add_action( 'widgets_init', 'widgets_init', 11 );
-
-remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
 // phpcs:disable
 // add_filter('wpseo_breadcrumb_links', function( $links ) {

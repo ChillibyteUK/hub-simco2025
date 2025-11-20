@@ -19,6 +19,8 @@
   --col-simco-gold: hsl(var(--col-simco-gold-hsl));
   --col-light-gold-hsl: 47 18% 90%; /* #eae8e1 – light gold */
   --col-light-gold: hsl(var(--col-light-gold-hsl));
+  --col-dark-gold-hsl: 43 31% 32%; /* #7A6B44 – dark gold */
+  --col-dark-gold: hsl(var(--col-dark-gold-hsl));
   --col-simco-grey: hsl(var(--col-light-gold-hsl));
   --col-lightest-grey: #F8F8F7;
   --col-light-grey: #EAECF1;
@@ -100,6 +102,8 @@
   --col-simco-gold: hsl(var(--col-simco-gold-hsl));
   --col-light-gold-hsl: 47 18% 90%; /* #eae8e1 – light gold */
   --col-light-gold: hsl(var(--col-light-gold-hsl));
+  --col-dark-gold-hsl: 43 31% 32%; /* #7A6B44 – dark gold */
+  --col-dark-gold: hsl(var(--col-dark-gold-hsl));
   --col-simco-grey: hsl(var(--col-light-gold-hsl));
   --col-lightest-grey: #F8F8F7;
   --col-light-grey: #EAECF1;

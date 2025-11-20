@@ -21,6 +21,12 @@ function understrap_remove_scripts() {
 
 	wp_dequeue_script( 'understrap-scripts' );
 	wp_deregister_script( 'understrap-scripts' );
+	
+	// Remove WordPress block library styles (mostly cruft).
+	wp_dequeue_style( 'wp-block-library' );
+	wp_dequeue_style( 'wp-block-library-theme' );
+	wp_dequeue_style( 'wc-blocks-style' );
+	wp_dequeue_style( 'global-styles' );
 }
 add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
 
@@ -38,11 +44,11 @@ function cb_enqueue_theme_css() {
 	wp_enqueue_style(
 		'cb-theme',
 		get_stylesheet_directory_uri() . $rel,
-		array(),
+		array( 'global-styles' ),
 		file_exists( $abs ) ? filemtime( $abs ) : null
 	);
 }
-add_action( 'wp_enqueue_scripts', 'cb_enqueue_theme_css', 20 );
+add_action( 'wp_enqueue_scripts', 'cb_enqueue_theme_css', 100 );
 
 /**
  * Enqueue child-theme.min.js with filemtime versioning.
