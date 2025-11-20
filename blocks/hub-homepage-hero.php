@@ -15,12 +15,12 @@ defined( 'ABSPATH' ) || exit;
 	<div class="container h-100 d-flex justify-content-between">
 		<div class="row my-auto w-100 justify-content-between h-100">
 			<div class="row">
-				<div class="col-12 col-md-6 mb-4 d-flex flex-column justify-content-center">
+				<div class="col-12 col-md-7 mb-4 d-flex flex-column justify-content-center">
 					<div class="homepage-hero__title"><?= wp_kses_post( get_field( 'message' ) ); ?></div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-5">
 					<?php
 					$q = new WP_Query(
 						array(
@@ -43,7 +43,7 @@ defined( 'ABSPATH' ) || exit;
 									<div class="news-slide">
 										<div class="fw-bold fs-body-medium mb-3"><?= esc_html( get_the_title() ); ?></div>
 										<div class="mb-4"><?= esc_html( get_the_excerpt() ); ?></div>
-										<a href="/insights/" class="read-more">Read More<span class="visually-hidden"> about <?= esc_html( get_the_title() ); ?></span></a>
+										<a href="/insights/" class="has-white-color has-arrow">Read More<span class="visually-hidden"> about <?= esc_html( get_the_title() ); ?></span></a>
 									</div>
 								</div>
 									<?php
