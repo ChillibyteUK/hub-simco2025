@@ -16,12 +16,12 @@ $search_query = get_search_query();
 		<div class="container">
 			<h1 class="mb-4">Search Results for: "<?= esc_html( $search_query ); ?>"</h1>
 			<div class="row">
-				<div class="col-md-3">
+				<div class="col-lg-3">
 					<div class="position-sticky pt-4">
 						<a href="<?= esc_url( get_permalink( get_option( 'page_for_posts' ) ) ); ?>" class="btn btn--mid-blue">Back to All Insights</a>
 					</div>
 				</div>
-				<div class="col-md-9">
+				<div class="col-lg-9">
 			<?php if ( have_posts() ) : ?>
 				<p class="mb-4">Found <?= esc_html( $wp_query->found_posts ); ?> result<?= 1 !== $wp_query->found_posts ? 's' : ''; ?></p>
 				
