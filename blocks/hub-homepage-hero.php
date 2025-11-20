@@ -43,7 +43,7 @@ defined( 'ABSPATH' ) || exit;
 									<div class="news-slide">
 										<div class="fw-bold fs-body-medium mb-3"><?= esc_html( get_the_title() ); ?></div>
 										<div class="mb-4"><?= esc_html( get_the_excerpt() ); ?></div>
-										<a href="/insights/" class="has-white-color has-arrow">Read More<span class="visually-hidden"> about <?= esc_html( get_the_title() ); ?></span></a>
+										<a href="/insights/" class="has-arrow">Read More<span class="visually-hidden"> about <?= esc_html( get_the_title() ); ?></span></a>
 									</div>
 								</div>
 									<?php
