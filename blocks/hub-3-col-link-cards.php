@@ -42,7 +42,7 @@ defined( 'ABSPATH' ) || exit;
 							<h3><?php the_sub_field( 'title' ); ?></h3>
 							<p><?php the_sub_field( 'text' ); ?></p>
 						</div>
-						<div class="read-more">Read More</div>
+						<div class="has-arrow">Read More</div>
 					</a>
 				</div>
 				<?php
