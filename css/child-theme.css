@@ -21915,13 +21915,13 @@ header a,
 header a.nav-link {
   font-family: var(--ff-body);
   font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
   line-height: var(--lh-body);
   color: var(--col-black);
   transition: var(--transition);
   display: inline-block;
   text-decoration: none;
   padding: 0;
-  position: relative;
 }
 header a:focus,
 header a.nav-link:focus {
@@ -21932,15 +21932,13 @@ header a.nav-link:focus-visible {
   outline: 2px solid var(--col-simco-gold);
   outline-offset: 4px;
 }
-header a:before,
-header a.nav-link:before {
-  content: "";
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: transparent;
+header .current_page_item > .nav-link,
+header .current_page_parent > .nav-link,
+header .current-menu-ancestor > .nav-link,
+header .current-menu-parent > .nav-link,
+header .dropdown.current-page-ancestor > .nav-link,
+header .dropdown.current-menu-item > .nav-link {
+  color: var(--col-simco-gold);
 }
 header .logo-container {
   max-width: 240px;
@@ -21956,15 +21954,6 @@ header .logo {
   width: 200px;
   height: 50px;
   max-width: 100%;
-}
-header .current_page_item > .nav-link:before,
-header .current_page_parent > .nav-link:before,
-header .current-menu-ancestor > .nav-link:before,
-header .current-menu-parent > .nav-link:before,
-header .dropdown.current-page-ancestor > .nav-link:before,
-header .dropdown.current-menu-item > .nav-link:before {
-  width: 100%;
-  background: var(--col-simco-gold);
 }
 header .offcanvas {
   --bs-offcanvas-width: 75vw;

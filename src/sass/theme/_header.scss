@@ -50,13 +50,13 @@ header {
   a.nav-link {
     font-family: var(--ff-body);
     font-size: var(--fs-base);
+    font-weight: var(--fw-regular);
     line-height: var(--lh-body);
     color: var(--col-black);
     transition: var(--transition);
     display: inline-block;
     text-decoration: none;
     padding: 0;
-    position: relative;
     
     // Only show focus outline for keyboard navigation
     &:focus {
@@ -67,26 +67,16 @@ header {
       outline: 2px solid var(--col-simco-gold);
       outline-offset: 4px;
     }
-    
-    // @media (min-width: 992px) {
-    //   &:hover {
-    //     color: var(--col-accent-400);
-    //     text-decoration: none;
-    //   }
-    // }
-    // &:focus {
-    //   color: var(--col-accent-400);
-    //   text-decoration: none;
-    // }
-    &:before {
-      content: "";
-      position: absolute;
-      bottom: -0.5rem;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background: transparent;
-    }
+  }
+  
+  // Current page indicator - gold text color
+  .current_page_item > .nav-link,
+  .current_page_parent > .nav-link,
+  .current-menu-ancestor > .nav-link,
+  .current-menu-parent > .nav-link,
+  .dropdown.current-page-ancestor > .nav-link,
+  .dropdown.current-menu-item > .nav-link {
+    color: var(--col-simco-gold);
   }
 
   .logo-container {
@@ -103,18 +93,6 @@ header {
     width: 200px;
     height: 50px;
     max-width: 100%;
-  }
-
-  .current_page_item > .nav-link,
-  .current_page_parent > .nav-link,
-  .current-menu-ancestor > .nav-link,
-  .current-menu-parent > .nav-link,
-  .dropdown.current-page-ancestor > .nav-link,
-  .dropdown.current-menu-item > .nav-link {
-    &:before {
-      width: 100%;
-      background: var(--col-simco-gold);
-    }
   }
 
   // Mobile offcanvas styling
