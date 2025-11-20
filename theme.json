@@ -92,11 +92,6 @@
     "typography": {
       "fontSizes": [
         {
-          "name": "base",
-          "slug": "base",
-          "size": "18px"
-        },
-        {
           "name": "body",
           "slug": "body",
           "size": "1rem"
@@ -144,7 +139,12 @@
         {
           "name": "small",
           "slug": "small",
-          "size": "0.889rem"
+          "size": "0.8rem"
+        },
+        {
+          "name": "base",
+          "slug": "base",
+          "size": "18px"
         },
         {
           "name": "lead-in",

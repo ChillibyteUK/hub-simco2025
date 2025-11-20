@@ -43,11 +43,11 @@
   /* =========================
     TYPOGRAPHY (from Figma style.txt)
     ========================= */
-  --fs-base: 18px;
   /* small text (16px) */
-  --fs-small: 0.889rem;
+  --fs-small: 0.8rem;
   --lh-small: 1;
   --fw-small: var(--fw-light);
+  --fs-base: 18px;
   /* body */
   --fs-body: 1rem; /* 18px */
   --lh-body: 1.4;
@@ -127,11 +127,11 @@
   /* =========================
     TYPOGRAPHY (from Figma style.txt)
     ========================= */
-  --fs-base: 18px;
   /* small text (16px) */
-  --fs-small: 0.889rem;
+  --fs-small: 0.8rem;
   --lh-small: 1;
   --fw-small: var(--fw-light);
+  --fs-base: 18px;
   /* body */
   --fs-body: 1rem; /* 18px */
   --lh-body: 1.4;

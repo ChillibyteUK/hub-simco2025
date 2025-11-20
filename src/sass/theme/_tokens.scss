@@ -66,8 +66,6 @@ $col-light: #f2f2f2;
     TYPOGRAPHY (from Figma style.txt)
     ========================= */
 
-  --fs-base: 18px;
-
   // --fs-body: 1rem; /* 16px */
   // --lh-body: 1.5;
   // --fw-body: 400;
@@ -144,9 +142,11 @@ $col-light: #f2f2f2;
 
 
   /* small text (16px) */
-  --fs-small: 0.889rem;
+  --fs-small: 0.8rem;
   --lh-small: 1;
   --fw-small: var(--fw-light);
+
+  --fs-base: 18px;
 
   /* body */
   --fs-body: 1rem; /* 18px */
