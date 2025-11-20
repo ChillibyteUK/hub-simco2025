@@ -53,8 +53,12 @@ body {
     }
   }
 }
+
+.container {
+  padding-inline: 1.5rem !important;
+}
 .container .container {
-  padding-inline: 0;
+  padding-inline: 0 !important;
 }
 
 main {

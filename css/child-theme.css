@@ -23264,8 +23264,12 @@ body {
   padding-inline: 0;
 }
 
+.container, .wp-block-group:not(.alignfull) {
+  padding-inline: 1.5rem !important;
+}
+
 .container .container, .wp-block-group:not(.alignfull) .container, .container .wp-block-group:not(.alignfull), .wp-block-group:not(.alignfull) .wp-block-group:not(.alignfull) {
-  padding-inline: 0;
+  padding-inline: 0 !important;
 }
 
 main {
