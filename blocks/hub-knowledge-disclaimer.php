@@ -18,13 +18,12 @@ $modal_id = 'knowledge-disclaimer-modal-' . uniqid();
 
 $decline_link = get_field( 'redirect_on_decline', 'option' ) ? get_field( 'redirect_on_decline', 'option' ) : home_url();
 ?>
-
 <!-- Disclaimer Modal -->
-<div class="disclaimer modal fade" id="<?= esc_attr( $modal_id ); ?>" tabindex="-1" aria-labelledby="<?= esc_attr( $modal_id ); ?>Label" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade disclaimer" id="<?= esc_attr( $modal_id ); ?>" tabindex="-1" aria-labelledby="<?= esc_attr( $modal_id ); ?>Label" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="h2"><?= esc_html( get_field( 'knowledge_disclaimer_title', 'option' ) ); ?></div>
+                <h2 class="h2" id="<?= esc_attr( $modal_id ); ?>Label"><?= esc_html( get_field( 'knowledge_disclaimer_title', 'option' ) ); ?></h2>
             </div>
             <div class="modal-body">
                 <?= wp_kses_post( $disclaimer_content ); ?>
