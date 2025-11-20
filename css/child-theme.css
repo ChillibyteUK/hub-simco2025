@@ -21695,6 +21695,10 @@ body, .body {
   font-weight: var(--fw-bold);
 }
 
+.fs-base {
+  font-size: var(--fs-base);
+}
+
 .fs-body {
   font-size: var(--fs-body);
 }
