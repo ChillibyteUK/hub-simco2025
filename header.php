@@ -34,7 +34,6 @@ if ( session_status() === PHP_SESSION_NONE ) {
             }
         </style>
     </noscript>
-	<link rel="stylesheet" id="ir-font-css" href="https://use.typekit.net/hnr7skm.css?ver=6.8.3" media="all">
     <?php
     if ( ! is_user_logged_in() ) {
         if ( get_field( 'ga_property', 'options' ) ) {
@@ -90,6 +89,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 
 	wp_head();
 	?>
+		<link rel="stylesheet" id="ir-font-css" href="https://use.typekit.net/hnr7skm.css?ver=6.8.3" media="all">
 </head>
 
 <body <?php body_class( is_front_page() ? 'homepage' : '' ); ?>
