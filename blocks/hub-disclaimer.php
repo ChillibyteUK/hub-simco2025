@@ -55,7 +55,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
 ?>
 
 <!-- Disclaimer Modal -->
-<div class="modal fade" id="<?= esc_attr( $modal_id ); ?>" tabindex="-1" aria-labelledby="<?= esc_attr( $modal_id ); ?>Label" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="modal fade disclaimer" id="<?= esc_attr( $modal_id ); ?>" tabindex="-1" aria-labelledby="<?= esc_attr( $modal_id ); ?>Label" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <!-- Step 1: Country Selection -->
@@ -77,6 +77,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
 					<div class=""><?= wp_kses_post( get_field( 'screen_1_post_country_select', 'option' ) ); ?></div>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn--simco-red" id="country-back">Back</button>
                     <button type="button" class="btn btn--mid-blue" id="country-continue" disabled>Continue</button>
                 </div>
             </div>
@@ -117,7 +118,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="disclaimer-back-btn">Back</button>
+                    <button type="button" class="btn btn--simco-red" id="disclaimer-back-btn">Back</button>
                     <button type="button" class="btn btn--mid-blue" id="disclaimer-accept" disabled>Accept & Continue</button>
                 </div>
             </div>
@@ -156,6 +157,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const disclaimerAccept = document.getElementById('disclaimer-accept');
     const backButtons = document.querySelectorAll('#disclaimer-back, #disclaimer-back-btn, #access-denied-back');
     const acknowledgeAnnouncement = document.getElementById('acknowledge-announcement');
+    const countryBack = document.getElementById('country-back');
+    
+    // Back to homepage from country selection
+    if (countryBack) {
+        countryBack.addEventListener('click', function() {
+            window.location.href = '/';
+        });
+    }
     
     // Country selection logic
     countrySelect.addEventListener('change', function() {

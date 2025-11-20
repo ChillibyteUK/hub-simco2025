@@ -23101,6 +23101,10 @@ a.image-16x9 img {
   font-size: var(--fs-lead-in);
 }
 
+.disclaimer .modal-footer {
+  justify-content: space-between;
+}
+
 .three-col-link-cards__card {
   text-decoration: none;
   height: 100%;

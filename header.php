@@ -7,6 +7,9 @@
  * @package hub-sequoia2025
  */
 
+//phpcs:disable WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
+// Can't self-host fonts as it breaches Adobe Fonts T&Cs.
+
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
@@ -32,12 +35,6 @@ if ( session_status() === PHP_SESSION_NONE ) {
         </style>
     </noscript>
 	<link rel="stylesheet" id="ir-font-css" href="https://use.typekit.net/hnr7skm.css?ver=6.8.3" media="all">
-    <!-- <link rel="preload"
-        href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/acumin-pro-400.woff2' ); ?>"
-        as="font" type="font/woff2" crossorigin="anonymous">
-    <link rel="preload"
-        href="<?= esc_url( get_stylesheet_directory_uri() . '/fonts/acumin-pro-700.woff2' ); ?>"
-        as="font" type="font/woff2" crossorigin="anonymous"> -->
     <?php
     if ( ! is_user_logged_in() ) {
         if ( get_field( 'ga_property', 'options' ) ) {

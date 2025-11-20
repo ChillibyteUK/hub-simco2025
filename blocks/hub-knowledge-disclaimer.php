@@ -20,7 +20,7 @@ $decline_link = get_field( 'redirect_on_decline', 'option' ) ? get_field( 'redir
 ?>
 
 <!-- Disclaimer Modal -->
-<div class="modal fade" id="<?= esc_attr( $modal_id ); ?>" tabindex="-1" aria-labelledby="<?= esc_attr( $modal_id ); ?>Label" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+<div class="disclaimer modal fade" id="<?= esc_attr( $modal_id ); ?>" tabindex="-1" aria-labelledby="<?= esc_attr( $modal_id ); ?>Label" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -30,8 +30,8 @@ $decline_link = get_field( 'redirect_on_decline', 'option' ) ? get_field( 'redir
                 <?= wp_kses_post( $disclaimer_content ); ?>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn--mid-blue" id="accept-disclaimer-<?= esc_attr( $modal_id ); ?>">Accept</button>
                 <button type="button" class="btn btn--simco-red" id="decline-disclaimer-<?= esc_attr( $modal_id ); ?>">Decline</button>
+                <button type="button" class="btn btn--mid-blue" id="accept-disclaimer-<?= esc_attr( $modal_id ); ?>">Accept</button>
             </div>
         </div>
     </div>
