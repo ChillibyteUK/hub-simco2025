@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 				$stat  = get_sub_field( 'value' );
 				$label = get_sub_field( 'label' );
 				?>
-				<div class="col-6 col-md-4" data-aos="fade">
+				<div class="col-12 col-md-6 col-lg-4" data-aos="fade">
 					<div class="stat_spinner__item has-simco-bluegrey-50-background-color p-3 text-center">
 						<div class="stat_spinner_grid__stat has-stat-font-size fw-bold">
 							<?php
