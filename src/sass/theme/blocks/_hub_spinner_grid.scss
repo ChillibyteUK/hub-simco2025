@@ -1,0 +1,23 @@
+.stat_spinner_grid {
+    background-color: var(--col-simco-gold);
+    color: var(--col-black);
+	
+	&__item {
+		display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+	}
+
+	&__stat {
+		font-size: var(--fs-ticker);
+        font-weight: var(--fw-bold);
+        line-height: 1;
+        display: flex;
+        justify-content: center;
+	}
+
+	&__label {
+        text-align: center;
+	}
+}

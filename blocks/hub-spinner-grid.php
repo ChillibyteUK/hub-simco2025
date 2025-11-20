@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 				$label = get_sub_field( 'label' );
 				?>
 				<div class="col-12 col-md-6 col-lg-4" data-aos="fade">
-					<div class="stat_spinner__item has-simco-bluegrey-50-background-color p-3 text-center">
+					<div class="stat_spinner_grid__item has-simco-bluegrey-50-background-color px-3 py-4 text-center">
 						<div class="stat_spinner_grid__stat has-stat-font-size fw-bold">
 							<?php
 							if ( get_sub_field( 'prefix' ) ) {
