@@ -22452,13 +22452,13 @@ span a {
 }
 .search-result-item__link {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 130px 1fr;
   gap: 1rem;
   padding: 1rem;
   text-decoration: none;
   color: inherit;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .search-result-item__link {
     grid-template-columns: 1fr;
     gap: 1rem;
