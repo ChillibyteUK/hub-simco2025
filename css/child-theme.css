@@ -23134,6 +23134,13 @@ a.image-16x9 img {
   box-shadow: none;
 }
 
+.doc-list__item {
+  transition: background-color var(--transition);
+}
+.doc-list__item:hover {
+  background-color: var(--col-simco-gold) !important;
+}
+
 .stat_spinner_grid {
   background-color: var(--col-simco-gold);
   color: var(--col-black);

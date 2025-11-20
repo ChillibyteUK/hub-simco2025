@@ -23,11 +23,12 @@ defined( 'ABSPATH' ) || exit;
 			<?php
 			foreach ( $cards as $i => $c ) {
 				?>
-				<div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
-					<div class="d-flex flex-column h-100">
+				<div class="col-12 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
+					<div class="row align-items-start">
 						<?php
 						if ( ! empty( $c['image'] ) ) {
 							?>
+							<div class="col-md-4 col-lg-12">
 							<?=
 							wp_get_attachment_image(
 								$c['image'],
@@ -39,10 +40,11 @@ defined( 'ABSPATH' ) || exit;
 								)
 							);
 							?>
+							</div>
 							<?php
 						}
 						?>
-						<div class="card-body d-flex flex-column">
+						<div class="col-md-8 col-lg-12">
 							<?php
 							if ( ! empty( $c['title'] ) ) {
 								?>

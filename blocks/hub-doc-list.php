@@ -54,25 +54,27 @@ $classes = trim( "$bg $fg $slant_class" );
 				$file_name = ! empty( $file['title'] ) ? $file['title'] : basename( $file_url );
 				$file_ext  = pathinfo( $file_url, PATHINFO_EXTENSION );
 				?>
-			<a href="<?= esc_url( $file_url ); ?>" class="doc-list__item has-light-grey-background-color d-block mb-3 p-3 text-decoration-none" target="_blank" rel="noopener" data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
-				<div class="row g-4 align-items-center">
-					<div class="col-md-2">
-						<div class="doc-list__date">
-							<?= esc_html( get_sub_field( 'date' ) ); ?>
+			<div data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
+				<a href="<?= esc_url( $file_url ); ?>" class="doc-list__item has-light-grey-background-color d-block mb-3 p-3 text-decoration-none" target="_blank" rel="noopener">
+					<div class="row g-4 align-items-center">
+						<div class="col-md-2">
+							<div class="doc-list__date">
+								<?= esc_html( get_sub_field( 'date' ) ); ?>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="doc-list__details">
+								<div class="doc-list__filename"><?= esc_html( get_sub_field( 'file_title' ) ); ?></div>
+							</div>
+						</div>
+						<div class="col-md-2 text-end">
+							<div class="doc-list__icon">
+								<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/' . strtolower( $file_ext ) . '-icon.png' ); ?>" alt="<?= esc_attr( strtoupper( $file_ext ) . ' icon' ); ?>" width="40" height="40">
+							</div>
 						</div>
 					</div>
-					<div class="col-md-8">
-						<div class="doc-list__details">
-							<div class="doc-list__filename"><?= esc_html( get_sub_field( 'file_title' ) ); ?></div>
-						</div>
-					</div>
-					<div class="col-md-2 text-end">
-						<div class="doc-list__icon">
-							<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/' . strtolower( $file_ext ) . '-icon.png' ); ?>" alt="<?= esc_attr( strtoupper( $file_ext ) . ' icon' ); ?>" width="40" height="40">
-						</div>
-					</div>
-				</div>
-			</a>
+				</a>
+			</div>
 				<?php
 				++$i;
 			}

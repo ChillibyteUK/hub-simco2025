@@ -21,11 +21,14 @@ defined( 'ABSPATH' ) || exit;
 			while ( have_rows( 'cards' ) ) {
 				the_row();
 				?>
-				<div class="col-12 col-md-4">
-					<div class="three-col-image-cards__card">
+				<div class="col-12 col-lg-4">
+					<div class="three-col-image-cards__card row">
 						<?php
 						$image = get_sub_field( 'image' );
 						if ( $image ) {
+							?>
+							<div class="col-md-4">
+							<?php
 							echo wp_get_attachment_image(
 								$image,
 								'full',
@@ -35,9 +38,12 @@ defined( 'ABSPATH' ) || exit;
 									'alt'   => esc_attr( get_sub_field( 'title' ) ),
 								)
 							);
+							?>
+							</div>
+							<?php
 						}
 						?>
-						<div class="three-col-image-cards__card-body">
+						<div class="col-md-8 three-col-image-cards__card-body">
 							<?php the_sub_field( 'title' ); ?>
 						</div>
 					</div>
