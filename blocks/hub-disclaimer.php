@@ -61,7 +61,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
             <!-- Step 1: Country Selection -->
             <div id="country-step" class="disclaimer-step">
                 <div class="modal-header">
-					<h2 class="h2" id="<?= esc_attr( $modal_id ); ?>Label"><?= esc_html( get_field( 'screen_1_title', 'option' ) ); ?></h2>
+					<h2 class="h3" id="<?= esc_attr( $modal_id ); ?>Label"><?= esc_html( get_field( 'screen_1_title', 'option' ) ); ?></h2>
                 </div>
                 <div class="modal-body">
 					<div class=""><?= wp_kses_post( get_field( 'screen_1_pre_country_select', 'option' ) ); ?></div>
