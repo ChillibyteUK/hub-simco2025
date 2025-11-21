@@ -158,8 +158,19 @@ function lc_theme_enqueue() {
     // wp_deregister_script( 'jquery' ); // needed by gravity forms
     // phpcs:enable
 
-    wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-    wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js', array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+    // Defer Swiper CSS and JS to remove from critical path.
+    wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), null, 'all' ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+    wp_style_add_data( 'swiper', 'defer', true );
+    wp_enqueue_script(
+        'swiper',
+        'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js',
+        array(),
+        null, // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+        array(
+            'strategy'  => 'defer',
+            'in_footer' => true,
+        )
+    );
 
     // Deregister jQuery unless Gravity Forms is on the page.
     $post   = get_post();
