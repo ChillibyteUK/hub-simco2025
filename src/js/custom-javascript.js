@@ -1,13 +1,39 @@
 // Add your custom JS here.
-AOS.init({
-  easing: 'ease-out',
-  once: true,
-  duration: 600,
-  disable: function() {
-    // Disable AOS on devices that prefer reduced motion.
-    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Modern scroll animations using Intersection Observer
+(function() {
+  // Check for reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (prefersReducedMotion) {
+    // If user prefers reduced motion, make all elements immediately visible
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+    return;
   }
-});
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('aos-animate');
+        // Once animated, stop observing (animate once)
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px'
+  });
+
+  // Observe all elements with data-aos attribute
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-aos]').forEach(el => {
+      observer.observe(el);
+    });
+  });
+})();
 
 document.querySelectorAll('.hub-team__grid').forEach(grid => {
     let openDetail = null;
