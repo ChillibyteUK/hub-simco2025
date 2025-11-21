@@ -26,6 +26,11 @@ if ( session_status() === PHP_SESSION_NONE ) {
     <meta
         charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1">
+    
+    <!-- Preconnect to Adobe Fonts for faster font loading -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="dns-prefetch" href="https://use.typekit.net">
+    
     <noscript>
         <style>
             [data-aos] {
@@ -86,10 +91,13 @@ if ( session_status() === PHP_SESSION_NONE ) {
 	if ( get_field( 'bing_site_verification', 'options' ) ) {
 		echo '<meta name="msvalidate.01" content="' . esc_attr( get_field( 'bing_site_verification', 'options' ) ) . '" />';
 	}
-
+	?>
+	<!-- Load Adobe Fonts asynchronously to prevent blocking -->
+	<link rel="preload" href="https://use.typekit.net/hnr7skm.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://use.typekit.net/hnr7skm.css"></noscript>
+	<?php
 	wp_head();
 	?>
-		<link rel="stylesheet" id="ir-font-css" href="https://use.typekit.net/hnr7skm.css?ver=6.8.3" media="all">
 </head>
 
 <body <?php body_class( is_front_page() ? 'homepage' : '' ); ?>
