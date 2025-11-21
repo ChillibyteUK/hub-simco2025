@@ -33,9 +33,15 @@ if ( session_status() === PHP_SESSION_NONE ) {
     
     <!-- Critical CSS to prevent FOUC on navigation -->
     <style>
-        /* Hide header until page is ready */
+        /* Hide header until page is ready and disable transitions during load */
         html.loading #wrapper-navbar {
             visibility: hidden;
+            transition: none !important;
+        }
+        
+        /* Disable all transitions on nav elements during load */
+        html.loading #wrapper-navbar * {
+            transition: none !important;
         }
     </style>
     
@@ -110,7 +116,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 
 <body <?php body_class( is_front_page() ? 'homepage' : '' ); ?>
     <?php understrap_body_attributes(); ?>>
-    <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'hub-sequoia2025' ); ?></a>
+    <a class="skip-link screen-reader-text" href="#main" style="display:none"><?php esc_html_e( 'Skip to content', 'hub-sequoia2025' ); ?></a>
     <?php
 	do_action( 'wp_body_open' );
 	if ( ! is_user_logged_in() ) {
