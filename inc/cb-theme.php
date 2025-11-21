@@ -215,14 +215,22 @@ function remove_nav_menu_item_id( $atts ) {
 }
 add_filter( 'nav_menu_link_attributes', 'remove_nav_menu_item_id' );
 
-
-// fix validatio errors on 'auto' image size attribute.
-add_filter(
-	'wp_calculate_image_sizes',
-	function ( $sizes ) {
-    	return '(max-width: 100vw) 100vw, 100vw';
-	}
-);
+/**
+ * Fix W3C validation errors by removing 'auto' from image sizes attribute.
+ *
+ * WordPress 5.5+ adds sizes="auto" for lazy-loaded images, but this is not valid HTML.
+ * This filter replaces it with a proper sizes attribute.
+ *
+ * @param string $sizes The calculated sizes attribute value.
+ * @return string Valid sizes attribute without 'auto'.
+ */
+function fix_image_sizes_attribute( $sizes ) {
+    // Ignore the default $sizes value and provide valid HTML.
+    // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+    // This means images take full viewport width up to container max.
+    return '(max-width: 100vw) 100vw, 100vw';
+}
+add_filter( 'wp_calculate_image_sizes', 'fix_image_sizes_attribute' );
 
 
 // ===========================================================================
