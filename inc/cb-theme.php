@@ -219,18 +219,44 @@ add_filter( 'nav_menu_link_attributes', 'remove_nav_menu_item_id' );
  * Fix W3C validation errors by removing 'auto' from image sizes attribute.
  *
  * WordPress 5.5+ adds sizes="auto" for lazy-loaded images, but this is not valid HTML.
- * This filter replaces it with a proper sizes attribute.
+ * This filter removes 'auto,' from the sizes attribute.
  *
- * @param string $sizes The calculated sizes attribute value.
- * @return string Valid sizes attribute without 'auto'.
+ * @param array $attr Image attributes.
+ * @return array Modified attributes without 'auto' in sizes.
  */
-function fix_image_sizes_attribute( $sizes ) {
-    // Ignore the default $sizes value and provide valid HTML.
-    // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
-    // This means images take full viewport width up to container max.
-    return '(max-width: 100vw) 100vw, 100vw';
+function fix_image_sizes_attribute( $attr ) {
+    if ( isset( $attr['sizes'] ) ) {
+        // Remove 'auto, ' from sizes attribute to fix W3C validation.
+        $attr['sizes'] = str_replace( 'auto, ', '', $attr['sizes'] );
+    }
+    return $attr;
 }
-add_filter( 'wp_calculate_image_sizes', 'fix_image_sizes_attribute' );
+add_filter( 'wp_get_attachment_image_attributes', 'fix_image_sizes_attribute', 999, 1 );
+
+/**
+ * Fix W3C validation errors by removing 'auto' from sizes in all HTML output.
+ *
+ * @param string $html The HTML markup.
+ * @return string Modified HTML without 'auto' in sizes attribute.
+ */
+function fix_image_sizes_html( $html ) {
+    // Remove 'auto, ' from sizes attribute in HTML output.
+    return preg_replace( '/sizes="auto,\s*/', 'sizes="', $html );
+}
+add_filter( 'post_thumbnail_html', 'fix_image_sizes_html', 999 );
+add_filter( 'the_content', 'fix_image_sizes_html', 999 );
+
+/**
+ * Remove 'auto' from sizes attribute in final output buffer.
+ */
+function fix_sizes_output_buffer() {
+    ob_start(
+        function ( $html ) {
+            return preg_replace( '/sizes="auto,\s*/', 'sizes="', $html );
+        }
+    );
+}
+add_action( 'template_redirect', 'fix_sizes_output_buffer' );
 
 
 // ===========================================================================

@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<section class="stat_spinner py-5">
+<div class="stat_spinner py-5">
 	<div class="container">
 		<div class="stat_spinner__grid">
 			<?php
@@ -42,7 +42,7 @@ defined( 'ABSPATH' ) || exit;
 			?>
 		</div>
 	</div>
-</section>
+</div>
 <?php
 add_action(
 	'wp_footer',

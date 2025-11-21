@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<section class="homepage-hero">
+<div class="homepage-hero">
 	<div class="homepage-hero__background">
 		<?= wp_get_attachment_image( get_field( 'background' ), 'full', false, array( 'alt' => '' ) ); ?>
 	</div>
@@ -73,4 +73,4 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 		</div>
 	</div>
-</section>
+</div>
