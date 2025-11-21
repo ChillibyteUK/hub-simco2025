@@ -20,10 +20,11 @@ defined( 'ABSPATH' ) || exit;
 			<?php
 			while ( have_rows( 'cards' ) ) {
 				the_row();
-				$l = get_sub_field( 'link' );
+				$l      = get_sub_field( 'link' );
+				$target = $l['target'] ? $l['target'] : '_self';
 				?>
 				<div class="col-12 col-lg-4">
-					<a href="<?= esc_url( $l['url'] ); ?>" target="<?= esc_attr( $l['target'] ); ?>" data-aos="fade-up" class="three-col-link-cards__card">
+					<a href="<?= esc_url( $l['url'] ); ?>" target="<?= esc_attr( $target ); ?>" data-aos="fade-up" class="three-col-link-cards__card">
 						<?php
 						$image = get_sub_field( 'image' );
 						if ( $image ) {

@@ -180,19 +180,49 @@ function lc_theme_enqueue() {
 add_action( 'wp_enqueue_scripts', 'lc_theme_enqueue' );
 
 /**
- * Add defer attribute to child-theme.min.js for better performance.
+ * Add defer attribute to scripts for better performance.
  *
  * @param string $tag    The script tag HTML.
  * @param string $handle The script handle.
  * @return string Modified script tag.
  */
 function add_defer_to_scripts( $tag, $handle ) {
+    // Defer child theme scripts.
     if ( 'child-theme-scripts' === $handle ) {
         return str_replace( ' src', ' defer src', $tag );
     }
+
+    // Defer jQuery when it's loaded (for Gravity Forms pages).
+    // Note: This may break some plugins if they expect jQuery immediately.
+    if ( in_array( $handle, array( 'jquery-core', 'jquery-migrate' ), true ) ) {
+        return str_replace( ' src', ' defer src', $tag );
+    }
+
     return $tag;
 }
 add_filter( 'script_loader_tag', 'add_defer_to_scripts', 10, 2 );
+
+/**
+ * Remove id attributes from nav menu links to prevent duplicate IDs.
+ * This is necessary when using the same menu in both desktop and mobile (offcanvas) views.
+ *
+ * @param array $atts HTML attributes applied to the anchor element.
+ * @return array Modified attributes without id.
+ */
+function remove_nav_menu_item_id( $atts ) {
+    unset( $atts['id'] );
+    return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'remove_nav_menu_item_id' );
+
+
+// fix validatio errors on 'auto' image size attribute.
+add_filter(
+	'wp_calculate_image_sizes',
+	function ( $sizes ) {
+    	return '(max-width: 100vw) 100vw, 100vw';
+	}
+);
 
 
 // ===========================================================================

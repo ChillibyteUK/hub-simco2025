@@ -55,8 +55,9 @@ if ( $block_id ) {
 				<?= wp_kses_post( get_field( 'content' ) ); ?>
 				<?php
 				if ( $show_button && $link_url ) {
+					$target = $button_link['target'] ? $button_link['target'] : '_self';
 					?>
-					<a href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $button_link['target'] ); ?>" class="btn btn--mid-blue mt-3"><?= esc_html( $button_link['title'] ); ?></a>
+					<a href="<?= esc_url( $link_url ); ?>" target="<?= esc_attr( $target ); ?>" class="btn btn--mid-blue mt-3"><?= esc_html( $button_link['title'] ); ?></a>
 					<?php
 				}
 				?>

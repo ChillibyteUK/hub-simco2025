@@ -44,11 +44,12 @@ $img = get_field( 'image' ) ?
 					<?= wp_kses_post( get_field( 'content' ) ); ?>
 					<?php
 					if ( get_field( 'link' ) ?? null ) {
-						$l = get_field( 'link' );
+						$l      = get_field( 'link' );
+						$target = $l['target'] ? $l['target'] : '_self';
                         ?>
 					<a href="<?= esc_url( $l['url'] ); ?>"
 						class="btn btn-primary mx-auto ms-md-0"
-						target="<?= esc_attr( $l['target'] ); ?>"><?= esc_html( $l['title'] ); ?></a>
+						target="<?= esc_attr( $target ); ?>"><?= esc_html( $l['title'] ); ?></a>
 						<?php
 					}
 					?>
