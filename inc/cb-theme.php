@@ -158,32 +158,6 @@ function lc_theme_enqueue() {
     // wp_deregister_script( 'jquery' ); // needed by gravity forms
     // phpcs:enable
 
-    // Conditionally load Swiper only on pages that use it.
-    $post       = get_post();
-    $has_swiper = false;
-
-    if ( $post ) {
-        $has_swiper = has_block( 'acf/hub-homepage-hero', $post ) ||
-            has_block( 'acf/hub-testimonial-slider', $post );
-    }
-
-    if ( $has_swiper ) {
-        // Swiper CSS loads blocking as it's used in homepage hero (above fold).
-        wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-
-        // Swiper JS can be deferred as it's not needed for initial paint.
-        wp_enqueue_script(
-            'swiper',
-            'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js',
-            array(),
-            null, // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-            array(
-                'strategy'  => 'defer',
-                'in_footer' => true,
-            )
-        );
-    }
-
     // Deregister jQuery unless Gravity Forms is on the page.
     $post   = get_post();
     $has_gf = false;

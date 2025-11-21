@@ -24,14 +24,16 @@ defined( 'ABSPATH' ) || exit;
 			?>
 			<div class="row">
 				<div class="col-md-10 offset-md-1">
-					<div class="swiper testimonialSwiper my-4">
-						<div class="swiper-wrapper">
+					<div id="testimonialCarousel" class="carousel slide carousel-fade my-4" data-bs-ride="carousel" data-bs-interval="6000">
+						<div class="carousel-inner">
 							<?php
+							$slide_index = 0;
 							while ( $q->have_posts() ) {
 								$q->the_post();
-								$company = get_field( 'company', get_the_ID() );
+								$company      = get_field( 'company', get_the_ID() );
+								$active_class = ( 0 === $slide_index ) ? ' active' : '';
 								?>
-								<div class="swiper-slide">
+								<div class="carousel-item<?= esc_attr( $active_class ); ?>">
 									<div class="testimonial-slider__slide p-4 h-100 d-flex flex-column justify-content-between text-center">
 										<div class="testimonial-slider__quote mb-4">"<?= esc_html( wp_strip_all_tags( get_the_content() ) ); ?>"</div>
 										<div class="testimonial-slider__author mt-auto">
@@ -41,10 +43,21 @@ defined( 'ABSPATH' ) || exit;
 									</div>
 								</div>
 								<?php
+								++$slide_index;
 							}
 							?>
 						</div>
-						<div class="swiper-pagination"></div>
+						<div class="carousel-indicators">
+							<?php
+							for ( $i = 0; $i < $slide_index; $i++ ) {
+								$active  = ( 0 === $i ) ? ' active' : '';
+								$current = ( 0 === $i ) ? ' aria-current="true"' : '';
+								?>
+								<button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="<?= esc_attr( $i ); ?>" class="<?= esc_attr( trim( $active ) ); ?>"<?= $current; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> aria-label="Testimonial <?= esc_attr( $i + 1 ); ?>"></button>
+								<?php
+							}
+							?>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -54,34 +67,3 @@ defined( 'ABSPATH' ) || exit;
 		?>
 	</div>
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-	const testimonialSwiper = new Swiper('.testimonialSwiper', {
-		slidesPerView: 1,
-		spaceBetween: 30,
-		loop: true,
-		autoplay: {
-			delay: 6000,
-			disableOnInteraction: true,
-		},
-		effect: 'fade',
-		fadeEffect: {
-			crossFade: true
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-		},
-		keyboard: {
-			enabled: true,
-			onlyInViewport: false,
-		},
-		a11y: {
-			prevSlideMessage: 'Previous testimonial',
-			nextSlideMessage: 'Next testimonial',
-			paginationBulletMessage: 'Go to testimonial {{index}}',
-		},
-	});
-});
-</script>

@@ -33,24 +33,37 @@ defined( 'ABSPATH' ) || exit;
 					);
 					if ( $q->have_posts() ) {
 						?>
-						<div class="hero-swiper swiper d-flex flex-column justify-content-between h-100" style="height: 100%;">
-							<div class="swiper-wrapper">
+						<div id="heroCarousel" class="carousel slide h-100" data-bs-ride="carousel" data-bs-interval="4000" data-bs-pause="false">
+							<div class="carousel-inner h-100">
 								<?php
+								$slide_index = 0;
 								while ( $q->have_posts() ) {
 									$q->the_post();
+									$active_class = ( 0 === $slide_index ) ? ' active' : '';
 									?>
-									<div class="swiper-slide">
-									<div class="news-slide">
-										<div class="fw-bold fs-body-medium mb-3"><?= esc_html( get_the_title() ); ?></div>
-										<div class="mb-4"><?= esc_html( get_the_excerpt() ); ?></div>
-										<a href="/insights/" class="has-arrow">Read More<span class="visually-hidden"> about <?= esc_html( get_the_title() ); ?></span></a>
+									<div class="carousel-item<?= esc_attr( $active_class ); ?> h-100">
+										<div class="news-slide">
+											<div class="fw-bold fs-body-medium mb-3"><?= esc_html( get_the_title() ); ?></div>
+											<div class="mb-4"><?= esc_html( get_the_excerpt() ); ?></div>
+											<a href="/insights/" class="has-arrow">Read More<span class="visually-hidden"> about <?= esc_html( get_the_title() ); ?></span></a>
+										</div>
 									</div>
-								</div>
+									<?php
+									++$slide_index;
+								}
+								?>
+							</div>
+							<div class="carousel-indicators pb-5">
+								<?php
+								for ( $i = 0; $i < $slide_index; $i++ ) {
+									$active  = ( 0 === $i ) ? ' active' : '';
+									$current = ( 0 === $i ) ? ' aria-current="true"' : '';
+									?>
+									<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="<?= esc_attr( $i ); ?>" class="<?= esc_attr( trim( $active ) ); ?>"<?= $current; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> aria-label="Slide <?= esc_attr( $i + 1 ); ?>"></button>
 									<?php
 								}
 								?>
 							</div>
-							<div class="swiper-pagination pb-5"></div>
 						</div>
 						<?php
 					}
@@ -61,40 +74,3 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 	</div>
 </section>
-<?php
-add_action(
-	'wp_footer',
-	function () {
-		?>
-		<script>
-document.addEventListener('DOMContentLoaded', function() {
-	const swiper = new Swiper('.hero-swiper', {
-		loop: true,
-		autoplay: {
-			delay: 4000,
-			disableOnInteraction: false,
-		},
-		effect: 'fade',
-		fadeEffect: {
-			crossFade: true
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-			type: 'bullets',
-		},
-		keyboard: {
-			enabled: true,
-			onlyInViewport: false,
-		},
-		a11y: {
-			prevSlideMessage: 'Previous slide',
-			nextSlideMessage: 'Next slide',
-			paginationBulletMessage: 'Go to slide {{index}}',
-		},
-	});
-});
-	</script>
-		<?php
-	}
-);

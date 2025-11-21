@@ -12538,6 +12538,38 @@ a.image-16x9 img {
   isolation: isolate;
   color: var(--col-white);
 }
+.homepage-hero #heroCarousel {
+  position: relative;
+  min-height: 400px;
+  padding-bottom: 60px;
+}
+.homepage-hero #heroCarousel .carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 350px;
+}
+.homepage-hero #heroCarousel .carousel-item {
+  min-height: 350px;
+}
+.homepage-hero #heroCarousel .carousel-indicators {
+  position: absolute !important;
+  bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+.homepage-hero #heroCarousel .carousel-indicators button {
+  background-color: var(--col-white);
+  opacity: 0.7;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  margin: 0 4px;
+}
+.homepage-hero #heroCarousel .carousel-indicators button.active {
+  background-color: var(--col-simco-gold);
+  opacity: 1;
+}
 .homepage-hero__background {
   position: absolute;
   inset: 0;
@@ -12883,23 +12915,38 @@ a.image-16x9 img {
 .testimonial-slider__quote {
   font-size: var(--fs-lead-in);
 }
-.testimonial-slider .swiper-pagination {
-  position: relative !important;
-  bottom: auto !important;
-  margin-top: 20px;
+.testimonial-slider .carousel {
+  position: relative;
+  min-height: 400px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
 }
-.testimonial-slider .swiper-pagination-bullet {
-  background: var(--col-white);
+.testimonial-slider .carousel-inner {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.testimonial-slider .carousel-item {
+  min-height: 300px;
+}
+.testimonial-slider .carousel-indicators {
+  position: absolute !important;
+  bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+.testimonial-slider .carousel-indicators button {
+  background-color: var(--col-white);
   opacity: 0.7;
-  width: 16px;
-  height: 16px;
-  margin-right: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  margin: 0 4px;
 }
-.testimonial-slider .swiper-pagination-bullet-active {
-  background: var(--col-black);
+.testimonial-slider .carousel-indicators button.active {
+  background-color: var(--col-black);
   opacity: 1;
-  width: 16px;
-  height: 16px;
 }
 
 .mailing-list {
