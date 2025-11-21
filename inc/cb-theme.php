@@ -158,9 +158,16 @@ function lc_theme_enqueue() {
     // wp_deregister_script( 'jquery' ); // needed by gravity forms
     // phpcs:enable
 
-    // Defer Swiper CSS and JS to remove from critical path.
-    wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), null, 'all' ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-    wp_style_add_data( 'swiper', 'defer', true );
+    // Load Swiper asynchronously to prevent render blocking.
+    add_action(
+        'wp_head',
+        function () {
+            echo '<link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
+            echo '<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></noscript>' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
+        },
+        1
+    );
+
     wp_enqueue_script(
         'swiper',
         'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js',
