@@ -55,6 +55,12 @@ defined( 'ABSPATH' ) || exit;
 		</div>
 	</div>
 </footer>
+<script>
+// Remove loading class once DOM and Bootstrap are ready
+document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.classList.remove('loading');
+});
+</script>
 <?php wp_footer(); ?>
 </body>
 

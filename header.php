@@ -22,7 +22,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 <html <?php language_attributes(); ?> class="no-js">
 
 <head>
-    <script>(function(h){h.className=h.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+    <script>(function(h){h.className=h.className.replace(/\bno-js\b/,'js');h.classList.add('loading');})(document.documentElement);</script>
     <meta
         charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1">
@@ -30,6 +30,14 @@ if ( session_status() === PHP_SESSION_NONE ) {
     <!-- Preconnect to Adobe Fonts for faster font loading -->
     <link rel="preconnect" href="https://use.typekit.net" crossorigin>
     <link rel="dns-prefetch" href="https://use.typekit.net">
+    
+    <!-- Critical CSS to prevent FOUC on navigation -->
+    <style>
+        /* Hide header until page is ready */
+        html.loading #wrapper-navbar {
+            visibility: hidden;
+        }
+    </style>
     
     <noscript>
         <style>
