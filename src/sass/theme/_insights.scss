@@ -52,9 +52,8 @@
         display: inline-block;
         align-self: flex-start;
         &:after {
-            content: "\f105"; // FontAwesome angle right
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
+            content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='currentColor' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+            display: inline-block;
             position: absolute;
             right: 0;
             top: 50%;
