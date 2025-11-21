@@ -179,6 +179,21 @@ function lc_theme_enqueue() {
 }
 add_action( 'wp_enqueue_scripts', 'lc_theme_enqueue' );
 
+/**
+ * Add defer attribute to child-theme.min.js for better performance.
+ *
+ * @param string $tag    The script tag HTML.
+ * @param string $handle The script handle.
+ * @return string Modified script tag.
+ */
+function add_defer_to_scripts( $tag, $handle ) {
+    if ( 'child-theme-scripts' === $handle ) {
+        return str_replace( ' src', ' defer src', $tag );
+    }
+    return $tag;
+}
+add_filter( 'script_loader_tag', 'add_defer_to_scripts', 10, 2 );
+
 
 // ===========================================================================
 // Gravity Forms WCAG 2.1 AA 1.3.5 Compliance - Add autocomplete attributes
