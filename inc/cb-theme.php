@@ -158,16 +158,10 @@ function lc_theme_enqueue() {
     // wp_deregister_script( 'jquery' ); // needed by gravity forms
     // phpcs:enable
 
-    // Load Swiper asynchronously to prevent render blocking.
-    add_action(
-        'wp_head',
-        function () {
-            echo '<link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
-            echo '<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"></noscript>' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedStylesheet
-        },
-        1
-    );
-
+    // Swiper - CSS loads blocking as it's used in homepage hero (above fold).
+    wp_enqueue_style( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+    
+    // Swiper JS can be deferred as it's not needed for initial paint.
     wp_enqueue_script(
         'swiper',
         'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js',
