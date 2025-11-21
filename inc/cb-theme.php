@@ -215,59 +215,6 @@ function remove_nav_menu_item_id( $atts ) {
 }
 add_filter( 'nav_menu_link_attributes', 'remove_nav_menu_item_id' );
 
-/**
- * Fix W3C validation errors by removing 'auto' from image sizes attribute.
- *
- * WordPress 5.5+ adds sizes="auto" for lazy-loaded images, but this is not valid HTML.
- * This filter removes 'auto,' from the sizes attribute.
- *
- * @param array $attr Image attributes.
- * @return array Modified attributes without 'auto' in sizes.
- */
-function fix_image_sizes_attribute( $attr ) {
-    if ( isset( $attr['sizes'] ) ) {
-        // Remove 'auto, ' from sizes attribute to fix W3C validation.
-        $attr['sizes'] = str_replace( 'auto, ', '', $attr['sizes'] );
-    }
-    return $attr;
-}
-add_filter( 'wp_get_attachment_image_attributes', 'fix_image_sizes_attribute', 999, 1 );
-
-/**
- * Fix W3C validation errors by removing 'auto' from sizes in all HTML output.
- *
- * @param string $html The HTML markup.
- * @return string Modified HTML without 'auto' in sizes attribute.
- */
-function fix_image_sizes_html( $html ) {
-    // Remove 'auto, ' from sizes attribute in HTML output.
-    return preg_replace( '/sizes="auto,\s*/', 'sizes="', $html );
-}
-add_filter( 'post_thumbnail_html', 'fix_image_sizes_html', 999 );
-add_filter( 'the_content', 'fix_image_sizes_html', 999 );
-
-/**
- * Remove WordPress auto sizes CSS that causes W3C validation errors.
- *
- * WordPress adds contain-intrinsic-size CSS which is not yet valid in W3C validator.
- */
-function remove_wp_auto_sizes_css() {
-    remove_action( 'wp_head', 'wp_print_auto_sizes_style' );
-}
-add_action( 'after_setup_theme', 'remove_wp_auto_sizes_css' );
-
-/**
- * Remove 'auto' from sizes attribute in final output buffer.
- */
-function fix_sizes_output_buffer() {
-    ob_start(
-        function ( $html ) {
-            return preg_replace( '/sizes="auto,\s*/', 'sizes="', $html );
-        }
-    );
-}
-add_action( 'template_redirect', 'fix_sizes_output_buffer' );
-
 
 // ===========================================================================
 // Gravity Forms WCAG 2.1 AA 1.3.5 Compliance - Add autocomplete attributes
