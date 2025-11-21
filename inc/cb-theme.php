@@ -247,6 +247,16 @@ add_filter( 'post_thumbnail_html', 'fix_image_sizes_html', 999 );
 add_filter( 'the_content', 'fix_image_sizes_html', 999 );
 
 /**
+ * Remove WordPress auto sizes CSS that causes W3C validation errors.
+ *
+ * WordPress adds contain-intrinsic-size CSS which is not yet valid in W3C validator.
+ */
+function remove_wp_auto_sizes_css() {
+    remove_action( 'wp_head', 'wp_print_auto_sizes_style' );
+}
+add_action( 'after_setup_theme', 'remove_wp_auto_sizes_css' );
+
+/**
  * Remove 'auto' from sizes attribute in final output buffer.
  */
 function fix_sizes_output_buffer() {
