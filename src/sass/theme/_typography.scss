@@ -128,7 +128,7 @@ body, .body {
   font-family: var(--ff-body);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
-  font-weight: var(--fw-body);
+  font-weight: var(--fw-300);
   color: var(--col-simco-navy);
   // text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -157,8 +157,8 @@ body, .body {
 }
 
 // Helper classes for standalone typography variables
-.fw-heading { font-weight: var(--fw-heading); }
-.fw-body { font-weight: var(--fw-body); }
+.fw-heading { font-weight: var(--fw-700); }
+.fw-body { font-weight: var(--fw-300); }
 .fw-bold { font-weight: var(--fw-bold); }
 
 .fs-base { font-size: var(--fs-base); }

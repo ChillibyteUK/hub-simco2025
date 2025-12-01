@@ -143,7 +143,7 @@ add_action( 'widgets_init', 'widgets_init', 11 );
  * This function deregisters jQuery and disables certain styles and scripts
  * that are commented out for potential use in the theme.
  */
-function lc_theme_enqueue() {
+function hub_theme_enqueue() {
     $the_theme = wp_get_theme();
     // phpcs:disable
     // wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox-plus-jquery.min.js', array(), $the_theme->get('Version'), true);
@@ -177,7 +177,12 @@ function lc_theme_enqueue() {
         wp_deregister_script( 'jquery-migrate' );
     }
 }
-add_action( 'wp_enqueue_scripts', 'lc_theme_enqueue' );
+add_action( 'wp_enqueue_scripts', 'hub_theme_enqueue' );
+
+// Performance: Remove WordPress global styles and SVG filters (WP 6.0+).
+// This prevents FOUC by removing unnecessary inline styles in the head.
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
 /**
  * Add defer attribute to scripts for better performance.

@@ -1,7 +1,7 @@
 /* Base editor typography */
 .editor-styles-wrapper {
   font-family: var(--ff-body);
-  font-weight: var(--fw-body);
+  font-weight: var(--fw-300);
   font-size: var(--fs-body);
   line-height: var(--lh-normal);
   color: var(--col-neutral-900);
@@ -11,19 +11,19 @@
 /* Map heading appearance in editor */
 .editor-styles-wrapper h1 {
   font-family: var(--ff-heading);
-  font-weight: var(--fw-heading);
+  font-weight: var(--fw-700);
   font-size: var(--fs-display);
   line-height: var(--lh-tight);
 }
 .editor-styles-wrapper h2 {
   font-family: var(--ff-heading);
-  font-weight: var(--fw-heading);
+  font-weight: var(--fw-700);
   font-size: var(--fs-h2);
   line-height: var(--lh-tight);
 }
 .editor-styles-wrapper h3 {
   font-family: var(--ff-heading);
-  font-weight: var(--fw-heading);
+  font-weight: var(--fw-700);
   font-size: var(--fs-h3);
   line-height: var(--lh-snug);
 }
@@ -90,7 +90,7 @@
   font-size: var(--fs-subtle) !important;
   line-height: var(--lh-snug) !important;
   font-family: var(--ff-accent) !important;
-  font-weight: var(--fw-accent) !important;
+  font-weight: var(--fw-500) !important;
   font-style: italic !important;
 }
 .has-body-font-size {
@@ -104,6 +104,6 @@
 .has-ui-font-size {
   font-size: var(--fs-ui) !important;
   line-height: var(--lh-normal) !important;
-  font-weight: var(--fw-ui) !important;
+  font-weight: var(--fw-700) !important;
   letter-spacing: 0.02em !important;
 }

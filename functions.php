@@ -35,7 +35,8 @@ add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
  */
 
 /**
- * Enqueue child-theme.min.css late for override, with filemtime versioning.
+ * Enqueue child-theme.min.css with filemtime versioning.
+ * No dependencies to ensure immediate loading and prevent FOUC.
  */
 function cb_enqueue_theme_css() {
 	$rel = '/css/child-theme.min.css';
@@ -43,11 +44,12 @@ function cb_enqueue_theme_css() {
 	wp_enqueue_style(
 		'cb-theme',
 		get_stylesheet_directory_uri() . $rel,
-		array( 'global-styles' ),
+		array(), // No dependencies - load immediately.
 		file_exists( $abs ) ? filemtime( $abs ) : null
 	);
 }
-add_action( 'wp_enqueue_scripts', 'cb_enqueue_theme_css', 100 );
+// Load at default priority (10) for early rendering, before parent removal at priority 20.
+add_action( 'wp_enqueue_scripts', 'cb_enqueue_theme_css' );
 
 /**
  * Enqueue child-theme.min.js with filemtime versioning.
