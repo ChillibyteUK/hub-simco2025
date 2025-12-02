@@ -21,6 +21,27 @@
             "new_lines": "wpautop"
         },
         {
+            "key": "field_692f04c89af15",
+            "label": "Title",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_688a0def2c121",
             "label": "Stat Spinner",
             "name": "stat_spinner",
@@ -153,5 +174,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1759932771
+    "display_title": "",
+    "modified": 1764689104
 }

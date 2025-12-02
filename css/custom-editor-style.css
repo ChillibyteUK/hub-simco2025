@@ -35,47 +35,56 @@
   --ff-body:
     "Acumin Pro", "acumin-pro", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  --fw-bold: 700; /* Bold */
-  --fw-semi: 600; /* Semi Bold */
-  --fw-regular: 400; /* Regular */
-  --fw-light: 200; /* XLight */
+  /* 
+  100 thin
+  200 extra light
+  300 light
+  400 regular
+  500 medium
+  600 semibold
+  700 bold
+  800 black
+  900 ultra black
+  */
+  --fw-bold: 700;
+  --fw-medium: 500;
+  --fw-regular: 400;
+  --fw-light: 300;
   /* =========================
-    TYPOGRAPHY (from Figma style.txt)
+    TYPOGRAPHY
     ========================= */
-  /* small text (16px) */
-  --fs-small: 0.8rem;
-  --lh-small: 1;
-  --fw-small: var(--fw-light);
-  --fs-base: 18px;
-  /* body */
-  --fs-body: 1rem; /* 18px */
-  --lh-body: 1.4;
-  --fw-body: var(--fw-light);
-  /* lead-in (20px → 1.111rem) */
-  /* minimum: 1rem (18px), max: 1.111rem */
-  --fs-lead-in: clamp(1rem, 1rem + 0.2vw, 1.111rem);
-  --lh-lead-in: 1.4;
-  --fw-lead-in: var(--fw-regular);
-  /* h3 (28px → 1.556rem) */
-  /* minimum shrinks close to lead-in: 1.222rem (22px) */
-  --fs-h3: clamp(1.222rem, 1rem + 1vw, 1.556rem);
-  --lh-h3: 1.2;
-  --fw-h3: var(--fw-semi);
-  /* h2 (36px → 2rem) */
-  /* minimum compressed strongly: 1.333rem (24px) */
-  --fs-h2: clamp(1.333rem, 1rem + 1.6vw, 2rem);
-  --lh-h2: 1.2;
-  --fw-h2: var(--fw-semi);
-  /* h1 (48px → 2.667rem) */
-  /* minimum: 1.444rem (26px) */
-  --fs-h1: clamp(1.444rem, 1rem + 2.5vw, 2.667rem);
+  /* body size defined globally */
+  --fs-base: clamp(0.95rem, 0.9rem + 0.3vw, 1rem); /* 17.1px - 18px */
+  /* hierarchy */
+  --fs-ticker: clamp(3rem, 2rem + 4vw, 5rem); /* 54px - 90px */
+  --lh-ticker: 1.1;
+  --fw-ticker: var(--fw-bold);
+  --fs-h1: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem); /* 31.5px - 45px */
   --lh-h1: 1.2;
   --fw-h1: var(--fw-bold);
-  /* tickers (56px → 3.111rem) */
-  /* minimum: 1.556rem (28px) */
-  --fs-ticker: clamp(1.556rem, 1rem + 3vw, 3.111rem);
-  --lh-ticker: 1.2;
-  --fw-ticker: var(--fw-bold);
+  --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 2rem); /* 27px - 36px */
+  --lh-h2: 1.2;
+  --fw-h2: var(--fw-bold);
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.8vw, 1.6rem); /* 22.5px - 28.8px */
+  --lh-h3: 1.2;
+  --fw-h3: var(--fw-bold);
+  --fs-h4: clamp(1.15rem, 1.05rem + 0.6vw, 1.4rem); /* 20.7px - 25.2px */
+  --lh-h4: 1.2;
+  --fw-h4: var(--fw-light);
+  --fs-h5: clamp(1.05rem, 1rem + 0.4vw, 1.25rem); /* 18.9px - 22.5px */
+  --lh-h5: 1.2;
+  --fw-h5: var(--fw-bold);
+  --fs-lead-in: clamp(1.1rem, 1rem + 0.5vw, 1.3rem); /* 19.8px - 23.4px */
+  --lh-lead-in: 1.5;
+  --fw-lead-in: var(--fw-medium);
+  --fs-body-medium: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); /* 18px - 20.25px */
+  --lh-body-medium: 1.5;
+  --fs-body: var(--fs-base); /* 17.1px - 18px */
+  --lh-body: 1.5;
+  --fw-body: var(--fw-light);
+  --fs-small: clamp(0.85rem, 0.8rem + 0.2vw, 0.9rem); /* 15.3px - 16.2px */
+  --lh-small: 1.5;
+  --fw-small: var(--fw-medium);
   /* === Utilities === */
   --transition: 250ms ease-out;
   --h-top: 72px;
@@ -118,47 +127,56 @@
   --ff-body:
     "Acumin Pro", "acumin-pro", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  --fw-bold: 700; /* Bold */
-  --fw-semi: 600; /* Semi Bold */
-  --fw-regular: 400; /* Regular */
-  --fw-light: 200; /* XLight */
+  /* 
+  100 thin
+  200 extra light
+  300 light
+  400 regular
+  500 medium
+  600 semibold
+  700 bold
+  800 black
+  900 ultra black
+  */
+  --fw-bold: 700;
+  --fw-medium: 500;
+  --fw-regular: 400;
+  --fw-light: 300;
   /* =========================
-    TYPOGRAPHY (from Figma style.txt)
+    TYPOGRAPHY
     ========================= */
-  /* small text (16px) */
-  --fs-small: 0.8rem;
-  --lh-small: 1;
-  --fw-small: var(--fw-light);
-  --fs-base: 18px;
-  /* body */
-  --fs-body: 1rem; /* 18px */
-  --lh-body: 1.4;
-  --fw-body: var(--fw-light);
-  /* lead-in (20px → 1.111rem) */
-  /* minimum: 1rem (18px), max: 1.111rem */
-  --fs-lead-in: clamp(1rem, 1rem + 0.2vw, 1.111rem);
-  --lh-lead-in: 1.4;
-  --fw-lead-in: var(--fw-regular);
-  /* h3 (28px → 1.556rem) */
-  /* minimum shrinks close to lead-in: 1.222rem (22px) */
-  --fs-h3: clamp(1.222rem, 1rem + 1vw, 1.556rem);
-  --lh-h3: 1.2;
-  --fw-h3: var(--fw-semi);
-  /* h2 (36px → 2rem) */
-  /* minimum compressed strongly: 1.333rem (24px) */
-  --fs-h2: clamp(1.333rem, 1rem + 1.6vw, 2rem);
-  --lh-h2: 1.2;
-  --fw-h2: var(--fw-semi);
-  /* h1 (48px → 2.667rem) */
-  /* minimum: 1.444rem (26px) */
-  --fs-h1: clamp(1.444rem, 1rem + 2.5vw, 2.667rem);
+  /* body size defined globally */
+  --fs-base: clamp(0.95rem, 0.9rem + 0.3vw, 1rem); /* 17.1px - 18px */
+  /* hierarchy */
+  --fs-ticker: clamp(3rem, 2rem + 4vw, 5rem); /* 54px - 90px */
+  --lh-ticker: 1.1;
+  --fw-ticker: var(--fw-bold);
+  --fs-h1: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem); /* 31.5px - 45px */
   --lh-h1: 1.2;
   --fw-h1: var(--fw-bold);
-  /* tickers (56px → 3.111rem) */
-  /* minimum: 1.556rem (28px) */
-  --fs-ticker: clamp(1.556rem, 1rem + 3vw, 3.111rem);
-  --lh-ticker: 1.2;
-  --fw-ticker: var(--fw-bold);
+  --fs-h2: clamp(1.5rem, 1.3rem + 1vw, 2rem); /* 27px - 36px */
+  --lh-h2: 1.2;
+  --fw-h2: var(--fw-bold);
+  --fs-h3: clamp(1.25rem, 1.15rem + 0.8vw, 1.6rem); /* 22.5px - 28.8px */
+  --lh-h3: 1.2;
+  --fw-h3: var(--fw-bold);
+  --fs-h4: clamp(1.15rem, 1.05rem + 0.6vw, 1.4rem); /* 20.7px - 25.2px */
+  --lh-h4: 1.2;
+  --fw-h4: var(--fw-light);
+  --fs-h5: clamp(1.05rem, 1rem + 0.4vw, 1.25rem); /* 18.9px - 22.5px */
+  --lh-h5: 1.2;
+  --fw-h5: var(--fw-bold);
+  --fs-lead-in: clamp(1.1rem, 1rem + 0.5vw, 1.3rem); /* 19.8px - 23.4px */
+  --lh-lead-in: 1.5;
+  --fw-lead-in: var(--fw-medium);
+  --fs-body-medium: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); /* 18px - 20.25px */
+  --lh-body-medium: 1.5;
+  --fs-body: var(--fs-base); /* 17.1px - 18px */
+  --lh-body: 1.5;
+  --fw-body: var(--fw-light);
+  --fs-small: clamp(0.85rem, 0.8rem + 0.2vw, 0.9rem); /* 15.3px - 16.2px */
+  --lh-small: 1.5;
+  --fw-small: var(--fw-medium);
   /* === Utilities === */
   --transition: 250ms ease-out;
   --h-top: 72px;
@@ -255,8 +273,10 @@ p {
 }
 
 abbr[title] {
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
+  -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
 }
 
@@ -2640,14 +2660,20 @@ progress {
 }
 
 .user-select-all {
+  -webkit-user-select: all !important;
+  -moz-user-select: all !important;
   user-select: all !important;
 }
 
 .user-select-auto {
+  -webkit-user-select: auto !important;
+  -moz-user-select: auto !important;
   user-select: auto !important;
 }
 
 .user-select-none {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
   user-select: none !important;
 }
 

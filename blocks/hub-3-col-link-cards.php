@@ -16,16 +16,30 @@ defined( 'ABSPATH' ) || exit;
 			<?php
 		}
 		?>
-		<div class="row g-5">
+		<div class="three-col-link-cards__grid">
 			<?php
 			while ( have_rows( 'cards' ) ) {
 				the_row();
 				$l      = get_sub_field( 'link' );
 				$target = $l['target'] ? $l['target'] : '_self';
 				?>
-				<div class="col-12 col-lg-4">
-					<a href="<?= esc_url( $l['url'] ); ?>" target="<?= esc_attr( $target ); ?>" data-aos="fade-up" class="three-col-link-cards__card">
+				<a href="<?= esc_url( $l['url'] ); ?>" target="<?= esc_attr( $target ); ?>" data-aos="fade-up" class="three-col-link-cards__card">
 						<?php
+						$logo = get_sub_field( 'logo' );
+						if ( $logo ) {
+							$align = 'Center' === get_sub_field( 'align_logo' ) ? 'mx-auto d-block' : '';
+							echo wp_get_attachment_image(
+								$logo,
+								'full',
+								false,
+								array(
+									'class' => 'three-col-link-cards__card-logo ' . $align,
+									'alt'   => esc_attr( get_sub_field( 'title' ) ),
+								)
+							);
+						} else {
+							echo '<div class="three-col-link-cards__card-logo--placeholder"></div>';
+						}
 						$image = get_sub_field( 'image' );
 						if ( $image ) {
 							echo wp_get_attachment_image(
@@ -37,15 +51,16 @@ defined( 'ABSPATH' ) || exit;
 									'alt'   => esc_attr( get_sub_field( 'title' ) ),
 								)
 							);
+						} else {
+							echo '<div class="three-col-link-cards__card-image--placeholder"></div>';
 						}
 						?>
 						<div class="three-col-link-cards__card-body">
 							<h3><?php the_sub_field( 'title' ); ?></h3>
 							<p><?php the_sub_field( 'text' ); ?></p>
+							<div class="read-more">Read More</div>
 						</div>
-						<div class="read-more">Read More</div>
-					</a>
-				</div>
+				</a>
 				<?php
 			}
 			?>

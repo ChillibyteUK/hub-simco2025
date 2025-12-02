@@ -1,49 +1,14 @@
 .homepage-hero {
     min-height: 600px;
-    padding-top: var(--h-top);
+    display: flex;
+    align-items: flex-start;
     position: relative;
     overflow: hidden;
     isolation: isolate;
 
+    padding-top: var(--h-top);
+
     color: var(--col-white);
-
-    #heroCarousel {
-        position: relative;
-        min-height: 400px;
-        padding-bottom: 60px;
-
-        .carousel-inner {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            min-height: 350px;
-        }
-
-        .carousel-item {
-            min-height: 350px;
-        }
-
-        .carousel-indicators {
-            position: absolute !important;
-            bottom: 0 !important;
-            margin-bottom: 0 !important;
-
-            button {
-                background-color: var(--col-white);
-                opacity: 0.7;
-                width: 24px;
-                height: 24px;
-                border-radius: 50%;
-                border: none;
-                margin: 0 4px;
-
-                &.active {
-                    background-color: var(--col-simco-gold);
-                    opacity: 1;
-                }
-            }
-        }
-    }
 
     &__background {
         position: absolute;
@@ -66,58 +31,17 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url("data:image/svg+xml,%3Csvg width='727' height='830' viewBox='0 0 727 830' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M543.5 0L957.893 829.5H129.107L543.5 0Z' fill='white' fill-opacity='0.8'/%3E%3Cpath d='M226.5 385L452.1 835.75H0.900375L226.5 385Z' fill='%23AB965F'/%3E%3C/svg%3E%0A");
+        background-image: url("data:image/svg+xml,%3Csvg width='1246' height='850' viewBox='0 0 1246 850' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.85'%3E%3Cpath d='M0 0H1246L853.956 850H0V0Z' fill='%23152634'/%3E%3Cpath d='M0 0H1246L853.956 850H0V0Z' fill='black' fill-opacity='0.2'/%3E%3C/g%3E%3C/svg%3E%0A");
         background-repeat: no-repeat;
-        background-position: bottom right;
-        background-size: contain;
+        background-size: cover;
+        background-position: center left;
         opacity: 0.8;
         z-index: -1;
-    }
-
-    &__title {
-        font-size: var(--fs-h1);
-        line-height: 1.2;
-    }
-
-    .swiper-pagination {
-        text-align: start;
-        position: relative;
-        bottom: auto;
-        margin-top: 1rem;
-    }
-    .swiper-pagination-bullet {
-        background: var(--col-white);
-        opacity: 0.7;
-        width: 16px;
-        height: 16px;
-        margin-right: 8px;
-        &-active {
-            background: var(--col-simco-gold);
-            opacity: 1;
-            width: 16px;
-            height: 16px;
+        @media (min-width: 768px) {
+            background-position: center right;
+            max-width: 80svw;
         }
     }
-
-    .read-more {
-        margin-top: auto;
-        font-size: var(--fs-lead-in);
-        position: relative;
-        padding-right: 1.5rem;
-        text-decoration: none;
-        display: inline-block;
-        align-self: flex-start;
-        &:after {
-            content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='currentColor' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
-            display: inline-block;
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: var(--transition);
-        }
-    }
-
 }
 
 @keyframes gentle-scale {

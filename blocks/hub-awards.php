@@ -10,143 +10,47 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <section class="awards">
 	<div class="container py-5">
-		<h2 class="h3 mb-4 text-center" data-aos="fade-up"><?= esc_html( get_field( 'intro_title' ) ); ?></h2>
+		<h2 class="mb-4" data-aos="fade-up"><?= esc_html( get_field( 'intro_title' ) ); ?></h2>
+		<p class="has-lead-in-font-size w-constrained-md mb-4" data-aos="fade-up" data-aos-delay="100"><?= wp_kses_post( get_field( 'intro_content' ) ); ?></p>
 		<div class="row g-5">
-			<div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-				<?php
-				if ( get_field( 'award_link_1' ) ) {
-					$l1 = get_field( 'award_link_1' );
-					?>
-					<a href="<?= esc_url( $l1['url'] ); ?>" class="text-center awards__item" target="_blank" rel="noopener">
-					<?php
-				} else {
-					?>
-				<div class="text-center awards__item">
-					<?php
+			<?php
+			for ( $i = 1; $i <= 3; $i++ ) {
+				$award_link   = get_field( "award_link_$i" );
+				$award_logo   = get_field( "award_logo_$i" );
+				$award_title  = get_field( "award_title_$i" );
+				$award_detail = get_field( "award_detail_$i" );
+				$aos_delay    = $i * 100;
+
+				// Get alt text, fallback to title if empty.
+				$award_logo_alt = get_post_meta( $award_logo, '_wp_attachment_image_alt', true );
+				if ( empty( $award_logo_alt ) ) {
+					$award_logo_alt = $award_title;
 				}
+
+				// Determine wrapper tag.
+				$wrapper_tag   = $award_link ? 'a' : 'div';
+				$wrapper_attrs = $award_link ? sprintf( ' href="%s" target="_blank" rel="noopener"', esc_url( $award_link['url'] ) ) : '';
 				?>
-					<?php
-					$award_logo_1     = get_field( 'award_logo_1' );
-					$award_logo_1_alt = get_post_meta( $award_logo_1, '_wp_attachment_image_alt', true );
-					if ( empty( $award_logo_1_alt ) ) {
-						$award_logo_1_alt = get_field( 'award_title_1' );
-					}
-					?>
-				<?=
-				wp_get_attachment_image(
-					$award_logo_1,
-					'full',
-					false,
-					array(
-						'class' => 'awards__image mb-3',
-						'alt'   => esc_attr( $award_logo_1_alt ),
-					)
-				);
-				?>
-				<h2 class="h3 fw-bold"><?= esc_html( get_field( 'award_title_1' ) ); ?></h2>
-				<div><?= wp_kses_post( get_field( 'award_detail_1' ) ); ?></div>
+				<div class="col-md-4" data-aos="fade-up" data-aos-delay="<?= esc_attr( $aos_delay ); ?>">
+					<<?= esc_html( $wrapper_tag ); ?><?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> class="text-center awards__item">
+						<?=
+						wp_get_attachment_image(
+							$award_logo,
+							'full',
+							false,
+							array(
+								'class' => 'awards__image mb-3',
+								'alt'   => esc_attr( $award_logo_alt ),
+							)
+						);
+						?>
+						<h3 class="h5 fw-bold"><?= esc_html( $award_title ); ?></h3>
+						<div class="px-md-5"><?= wp_kses_post( $award_detail ); ?></div>
+					</<?= esc_html( $wrapper_tag ); ?>>
+				</div>
 				<?php
-				if ( get_field( 'award_link_1' ) ) {
-					?>
-					</a>
-					<?php
-				} else {
-					?>
-					</div>
-					<?php
-				}
-				?>
-			</div>
-			<div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-				<?php
-				if ( get_field( 'award_link_2' ) ) {
-					$l2 = get_field( 'award_link_2' );
-					?>
-					<a href="<?= esc_url( $l2['url'] ); ?>" class="text-center awards__item" target="_blank" rel="noopener">
-					<?php
-				} else {
-					?>
-				<div class="text-center awards__item">
-					<?php
-				}
-				?>
-					<?php
-					$award_logo_2     = get_field( 'award_logo_2' );
-					$award_logo_2_alt = get_post_meta( $award_logo_2, '_wp_attachment_image_alt', true );
-					if ( empty( $award_logo_2_alt ) ) {
-						$award_logo_2_alt = get_field( 'award_title_2' );
-					}
-					?>
-				<?=
-				wp_get_attachment_image(
-					$award_logo_2,
-					'full',
-					false,
-					array(
-						'class' => 'awards__image mb-3',
-						'alt'   => esc_attr( $award_logo_2_alt ),
-					)
-				);
-				?>
-				<h2 class="h3 fw-bold"><?= esc_html( get_field( 'award_title_2' ) ); ?></h2>
-				<div><?= wp_kses_post( get_field( 'award_detail_2' ) ); ?></div>
-				<?php
-				if ( get_field( 'award_link_2' ) ) {
-					?>
-					</a>
-					<?php
-				} else {
-					?>
-					</div>
-					<?php
-				}
-				?>
-			</div>
-			<div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-				<?php
-				if ( get_field( 'award_link_3' ) ) {
-					$l3 = get_field( 'award_link_3' );
-					?>
-					<a href="<?= esc_url( $l3['url'] ); ?>" class="text-center awards__item" target="_blank" rel="noopener">
-					<?php
-				} else {
-					?>
-				<div class="text-center awards__item">
-					<?php
-				}
-				?>
-					<?php
-					$award_logo_3     = get_field( 'award_logo_3' );
-					$award_logo_3_alt = get_post_meta( $award_logo_3, '_wp_attachment_image_alt', true );
-					if ( empty( $award_logo_3_alt ) ) {
-						$award_logo_3_alt = get_field( 'award_title_3' );
-					}
-					?>
-				<?=
-				wp_get_attachment_image(
-					$award_logo_3,
-					'full',
-					false,
-					array(
-						'class' => 'awards__image mb-3',
-						'alt'   => esc_attr( $award_logo_3_alt ),
-					)
-				);
-				?>
-				<h2 class="h3 fw-bold"><?= esc_html( get_field( 'award_title_3' ) ); ?></h2>
-				<div><?= wp_kses_post( get_field( 'award_detail_3' ) ); ?></div>
-				<?php
-				if ( get_field( 'award_link_3' ) ) {
-					?>
-					</a>
-					<?php
-				} else {
-					?>
-					</div>
-					<?php
-				}
-				?>
-			</div>
+			}
+			?>
 		</div>
 	</div>
 </section>

@@ -10,6 +10,13 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <div class="stat_spinner py-5">
 	<div class="container">
+		<?php
+		if ( get_field( 'title' ) ) {
+			?>
+		<h2 class="h4 text-center mb-4" data-aos="fade"><?= esc_html( get_field( 'title' ) ); ?></h2>
+			<?php
+		}
+		?>
 		<div class="stat_spinner__grid">
 			<?php
 			while ( have_rows( 'stat_spinner' ) ) {

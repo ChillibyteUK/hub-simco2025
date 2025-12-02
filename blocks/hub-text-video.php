@@ -15,6 +15,10 @@ $left  = 'col-lg-5';
 $right = 'col-lg-7';
 
 switch ( $split ) {
+	case '40-60':
+		$left  = 'col-lg-5';
+		$right = 'col-lg-7';
+		break;
 	case '50-50':
 		$left  = 'col-lg-6';
 		$right = 'col-lg-6';
@@ -22,6 +26,10 @@ switch ( $split ) {
 	case '60-40':
 		$left  = 'col-lg-7';
 		$right = 'col-lg-5';
+		break;
+	default:
+		$left  = 'col-lg-5';
+		$right = 'col-lg-7';
 		break;
 }
 
@@ -37,7 +45,7 @@ switch ( $split ) {
 		?>
 		<div class="row g-5">
 			<div class="<?= esc_attr( $left ); ?>">
-				<div class="text-video__content" data-aos="fade-right">
+				<div data-aos="fade-right">
 					<?= wp_kses_post( get_field( 'content' ) ); ?>
 				</div>
 				<?php

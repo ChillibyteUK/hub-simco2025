@@ -9,8 +9,16 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <section class="testimonial-slider">
+
+	<div class="testimonial-slider__background">
+		<?= wp_get_attachment_image( get_field( 'background' ), 'full', false, array( 'alt' => '' ) ); ?>
+	</div>
+	<div class="testimonial-slider__overlay" aria-hidden="true"></div>
+
+
 	<div class="container py-5">
-		<h2 class="h1 text-center has-white-color">What our borrowers say about SIMCo</h2>
+		<div class="row align-items-center">
+			<h2 class="mb-4"><?=  esc_html( get_field( 'title' ) ); ?></h2>
 		<?php
 		$q = new WP_Query(
 			array(
@@ -23,8 +31,8 @@ defined( 'ABSPATH' ) || exit;
 		if ( $q->have_posts() ) {
 			?>
 			<div class="row">
-				<div class="col-md-10 offset-md-1">
-					<div id="testimonialCarousel" class="carousel slide carousel-fade my-4" data-bs-ride="carousel" data-bs-interval="6000">
+				<div class="col-md-6">
+					<div id="testimonialCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
 						<div class="carousel-inner">
 							<?php
 							$slide_index = 0;
@@ -34,7 +42,7 @@ defined( 'ABSPATH' ) || exit;
 								$active_class = ( 0 === $slide_index ) ? ' active' : '';
 								?>
 								<div class="carousel-item<?= esc_attr( $active_class ); ?>">
-									<div class="testimonial-slider__slide p-4 h-100 d-flex flex-column justify-content-between text-center">
+									<div class="testimonial-slider__slide h-100 d-flex flex-column justify-content-between">
 										<div class="testimonial-slider__quote mb-4">"<?= esc_html( wp_strip_all_tags( get_the_content() ) ); ?>"</div>
 										<div class="testimonial-slider__author mt-auto">
 											<div><?php echo esc_html( get_the_title() ); ?></div>

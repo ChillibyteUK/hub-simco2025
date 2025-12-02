@@ -1,10 +1,10 @@
 {
-    "key": "group_hub_homepage_hero",
-    "title": "HUB Homepage Hero",
+    "key": "group_hub_insights_pushthrough",
+    "title": "HUB Insights Pushthrough",
     "fields": [
         {
-            "key": "field_hub_homepage_hero_title",
-            "label": "HUB Homepage Hero",
+            "key": "field_hub_insights_pushthrough_title",
+            "label": "HUB Insights Pushthrough",
             "name": "",
             "aria-label": "",
             "type": "message",
@@ -21,7 +21,49 @@
             "new_lines": "wpautop"
         },
         {
-            "key": "field_68e67a055930a",
+            "key": "field_692f14342c337",
+            "label": "Title",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_692f143e2c338",
+            "label": "Content",
+            "name": "content",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_692f144d2c339",
             "label": "Background",
             "name": "background",
             "aria-label": "",
@@ -45,27 +87,6 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "thumbnail"
-        },
-        {
-            "key": "field_692eff1d050a9",
-            "label": "Title",
-            "name": "title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -73,7 +94,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/hub-homepage-hero"
+                "value": "acf\/hub-insights-pushthrough"
             }
         ]
     ],
@@ -87,5 +108,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764687655
+    "modified": 1764693083
 }
