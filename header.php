@@ -107,8 +107,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 	}
 	?>
 	<!-- Load Adobe Fonts asynchronously to prevent blocking -->
-	<link rel="preload" href="https://use.typekit.net/hnr7skm.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="https://use.typekit.net/hnr7skm.css"></noscript>
+	<link rel="stylesheet" href="https://use.typekit.net/hnr7skm.css" as="style">
 	<?php
 	wp_head();
 	?>
