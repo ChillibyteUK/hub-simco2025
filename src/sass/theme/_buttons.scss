@@ -4,19 +4,18 @@
 
 :root {
   /* Button spacing/tweaks */
-  --btn-py: 0.75rem;
+  --btn-py: 0.5rem;
   --btn-px: 1.5rem;
   --btn-gap: 0.5rem;
   --btn-border-w: 1px;
-  --btn-transition: 160ms ease;
 }
 
 /* Base button */
 .btn,
 .btn a {
-  --_bg: var(--col-white);
-  --_fg: var(--col-simco-red);
-  --_bd: var(--col-white);
+  --_bg: var(--col-mid-gold);
+  --_fg: var(--col-simco-navy);
+  --_bd: var(--col-mid-gold);
 
   display: inline-flex;
   align-items: center;
@@ -26,7 +25,7 @@
   text-transform: none;
 
   padding: var(--btn-py) var(--btn-px);
-  border-radius: 6px;
+  border-radius: 100vw;
   border: var(--btn-border-w) solid var(--_bd);
 
   background: var(--_bg);
@@ -38,28 +37,78 @@
   line-height: 1;
 
   transition:
-    background-color var(--btn-transition),
-    border-color var(--btn-transition),
-    color var(--btn-transition),
-    transform var(--btn-transition);
+    background-color var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
 
   &:hover {
-    background-color: var(--_fg);
-    color: var(--_bg);
+    background-color: var(--_bg);
+    color: var(--_fg);
     border-color: var(--_bg);
   }
 }
 
-.btn--mid-blue {
-  --_bg: var(--col-simco-mid-blue);
-  --_fg: var(--col-white);
-  --_bd: var(--col-simco-mid-blue);
+.btn-light,
+.btn-dark {
+  position: relative;
+  padding-right: calc(var(--btn-px) + 1.5rem); // Add extra space for the arrow
+  
+  &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      right: var(--btn-px);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 23px;
+      height: 23px;
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      transition: right var(--transition), background-color var(--transition);
+  }
   &:hover {
-    background-color: var(--col-simco-bluegrey-50);
-    color: var(--col-simco-navy);
-    border-color:  var(--col-simco-bluegrey-50);
+    background-color: var(--_bg);
+    color: var(--_fg);
+      &::after {
+          right: calc(var(--btn-px) - 0.5rem);
+      }
   }
 }
+
+.btn-light {
+  background-color: var(--col-light-gold);
+  border-color: var(--col-light-gold);
+  color: var(--col-simco-navy);
+  
+  &::after {
+    background-color: var(--col-simco-navy);
+  }
+  
+  &:hover::after {
+    background-color: var(--col-simco-navy);
+  }
+}
+
+.btn-dark {
+  background-color: var(--col-dark-gold);
+  border-color: var(--col-dark-gold);
+  color: var(--col-white);
+  
+  &::after {
+    background-color: var(--col-white);
+  }
+  
+  &:hover::after {
+    background-color: var(--col-simco-navy);
+  }
+}
+.btn-navy {
+  background-color: var(--col-simco-navy);
+}
+
 
 .search-button {
   min-height: 38px !important;
@@ -73,16 +122,6 @@
     background-color: hsl( var(--col-simco-red-hsl) / 50% );
     color: var(--col-white);
     border-color: hsl( var(--col-simco-red-hsl) / 50% );
-  }
-}
-.btn--dark {
-  --_bg: var(--col-simco-navy);
-  --_fg: var(--col-white);
-  --_bd: var(--col-simco-navy);
-  &:hover {
-    background-color: hsl( var(--col-simco-navy-hsl) / 50% );
-    color: var(--col-white);
-    border-color: hsl( var(--col-simco-navy-hsl) / 50% );
   }
 }
 

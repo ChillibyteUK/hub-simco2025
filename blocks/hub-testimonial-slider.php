@@ -18,7 +18,7 @@ defined( 'ABSPATH' ) || exit;
 
 	<div class="container py-5">
 		<div class="row align-items-center">
-			<h2 class="mb-4"><?=  esc_html( get_field( 'title' ) ); ?></h2>
+			<h2 class="mb-4"><?= esc_html( get_field( 'title' ) ); ?></h2>
 		<?php
 		$q = new WP_Query(
 			array(

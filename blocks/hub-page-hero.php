@@ -18,13 +18,6 @@ $size = 'short' === get_field( 'size' ) ? 'page-hero--short' : '';
 		<div class="row my-auto w-100">
 			<div class="row">
 				<div class="col-12 col-md-6 d-flex flex-column justify-content-center">
-					<?php
-					if ( get_field( 'pre_title' ) ) {
-						?>
-					<div class="page-hero__pretitle"><?= wp_kses_post( get_field( 'pre_title' ) ); ?></div>
-						<?php
-					}
-					?>
 					<h1 class="page-hero__title"><?= wp_kses_post( get_field( 'title' ) ); ?></h1>
 					<?php
 					$content_type = get_field( 'content_type' );

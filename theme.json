@@ -46,6 +46,12 @@
           "origin": "theme"
         },
         {
+          "name": "mid-gold",
+          "slug": "mid-gold",
+          "color": "hsl(43 25% 70%)",
+          "origin": "theme"
+        },
+        {
           "name": "light-gold",
           "slug": "light-gold",
           "color": "hsl(47 18% 90%)",

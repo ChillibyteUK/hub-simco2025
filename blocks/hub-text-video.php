@@ -53,7 +53,7 @@ switch ( $split ) {
 					$cta    = get_field( 'cta' );
 					$target = $cta['target'] ? $cta['target'] : '_self';
 					?>
-					<p class="mt-4" data-aos="fade-right" data-aos-delay="200"><a class="btn btn--mid-blue" href="<?= esc_url( $cta['url'] ); ?>" target="<?= esc_attr( $target ); ?>"><?= esc_html( $cta['title'] ); ?></a></p>
+					<p class="mt-4" data-aos="fade-right" data-aos-delay="200"><a class="btn btn-light" href="<?= esc_url( $cta['url'] ); ?>" target="<?= esc_attr( $target ); ?>"><?= esc_html( $cta['title'] ); ?></a></p>
 					<?php
 				}
 				?>

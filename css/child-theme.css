@@ -17,6 +17,8 @@
   --col-dark-grey: hsl(var(--col-dark-grey-hsl));
   --col-simco-gold-hsl: 43 31% 52%; /* #AB965F – gold */
   --col-simco-gold: hsl(var(--col-simco-gold-hsl));
+  --col-mid-gold-hsl: 43 25% 70%; /* #C8B893 – mid gold */
+  --col-mid-gold: hsl(var(--col-mid-gold-hsl));
   --col-light-gold-hsl: 47 18% 90%; /* #eae8e1 – light gold */
   --col-light-gold: hsl(var(--col-light-gold-hsl));
   --col-dark-gold-hsl: 43 31% 32%; /* #7A6B44 – dark gold */
@@ -3035,7 +3037,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: #dc3545;
 }
 
-.btn-light {
+.btn-light, input[type=submit] {
   --bs-btn-color: #000;
   --bs-btn-bg: #f8f9fa;
   --bs-btn-border-color: #f8f9fa;
@@ -11448,11 +11450,10 @@ p, ul, ol, blockquote, figure {
    ========================= */
 :root {
   /* Button spacing/tweaks */
-  --btn-py: 0.75rem;
+  --btn-py: 0.5rem;
   --btn-px: 1.5rem;
   --btn-gap: 0.5rem;
   --btn-border-w: 1px;
-  --btn-transition: 160ms ease;
 }
 
 /* Base button */
@@ -11460,16 +11461,16 @@ p, ul, ol, blockquote, figure {
 .btn a,
 .simcap-contact input[type=submit] a,
 input[type=submit] a {
-  --_bg: var(--col-white);
-  --_fg: var(--col-simco-red);
-  --_bd: var(--col-white);
+  --_bg: var(--col-mid-gold);
+  --_fg: var(--col-simco-navy);
+  --_bd: var(--col-mid-gold);
   display: inline-flex;
   align-items: center;
   gap: var(--btn-gap);
   text-decoration: none !important;
   text-transform: none;
   padding: var(--btn-py) var(--btn-px);
-  border-radius: 6px;
+  border-radius: 100vw;
   border: var(--btn-border-w) solid var(--_bd);
   background: var(--_bg);
   color: var(--_fg);
@@ -11477,25 +11478,77 @@ input[type=submit] a {
   font-weight: var(--fw-700);
   font-size: var(--fs-ui);
   line-height: 1;
-  transition: background-color var(--btn-transition), border-color var(--btn-transition), color var(--btn-transition), transform var(--btn-transition);
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
 }
 .btn:hover, input[type=submit]:hover,
 .btn a:hover,
 input[type=submit] a:hover {
-  background-color: var(--_fg);
-  color: var(--_bg);
+  background-color: var(--_bg);
+  color: var(--_fg);
   border-color: var(--_bg);
 }
 
-.btn--mid-blue, input[type=submit] {
-  --_bg: var(--col-simco-mid-blue);
-  --_fg: var(--col-white);
-  --_bd: var(--col-simco-mid-blue);
+.btn-light, input[type=submit],
+.btn-dark {
+  position: relative;
+  padding-right: calc(var(--btn-px) + 1.5rem);
 }
-.btn--mid-blue:hover, input[type=submit]:hover {
-  background-color: var(--col-simco-bluegrey-50);
+.btn-light::after, input[type=submit]::after,
+.btn-dark::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: var(--btn-px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 23px;
+  height: 23px;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  transition: right var(--transition), background-color var(--transition);
+}
+.btn-light:hover, input[type=submit]:hover,
+.btn-dark:hover {
+  background-color: var(--_bg);
+  color: var(--_fg);
+}
+.btn-light:hover::after, input[type=submit]:hover::after,
+.btn-dark:hover::after {
+  right: calc(var(--btn-px) - 0.5rem);
+}
+
+.btn-light, input[type=submit] {
+  background-color: var(--col-light-gold);
+  border-color: var(--col-light-gold);
   color: var(--col-simco-navy);
-  border-color: var(--col-simco-bluegrey-50);
+}
+.btn-light::after, input[type=submit]::after {
+  background-color: var(--col-simco-navy);
+}
+.btn-light:hover::after, input[type=submit]:hover::after {
+  background-color: var(--col-simco-navy);
+}
+
+.btn-dark {
+  background-color: var(--col-dark-gold);
+  border-color: var(--col-dark-gold);
+  color: var(--col-white);
+}
+.btn-dark::after {
+  background-color: var(--col-white);
+}
+.btn-dark:hover::after {
+  background-color: var(--col-simco-navy);
+}
+
+.btn-navy, .simcap-contact input[type=submit] {
+  background-color: var(--col-simco-navy);
 }
 
 .search-button {
@@ -11511,17 +11564,6 @@ input[type=submit] a:hover {
   background-color: hsl(var(--col-simco-red-hsl)/50%);
   color: var(--col-white);
   border-color: hsl(var(--col-simco-red-hsl)/50%);
-}
-
-.btn--dark, .simcap-contact input[type=submit] {
-  --_bg: var(--col-simco-navy);
-  --_fg: var(--col-white);
-  --_bd: var(--col-simco-navy);
-}
-.btn--dark:hover, .simcap-contact input[type=submit]:hover {
-  background-color: hsl(var(--col-simco-navy-hsl)/50%);
-  color: var(--col-white);
-  border-color: hsl(var(--col-simco-navy-hsl)/50%);
 }
 
 .btn:focus-visible, input[type=submit]:focus-visible {
@@ -12549,7 +12591,7 @@ a.image-16x9 img {
 }
 
 .homepage-hero {
-  min-height: 600px;
+  min-height: 500px;
   display: flex;
   align-items: flex-start;
   position: relative;
@@ -12655,12 +12697,18 @@ a.image-16x9 img {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg id='Layer_2' data-name='Layer 2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 508 653.5'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %23fff; %7D .cls-2 %7B fill: %2347658d; %7D .cls-3 %7B fill: none; %7D .cls-4 %7B fill: %23ab965f; %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpolygon class='cls-2' points='508 153.82 506.2 157.27 388.5 383.25 309.78 232.12 188.88 0 508 0 508 153.82'/%3E%3Cpath class='cls-4' d='M74.48,511l74.48,142.5H0l74.48-142.5Z'/%3E%3Cpolygon class='cls-1' points='508 160.71 508 653.5 90.18 653.5 90.5 652.89 119.38 597.48 309.78 232.12 427.5 6.25 506.2 157.27 508 160.71'/%3E%3Crect class='cls-3' width='508' height='653.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='1246' height='850' viewBox='0 0 1246 850' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.85'%3E%3Cpath d='M0 0H1246L853.956 850H0V0Z' fill='%23152634'/%3E%3Cpath d='M0 0H1246L853.956 850H0V0Z' fill='black' fill-opacity='0.2'/%3E%3C/g%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
-  background-position: right;
-  background-size: auto 100%;
+  background-size: cover;
+  background-position: center left;
   opacity: 0.8;
   z-index: -1;
+}
+@media (min-width: 768px) {
+  .page-hero__overlay {
+    background-position: center right;
+    max-width: 60svw;
+  }
 }
 .page-hero__pretitle {
   font-size: var(--fs-h3);

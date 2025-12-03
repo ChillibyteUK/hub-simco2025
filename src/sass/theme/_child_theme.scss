@@ -205,13 +205,13 @@ input[type="file"] {
 
 input[type="submit"] {
   @extend .btn;
-  @extend .btn--mid-blue;
+  @extend .btn-light;
 }
 
 .simcap-contact {
   input[type="submit"] {
     @extend .btn;
-    @extend .btn--dark;
+    @extend .btn-navy;
   }
 }
 
