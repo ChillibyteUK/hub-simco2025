@@ -39,6 +39,15 @@ $accordion_id = 'accordion-' . uniqid();
 				?>
 			</div>
 		</div>
+		<?php
+		if ( get_field( 'intro' ) ) {
+			?>
+		<div class="row">
+			<div class="col-md-10 offset-md-2"><?= wp_kses_post( get_field( 'intro' ) ); ?></div>
+		</div>
+			<?php
+		}
+		?>
 		<div class="row">
 			<div class="col-md-10 offset-md-2">
 				<?php

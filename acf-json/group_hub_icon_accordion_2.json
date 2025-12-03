@@ -68,6 +68,27 @@
             "append": ""
         },
         {
+            "key": "field_69306d7c15090",
+            "label": "Intro",
+            "name": "intro",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
             "key": "field_693064eb92bea",
             "label": "Items",
             "name": "items",
@@ -155,5 +176,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764779795
+    "modified": 1764781452
 }
