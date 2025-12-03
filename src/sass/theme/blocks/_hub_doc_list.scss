@@ -1,8 +1,9 @@
 .doc-list {
     &__item {
         transition: background-color var(--transition);
+        border-bottom: 1px solid var(--col-simco-gold);
         &:hover {
-            background-color: var(--col-simco-gold) !important;
+            background-color: var(--col-light-gold) !important;
         }
     }
 }

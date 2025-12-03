@@ -7,29 +7,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$bg = get_field( 'bg_colour' ) ? 'has-' . get_field( 'bg_colour' ) . '-background-color' : '';
-$fg = get_field( 'fg_colour' ) ? 'has-' . get_field( 'fg_colour' ) . '-color' : '';
-
-$slant_options = get_field( 'slant' ) ?? array();
-$has_top       = in_array( 'top', $slant_options, true );
-$has_bottom    = in_array( 'bottom', $slant_options, true );
-
-// Determine slant class based on selections.
-if ( $has_top && $has_bottom ) {
-	$slant_class = 'has-slanted-both-bg';
-} elseif ( $has_top ) {
-	$slant_class = 'has-slanted-top-bg';
-} elseif ( $has_bottom ) {
-	$slant_class = 'has-slanted-bg';
-} else {
-	$slant_class = 'py-5';
-}
-
-$classes = trim( "$bg $fg $slant_class" );
-
 ?>
-<section class="doc-list <?= esc_attr( $classes ); ?>">
-	<div class="container py-5">
+<section class="doc-list has-lightest-grey-background-color py-5">
+	<div class="container">
 		<?php
 		if ( get_field( 'title' ) ) {
 			?>
@@ -55,7 +35,7 @@ $classes = trim( "$bg $fg $slant_class" );
 				$file_ext  = pathinfo( $file_url, PATHINFO_EXTENSION );
 				?>
 			<div data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
-				<a href="<?= esc_url( $file_url ); ?>" class="doc-list__item has-light-grey-background-color d-block mb-3 p-3 text-decoration-none" target="_blank" rel="noopener">
+				<a href="<?= esc_url( $file_url ); ?>" class="doc-list__item d-block mb-3 p-3 text-decoration-none" target="_blank" rel="noopener">
 					<div class="row g-4 align-items-center">
 						<div class="col-md-2">
 							<div class="doc-list__date">
