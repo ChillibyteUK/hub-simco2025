@@ -1,0 +1,44 @@
+.hub-icon-accordion-2 {
+    &__icon {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 1rem;
+    }
+
+    .accordion-item {
+        border: none;
+    }
+    .accordion-button {
+        padding: 1rem;
+        font-size: var(--fs-body-medium);
+        color: var(--col-simco-navy);
+        background-color: transparent;
+        display: flex;
+        gap: 2rem;
+        border-bottom: 1px solid var(--col-simco-gold);
+        transition: background-color var(--transition);
+        &:hover {
+            background-color: var(--col-lightest-gold);
+        }
+        &:not(.collapsed) {
+            box-shadow: none;
+        }
+    }
+
+    .accordion-body {
+        padding: 0;
+        border-top: none;
+        transition: border-color var(--transition);
+        &__inner {
+            margin-bottom: 1rem;
+            border-left:  10px solid var(--col-light-gold);
+            background-color: var(--col-lightest-gold);
+            padding: 3rem;
+            margin-top: 1rem;
+            @media (min-width: 992px) {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+}

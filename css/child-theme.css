@@ -13199,6 +13199,48 @@ a.image-16x9 img {
   margin-bottom: 1rem;
 }
 
+.hub-icon-accordion-2__icon {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 1rem;
+}
+.hub-icon-accordion-2 .accordion-item {
+  border: none;
+}
+.hub-icon-accordion-2 .accordion-button {
+  padding: 1rem;
+  font-size: var(--fs-body-medium);
+  color: var(--col-simco-navy);
+  background-color: transparent;
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid var(--col-simco-gold);
+  transition: background-color var(--transition);
+}
+.hub-icon-accordion-2 .accordion-button:hover {
+  background-color: var(--col-lightest-gold);
+}
+.hub-icon-accordion-2 .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+.hub-icon-accordion-2 .accordion-body {
+  padding: 0;
+  border-top: none;
+  transition: border-color var(--transition);
+}
+.hub-icon-accordion-2 .accordion-body__inner {
+  margin-bottom: 1rem;
+  border-left: 10px solid var(--col-light-gold);
+  background-color: var(--col-lightest-gold);
+  padding: 3rem;
+  margin-top: 1rem;
+}
+@media (min-width: 992px) {
+  .hub-icon-accordion-2 .accordion-body__inner {
+    margin-top: 1rem;
+  }
+}
+
 body {
   background-color: var(--col-neutral-50);
 }
