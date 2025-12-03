@@ -1,6 +1,19 @@
 {
   "version": 2,
   "settings": {
+    "spacing": {
+      "blockGap": true,
+      "margin": true,
+      "padding": true,
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "vh",
+        "vw",
+        "%"
+      ]
+    },
     "color": {
       "palette": [
         {
@@ -159,6 +172,11 @@
           "size": "clamp(0.85rem, 0.8rem + 0.2vw, 0.9rem)"
         }
       ]
+    }
+  },
+  "styles": {
+    "spacing": {
+      "blockGap": "28px"
     }
   }
 }

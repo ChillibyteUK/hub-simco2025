@@ -58,6 +58,12 @@ function buildThemeJson(tokens) {
   return {
     version: 2,
     settings: {
+      spacing: {
+        blockGap: true,
+        margin: true,
+        padding: true,
+        units: ['px', 'em', 'rem', 'vh', 'vw', '%']
+      },
       color: { 
         palette: colors.map(color => ({
           ...color,
@@ -65,6 +71,11 @@ function buildThemeJson(tokens) {
         }))
       },
       typography: { fontSizes: fontSizes }
+    },
+    styles: {
+      spacing: {
+        blockGap: '28px'
+      }
     }
   };
 }
