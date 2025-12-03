@@ -63,7 +63,7 @@ if ( $post && 'simcap' === $post->post_name ) {
 					?>
 				</div>
 				<div class="px-4 py-2 hub-team__name-holder">
-					<div class="hub-team__name pb-2 fw-bold has-h-4-font-size"><?= esc_html( get_the_title( $person_id ) ); ?></div>
+					<div class="hub-team__name pb-2 fw-bold has-h-5-font-size"><?= esc_html( get_the_title( $person_id ) ); ?></div>
 					<div class="hub-team__title"><?= wp_kses_post( get_field( 'title', $person_id ) ); ?></div>
 				</div>
 			</button>

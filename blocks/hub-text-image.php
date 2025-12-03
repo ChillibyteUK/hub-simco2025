@@ -21,9 +21,9 @@ $text_width  = '50-50' === $layout ? 'col-md-6' : 'col-md-8';
 $constrain    = 'no' === get_field( 'constrain_image' ) ? '' : 'image-16x9';
 $image_margin = 'no' === get_field( 'constrain_image' ) ? 'my-auto' : '';
 
-$bg = get_field( 'bg_colour' ) ? 'has-' . get_field( 'bg_colour' ) . '-background-color' : '';
-$fg = get_field( 'fg_colour' ) ? 'has-' . get_field( 'fg_colour' ) . '-color' : '';
-$sl = get_field( 'has_slant' ) ? 'has-slanted-bg' : 'py-5';
+// Support Gutenberg color picker.
+$bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
+$fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
 
 $section_id = $block['anchor'] ?? null;
 
@@ -41,7 +41,7 @@ if ( $block_id ) {
 	<?php
 }
 ?>
-<section class="text-image <?= esc_attr( $bg . ' ' . $fg . ' ' . $sl ); ?>" id="<?= esc_attr( $section_id ); ?>">
+<section class="text-image <?= esc_attr( $bg . ' ' . $fg ); ?>" id="<?= esc_attr( $section_id ); ?>">
 	<div class="container py-5">
 		<div class="row g-5">
 			<div class="<?= esc_attr( $text_width ); ?> <?= esc_attr( $text_order ); ?>" data-aos="<?= esc_attr( $text_aos ); ?>">

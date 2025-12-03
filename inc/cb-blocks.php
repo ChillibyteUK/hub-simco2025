@@ -19,6 +19,40 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'hub_icon_full_width',
+                'title'           => __( 'HUB Icon Full Width' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/hub-icon-full-width.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
+                'name'            => 'hub_icon_text_image',
+                'title'           => __( 'HUB Icon Text Image' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/hub-icon-text-image.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'hub_team_filter',
                 'title'           => __( 'HUB Team Filter' ),
                 'category'        => 'layout',
@@ -608,6 +642,11 @@ function acf_blocks() {
                     'anchor'    => true,
                     'className' => true,
                     'align'     => true,
+					'color'     => array(
+						'gradients'  => false,
+						'text'       => true,
+						'background' => true,
+					),
                 ),
             )
         );

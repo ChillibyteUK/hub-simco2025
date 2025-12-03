@@ -13178,6 +13178,27 @@ a.image-16x9 img {
   padding-block: 0.6rem;
 }
 
+.icon-text-image .container, .icon-text-image .wp-block-group:not(.alignfull) {
+  padding-inline: 0 !important;
+}
+.icon-text-image__icon {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 1rem;
+}
+.icon-text-image__image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.full-width__icon {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 1rem;
+}
+
 body {
   background-color: var(--col-neutral-50);
 }
