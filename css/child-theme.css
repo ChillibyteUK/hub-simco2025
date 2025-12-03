@@ -13431,7 +13431,7 @@ input[type=checkbox]:focus-visible {
 
 .wp-block-separator {
   border: none;
-  border-top: 5px solid var(--col-simco-gold);
+  border-top: 5px solid var(--col-simco-gold) !important;
   opacity: 1;
 }
 
