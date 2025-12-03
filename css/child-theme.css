@@ -12843,6 +12843,7 @@ a.image-16x9 img {
 }
 .stat_spinner_grid__item {
   display: flex;
+  row-gap: 0.5rem;
   flex-direction: column;
   justify-content: center;
   height: 100%;
@@ -13426,6 +13427,12 @@ input[type=checkbox]:focus-visible {
 }
 .ginput_container.ginput_container_consent .gform-field-label.gform-field-label--type-inline.gfield_consent_label .gfield_required.gfield_required_text {
   display: none !important;
+}
+
+.wp-block-separator {
+  border: none;
+  border-top: 5px solid var(--col-simco-gold);
+  opacity: 1;
 }
 
 .has-blue-color,

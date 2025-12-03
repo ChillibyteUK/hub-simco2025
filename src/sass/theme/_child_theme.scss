@@ -261,3 +261,9 @@ input[type="checkbox"] {
     }
   }
 }
+
+.wp-block-separator {
+  border: none;
+  border-top: 5px solid var(--col-simco-gold);
+  opacity: 1;
+}

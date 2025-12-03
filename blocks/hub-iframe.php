@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php
 		if ( get_field( 'title' ) ) {
 			?>
-			<h2 class="h2 mb-4" data-aos="fade-up"><?= esc_html( get_field( 'title' ) ); ?></h2>
+			<h2 class="has-h-3-font-size mb-4" data-aos="fade-up"><?= esc_html( get_field( 'title' ) ); ?></h2>
 			<?php
 		}
 		?>
