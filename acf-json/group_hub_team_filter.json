@@ -1,0 +1,23 @@
+{
+  "key": "group_hub_team_filter",
+  "title": "HUB Team Filter",
+  "fields": [
+    {
+      "key": "field_hub_team_filter_title",
+      "label": "HUB Team Filter",
+      "name": "title",
+      "type": "message"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/hub-team-filter"
+      }
+    ]
+  ],
+  "active": 1,
+  "description": ""
+}

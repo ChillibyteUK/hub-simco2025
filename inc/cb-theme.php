@@ -77,6 +77,26 @@ function remove_understrap_post_formats() {
     remove_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 }
 add_action( 'after_setup_theme', 'remove_understrap_post_formats', 11 );
+/**
+ * Enqueue team filter script.
+ */
+add_action(
+    'wp_enqueue_scripts',
+    function () {
+        $rel = '/js/team-filter.js';
+        $abs = get_stylesheet_directory() . $rel;
+        if ( file_exists( $abs ) ) {
+            wp_enqueue_script(
+                'hub-team-filter',
+                get_stylesheet_directory_uri() . $rel,
+                array(),
+                filemtime( $abs ),
+                true
+            );
+        }
+    },
+    20
+);
 
 
 

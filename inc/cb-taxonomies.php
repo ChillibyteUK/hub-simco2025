@@ -31,5 +31,24 @@ function cb_register_taxes() {
         'rewrite'            => false,
     );
     register_taxonomy( 'team', array( 'person' ), $args );
+
+	$args = array(
+        'labels'             => array(
+            'name'          => 'Departments',
+            'singular_name' => 'Department',
+        ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'hierarchical'       => true,
+        'show_ui'            => true,
+        'show_in_nav_menus'  => true,
+        'show_tagcloud'      => false,
+        'show_in_quick_edit' => true,
+        'show_admin_column'  => true,
+        'show_in_rest'       => true,
+        'rewrite'            => false,
+    );
+    register_taxonomy( 'department', array( 'person' ), $args );
+
 }
 add_action( 'init', 'cb_register_taxes' );

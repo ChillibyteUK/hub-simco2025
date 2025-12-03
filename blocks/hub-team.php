@@ -22,9 +22,9 @@ if ( $post && 'simcap' === $post->post_name ) {
 ?>
 <section class="hub-team <?= esc_attr( $class ); ?> mb-4">
 	<div class="container">
-		<h2 class="mb-4"><?= esc_html( $team->name ); ?></h2>
+		<h2 class="mb-4 hub-team__heading"><?= esc_html( $team->name ); ?></h2>
 	</div>
-	<div class="container hub-team__grid py-4 <?= esc_attr( $cards ); ?>">
+	<div class="container hub-team__grid <?= esc_attr( $cards ); ?>">
 		<?php
 		$q = new WP_Query(
 			array(
@@ -44,9 +44,12 @@ if ( $post && 'simcap' === $post->post_name ) {
 
 		while ( $q->have_posts() ) {
 			$q->the_post();
-			$person_id = get_the_ID();
+			$person_id   = get_the_ID();
+			$dept_terms  = get_the_terms( $person_id, 'department' );
+			$dept_slugs  = $dept_terms && ! is_wp_error( $dept_terms ) ? implode( ' ', wp_list_pluck( $dept_terms, 'slug' ) ) : '';
+			$person_name = mb_strtolower( get_the_title( $person_id ) );
 			?>
-			<button class="hub-team__card" data-aos="fade" type="button" aria-expanded="false" aria-controls="team-detail-<?= esc_attr( $person_id ); ?>" data-person-id="<?= esc_attr( $person_id ); ?>">
+			<button class="hub-team__card" data-aos="fade" type="button" aria-expanded="false" aria-controls="team-detail-<?= esc_attr( $person_id ); ?>" data-person-id="<?= esc_attr( $person_id ); ?>" data-dept="<?= esc_attr( $dept_slugs ); ?>" data-name="<?= esc_attr( $person_name ); ?>">
 				<div class="hub-team__image-wrapper">
 					<?=
 					get_the_post_thumbnail(
@@ -60,7 +63,7 @@ if ( $post && 'simcap' === $post->post_name ) {
 					?>
 				</div>
 				<div class="px-4 py-2 hub-team__name-holder">
-					<div class="hub-team__name pb-2 fw-bold fs-h4-body-bold"><?= esc_html( get_the_title( $person_id ) ); ?></div>
+					<div class="hub-team__name pb-2 fw-bold has-h-4-font-size"><?= esc_html( get_the_title( $person_id ) ); ?></div>
 					<div class="hub-team__title"><?= wp_kses_post( get_field( 'title', $person_id ) ); ?></div>
 				</div>
 			</button>
