@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) || exit;
 				$file_ext  = pathinfo( $file_url, PATHINFO_EXTENSION );
 				?>
 			<div data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
-				<a href="<?= esc_url( $file_url ); ?>" class="doc-list__item d-block mb-3 p-3 text-decoration-none" target="_blank" rel="noopener">
+				<a href="<?= esc_url( $file_url ); ?>" class="doc-list__item d-block px-3 py-4 text-decoration-none" target="_blank" rel="noopener">
 					<div class="row g-4 align-items-center">
 						<div class="col-md-2">
 							<div class="doc-list__date">
