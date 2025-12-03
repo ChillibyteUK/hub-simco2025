@@ -184,6 +184,18 @@ add_action( 'wp_enqueue_scripts', 'hub_theme_enqueue' );
 remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
+
+add_action(
+    'admin_head',
+    function () {
+        echo '<style>
+        .block-editor-page #wpwrap {
+        overflow-y: auto !important;
+        }
+   </style>';
+    }
+);
+
 /**
  * Add defer attribute to scripts for better performance.
  *
