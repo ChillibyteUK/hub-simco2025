@@ -183,6 +183,10 @@ a:focus-visible {
 p, ul, ol, blockquote, figure {
   margin-block: 0.75em;
 }
+.w-constrained-sm {
+  max-width: 42ch;
+  text-wrap: pretty;
+}
 .w-constrained-md {
   max-width: 72ch;
   text-wrap: pretty;

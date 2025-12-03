@@ -21,27 +21,6 @@
             "new_lines": "wpautop"
         },
         {
-            "key": "field_68e7723676300",
-            "label": "Pre Title",
-            "name": "pre_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_68e7723e76301",
             "label": "Title",
             "name": "title",
@@ -63,32 +42,6 @@
             "append": ""
         },
         {
-            "key": "field_hub_page_hero_content_type",
-            "label": "Content Type",
-            "name": "content_type",
-            "aria-label": "",
-            "type": "radio",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "static": "Static",
-                "animated": "Animated"
-            },
-            "default_value": "static",
-            "return_format": "value",
-            "allow_null": 0,
-            "other_choice": 0,
-            "allow_in_bindings": 0,
-            "layout": "horizontal",
-            "save_other_choice": 0
-        },
-        {
             "key": "field_68e7724476302",
             "label": "Content",
             "name": "content",
@@ -96,15 +49,7 @@
             "type": "textarea",
             "instructions": "",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_hub_page_hero_content_type",
-                        "operator": "==",
-                        "value": "static"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -116,64 +61,6 @@
             "rows": "",
             "placeholder": "",
             "new_lines": "br"
-        },
-        {
-            "key": "field_hub_page_hero_constant",
-            "label": "Constant Text",
-            "name": "constant",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "The unchanging text before the animated words",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_hub_page_hero_content_type",
-                        "operator": "==",
-                        "value": "animated"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_hub_page_hero_animated_content",
-            "label": "Animated Words",
-            "name": "animated_content",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "Enter one word or phrase per line",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_hub_page_hero_content_type",
-                        "operator": "==",
-                        "value": "animated"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
         },
         {
             "key": "field_68e7725076303",
@@ -247,5 +134,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1732060800
+    "modified": 1764759436
 }

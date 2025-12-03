@@ -15,14 +15,16 @@
   --col-simco-mid-blue: hsl(var(--col-simco-mid-blue-hsl));
   --col-dark-grey-hsl: 0 0% 44%; /* #707074 – dark grey */
   --col-dark-grey: hsl(var(--col-dark-grey-hsl));
-  --col-simco-gold-hsl: 43 31% 52%; /* #AB965F – gold */
-  --col-simco-gold: hsl(var(--col-simco-gold-hsl));
+  --col-dark-gold-hsl: 43 31% 32%; /* #7A6B44 – dark gold */
+  --col-dark-gold: hsl(var(--col-dark-gold-hsl));
   --col-mid-gold-hsl: 43 25% 70%; /* #C8B893 – mid gold */
   --col-mid-gold: hsl(var(--col-mid-gold-hsl));
   --col-light-gold-hsl: 47 18% 90%; /* #eae8e1 – light gold */
   --col-light-gold: hsl(var(--col-light-gold-hsl));
-  --col-dark-gold-hsl: 43 31% 32%; /* #7A6B44 – dark gold */
-  --col-dark-gold: hsl(var(--col-dark-gold-hsl));
+  --col-simco-gold-hsl: 43 31% 52%; /* #AB965F – gold */
+  --col-simco-gold: hsl(var(--col-simco-gold-hsl));
+  --col-lightest-gold-hsl: 38 40% 96%; /* #F9F6F1 – lightest gold */
+  --col-lightest-gold: hsl(var(--col-lightest-gold-hsl));
   --col-simco-grey: hsl(var(--col-light-gold-hsl));
   --col-lightest-grey: #F8F8F7;
   --col-light-grey: #EAECF1;
@@ -11433,6 +11435,11 @@ p, ul, ol, blockquote, figure {
   margin-block: 0.75em;
 }
 
+.w-constrained-sm {
+  max-width: 42ch;
+  text-wrap: pretty;
+}
+
 .w-constrained-md {
   max-width: 72ch;
   text-wrap: pretty;
@@ -12718,7 +12725,8 @@ a.image-16x9 img {
   font-size: var(--fs-h1);
 }
 .page-hero__content {
-  font-size: var(--fs-h2);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
 }
 
 @keyframes gentle-scale {
@@ -13123,6 +13131,53 @@ a.image-16x9 img {
   background-size: contain;
   opacity: 0.7;
   z-index: -1;
+}
+
+.icon-accordion-block .accordion-item {
+  border: none;
+}
+.icon-accordion-block .accordion-button {
+  padding: 1rem;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  color: var(--col-dark-gold);
+  background-color: transparent;
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid var(--col-simco-gold);
+  transition: background-color var(--transition);
+}
+.icon-accordion-block .accordion-button img {
+  width: 90px;
+  height: 90px;
+}
+.icon-accordion-block .accordion-button[aria-expanded=true] {
+  border-bottom: none;
+}
+.icon-accordion-block .accordion-button:hover {
+  background-color: var(--col-lightest-gold);
+}
+.icon-accordion-block .accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+.icon-accordion-block .accordion-body {
+  padding-top: 0;
+  border-top: none;
+  border-bottom: 5px solid var(--col-simco-gold);
+  transition: border-color var(--transition);
+}
+.icon-accordion-block .accordion-body__inner {
+  margin-bottom: 1rem;
+  border-left: 10px solid var(--col-light-gold);
+  background-color: var(--col-lightest-gold);
+  padding: 3rem;
+  margin-top: 1rem;
+}
+@media (min-width: 992px) {
+  .icon-accordion-block .accordion-body__inner {
+    margin-top: 0;
+    margin-left: 100px;
+  }
 }
 
 body {

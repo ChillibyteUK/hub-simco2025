@@ -40,9 +40,9 @@
           "origin": "theme"
         },
         {
-          "name": "simco-gold",
-          "slug": "simco-gold",
-          "color": "hsl(43 31% 52%)",
+          "name": "dark-gold",
+          "slug": "dark-gold",
+          "color": "hsl(43 31% 32%)",
           "origin": "theme"
         },
         {
@@ -58,9 +58,15 @@
           "origin": "theme"
         },
         {
-          "name": "dark-gold",
-          "slug": "dark-gold",
-          "color": "hsl(43 31% 32%)",
+          "name": "simco-gold",
+          "slug": "simco-gold",
+          "color": "hsl(43 31% 52%)",
+          "origin": "theme"
+        },
+        {
+          "name": "lightest-gold",
+          "slug": "lightest-gold",
+          "color": "hsl(38 40% 96%)",
           "origin": "theme"
         },
         {
