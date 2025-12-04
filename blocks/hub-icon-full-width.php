@@ -7,7 +7,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$bg = 'Yes' === get_field( 'background' ) ? 'has-lightest-gold-background-color' : '';
+$background = get_field( 'background' );
+$bg         = ! empty( $background ) && 'Yes' === $background[0] ? 'has-lightest-gold-background-color' : '';
 
 ?>
 <section class="full-width">
