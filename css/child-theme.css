@@ -13604,6 +13604,22 @@ input[type=checkbox]:focus-visible {
   border-color: #47658D !important;
 }
 
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: var(--col-simco-navy) !important;
+  opacity: 1 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--col-simco-navy) !important;
+  opacity: 1 !important;
+}
+
+.gform_wrapper .gfield_placeholder {
+  color: var(--col-simco-navy) !important;
+  opacity: 1 !important;
+}
+
 .ginput_container.ginput_container_consent {
   display: flex;
   gap: 0.5rem;
