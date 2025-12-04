@@ -35,6 +35,9 @@ $show_button = get_field( 'show_button' )[0] ?? null;
 
 $block_id = $block['id'] ?? null;
 
+$image_id  = get_field( 'image' );
+$image_alt = $image_id ? get_post_meta( $image_id, '_wp_attachment_image_alt', true ) : '';
+
 if ( $block_id ) {
 	?>
 <a id="<?= esc_attr( $block_id ); ?>"></a>
@@ -70,12 +73,12 @@ if ( $block_id ) {
 						<a href="<?= esc_url( $link_url ); ?>">
 							<?=
 							wp_get_attachment_image(
-								get_field( 'image' ),
+								$image_id,
 								'full',
 								false,
 								array(
 									'class' => '',
-									'alt'   => '',
+									'alt'   => esc_attr( $image_alt ),
 								)
 							);
 							?>
@@ -83,12 +86,12 @@ if ( $block_id ) {
 						<?php
 					} else {
 						echo wp_get_attachment_image(
-							get_field( 'image' ),
+							$image_id,
 							'full',
 							false,
 							array(
 								'class' => '',
-								'alt'   => '',
+								'alt'   => esc_attr( $image_alt ),
 							)
 						);
 					}
