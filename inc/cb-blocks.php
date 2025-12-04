@@ -19,23 +19,6 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
-                'name'            => 'icon_full_bg',
-                'title'           => __( 'icon full bg' ),
-                'category'        => 'layout',
-                'icon'            => 'cover-image',
-                'render_template' => 'blocks/icon-full-bg.php',
-                'mode'            => 'edit',
-                'supports'        => array(
-                    'mode'      => false,
-                    'anchor'    => true,
-                    'className' => true,
-                    'align'     => true,
-                ),
-            )
-        );
-
-        acf_register_block_type(
-            array(
                 'name'            => 'hub_icon_accordion_2',
                 'title'           => __( 'HUB Icon Accordion 2' ),
                 'category'        => 'layout',

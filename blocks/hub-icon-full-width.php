@@ -33,7 +33,7 @@ $bg         = ! empty( $background ) && 'Yes' === $background[0] ? 'has-lightest
 				<?php
 				if ( get_field( 'title' ) ) {
 					?>
-				<h2 class="has-h-3-font-size mb-4"><?= esc_html( get_field( 'title' ) ); ?></h2>
+				<h2 class="has-h-3-font-size mb-4 mb-md-0"><?= esc_html( get_field( 'title' ) ); ?></h2>
 					<?php
 				}
 				?>

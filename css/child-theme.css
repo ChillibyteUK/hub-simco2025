@@ -13209,6 +13209,11 @@ a.image-16x9 img {
   height: 90px;
   margin-bottom: 1rem;
 }
+@media (min-width: 992px) {
+  .full-width__icon {
+    margin-bottom: 0;
+  }
+}
 
 .hub-icon-accordion-2__icon {
   width: 90px;
