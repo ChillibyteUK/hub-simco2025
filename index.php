@@ -14,6 +14,7 @@ get_header();
 <main id="main">
 	<?php
 	// Display ACF blocks and content from the "page for posts".
+	$knowledge_pushthrough_block = null;
 	if ( $page_for_posts ) {
 		// Get the page for posts object.
 		$posts_page = get_post( $page_for_posts );
@@ -25,8 +26,22 @@ get_header();
 			$post          = $posts_page; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 			setup_postdata( $post );
 
-			// Output the page content (which includes ACF blocks).
-			echo apply_filters( 'the_content', $posts_page->post_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			// Parse blocks to extract knowledge-pushthrough block.
+			$blocks           = parse_blocks( $posts_page->post_content );
+			$filtered_content = '';
+
+			foreach ( $blocks as $block ) {
+				if ( isset( $block['blockName'] ) && 'acf/hub-knowledge-pushthrough' === $block['blockName'] ) {
+					// Store the knowledge-pushthrough block for later display.
+					$knowledge_pushthrough_block = $block;
+				} else {
+					// Render other blocks normally.
+					$filtered_content .= render_block( $block );
+				}
+			}
+
+			// Output the filtered page content (excluding knowledge-pushthrough).
+			echo wp_kses_post( $filtered_content );
 
 			// Restore original post data.
 			$post = $original_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
@@ -191,6 +206,12 @@ get_header();
             </div>
         </div>
     </section>
+	<?php
+	// Display the knowledge-pushthrough block if it was found.
+	if ( $knowledge_pushthrough_block ) {
+		echo render_block( $knowledge_pushthrough_block ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+	?>
 </main>
 <script>
 document.addEventListener('DOMContentLoaded', function() {

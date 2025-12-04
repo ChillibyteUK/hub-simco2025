@@ -12713,69 +12713,6 @@ a.image-16x9 img {
     transform: scale(1.05);
   }
 }
-.text--right {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-}
-@media (min-width: 1200px) {
-  .text--right {
-    max-width: 570px;
-  }
-}
-@media (min-width: 1400px) {
-  .text--right {
-    max-width: 660px;
-  }
-}
-
-.text--left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: auto;
-  height: 100%;
-  padding-inline-end: 1rem;
-}
-@media (min-width: 1200px) {
-  .text--left {
-    max-width: 570px;
-  }
-}
-@media (min-width: 1400px) {
-  .text--left {
-    max-width: 660px;
-  }
-}
-
-@media (min-width: 992px) {
-  .split {
-    display: flex;
-    align-items: stretch;
-  }
-}
-.split__image {
-  padding-inline: 0;
-  overflow: hidden;
-  height: 100%;
-  display: flex;
-}
-.split__image img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-@media (min-width: 992px) {
-  .split__image img {
-    aspect-ratio: unset;
-  }
-}
-.split__image-wrapper {
-  width: 100%;
-}
-
 .has-slanted-bg {
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
@@ -13353,6 +13290,69 @@ a.image-16x9 img {
     max-width: 70svw;
     background-position: center right;
   }
+}
+
+.text--right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+@media (min-width: 1200px) {
+  .text--right {
+    max-width: 570px;
+  }
+}
+@media (min-width: 1400px) {
+  .text--right {
+    max-width: 660px;
+  }
+}
+
+.text--left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  height: 100%;
+  padding-inline-end: 1rem;
+}
+@media (min-width: 1200px) {
+  .text--left {
+    max-width: 570px;
+  }
+}
+@media (min-width: 1400px) {
+  .text--left {
+    max-width: 660px;
+  }
+}
+
+@media (min-width: 992px) {
+  .split {
+    display: flex;
+    align-items: stretch;
+  }
+}
+.split__image {
+  padding-inline: 0;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+}
+.split__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+@media (min-width: 992px) {
+  .split__image img {
+    aspect-ratio: unset;
+  }
+}
+.split__image-wrapper {
+  width: 100%;
 }
 
 body {

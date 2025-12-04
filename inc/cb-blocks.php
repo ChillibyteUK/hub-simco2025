@@ -19,6 +19,23 @@ function acf_blocks() {
 
         acf_register_block_type(
             array(
+                'name'            => 'hub_knowledge_pushthrough',
+                'title'           => __( 'HUB Knowledge Pushthrough' ),
+                'category'        => 'layout',
+                'icon'            => 'cover-image',
+                'render_template' => 'blocks/hub-knowledge-pushthrough.php',
+                'mode'            => 'edit',
+                'supports'        => array(
+                    'mode'      => false,
+                    'anchor'    => true,
+                    'className' => true,
+                    'align'     => true,
+                ),
+            )
+        );
+
+        acf_register_block_type(
+            array(
                 'name'            => 'hub_image_feature_text',
                 'title'           => __( 'HUB Image Feature Text' ),
                 'category'        => 'layout',
