@@ -7,10 +7,12 @@
 
 defined( 'ABSPATH' ) || exit;
 
+$bg = 'Yes' === get_field( 'background' ) ? 'has-lightest-gold-background-color' : '';
+
 ?>
 <section class="full-width">
-    <div class="container has-lightest-gold-background-color py-5" data-aos="fade-up">
-		<div class="row align-items-center mb-4">
+    <div class="container <?php echo esc_attr( $bg ); ?> py-5" data-aos="fade-up">
+		<div class="row align-items-center">
 			<div class="col-md-2 text-center mb-4 mb-md-0">
 				<?php
 				if ( get_field( 'icon' ) ) {
