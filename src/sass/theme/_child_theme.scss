@@ -36,6 +36,16 @@ body {
   top: 32px; // Admin bar height
 }
 
+.anchor {
+  display: block;
+  position: relative;
+  top: calc( -1 * var(--h-top) - 1rem );
+  visibility: hidden;
+  @media (min-width: 992px) {
+    top: calc( -1 * var(--h-top-desktop) - 1rem );
+  }
+}
+
 #breadcrumbs {
   font-size: var(--text-sm);
   a {
