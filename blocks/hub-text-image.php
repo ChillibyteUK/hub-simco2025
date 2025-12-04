@@ -37,7 +37,9 @@ $block_id = $block['id'] ?? null;
 
 $image_id  = get_field( 'image' );
 $image_alt = $image_id ? get_post_meta( $image_id, '_wp_attachment_image_alt', true ) : '';
-
+if ( ! $image_alt && $image_id ) {
+	$image_alt = get_the_title( $image_id );
+}
 if ( $block_id ) {
 	?>
 <a id="<?= esc_attr( $block_id ); ?>"></a>
