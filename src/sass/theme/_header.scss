@@ -123,10 +123,14 @@ header {
         .current_page_parent > .nav-link,
         .current-menu-ancestor > .nav-link,
         .current-menu-parent > .nav-link,
-        .dropdown.current-page-ancestor > .dropdown-item,
-        .dropdown.current-menu-item > .dropdown-item {
-          color: var(--col-simco-gold);
-          font-weight: var(--fw-medium);
+        .current_page_item > .dropdown-item,
+        .current_page_parent > .dropdown-item,
+        .current-menu-ancestor > .dropdown-item,
+        .current-menu-parent > .dropdown-item,
+        .dropdown-menu.current-page-ancestor > .dropdown-item,
+        .dropdown-menu.current-menu-item > .dropdown-item {
+          color: var(--col-simco-gold) !important;
+          font-weight: var(--fw-medium) !important;
         }
 
 
