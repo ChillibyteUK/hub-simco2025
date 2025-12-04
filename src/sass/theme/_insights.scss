@@ -72,6 +72,14 @@
     font-weight: var(--fw-light);
 }
 
+.single {
+    .category {
+        font-size: var(--fs-h5);
+        font-weight: var(--fw-bold);
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--col-simco-gold);
+    }
+}
 
 .post-navigation{
     .nav-links {

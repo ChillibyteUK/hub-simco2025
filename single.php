@@ -16,149 +16,139 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 	$first_category = $categories[0];
 }
 ?>
-<main id="main" class="blog">
-	<div class="container">
-		<?php
-		if ( 'news' === $first_category ) {
-			?>
-		<div class="post_hero">
-			<?=
-			get_the_post_thumbnail(
-				get_the_ID(),
-				'full',
-				array(
-					'class' => 'blog_hero__image',
-					'alt'   => esc_attr( get_the_title() ),
-				)
-			);
-			?>
-		</div>
-			<?php
-		}
-		?>
-		<div class="pt-5 pb-4">
-			<h1 class="h2"><?= esc_html( get_the_title() ); ?></h1>
-			<?php
-			if ( function_exists( 'yoast_breadcrumb' ) ) {
-				?>
-			<section class="breadcrumbs">
-                <?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
-            </section>
-				<?php
-			}
-			?>
-		</div>
-		<div class="row">
-			<div class="col-md-3">
-				<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $first_category->name ); ?></div>
+<main id="main" class="single">
+<section class="graphic-hero graphic-hero--short">
+	<div class="container d-flex h-100">
+		<div class="row w-100 align-items-end mb-4">
+			<div class="col-md-6">
+				<div class="graphic-hero__title h1">Insights</div>
 			</div>
-			<div class="col-md-9 pb-5">
-				<?php
-				if ( $first_category && (
-					'podcast' === $first_category->slug ||
-					'video' === $first_category->slug ||
-					'interview' === $first_category->slug
-					) ) {
-					$video = get_field( 'video_link' );
-					if ( $video ) {
-						?>
-				<div class="ratio ratio-16x9 mb-4">
-					<iframe src="<?= esc_attr( $video ); ?>" title="<?= esc_attr( get_the_title() ); ?>" allowfullscreen></iframe>	
-				</div>
-						<?php
-					}
+		</div>
+	</div>
+</section>
+<div class="container">
+	<?php
+	if ( function_exists( 'yoast_breadcrumb' ) ) {
+		?>
+	<section class="breadcrumbs">
+		<?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
+	</section>
+		<?php
+	}
+	?>
+	<div class="row g-5">
+		<div class="col-md-3">
+			<div class="category"><?= esc_html( $first_category->name ); ?></div>
+		</div>
+		<div class="col-md-9">
+			<h1 class="h2 mb-5"><?= esc_html( get_the_title() ); ?></h1>
+			<div class="mb-4"><?= get_the_date( 'j/m/Y' ); ?></div>
+			<?php
+			if ( $first_category && (
+				'podcast' === $first_category->slug ||
+				'video' === $first_category->slug ||
+				'interview' === $first_category->slug
+				) ) {
+				$video = get_field( 'video_link' );
+				if ( $video ) {
+					?>
+			<div class="ratio ratio-16x9 mb-4">
+				<iframe src="<?= esc_attr( $video ); ?>" title="<?= esc_attr( get_the_title() ); ?>" allowfullscreen></iframe>	
+			</div>
+					<?php
 				}
+			}
 
-				echo apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				?>
-			</div>
-		</div>
-		<?php
-		// Custom navigation - exclude research category.
-		// Get current post date for comparison.
-		$current_post_date = get_the_date( 'Y-m-d H:i:s' );
-
-		// Get previous post (newer, published after current).
-		$prev_post  = null;
-		$prev_args  = array(
-			'post_type'      => 'post',
-			'posts_per_page' => 1,
-			'post_status'    => 'publish',
-			'orderby'        => 'date',
-			'order'          => 'ASC',
-			'date_query'     => array(
-				array(
-					'after'     => $current_post_date,
-					'inclusive' => false,
-				),
-			),
-			'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-				array(
-					'taxonomy' => 'category',
-					'field'    => 'slug',
-					'terms'    => 'research',
-					'operator' => 'NOT IN',
-				),
-			),
-		);
-		$prev_query = new WP_Query( $prev_args );
-		if ( $prev_query->have_posts() ) {
-			$prev_post = $prev_query->posts[0];
-		}
-		wp_reset_postdata();
-
-		// Get next post (older, published before current).
-		$next_post  = null;
-		$next_args  = array(
-			'post_type'      => 'post',
-			'posts_per_page' => 1,
-			'post_status'    => 'publish',
-			'orderby'        => 'date',
-			'order'          => 'DESC',
-			'date_query'     => array(
-				array(
-					'before'    => $current_post_date,
-					'inclusive' => false,
-				),
-			),
-			'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-				array(
-					'taxonomy' => 'category',
-					'field'    => 'slug',
-					'terms'    => 'research',
-					'operator' => 'NOT IN',
-				),
-			),
-		);
-		$next_query = new WP_Query( $next_args );
-		if ( $next_query->have_posts() ) {
-			$next_post = $next_query->posts[0];
-		}
-		wp_reset_postdata();
-
-		if ( $prev_post || $next_post ) {
+			echo apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			?>
-			<nav class="navigation post-navigation" aria-label="Posts">
-				<div class="nav-links">
-					<?php if ( $prev_post ) : ?>
-						<div class="nav-previous">
-							<a href="<?= esc_url( get_permalink( $prev_post->ID ) ); ?>" rel="prev">
-								<span class="nav-subtitle"><?= esc_html__( 'Previous Insight', 'hub-sequoia2025' ); ?></span>
-							</a>
+				<?php
+				// Custom navigation - exclude research category.
+				// Get current post date for comparison.
+				$current_post_date = get_the_date( 'Y-m-d H:i:s' );
+
+				// Get previous post (newer, published after current).
+				$prev_post  = null;
+				$prev_args  = array(
+					'post_type'      => 'post',
+					'posts_per_page' => 1,
+					'post_status'    => 'publish',
+					'orderby'        => 'date',
+					'order'          => 'ASC',
+					'date_query'     => array(
+						array(
+							'after'     => $current_post_date,
+							'inclusive' => false,
+						),
+					),
+					'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+						array(
+							'taxonomy' => 'category',
+							'field'    => 'slug',
+							'terms'    => 'research',
+							'operator' => 'NOT IN',
+						),
+					),
+				);
+				$prev_query = new WP_Query( $prev_args );
+				if ( $prev_query->have_posts() ) {
+					$prev_post = $prev_query->posts[0];
+				}
+				wp_reset_postdata();
+
+				// Get next post (older, published before current).
+				$next_post  = null;
+				$next_args  = array(
+					'post_type'      => 'post',
+					'posts_per_page' => 1,
+					'post_status'    => 'publish',
+					'orderby'        => 'date',
+					'order'          => 'DESC',
+					'date_query'     => array(
+						array(
+							'before'    => $current_post_date,
+							'inclusive' => false,
+						),
+					),
+					'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+						array(
+							'taxonomy' => 'category',
+							'field'    => 'slug',
+							'terms'    => 'research',
+							'operator' => 'NOT IN',
+						),
+					),
+				);
+				$next_query = new WP_Query( $next_args );
+				if ( $next_query->have_posts() ) {
+					$next_post = $next_query->posts[0];
+				}
+				wp_reset_postdata();
+
+				if ( $prev_post || $next_post ) {
+					?>
+					<nav class="navigation post-navigation" aria-label="Posts">
+						<div class="nav-links">
+							<?php if ( $prev_post ) : ?>
+								<div class="nav-previous">
+									<a href="<?= esc_url( get_permalink( $prev_post->ID ) ); ?>" rel="prev">
+										<span class="nav-subtitle"><?= esc_html__( 'Previous Insight', 'hub-sequoia2025' ); ?></span>
+									</a>
+								</div>
+							<?php endif; ?>
+							<?php if ( $next_post ) : ?>
+								<div class="nav-next">
+									<a href="<?= esc_url( get_permalink( $next_post->ID ) ); ?>" rel="next">
+										<span class="nav-subtitle"><?= esc_html__( 'Next Insight', 'hub-sequoia2025' ); ?></span>
+									</a>
+								</div>
+							<?php endif; ?>
 						</div>
-					<?php endif; ?>
-					<?php if ( $next_post ) : ?>
-						<div class="nav-next">
-							<a href="<?= esc_url( get_permalink( $next_post->ID ) ); ?>" rel="next">
-								<span class="nav-subtitle"><?= esc_html__( 'Next Insight', 'hub-sequoia2025' ); ?></span>
-							</a>
-						</div>
-					<?php endif; ?>
-				</div>
-			</nav>
-			<?php
-		}
-		?>
+					</nav>
+					<?php
+				}
+				?>
+		</div>
+	</div>
 		<?php
 		// Related posts - exclude current post and research category.
 		$related_args = array(
