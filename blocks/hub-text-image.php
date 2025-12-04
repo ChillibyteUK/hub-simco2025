@@ -75,7 +75,7 @@ if ( $block_id ) {
 								false,
 								array(
 									'class' => '',
-									'alt'   => esc_attr( get_field( 'title' ) ),
+									'alt'   => '',
 								)
 							);
 							?>
@@ -88,7 +88,7 @@ if ( $block_id ) {
 							false,
 							array(
 								'class' => '',
-								'alt'   => esc_attr( get_field( 'title' ) ),
+								'alt'   => '',
 							)
 						);
 					}
