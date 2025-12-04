@@ -20,6 +20,7 @@ $text_width  = '50-50' === $layout ? 'col-md-6' : 'col-md-8';
 
 $constrain    = 'no' === get_field( 'constrain_image' ) ? '' : 'image-16x9';
 $image_margin = 'no' === get_field( 'constrain_image' ) ? 'my-auto' : '';
+$align_image  = 'Top' === get_field( 'align_image' ) ? 'my-auto' : '';
 
 // Support Gutenberg color picker.
 $bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
@@ -62,8 +63,8 @@ if ( $block_id ) {
 				}
 				?>
 			</div>
-			<div class="<?= esc_attr( $image_margin ); ?> <?= esc_attr( $image_width ); ?> <?= esc_attr( $image_order ); ?>" data-aos="<?= esc_attr( $image_aos ); ?>">
-				<div class="<?= esc_attr( $constrain ); ?> my-auto h-100">
+			<div class="<?= esc_attr( $align_image ); ?> <?= esc_attr( $image_width ); ?> <?= esc_attr( $image_order ); ?>" data-aos="<?= esc_attr( $image_aos ); ?>">
+				<div class="<?= esc_attr( $constrain ); ?> <?= esc_attr( $align_image ); ?> h-100">
 					<?php
 					if ( $link_image && $link_url ) {
 						?>
