@@ -59,92 +59,91 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 
 			echo apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			?>
-				<?php
-				// Custom navigation - exclude research category.
-				// Get current post date for comparison.
-				$current_post_date = get_the_date( 'Y-m-d H:i:s' );
+			<?php
+			// Custom navigation - exclude research category.
+			// Get current post date for comparison.
+			$current_post_date = get_the_date( 'Y-m-d H:i:s' );
 
-				// Get previous post (newer, published after current).
-				$prev_post  = null;
-				$prev_args  = array(
-					'post_type'      => 'post',
-					'posts_per_page' => 1,
-					'post_status'    => 'publish',
-					'orderby'        => 'date',
-					'order'          => 'ASC',
-					'date_query'     => array(
-						array(
-							'after'     => $current_post_date,
-							'inclusive' => false,
-						),
+			// Get previous post (older, published before current).
+			$prev_post  = null;
+			$prev_args  = array(
+				'post_type'      => 'post',
+				'posts_per_page' => 1,
+				'post_status'    => 'publish',
+				'orderby'        => 'date',
+				'order'          => 'DESC',
+				'date_query'     => array(
+					array(
+						'before'    => $current_post_date,
+						'inclusive' => false,
 					),
-					'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-						array(
-							'taxonomy' => 'category',
-							'field'    => 'slug',
-							'terms'    => 'research',
-							'operator' => 'NOT IN',
-						),
+				),
+				'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+					array(
+						'taxonomy' => 'category',
+						'field'    => 'slug',
+						'terms'    => 'research',
+						'operator' => 'NOT IN',
 					),
-				);
-				$prev_query = new WP_Query( $prev_args );
-				if ( $prev_query->have_posts() ) {
-					$prev_post = $prev_query->posts[0];
-				}
-				wp_reset_postdata();
+				),
+			);
+			$prev_query = new WP_Query( $prev_args );
+			if ( $prev_query->have_posts() ) {
+				$prev_post = $prev_query->posts[0];
+			}
+			wp_reset_postdata();
 
-				// Get next post (older, published before current).
-				$next_post  = null;
-				$next_args  = array(
-					'post_type'      => 'post',
-					'posts_per_page' => 1,
-					'post_status'    => 'publish',
-					'orderby'        => 'date',
-					'order'          => 'DESC',
-					'date_query'     => array(
-						array(
-							'before'    => $current_post_date,
-							'inclusive' => false,
-						),
+			// Get next post (newer, published after current).
+			$next_post  = null;
+			$next_args  = array(
+				'post_type'      => 'post',
+				'posts_per_page' => 1,
+				'post_status'    => 'publish',
+				'orderby'        => 'date',
+				'order'          => 'ASC',
+				'date_query'     => array(
+					array(
+						'after'     => $current_post_date,
+						'inclusive' => false,
 					),
-					'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-						array(
-							'taxonomy' => 'category',
-							'field'    => 'slug',
-							'terms'    => 'research',
-							'operator' => 'NOT IN',
-						),
+				),
+				'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+					array(
+						'taxonomy' => 'category',
+						'field'    => 'slug',
+						'terms'    => 'research',
+						'operator' => 'NOT IN',
 					),
-				);
-				$next_query = new WP_Query( $next_args );
-				if ( $next_query->have_posts() ) {
-					$next_post = $next_query->posts[0];
-				}
-				wp_reset_postdata();
-
-				if ( $prev_post || $next_post ) {
-					?>
-					<nav class="navigation post-navigation" aria-label="Posts">
-						<div class="nav-links">
-							<?php if ( $prev_post ) : ?>
-								<div class="nav-previous">
-									<a class="btn btn-prev" href="<?= esc_url( get_permalink( $prev_post->ID ) ); ?>" rel="prev">
-										Previous
-									</a>
-								</div>
-							<?php endif; ?>
-							<?php if ( $next_post ) : ?>
-								<div class="nav-next">
-									<a class="btn btn-next" href="<?= esc_url( get_permalink( $next_post->ID ) ); ?>" rel="next">
-										Next
-									</a>
-								</div>
-							<?php endif; ?>
-						</div>
-					</nav>
-					<?php
-				}
+				),
+			);
+			$next_query = new WP_Query( $next_args );
+			if ( $next_query->have_posts() ) {
+				$next_post = $next_query->posts[0];
+			}
+			wp_reset_postdata();
+			if ( $prev_post || $next_post ) {
 				?>
+			<nav class="navigation post-navigation" aria-label="Posts">
+				<div class="nav-links">
+					<?php if ( $prev_post ) : ?>
+						<div class="nav-previous">
+							<a class="btn btn-prev" href="<?= esc_url( get_permalink( $prev_post->ID ) ); ?>" rel="prev">
+								Previous
+							</a>
+						</div>
+					<?php endif; ?>
+					<?php if ( $next_post ) : ?>
+						<div class="nav-next">
+							<a class="btn btn-next" href="<?= esc_url( get_permalink( $next_post->ID ) ); ?>" rel="next">
+								Next
+							</a>
+						</div>
+					<?php endif; ?>
+				</div>
+			</nav>
+				<?php
+			}
+			?>
 		</div>
 	</div>
 		<?php
