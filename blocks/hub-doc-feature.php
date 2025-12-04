@@ -69,7 +69,7 @@ defined( 'ABSPATH' ) || exit;
 						$file_name = ! empty( $file['title'] ) ? $file['title'] : basename( $file_url );
 						$file_ext  = pathinfo( $file_url, PATHINFO_EXTENSION );
 						?>
-				<a href="<?= esc_url( $file_url ); ?>" class="doc-list__item has-light-grey-background-color d-block mb-3 p-3 text-decoration-none" target="_blank" rel="noopener">
+				<a href="<?= esc_url( $file_url ); ?>" class="doc-list__item has-lightest-grey-background-color d-block mb-3 p-3 text-decoration-none" target="_blank" rel="noopener">
 					<div class="row g-4 align-items-center">
 						<div class="col-md-2">
 							<div class="doc-list__date">
