@@ -20,12 +20,11 @@ $text_width  = '50-50' === $layout ? 'col-md-6' : 'col-md-8';
 
 $constrain    = 'no' === get_field( 'constrain_image' ) ? '' : 'image-16x9';
 $image_margin = 'no' === get_field( 'constrain_image' ) ? 'my-auto' : '';
-$align_image  = 'Top' === get_field( 'align_image' ) ? '' : 'my-auto';
+$align_image  = 'Top' === get_field( 'align_image' ) ? '' : 'align-items-center';
 
 // Support Gutenberg color picker.
-$bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
-$fg = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
-
+$bg         = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
+$fg         = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
 $section_id = $block['anchor'] ?? null;
 
 $button_link = get_field( 'link' );
@@ -44,7 +43,7 @@ if ( $block_id ) {
 ?>
 <section class="text-image <?= esc_attr( $bg . ' ' . $fg ); ?>" id="<?= esc_attr( $section_id ); ?>">
 	<div class="container py-5">
-		<div class="row g-5">
+		<div class="row gx-5">
 			<div class="<?= esc_attr( $text_width ); ?> <?= esc_attr( $text_order ); ?>" data-aos="<?= esc_attr( $text_aos ); ?>">
 				<?php
 				if ( get_field( 'title' ) ) {
@@ -63,8 +62,8 @@ if ( $block_id ) {
 				}
 				?>
 			</div>
-			<div class="<?= esc_attr( $align_image ); ?> <?= esc_attr( $image_width ); ?> <?= esc_attr( $image_order ); ?>" data-aos="<?= esc_attr( $image_aos ); ?>">
-				<div class="<?= esc_attr( $constrain ); ?> <?= esc_attr( $align_image ); ?> h-100">
+			<div class="<?= esc_attr( $image_width ); ?> <?= esc_attr( $image_order ); ?> d-flex <?= esc_attr( $align_image ); ?>" data-aos="<?= esc_attr( $image_aos ); ?>">
+				<div class="w-100">
 					<?php
 					if ( $link_image && $link_url ) {
 						?>
