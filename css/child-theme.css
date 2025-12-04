@@ -11650,7 +11650,7 @@ header .navbar-toggler:focus {
   outline: none;
 }
 header .navbar-toggler:focus-visible {
-  outline: 2px solid var(--col-simco-gold);
+  outline: 2px solid var(--col-mid-gold);
   outline-offset: 2px;
 }
 header .navbar-toggler svg {
@@ -12844,6 +12844,7 @@ a.image-16x9 img {
 }
 .stat_spinner_grid__label {
   text-align: center;
+  font-weight: var(--fw-medium);
 }
 
 .quiz-holder {
