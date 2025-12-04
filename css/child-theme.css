@@ -11716,7 +11716,7 @@ header .logo {
 }
 header .offcanvas {
   --bs-offcanvas-width: 75vw;
-  --bs-offcanvas-bg: var(--col-dark-gold);
+  --bs-offcanvas-bg: var(--col-simco-navy);
 }
 header .offcanvas .offcanvas-body {
   padding: 1rem 1.5rem;
@@ -11728,6 +11728,7 @@ header .offcanvas .offcanvas-body .navbar-nav .nav-link {
   padding: 1rem 0;
   font-size: var(--fs-base);
   font-weight: var(--fw-regular);
+  color: var(--col-simco-gold);
 }
 header .offcanvas .offcanvas-body .navbar-nav .current_page_item > .nav-link,
 header .offcanvas .offcanvas-body .navbar-nav .current_page_parent > .nav-link,
@@ -11735,8 +11736,15 @@ header .offcanvas .offcanvas-body .navbar-nav .current-menu-ancestor > .nav-link
 header .offcanvas .offcanvas-body .navbar-nav .current-menu-parent > .nav-link,
 header .offcanvas .offcanvas-body .navbar-nav .dropdown.current-page-ancestor > .nav-link,
 header .offcanvas .offcanvas-body .navbar-nav .dropdown.current-menu-item > .nav-link {
-  color: var(--col-simco-navy);
-  font-weight: var(--fw-semi);
+  color: var(--col-simco-gold);
+  font-weight: var(--fw-medium);
+}
+header .offcanvas .offcanvas-body .navbar-nav .dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23AB965F' d='M6 8.825L1.175 4 2.236 2.939 6 6.704l3.764-3.765L10.825 4z'/%3E%3C/svg%3E");
+  border: none;
 }
 header .offcanvas .offcanvas-body .navbar-nav .dropdown-menu {
   position: static;
@@ -11752,12 +11760,12 @@ header .offcanvas .offcanvas-body .navbar-nav .dropdown-menu .dropdown-item {
   padding: 0.75rem 0;
   font-size: var(--fs-base);
   font-weight: var(--fw-light);
-  color: var(--col-black);
+  color: var(--col-simco-gold);
   background: transparent;
 }
 header .offcanvas .offcanvas-body .navbar-nav .dropdown-menu .dropdown-item:hover, header .offcanvas .offcanvas-body .navbar-nav .dropdown-menu .dropdown-item:focus {
   background: rgba(0, 0, 0, 0.05);
-  color: var(--col-black);
+  color: var(--col-simco-gold);
 }
 @media (min-width: 992px) {
   header .navbar-collapse {
@@ -11788,7 +11796,7 @@ header .dropdown-toggle:focus-visible {
     margin-top: 0;
   }
   header .dropdown-menu {
-    background-color: var(--col-simco-gold);
+    background-color: var(--col-dark-gold);
     border: none;
     border-radius: 0;
     padding: 0 15px;
