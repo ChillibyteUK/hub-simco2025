@@ -48,15 +48,15 @@ get_header();
 
             if ( ! empty( $all_categories ) ) {
                 ?>
-                <div class="row mb-4">
-                    <div class="col-12 col-lg-8 mb-3 mb-lg-0">
+                <div class="row mb-5 index-filters">
+                    <div class="col-12 col-lg-6 mb-3 mb-lg-0">
                         <form role="search" method="get" class="d-flex gap-2 align-items-center" action="<?= esc_url( home_url( '/' ) ); ?>">
                             <label for="search-input" class="visually-hidden">Search posts</label>
                             <input type="search" class="form-control" id="search-input" name="s" placeholder="Search posts..." autocomplete="off" value="<?= esc_attr( get_search_query() ); ?>" aria-label="Search posts">
                             <button type="submit" class="btn btn--mid-blue search-button">Search</button>
                         </form>
                     </div>
-                    <div class="col-6 col-lg-2 mb-3 mb-lg-0">
+                    <div class="col-12 col-md-6 col-lg-3 mb-3 mb-lg-0">
                         <label for="category-filter" class="visually-hidden">Filter by category</label>
                         <select class="form-select filter-select" id="category-filter" data-filter-type="category" aria-label="Filter by category">
                             <option value="all" selected>All Categories</option>
@@ -69,7 +69,7 @@ get_header();
 							?>
                         </select>
                     </div>
-                    <div class="col-6 col-lg-2">
+                    <div class="col-12 col-md-6 col-lg-3">
                         <label for="year-filter" class="visually-hidden">Filter by year</label>
                         <select class="form-select filter-select" id="year-filter" data-filter-type="year" aria-label="Filter by year">
                             <option value="all" selected>All Years</option>
@@ -90,7 +90,7 @@ get_header();
                 <?php
             }
             ?>
-            <div class="row g-4">
+            <div class="row g-5">
             <?php
             // Custom query to include published posts.
             $args = array(
@@ -138,31 +138,45 @@ get_header();
                     $catname = $first_category->name;
                     $catname = str_replace( ' PDF', '', $catname );
 
+					$catslug = $first_category->slug;
+
+					switch ( $catslug ) {
+						case 'research':
+							$read_more = 'Read now';
+							break;
+						case 'video':
+							$read_more = 'Watch now';
+							break;
+						case 'podcast':
+							$read_more = 'Play now';
+							break;
+						default:
+							$read_more = 'Read now';
+							break;
+					}
+
 					?>
 					<div class="col-md-6 col-lg-4" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
-					<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
-						<div class="latest-insights__img-wrapper">
-							<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $catname ); ?></div>
-							<?php
-							$thumbnail_id = get_post_thumbnail_id( get_the_ID() );
-							if ( $thumbnail_id ) {
-								echo wp_get_attachment_image(
-									$thumbnail_id,
-									'large',
-									false,
-									array(
-										'class' => 'img-fluid',
-										'alt'   => '',
-									)
-								);
-							}
-							?>
-						</div>
-							<div class="latest-insights__inner">
-								<h3><?= esc_html( get_the_title() ); ?></h3>
-								<div><?= esc_html( get_the_excerpt() ); ?></div>
+						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
+							<div class="latest-insights__img-wrapper">
+								<?php
+								$thumbnail_id = get_post_thumbnail_id( get_the_ID() );
+								if ( $thumbnail_id ) {
+									echo wp_get_attachment_image(
+										$thumbnail_id,
+										'large',
+										false,
+										array(
+											'class' => 'img-fluid',
+											'alt'   => '',
+										)
+									);
+								}
+								?>
 							</div>
-							<div class="read-more" aria-label="Read more about <?= esc_attr( get_the_title() ); ?>">Read More</div>
+							<div class="category"><?= esc_html( $catname ); ?></div>
+							<h3><?= esc_html( get_the_title() ); ?></h3>
+							<div class="read-more <?= esc_attr( $catslug ); ?>" aria-label="<?= esc_attr( $read_more . ' about ' . get_the_title() ); ?>"><?= esc_html( $read_more ); ?></div>
 						</a>
 					</div>
 					<?php
