@@ -11890,6 +11890,14 @@ header .dropdown-toggle:focus-visible {
   background-color: var(--col-light-gold);
   border-color: var(--col-mid-gold);
 }
+.index-filters .form-control::-moz-placeholder {
+  color: var(--col-simco-navy);
+  opacity: 1;
+}
+.index-filters .form-control::placeholder {
+  color: var(--col-simco-navy);
+  opacity: 1;
+}
 
 .latest-insights__item,
 .latest_posts__item {

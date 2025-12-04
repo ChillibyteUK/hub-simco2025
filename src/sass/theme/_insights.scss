@@ -5,6 +5,10 @@
       background-color: var(--col-light-gold);
       border-color: var(--col-mid-gold);
     }
+    .form-control::placeholder {
+      color: var(--col-simco-navy);
+      opacity: 1; // override default opacity
+    }
 }
 .latest-insights,
 .latest_posts {
