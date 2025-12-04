@@ -38,7 +38,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 	?>
 	<div class="row g-5">
 		<div class="col-md-3">
-			<div class="category"><?= esc_html( $first_category->name ); ?></div>
+			<div class="category-title"><?= esc_html( $first_category->name ); ?></div>
 		</div>
 		<div class="col-md-9">
 			<h1 class="h2 mb-5"><?= esc_html( get_the_title() ); ?></h1>
