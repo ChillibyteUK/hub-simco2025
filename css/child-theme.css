@@ -13024,7 +13024,7 @@ a.image-16x9 img {
   background-size: contain;
 }
 .mailing-list__content {
-  font-size: var(--fs-h3);
+  font-size: var(--fs-lead-in);
 }
 
 .knowledge-disclaimer {
