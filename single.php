@@ -172,9 +172,9 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 
 		if ( $related_query->have_posts() ) {
 			?>
-		<div class="related-posts pt-5 pb-4">
+		<div class="related-posts pt-5 pb-5">
 			<h2 class="has-h-3-font-size mb-4">More Insights</h2>
-			<div class="row g-4">
+			<div class="row g-5">
 				<?php
 				while ( $related_query->have_posts() ) {
 					$related_query->the_post();
@@ -192,34 +192,63 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 						$categories = implode( ' ', wp_list_pluck( $categories, 'slug' ) );
 					}
 
-					// strip ' PDF' from research category name.
-					$catname = $first_category->name;
-					$catname = str_replace( ' PDF', '', $catname );
+					$plink  = get_permalink();
+					$target = '_self';
+					if ( 'research' === $first_category->slug ) {
+						$plink  = wp_get_attachment_url( get_field( 'pdf', get_the_ID() ) );
+						$target = '_blank';
+					}
+					if ( 'video' === $first_category->slug || 'podcast' === $first_category->slug ) {
+						$video_link = get_field( 'video_link', get_the_ID() );
+						if ( $video_link && ! ( str_contains( $video_link, 'youtube.com' ) || str_contains( $video_link, 'vimeo.com' ) ) ) {
+							$plink  = $video_link;
+							$target = '_blank';
+						}
+					}
+
+                    // strip ' PDF' from research category name.
+                    $catname = $first_category->name;
+                    $catname = str_replace( ' PDF', '', $catname );
+
+					$catslug = $first_category->slug;
+
+					switch ( $catslug ) {
+						case 'research':
+							$read_more = 'Read now';
+							break;
+						case 'video':
+							$read_more = 'Watch now';
+							break;
+						case 'podcast':
+							$read_more = 'Play now';
+							break;
+						default:
+							$read_more = 'Read now';
+							break;
+					}
+
 					?>
-					<div class="col-md-6 col-lg-4" data-aos="fade-up">
-						<a href="<?= esc_url( get_permalink() ); ?>" class="latest-insights__item">
-						<div class="latest-insights__img-wrapper">
-							<div class="category <?= esc_attr( $first_category->slug ); ?>">// <?= esc_html( $catname ); ?></div>
-							<?php
-							$thumbnail_id = get_post_thumbnail_id( get_the_ID() );
-							if ( $thumbnail_id ) {
-								echo wp_get_attachment_image(
-									$thumbnail_id,
-									'large',
-									false,
-									array(
-										'class' => 'img-fluid',
-										'alt'   => '',
-									)
-								);
-							}
-							?>
-						</div>
-							<div class="latest-insights__inner">
-								<h3><?= esc_html( get_the_title() ); ?></h3>
-								<div><?= esc_html( get_the_excerpt() ); ?></div>
+					<div class="col-md-6 col-lg-4" data-category="<?= esc_attr( $categories ); ?>" data-year="<?= esc_attr( get_the_date( 'Y' ) ); ?>">
+						<a href="<?= esc_url( $plink ); ?>" target="<?= esc_attr( $target ); ?>" class="latest-insights__item">
+							<div class="latest-insights__img-wrapper">
+								<?php
+								$thumbnail_id = get_post_thumbnail_id( get_the_ID() );
+								if ( $thumbnail_id ) {
+									echo wp_get_attachment_image(
+										$thumbnail_id,
+										'large',
+										false,
+										array(
+											'class' => 'img-fluid',
+											'alt'   => '',
+										)
+									);
+								}
+								?>
 							</div>
-							<div class="read-more" aria-label="Read more about <?= esc_attr( get_the_title() ); ?>">Read More</div>
+							<div class="category"><?= esc_html( $catname ); ?></div>
+							<h3><?= esc_html( get_the_title() ); ?></h3>
+							<div class="read-more <?= esc_attr( $catslug ); ?>" aria-label="<?= esc_attr( $read_more . ' about ' . get_the_title() ); ?>"><?= esc_html( $read_more ); ?></div>
 						</a>
 					</div>
 					<?php
