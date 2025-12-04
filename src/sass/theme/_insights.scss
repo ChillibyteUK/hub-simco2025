@@ -74,6 +74,32 @@
 }
 
 .single {
+
+    a.left-arrow {
+        color: var(--col-dark-gold);
+        position: relative;
+        padding-left: 1.5rem;
+        text-decoration: none;
+        &::before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg);
+            width: 23px;
+            height: 23px;
+            background-color: var(--col-dark-gold);
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: contain;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     .category-title {
         font-size: var(--fs-h5);
         font-weight: var(--fw-bold);

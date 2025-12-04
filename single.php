@@ -27,15 +27,9 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 	</div>
 </section>
 <div class="container">
-	<?php
-	if ( function_exists( 'yoast_breadcrumb' ) ) {
-		?>
-	<section class="breadcrumbs">
-		<?php yoast_breadcrumb( '<p id="breadcrumbs">', '</p>' ); ?>
-	</section>
-		<?php
-	}
-	?>
+	<div class="py-4">
+		<a class="left-arrow" href="/insights/">Back to Insights</a>
+	</div>
 	<div class="row g-5">
 		<div class="col-md-3">
 			<div class="category-title"><?= esc_html( $first_category->name ); ?></div>
