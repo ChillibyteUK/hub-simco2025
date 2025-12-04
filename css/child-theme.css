@@ -12917,6 +12917,11 @@ a.image-16x9 img {
   }
 }
 
+.contact iframe {
+  aspect-ratio: 5/4;
+  width: 100%;
+}
+
 .disclaimer .modal-footer {
   justify-content: space-between;
 }
