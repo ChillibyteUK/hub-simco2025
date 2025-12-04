@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 define( 'CB_THEME_DIR', get_stylesheet_directory() );
 
 require_once CB_THEME_DIR . '/inc/cb-theme.php';
+require_once CB_THEME_DIR . '/inc/cb-block-usage.php';
 
 /**
  * Removes the parent themes stylesheet and scripts from inc/enqueue.php
