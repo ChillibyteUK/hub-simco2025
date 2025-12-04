@@ -13,8 +13,8 @@ defined( 'ABSPATH' ) || exit;
 		<h2 class="mb-4">Contact Us</h2>
 		<div class="row g-4">
 			<div class="col-md-6">
-				<iframe src="<?= esc_url( get_field( 'map_embed_code', 'option' ) ); ?>" width="100%" height="auto" style="aspect-ratio:1;border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SIMCo Office Location Map"></iframe>
-				<div class="mb-4">
+				<iframe src="<?= esc_url( get_field( 'map_embed_code', 'option' ) ); ?>" width="100%" height="auto" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SIMCo Office Location Map"></iframe>
+				<div class="mt-4">
 					<div class="mb-2"><strong>SIMCo</strong></div>
 					<?= do_shortcode( '[contact_address]' ); ?>
 				</div>
