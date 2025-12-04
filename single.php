@@ -53,6 +53,10 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 				}
 			}
 
+			if ( $first_category && 'news' === $first_category->slug ) {
+				echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'img-fluid mb-4' ) );
+			}
+
 			echo apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			?>
 				<?php
