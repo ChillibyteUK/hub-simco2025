@@ -12332,6 +12332,7 @@ a.image-16x9 img {
 .text-image p {
   max-width: 72ch;
   text-wrap: pretty;
+  margin-bottom: 1rem;
 }
 
 .hub-cta {
