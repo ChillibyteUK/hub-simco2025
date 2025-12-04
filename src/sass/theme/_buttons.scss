@@ -116,6 +116,23 @@
   }
 }
 
+.btn-next {
+  @extend .btn-light;
+}
+.btn-prev {
+  @extend .btn-light;
+  padding-left: calc(var(--btn-px) + 1.5rem);
+  padding-right: var(--btn-px);
+  &::after {
+      right: auto;
+      left: var(--btn-px);
+      transform: translateY(-50%) rotate(180deg);
+      transition: left var(--transition), background-color var(--transition);
+  }
+  &:hover::after {
+      left: calc(var(--btn-px) - 0.5rem);
+  }
+}
 
 .search-button {
   min-height: 38px !important;

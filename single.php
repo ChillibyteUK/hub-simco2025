@@ -130,15 +130,15 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 						<div class="nav-links">
 							<?php if ( $prev_post ) : ?>
 								<div class="nav-previous">
-									<a href="<?= esc_url( get_permalink( $prev_post->ID ) ); ?>" rel="prev">
-										<span class="nav-subtitle"><?= esc_html__( 'Previous Insight', 'hub-sequoia2025' ); ?></span>
+									<a class="btn btn-prev" href="<?= esc_url( get_permalink( $prev_post->ID ) ); ?>" rel="prev">
+										Previous
 									</a>
 								</div>
 							<?php endif; ?>
 							<?php if ( $next_post ) : ?>
 								<div class="nav-next">
-									<a href="<?= esc_url( get_permalink( $next_post->ID ) ); ?>" rel="next">
-										<span class="nav-subtitle"><?= esc_html__( 'Next Insight', 'hub-sequoia2025' ); ?></span>
+									<a class="btn btn-next" href="<?= esc_url( get_permalink( $next_post->ID ) ); ?>" rel="next">
+										Next
 									</a>
 								</div>
 							<?php endif; ?>
@@ -173,7 +173,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 		if ( $related_query->have_posts() ) {
 			?>
 		<div class="related-posts pt-5 pb-4">
-			<h2 class="mb-4">Latest Insights</h2>
+			<h2 class="has-h-3-font-size mb-4">More Insights</h2>
 			<div class="row g-4">
 				<?php
 				while ( $related_query->have_posts() ) {

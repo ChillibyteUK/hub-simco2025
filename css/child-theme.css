@@ -3040,7 +3040,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: #dc3545;
 }
 
-.btn-light, input[type=submit] {
+.btn-light, input[type=submit], .btn-prev, .btn-next {
   --bs-btn-color: #000;
   --bs-btn-bg: #f8f9fa;
   --bs-btn-border-color: #f8f9fa;
@@ -11496,12 +11496,12 @@ input[type=submit] a:hover {
   border-color: var(--_bg);
 }
 
-.btn-light, input[type=submit],
+.btn-light, input[type=submit], .btn-prev, .btn-next,
 .btn-dark {
   position: relative;
   padding-right: calc(var(--btn-px) + 1.5rem);
 }
-.btn-light::after, input[type=submit]::after,
+.btn-light::after, input[type=submit]::after, .btn-prev::after, .btn-next::after,
 .btn-dark::after {
   content: "";
   display: inline-block;
@@ -11521,25 +11521,25 @@ input[type=submit] a:hover {
   mask-size: contain;
   transition: right var(--transition), background-color var(--transition);
 }
-.btn-light:hover, input[type=submit]:hover,
+.btn-light:hover, input[type=submit]:hover, .btn-prev:hover, .btn-next:hover,
 .btn-dark:hover {
   background-color: var(--_bg);
   color: var(--_fg);
 }
-.btn-light:hover::after, input[type=submit]:hover::after,
+.btn-light:hover::after, input[type=submit]:hover::after, .btn-prev:hover::after, .btn-next:hover::after,
 .btn-dark:hover::after {
   right: calc(var(--btn-px) - 0.5rem);
 }
 
-.btn-light, input[type=submit] {
+.btn-light, input[type=submit], .btn-prev, .btn-next {
   background-color: var(--col-light-gold);
   border-color: var(--col-light-gold);
   color: var(--col-simco-navy);
 }
-.btn-light::after, input[type=submit]::after {
+.btn-light::after, input[type=submit]::after, .btn-prev::after, .btn-next::after {
   background-color: var(--col-simco-navy);
 }
-.btn-light:hover::after, input[type=submit]:hover::after {
+.btn-light:hover::after, input[type=submit]:hover::after, .btn-prev:hover::after, .btn-next:hover::after {
   background-color: var(--col-simco-navy);
 }
 
@@ -11564,6 +11564,20 @@ input[type=submit] a:hover {
   background-color: var(--col-warm-grey);
   border-color: var(--col-warm-grey);
   color: var(--col-simco-navy);
+}
+
+.btn-prev {
+  padding-left: calc(var(--btn-px) + 1.5rem);
+  padding-right: var(--btn-px);
+}
+.btn-prev::after {
+  right: auto;
+  left: var(--btn-px);
+  transform: translateY(-50%) rotate(180deg);
+  transition: left var(--transition), background-color var(--transition);
+}
+.btn-prev:hover::after {
+  left: calc(var(--btn-px) - 0.5rem);
 }
 
 .search-button {
@@ -11960,22 +11974,18 @@ header .dropdown-toggle:focus-visible {
   border-bottom: 2px solid var(--col-simco-gold);
 }
 
+.post-navigation {
+  margin-block: 3rem 5rem;
+}
 .post-navigation .nav-links {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
 }
-.post-navigation .nav-links a {
-  border: 1px solid var(--col-black);
-  padding: 0.5rem 1.5rem;
-  border-radius: 100vw;
-  text-decoration: none;
-  background-color: var(--col-simco-gold);
-  transition: background-color var(--transition);
-}
-.post-navigation .nav-links a:hover {
-  background-color: var(--col-light-gold);
+
+.related-posts {
+  border-top: 2px solid var(--col-simco-gold);
 }
 
 .skip-link {
