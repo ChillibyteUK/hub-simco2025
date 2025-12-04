@@ -123,8 +123,8 @@ header {
         .current_page_parent > .nav-link,
         .current-menu-ancestor > .nav-link,
         .current-menu-parent > .nav-link,
-        .dropdown.current-page-ancestor > .nav-link,
-        .dropdown.current-menu-item > .nav-link {
+        .dropdown.current-page-ancestor > .dropdown-item,
+        .dropdown.current-menu-item > .dropdown-item {
           color: var(--col-simco-gold);
           font-weight: var(--fw-medium);
         }

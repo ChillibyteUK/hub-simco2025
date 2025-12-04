@@ -11734,8 +11734,8 @@ header .offcanvas .offcanvas-body .navbar-nav .current_page_item > .nav-link,
 header .offcanvas .offcanvas-body .navbar-nav .current_page_parent > .nav-link,
 header .offcanvas .offcanvas-body .navbar-nav .current-menu-ancestor > .nav-link,
 header .offcanvas .offcanvas-body .navbar-nav .current-menu-parent > .nav-link,
-header .offcanvas .offcanvas-body .navbar-nav .dropdown.current-page-ancestor > .nav-link,
-header .offcanvas .offcanvas-body .navbar-nav .dropdown.current-menu-item > .nav-link {
+header .offcanvas .offcanvas-body .navbar-nav .dropdown.current-page-ancestor > .dropdown-item,
+header .offcanvas .offcanvas-body .navbar-nav .dropdown.current-menu-item > .dropdown-item {
   color: var(--col-simco-gold);
   font-weight: var(--fw-medium);
 }
