@@ -89,6 +89,12 @@
           "origin": "theme"
         },
         {
+          "name": "warm-grey",
+          "slug": "warm-grey",
+          "color": "#F2F1ED",
+          "origin": "theme"
+        },
+        {
           "name": "lightest-grey",
           "slug": "lightest-grey",
           "color": "#F8F8F7",

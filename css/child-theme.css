@@ -26,6 +26,7 @@
   --col-lightest-gold-hsl: 38 40% 96%; /* #F9F6F1 – lightest gold */
   --col-lightest-gold: hsl(var(--col-lightest-gold-hsl));
   --col-simco-grey: hsl(var(--col-light-gold-hsl));
+  --col-warm-grey: #F2F1ED;
   --col-lightest-grey: #F8F8F7;
   --col-light-grey: #EAECF1;
   --col-simco-bluegrey-50: #C3C9D7;
@@ -11556,6 +11557,13 @@ input[type=submit] a:hover {
 
 .btn-navy, .simcap-contact input[type=submit] {
   background-color: var(--col-simco-navy);
+  border-color: var(--col-simco-navy);
+  color: var(--col-white);
+}
+.btn-navy::after, .simcap-contact input[type=submit]::after {
+  background-color: var(--col-warm-grey);
+  border-color: var(--col-warm-grey);
+  color: var(--col-simco-navy);
 }
 
 .search-button {

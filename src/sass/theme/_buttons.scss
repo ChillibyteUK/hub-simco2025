@@ -107,6 +107,13 @@
 }
 .btn-navy {
   background-color: var(--col-simco-navy);
+  border-color: var(--col-simco-navy);
+  color: var(--col-white);
+  &::after {
+    background-color: var(--col-warm-grey);
+    border-color: var(--col-warm-grey);
+    color: var(--col-simco-navy);
+  }
 }
 
 
