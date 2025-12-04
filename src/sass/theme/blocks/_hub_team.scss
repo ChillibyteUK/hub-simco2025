@@ -35,6 +35,7 @@
 
     &__card {
         display: grid;
+        grid-template-rows: auto 1fr;
         cursor: pointer;
         font-size: initial;
         background: none;
@@ -68,6 +69,10 @@
     &__name-holder {
         transition: background-color var(--transition), color var(--transition);
         position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
         &::after {
             content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath fill='%237A6B44' d='M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z'/%3E%3C/svg%3E");
             font-size: 1.4rem;
