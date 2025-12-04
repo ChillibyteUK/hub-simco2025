@@ -70,7 +70,7 @@ header {
     }
     
     &:focus-visible {
-      outline: 2px solid var(--col-simco-gold);
+      outline: 2px solid var(--col-dark-gold);
       outline-offset: 4px;
     }
   }
@@ -82,7 +82,7 @@ header {
   .current-menu-parent > .nav-link,
   .dropdown.current-page-ancestor > .nav-link,
   .dropdown.current-menu-item > .nav-link {
-    color: var(--col-simco-gold);
+    color: var(--col-dark-gold);
   }
 
   .logo-container {
@@ -104,7 +104,7 @@ header {
   // Mobile offcanvas styling
   .offcanvas {
     --bs-offcanvas-width: 75vw;
-    --bs-offcanvas-bg: var(--col-simco-gold);
+    --bs-offcanvas-bg: var(--col-dark-gold);
     
     .offcanvas-body {
       padding: 1rem 1.5rem;
@@ -182,7 +182,7 @@ header {
     
     // Only show outline for keyboard navigation
     &:focus-visible {
-      outline: 2px solid var(--col-simco-gold);
+      outline: 2px solid var(--col-dark-gold);
       outline-offset: 4px;
       box-shadow: none !important;
     }

@@ -23,7 +23,7 @@ $search_q      = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q
 	<div class="row g-3 align-items-center">
 		<div class="col-12 col-lg-1 fw-bold">Search</div>
 		<div class="col-12 col-md-6 col-lg-4">
-      		<input id="team-q" type="search" class="form-control" placeholder="Type a name…" value="<?= esc_attr( $search_q ); ?>" />
+      		<input aria-label="Search team by name" id="team-q" type="search" class="form-control" placeholder="Type a name…" value="<?= esc_attr( $search_q ); ?>" />
     	</div>
 		<div class="col-12 col-md-6 col-lg-4">
       		<select id="team-dept" class="form-select">

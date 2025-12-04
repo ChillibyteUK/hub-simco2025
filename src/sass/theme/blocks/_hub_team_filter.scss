@@ -1,11 +1,18 @@
 .hub-team-filter {
-    .form-control,
-    .form-select {
+  .form-control,
+  .form-select {
       border-radius: 100vw;
       background-color: var(--col-light-gold);
       border-color: var(--col-mid-gold);
-    }
-    #team-filter-reset {
-      padding-block: 0.6rem;
-    }
+  }
+  #team-filter-reset {
+    padding-block: 0.6rem;
+  }
+
+  // placeholder styling
+  .form-control::placeholder {
+    color: var(--col-simco-navy);
+    opacity: 1; // Override default opacity
+  }
+
 }

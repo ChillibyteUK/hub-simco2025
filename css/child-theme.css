@@ -6,7 +6,7 @@
   --col-white-hsl: 0 0% 100%; /* #FFFFFF – pure white */
   --col-white: hsl(var(--col-white-hsl));
   --col-black-hsl: 0 0% 0%; /* #000000 – pure black */
-  --col-simco-navy-hsl: 210 30% 20%; /* #152634 – simco navy */
+  --col-simco-navy-hsl: 207 42% 14%; /* #152634 – simco navy */
   --col-simco-navy: hsl(var(--col-simco-navy-hsl));
   --col-black: hsl(var(--col-simco-navy-hsl));
   --col-simco-red-hsl: 353 60% 38%; /* #9a2634 – simco red */
@@ -11688,7 +11688,7 @@ header a.nav-link:focus {
 }
 header a:focus-visible,
 header a.nav-link:focus-visible {
-  outline: 2px solid var(--col-simco-gold);
+  outline: 2px solid var(--col-dark-gold);
   outline-offset: 4px;
 }
 header .current_page_item > .nav-link,
@@ -11697,7 +11697,7 @@ header .current-menu-ancestor > .nav-link,
 header .current-menu-parent > .nav-link,
 header .dropdown.current-page-ancestor > .nav-link,
 header .dropdown.current-menu-item > .nav-link {
-  color: var(--col-simco-gold);
+  color: var(--col-dark-gold);
 }
 header .logo-container {
   max-width: 240px;
@@ -11716,7 +11716,7 @@ header .logo {
 }
 header .offcanvas {
   --bs-offcanvas-width: 75vw;
-  --bs-offcanvas-bg: var(--col-simco-gold);
+  --bs-offcanvas-bg: var(--col-dark-gold);
 }
 header .offcanvas .offcanvas-body {
   padding: 1rem 1.5rem;
@@ -11776,7 +11776,7 @@ header .dropdown-toggle:focus {
   box-shadow: none !important;
 }
 header .dropdown-toggle:focus-visible {
-  outline: 2px solid var(--col-simco-gold);
+  outline: 2px solid var(--col-dark-gold);
   outline-offset: 4px;
   box-shadow: none !important;
 }
@@ -12621,6 +12621,7 @@ a.image-16x9 img {
   isolation: isolate;
   padding-top: var(--h-top);
   color: var(--col-white);
+  background-color: var(--col-black);
 }
 .homepage-hero__background {
   position: absolute;
@@ -12693,6 +12694,7 @@ a.image-16x9 img {
   overflow: hidden;
   isolation: isolate;
   color: var(--col-white);
+  background-color: var(--col-simco-navy);
 }
 .page-hero--short {
   height: 350px;
@@ -13190,6 +13192,14 @@ a.image-16x9 img {
 }
 .hub-team-filter #team-filter-reset {
   padding-block: 0.6rem;
+}
+.hub-team-filter .form-control::-moz-placeholder {
+  color: var(--col-simco-navy);
+  opacity: 1;
+}
+.hub-team-filter .form-control::placeholder {
+  color: var(--col-simco-navy);
+  opacity: 1;
 }
 
 .icon-text-image .container, .icon-text-image .wp-block-group:not(.alignfull) {
