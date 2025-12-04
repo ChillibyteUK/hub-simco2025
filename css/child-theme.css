@@ -11932,8 +11932,9 @@ header .dropdown-toggle:focus-visible {
   background-size: contain;
   background-repeat: no-repeat;
 }
-.latest-insights .read-more.research:before,
-.latest_posts .read-more.research:before {
+.latest-insights .read-more.research:before, .latest-insights .read-more.research-text:before,
+.latest_posts .read-more.research:before,
+.latest_posts .read-more.research-text:before {
   background-image: url("../img/icon-read-now.svg");
 }
 .latest-insights .read-more.video:before,

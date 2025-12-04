@@ -52,7 +52,8 @@
             background-size: contain;
             background-repeat: no-repeat;
         }
-        &.research:before {
+        &.research:before,
+        &.research-text:before {
             background-image: url('../img/icon-read-now.svg');
         }
         &.video:before {
