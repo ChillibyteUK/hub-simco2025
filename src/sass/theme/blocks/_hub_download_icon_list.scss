@@ -1,0 +1,16 @@
+.download-icon-list {
+
+    h2 {
+        padding-bottom: 1rem;
+        margin-bottom: 3rem;
+        border-bottom: 3px solid var(--col-simco-gold);
+    }
+
+    &__item-icon {
+        width: 50px;
+        height: 50px;
+    }
+    &__item-title {
+        text-wrap: pretty;
+    }
+}
