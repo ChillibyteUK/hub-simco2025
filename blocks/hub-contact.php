@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 	<div class="container py-5">
 		<h2 class="mb-4">Contact Us</h2>
 		<div class="row g-4">
-			<div class="col-md-6">
+			<div class="col-md-6 pt-2">
 				<iframe src="<?= esc_url( get_field( 'map_embed_code', 'option' ) ); ?>" width="100%" height="auto" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="SIMCo Office Location Map"></iframe>
 				<div class="mt-4">
 					<div class="mb-2"><strong>SIMCo</strong></div>
