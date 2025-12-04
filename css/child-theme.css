@@ -12823,18 +12823,23 @@ a.image-16x9 img {
   text-wrap: pretty;
 }
 
+.accordion-block h2, .accordion-block .h2 {
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 3px solid var(--col-simco-gold);
+}
 .accordion-block .accordion-item {
   border: none;
+  border-bottom: 3px solid var(--col-simco-gold);
 }
 .accordion-block .accordion-button {
   padding: 1rem;
   font-size: var(--fs-h3);
-  font-weight: var(--fw-bold);
-  color: var(--col-dark-gold);
+  font-weight: var(--fw-regular);
+  color: var(--col-simco-navy);
   background-color: transparent;
   display: flex;
   gap: 2rem;
-  border-bottom: 1px solid var(--col-simco-gold);
   transition: background-color var(--transition);
 }
 .accordion-block .accordion-button:hover {
@@ -12842,6 +12847,8 @@ a.image-16x9 img {
 }
 .accordion-block .accordion-button:not(.collapsed) {
   box-shadow: none;
+  font-weight: var(--fw-bold);
+  color: var(--col-dark-gold);
 }
 .accordion-block .accordion-body {
   padding: 0;
@@ -12852,13 +12859,7 @@ a.image-16x9 img {
   margin-bottom: 1rem;
   border-left: 10px solid var(--col-light-gold);
   background-color: var(--col-lightest-gold);
-  padding: 3rem;
-  margin-top: 1rem;
-}
-@media (min-width: 992px) {
-  .accordion-block .accordion-body__inner {
-    margin-top: 1rem;
-  }
+  padding: 2rem 3rem;
 }
 
 .doc-list__item {

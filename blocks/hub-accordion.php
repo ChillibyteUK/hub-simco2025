@@ -16,7 +16,7 @@ $accordion_id = 'accordion-' . uniqid();
 		<?php
 		if ( get_field( 'title' ) ) {
 			?>
-			<h2 class="h2 mb-4"><?= esc_html( get_field( 'title' ) ); ?></h2>
+			<h2 class="has-h-5-font-size mb-4"><?= esc_html( get_field( 'title' ) ); ?></h2>
 			<?php
 		}
 		if ( get_field( 'intro' ) ) {
@@ -36,14 +36,14 @@ $accordion_id = 'accordion-' . uniqid();
 				$expanded  = ( 0 === $i ) ? 'true' : 'false';
 				?>
 			<div class="accordion-item mb-3" data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
-				<h2 class="accordion-header" id="heading-<?= esc_attr( $accordion_id . '-' . $i ); ?>">
-					<button class="accordion-button <?= esc_attr( $collapsed ); ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<?= esc_attr( $accordion_id . '-' . $i ); ?>" aria-expanded="<?= esc_attr( $expanded ); ?>" aria-controls="collapse-<?= esc_attr( $accordion_id . '-' . $i ); ?>">
+				<h3 class="accordion-header" id="heading-<?= esc_attr( $accordion_id . '-' . $i ); ?>">
+					<button class="accordion-button px-0 mb-3 <?= esc_attr( $collapsed ); ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<?= esc_attr( $accordion_id . '-' . $i ); ?>" aria-expanded="<?= esc_attr( $expanded ); ?>" aria-controls="collapse-<?= esc_attr( $accordion_id . '-' . $i ); ?>">
 						<?= esc_html( $it['title'] ?? '' ); ?>
 					</button>
-				</h2>
+				</h3>
 				<div id="collapse-<?= esc_attr( $accordion_id . '-' . $i ); ?>" class="accordion-collapse collapse <?= esc_attr( $show ); ?>" aria-labelledby="heading-<?= esc_attr( $accordion_id . '-' . $i ); ?>" data-bs-parent="#<?= esc_attr( $accordion_id ); ?>">
 					<div class="accordion-body">
-						<?= wp_kses_post( $it['content'] ?? '' ); ?>
+						<div class="accordion-body__inner"><?= wp_kses_post( $it['content'] ?? '' ); ?></div>
 					</div>
 				</div>
 			</div>
