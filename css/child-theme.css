@@ -12827,15 +12827,38 @@ a.image-16x9 img {
   border: none;
 }
 .accordion-block .accordion-button {
-  background-color: var(--col-light-grey);
-  font-size: var(--fs-lead-in);
+  padding: 1rem;
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  color: var(--col-dark-gold);
+  background-color: transparent;
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid var(--col-simco-gold);
   transition: background-color var(--transition);
 }
-.accordion-block .accordion-button:hover, .accordion-block .accordion-button[aria-expanded=true] {
-  background-color: var(--col-simco-gold);
+.accordion-block .accordion-button:hover {
+  background-color: var(--col-lightest-gold);
 }
 .accordion-block .accordion-button:not(.collapsed) {
   box-shadow: none;
+}
+.accordion-block .accordion-body {
+  padding: 0;
+  border-top: none;
+  transition: border-color var(--transition);
+}
+.accordion-block .accordion-body__inner {
+  margin-bottom: 1rem;
+  border-left: 10px solid var(--col-light-gold);
+  background-color: var(--col-lightest-gold);
+  padding: 3rem;
+  margin-top: 1rem;
+}
+@media (min-width: 992px) {
+  .accordion-block .accordion-body__inner {
+    margin-top: 1rem;
+  }
 }
 
 .doc-list__item {

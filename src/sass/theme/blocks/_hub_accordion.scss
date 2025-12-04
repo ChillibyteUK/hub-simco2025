@@ -3,15 +3,36 @@
         border: none;
     }
     .accordion-button {
-        background-color: var(--col-light-grey);
-        font-size: var(--fs-lead-in);
+        padding: 1rem;
+        font-size: var(--fs-h3);
+        font-weight: var(--fw-bold);
+        color: var(--col-dark-gold);
+        background-color: transparent;
+        display: flex;
+        gap: 2rem;
+        border-bottom: 1px solid var(--col-simco-gold);
         transition: background-color var(--transition);
-        &:hover,
-        &[aria-expanded="true"] {
-            background-color: var(--col-simco-gold);
+        &:hover {
+            background-color: var(--col-lightest-gold);
         }
         &:not(.collapsed) {
             box-shadow: none;
+        }
+    }
+
+    .accordion-body {
+        padding: 0;
+        border-top: none;
+        transition: border-color var(--transition);
+        &__inner {
+            margin-bottom: 1rem;
+            border-left:  10px solid var(--col-light-gold);
+            background-color: var(--col-lightest-gold);
+            padding: 3rem;
+            margin-top: 1rem;
+            @media (min-width: 992px) {
+                margin-top: 1rem;
+            }
         }
     }
 }
