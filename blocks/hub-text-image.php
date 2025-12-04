@@ -20,7 +20,7 @@ $text_width  = '50-50' === $layout ? 'col-md-6' : 'col-md-8';
 
 $constrain    = 'no' === get_field( 'constrain_image' ) ? '' : 'image-16x9';
 $image_margin = 'no' === get_field( 'constrain_image' ) ? 'my-auto' : '';
-$align_image  = 'Top' === get_field( 'align_image' ) ? 'my-auto' : '';
+$align_image  = 'Top' === get_field( 'align_image' ) ? '' : 'my-auto';
 
 // Support Gutenberg color picker.
 $bg = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
