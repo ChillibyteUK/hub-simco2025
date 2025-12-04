@@ -11938,7 +11938,7 @@ header .dropdown-toggle:focus-visible {
 }
 .latest-insights .read-more.video:before,
 .latest_posts .read-more.video:before {
-  background-image: url("../img/icon-watch-now.svg");
+  background-image: url("../img/icon-play-now.svg");
 }
 .latest-insights .read-more.podcast:before,
 .latest_posts .read-more.podcast:before {
