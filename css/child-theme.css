@@ -12609,6 +12609,7 @@ a.image-16x9 img {
 }
 .stat_spinner__label {
   text-align: center;
+  font-weight: var(--fw-medium);
 }
 
 .homepage-hero {
