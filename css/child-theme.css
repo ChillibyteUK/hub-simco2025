@@ -12705,7 +12705,7 @@ a.image-16x9 img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center left;
-  opacity: 0.8;
+  opacity: 1;
   z-index: -1;
 }
 @media (min-width: 768px) {
