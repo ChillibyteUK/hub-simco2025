@@ -8,7 +8,6 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<a id="careers" class="anchor"></a>
 <section class="careers has-light-grey-background-color">
 	<div class="container py-5">
 		<div class="row g-4">

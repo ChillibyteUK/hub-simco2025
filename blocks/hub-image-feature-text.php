@@ -7,6 +7,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
+if ( $block['anchor'] ) {
+	$anchor_id = sanitize_title( $block['anchor'] );
+	?>
+<a id="<?= esc_attr( $anchor_id ); ?>" class="anchor"></a>
+	<?php
+}
+
 ?>
 <section class="image-feature-text">
 
