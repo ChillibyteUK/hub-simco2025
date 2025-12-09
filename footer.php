@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
     <div class="container">
         <div class="row pb-4 g-4">
 			<div class="col-sm-4">
-				<h2 class="h3">Contact Us</h2>
+				<h2 class="h3">Contact us</h2>
 				<div class="mb-2">
 					<?= do_shortcode( '[contact_address]' ); ?>
 				</div>
