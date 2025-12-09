@@ -166,7 +166,7 @@ get_header();
 							$read_more = 'Play now';
 							break;
 						case 'interview':
-							$read_more = 'Play now';
+							$read_more = 'Watch now';
 							break;
 						case 'news':
 							$read_more = 'Read now';
