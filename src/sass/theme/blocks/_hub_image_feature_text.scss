@@ -31,8 +31,8 @@
         opacity: 1;
         z-index: -1;
         @media (min-width: 768px) {
-            max-width: 70svw;
             background-position: center right;
+            max-width: 80svw;
         }
     }
 }

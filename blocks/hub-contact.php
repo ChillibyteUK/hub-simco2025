@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 		<h2 class="mb-4">Contact us</h2>
 		<div class="row g-4">
 			<div class="col-md-6 pt-2">
-				<a href="<?=  get_field( 'map_embed_code', 'option') ?>" target="_blank" rel="noopener noreferrer">
+				<a href="<?= esc_url( get_field( 'map_embed_code', 'option' ) ); ?>" target="_blank" rel="noopener noreferrer">
 				<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/SIMCo-Map.jpg' ); ?>" alt="SIMCo map" class="img-fluid mb-4" />
 				</a>
 				<div class="mt-4">

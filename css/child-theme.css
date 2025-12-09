@@ -13401,8 +13401,8 @@ a.image-16x9 img {
 }
 @media (min-width: 768px) {
   .image-feature-text__overlay {
-    max-width: 70svw;
     background-position: center right;
+    max-width: 80svw;
   }
 }
 
