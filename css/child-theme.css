@@ -11443,7 +11443,7 @@ p, ul, ol, blockquote, figure {
 }
 
 .w-constrained-md {
-  max-width: 72ch;
+  max-width: 90ch;
   text-wrap: pretty;
 }
 
