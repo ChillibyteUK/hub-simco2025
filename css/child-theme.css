@@ -12847,6 +12847,32 @@ a.image-16x9 img {
   padding: 2rem 3rem;
 }
 
+.three-cards__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0rem 4rem;
+}
+.three-cards__card {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+}
+.three-cards__card .row {
+  display: contents;
+}
+.three-cards__card img {
+  grid-row: 1;
+}
+.three-cards__card h3, .three-cards__card .h3 {
+  grid-row: 2;
+}
+.three-cards__card .three-cards__card-content > div {
+  grid-row: 3;
+}
+.three-cards__card-content {
+  display: contents;
+}
+
 .doc-list__item {
   transition: background-color var(--transition);
   border-bottom: 1px solid var(--col-simco-gold);

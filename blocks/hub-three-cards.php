@@ -19,16 +19,15 @@ defined( 'ABSPATH' ) || exit;
 		$cards = get_field( 'cards' ) ?? array();
 		if ( ! empty( $cards ) ) {
 			?>
-		<div class="row g-5">
+		<div class="three-cards__grid">
 			<?php
 			foreach ( $cards as $i => $c ) {
 				?>
-				<div class="col-12 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
+				<div class="three-cards__card" data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
 					<div class="row align-items-start">
 						<?php
 						if ( ! empty( $c['image'] ) ) {
 							?>
-							<div class="col-md-4 col-lg-12">
 							<?=
 							wp_get_attachment_image(
 								$c['image'],
@@ -40,11 +39,10 @@ defined( 'ABSPATH' ) || exit;
 								)
 							);
 							?>
-							</div>
 							<?php
 						}
 						?>
-						<div class="col-md-8 col-lg-12">
+						<div class="three-cards__card-content">
 							<?php
 							if ( ! empty( $c['title'] ) ) {
 								?>
@@ -53,7 +51,7 @@ defined( 'ABSPATH' ) || exit;
 							}
 							if ( ! empty( $c['content'] ) ) {
 								?>
-								<div class="mb-3"><?= wp_kses_post( $c['content'] ); ?></div>
+								<div class="mb-5"><?= wp_kses_post( $c['content'] ); ?></div>
 								<?php
 							}
 							?>

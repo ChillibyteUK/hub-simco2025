@@ -1,0 +1,27 @@
+.three-cards {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 0rem 4rem;
+    }
+    &__card {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 3;
+        .row {
+            display: contents;
+        }
+        img {
+            grid-row: 1;
+        }
+        h3 {
+            grid-row: 2;
+        }
+        .three-cards__card-content > div {
+            grid-row: 3;
+        }
+    }
+    &__card-content {
+        display: contents;
+    }
+}
