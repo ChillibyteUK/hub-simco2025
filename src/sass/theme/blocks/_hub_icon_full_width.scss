@@ -1,4 +1,8 @@
 .full-width {
+    .container[class*="has-"][class*="-background-color"] {
+        padding-inline: 0 !important;
+    }
+    
     &__icon {
         width: 90px;
         height: 90px;

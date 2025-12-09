@@ -12806,7 +12806,7 @@ a.image-16x9 img {
 }
 
 .full-width p {
-  max-width: 72ch;
+  max-width: 90ch;
   text-wrap: pretty;
 }
 
@@ -13276,6 +13276,9 @@ a.image-16x9 img {
   object-fit: cover;
 }
 
+.full-width .container[class*=has-][class*=-background-color], .full-width [class*=has-][class*=-background-color].wp-block-group:not(.alignfull) {
+  padding-inline: 0 !important;
+}
 .full-width__icon {
   width: 90px;
   height: 90px;
