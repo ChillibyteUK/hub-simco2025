@@ -43,7 +43,7 @@ $accordion_id = 'accordion-' . uniqid();
 		if ( get_field( 'intro' ) ) {
 			?>
 		<div class="row">
-			<div class="col-md-10 offset-md-2"><?= wp_kses_post( get_field( 'intro' ) ); ?></div>
+			<div class="col-md-10 offset-md-2 mb-4"><?= wp_kses_post( get_field( 'intro' ) ); ?></div>
 		</div>
 			<?php
 		}
