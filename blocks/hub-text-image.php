@@ -56,7 +56,7 @@ if ( $block_id ) {
 				<?php
 				if ( get_field( 'title' ) ) {
 					?>
-				<h2><?= wp_kses_post( get_field( 'title' ) ); ?></h2>
+				<h2 class="mb-5"><?= wp_kses_post( get_field( 'title' ) ); ?></h2>
 					<?php
 				}
 				?>

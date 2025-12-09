@@ -44,7 +44,7 @@ $water     = ! empty( $watermark ) && 'Yes' === $watermark[0] ? 'block-watermark
 		<?php
 		if ( get_field( 'title' ) ) {
 			?>
-		<<?= esc_html( $level ); ?> class="<?= esc_html( $level ); ?> mb-4" data-aos="fade-right"><?= wp_kses_post( get_field( 'title' ) ); ?></<?= esc_html( $level ); ?>>
+		<<?= esc_html( $level ); ?> class="<?= esc_html( $level ); ?> mb-5" data-aos="fade-right"><?= wp_kses_post( get_field( 'title' ) ); ?></<?= esc_html( $level ); ?>>
 			<?php
 		}
 		?>
