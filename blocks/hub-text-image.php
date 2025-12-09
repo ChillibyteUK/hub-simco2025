@@ -8,15 +8,15 @@
 defined( 'ABSPATH' ) || exit;
 
 $col_order   = get_field( 'order' );
-$image_order = ( 'Image' === $col_order ) ? 'order-1 pe-md-5' : 'order-2';
-$text_order  = ( 'Image' === $col_order ) ? 'order-2 ps-md-5' : 'order-1';
+$image_order = ( 'Image' === $col_order ) ? 'order-1 pe-lg-5' : 'order-2';
+$text_order  = ( 'Image' === $col_order ) ? 'order-2 ps-lg-5' : 'order-1';
 
 $image_aos = ( 'Image' === $col_order ) ? 'fade-right' : 'fade-left';
 $text_aos  = ( 'Image' === $col_order ) ? 'fade-left' : 'fade-right';
 
 $layout      = get_field( 'layout' ) ? get_field( 'layout' ) : '50-50';
-$image_width = '50-50' === $layout ? 'col-md-6' : 'col-md-4';
-$text_width  = '50-50' === $layout ? 'col-md-6' : 'col-md-8';
+$image_width = '50-50' === $layout ? 'col-lg-6' : 'col-lg-4';
+$text_width  = '50-50' === $layout ? 'col-lg-6' : 'col-lg-8';
 
 $constrain    = 'no' === get_field( 'constrain_image' ) ? '' : 'image-16x9';
 $image_margin = 'no' === get_field( 'constrain_image' ) ? 'my-auto' : '';
