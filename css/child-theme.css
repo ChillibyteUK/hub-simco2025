@@ -11659,6 +11659,8 @@ header .navbar-toggler svg {
   color: var(--col-simco-red);
   transition: opacity 0.3s ease;
   display: block;
+  width: 40px;
+  height: 40px;
 }
 header .navbar-toggler[aria-expanded=true] svg {
   display: none;
@@ -11668,6 +11670,8 @@ header .navbar-toggler[aria-expanded=true]::after {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40px;
+  height: 40px;
 }
 header .navbar-nav {
   margin-block: 0;
