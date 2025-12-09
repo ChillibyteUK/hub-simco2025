@@ -19,6 +19,7 @@ defined( 'ABSPATH' ) || exit;
 				<div class="mt-4">
 					<div class="mb-2"><strong>SIMCo</strong></div>
 					<?= do_shortcode( '[contact_address]' ); ?>
+					<div class="mt-2"><?= esc_html( get_field( 'contact_phone', 'option' ) ); ?></div>
 				</div>
 			</div>
 			<div class="col-md-6">

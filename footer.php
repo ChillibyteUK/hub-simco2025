@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
 					<?= do_shortcode( '[contact_address]' ); ?>
 				</div>
 				<div class="mb-3">
-					<?= do_shortcode( '[contact_phone]' ); ?>
+					<?= esc_html( get_field( 'contact_phone', 'option' ) ); ?>
 				</div>
 				<?= do_shortcode( '[social_icons class="fa-2x"]' ); ?>
 			</div>
