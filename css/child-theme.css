@@ -11966,10 +11966,10 @@ header .dropdown-toggle:focus-visible {
 .read-more.news:before, .read-more.research:before, .read-more.research-text:before {
   background-image: url("../img/icon-read-now.svg");
 }
-.read-more.video:before {
+.read-more.interview:before, .read-more.video:before {
   background-image: url("../img/icon-play-now.svg");
 }
-.read-more.interview:before, .read-more.podcast:before {
+.read-more.podcast:before {
   background-image: url("../img/icon-podcast.svg");
 }
 

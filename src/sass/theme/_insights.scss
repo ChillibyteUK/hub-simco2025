@@ -63,10 +63,10 @@
     &.research-text:before {
         background-image: url('../img/icon-read-now.svg');
     }
+    &.interview:before,
     &.video:before {
         background-image: url('../img/icon-play-now.svg');
     }
-    &.interview:before,
     &.podcast:before {
         background-image: url('../img/icon-podcast.svg');
     }
