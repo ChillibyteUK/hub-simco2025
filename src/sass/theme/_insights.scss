@@ -58,6 +58,7 @@
         background-size: contain;
         background-repeat: no-repeat;
     }
+    &.news:before,
     &.research:before,
     &.research-text:before {
         background-image: url('../img/icon-read-now.svg');
