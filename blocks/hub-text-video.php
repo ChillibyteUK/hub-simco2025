@@ -35,8 +35,11 @@ switch ( $split ) {
 
 $align = 'Top' === get_field( 'content_alignment' ) ? '' : 'my-xl-auto';
 
+$watermark = get_field( 'has_watermark' );
+$water     = ! empty( $watermark ) && 'Yes' === $watermark[0] ? 'block-watermark' : '';
+
 ?>
-<section class="text-video">
+<section class="text-video <?= esc_attr( $water ); ?>">
 	<div class="container py-5">
 		<?php
 		if ( get_field( 'title' ) ) {
