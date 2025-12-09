@@ -83,7 +83,7 @@ defined( 'ABSPATH' ) || exit;
 						</div>
 						<div class="col-md-2 text-md-end">
 							<div class="doc-list__icon">
-								<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/' . strtolower( $file_ext ) . '-icon.png' ); ?>" alt="<?= esc_attr( strtoupper( $file_ext ) . ' icon' ); ?>" width="40" height="40">
+								<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/' . strtolower( $file_ext ) . '-icon.svg' ); ?>" alt="<?= esc_attr( strtoupper( $file_ext ) . ' icon' ); ?>" width="50" height="50">
 							</div>
 						</div>
 					</div>
