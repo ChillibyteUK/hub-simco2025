@@ -16,7 +16,9 @@
         grid-template-rows: subgrid;
         grid-row: span 5;
         gap: 0;
-        
+        .read-more::before {
+            display: none;
+        }
         &:hover {
             text-decoration: none;
             .read-more:after,

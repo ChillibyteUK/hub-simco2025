@@ -12927,6 +12927,9 @@ a.image-16x9 img {
   grid-row: span 5;
   gap: 0;
 }
+.three-col-link-cards__card .read-more::before {
+  display: none;
+}
 .three-col-link-cards__card:hover {
   text-decoration: none;
 }
