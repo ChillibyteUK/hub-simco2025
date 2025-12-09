@@ -8,8 +8,8 @@
 defined( 'ABSPATH' ) || exit;
 
 $col_order   = get_field( 'order' );
-$image_order = ( 'Image' === $col_order ) ? 'order-1' : 'order-2';
-$text_order  = ( 'Image' === $col_order ) ? 'order-2' : 'order-1';
+$image_order = ( 'Image' === $col_order ) ? 'order-1 pe-md-5' : 'order-2';
+$text_order  = ( 'Image' === $col_order ) ? 'order-2 ps-md-5' : 'order-1';
 
 $image_aos = ( 'Image' === $col_order ) ? 'fade-right' : 'fade-left';
 $text_aos  = ( 'Image' === $col_order ) ? 'fade-left' : 'fade-right';
