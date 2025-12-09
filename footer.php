@@ -1,6 +1,6 @@
 <?php
 /**
- * Footer template for the Harrier Gates 2025 theme.
+ * Footer template for the SIMCo 2025 theme.
  *
  * This file contains the footer section of the theme, including navigation menus,
  * office addresses, and colophon information.
