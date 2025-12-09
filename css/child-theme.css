@@ -12913,7 +12913,7 @@ a.image-16x9 img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: auto auto auto 1fr auto;
-  gap: 3rem;
+  gap: 4rem;
 }
 @media (min-width: 992px) {
   .three-col-link-cards__grid {
@@ -13260,6 +13260,11 @@ a.image-16x9 img {
   width: 90px;
   height: 90px;
   margin-bottom: 1rem;
+}
+@media (min-width: 992px) {
+  .hub-icon-accordion-2__icon {
+    margin-bottom: 0;
+  }
 }
 .hub-icon-accordion-2 .accordion-item {
   border: none;

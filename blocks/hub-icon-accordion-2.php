@@ -14,7 +14,7 @@ $accordion_id = 'accordion-' . uniqid();
 <section class="hub-icon-accordion-2 py-5">
 	<div class="container" data-aos="fade-up">
 		<div class="row align-items-center">
-			<div class="col-md-2 text-center">
+			<div class="col-md-1">
 				<?php
 				if ( get_field( 'icon' ) ) {
 					echo wp_get_attachment_image(
@@ -29,7 +29,7 @@ $accordion_id = 'accordion-' . uniqid();
 				}
 				?>
 			</div>
-			<div class="col-md-10">
+			<div class="col-md-11">
 				<?php
 				if ( get_field( 'title' ) ) {
 					?>
@@ -49,7 +49,7 @@ $accordion_id = 'accordion-' . uniqid();
 		}
 		?>
 		<div class="row">
-			<div class="col-md-10 offset-md-2">
+			<div class="col-md-11 offset-md-1">
 				<?php
 				$items = get_field( 'items' ) ?? array();
 

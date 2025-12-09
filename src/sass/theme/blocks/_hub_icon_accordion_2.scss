@@ -3,6 +3,9 @@
         width: 90px;
         height: 90px;
         margin-bottom: 1rem;
+        @media (min-width:992px) {
+            margin-bottom: 0;
+        }
     }
 
     .accordion-item {
