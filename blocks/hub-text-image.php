@@ -22,6 +22,9 @@ $constrain    = 'no' === get_field( 'constrain_image' ) ? '' : 'image-16x9';
 $image_margin = 'no' === get_field( 'constrain_image' ) ? 'my-auto' : '';
 $align_image  = 'Top' === get_field( 'align_image' ) ? '' : 'align-items-center';
 
+$align_text = 'Top' === get_field( 'align_text' ) ? '' : 'my-xl-auto';
+
+
 // Support Gutenberg color picker.
 $bg         = ! empty( $block['backgroundColor'] ) ? 'has-' . $block['backgroundColor'] . '-background-color' : '';
 $fg         = ! empty( $block['textColor'] ) ? 'has-' . $block['textColor'] . '-color' : '';
@@ -49,7 +52,7 @@ if ( $block_id ) {
 <section class="text-image <?= esc_attr( $bg . ' ' . $fg ); ?>" id="<?= esc_attr( $section_id ); ?>">
 	<div class="container py-5">
 		<div class="row gx-5">
-			<div class="<?= esc_attr( $text_width ); ?> <?= esc_attr( $text_order ); ?>" data-aos="<?= esc_attr( $text_aos ); ?>">
+			<div class="<?= esc_attr( $text_width ); ?> <?= esc_attr( $text_order ); ?> <?= esc_attr( $align_text ); ?>" data-aos="<?= esc_attr( $text_aos ); ?>">
 				<?php
 				if ( get_field( 'title' ) ) {
 					?>
