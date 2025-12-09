@@ -33,6 +33,8 @@ switch ( $split ) {
 		break;
 }
 
+$align = 'Top' === get_field( 'content_alignment' ) ? '' : 'my-auto';
+
 ?>
 <section class="text-video">
 	<div class="container py-5">
@@ -44,7 +46,7 @@ switch ( $split ) {
 		}
 		?>
 		<div class="row g-5">
-			<div class="<?= esc_attr( $left ); ?>">
+			<div class="<?= esc_attr( $left ); ?> <?= esc_attr( $align ); ?>">
 				<div data-aos="fade-right">
 					<?= wp_kses_post( get_field( 'content' ) ); ?>
 				</div>
