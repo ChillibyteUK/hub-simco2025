@@ -33,7 +33,7 @@ switch ( $split ) {
 		break;
 }
 
-$align = 'Top' === get_field( 'content_alignment' ) ? '' : 'my-lg-auto';
+$align = 'Top' === get_field( 'content_alignment' ) ? '' : 'my-xl-auto';
 
 ?>
 <section class="text-video">
