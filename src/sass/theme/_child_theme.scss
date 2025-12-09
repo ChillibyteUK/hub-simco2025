@@ -133,8 +133,8 @@ input[type="email"],
 input[type="tel"],
 select,
 textarea {
-  background-color: var(--col-light-grey);
-  border: 1px solid var(--col-light-grey);
+  background-color: var(--col-form-grey);
+  border: 1px solid var(--col-form-grey);
   border-radius: 0;
 }
 
@@ -205,9 +205,9 @@ input[type="file"] {
   &::-webkit-file-upload-button {
     display: inline-block !important;
     padding: 0.5rem 1rem !important;
-    background-color: #eae8e1 !important;
+    background-color: var(--col-form-grey) !important;
     color: #000 !important;
-    border: 2px solid #eae8e1 !important;
+    border: 2px solid var(--col-form-grey) !important;
     border-radius: 6px !important;
     cursor: pointer !important;
   }

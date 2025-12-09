@@ -101,6 +101,12 @@
           "origin": "theme"
         },
         {
+          "name": "form-grey",
+          "slug": "form-grey",
+          "color": "#F5F2EC",
+          "origin": "theme"
+        },
+        {
           "name": "light-grey",
           "slug": "light-grey",
           "color": "#EAECF1",

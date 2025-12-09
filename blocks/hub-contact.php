@@ -18,9 +18,6 @@ defined( 'ABSPATH' ) || exit;
 					<div class="mb-2"><strong>SIMCo</strong></div>
 					<?= do_shortcode( '[contact_address]' ); ?>
 				</div>
-				<div class="mb-5">
-					<?= do_shortcode( '[contact_phone]' ); ?>
-				</div>
 			</div>
 			<div class="col-md-6">
 				<?= do_shortcode( '[gravityform id="' . get_field( 'contact_form_id' ) . '" title="false" ajax="true"]' ); ?>
