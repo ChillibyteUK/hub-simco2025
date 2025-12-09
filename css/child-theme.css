@@ -11800,7 +11800,7 @@ header .dropdown-toggle:focus-visible {
     margin-top: 0;
   }
   header .dropdown-menu {
-    background-color: var(--col-dark-gold);
+    background-color: var(--col-light-gold);
     border: none;
     border-radius: 0;
     padding: 0 15px;
@@ -11856,7 +11856,7 @@ header .dropdown-toggle:focus-visible {
     height: 0;
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
-    border-bottom: 12px solid var(--col-simco-gold);
+    border-bottom: 12px solid var(--col-light-gold);
     z-index: 1001;
   }
 }
