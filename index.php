@@ -165,6 +165,12 @@ get_header();
 						case 'podcast':
 							$read_more = 'Play now';
 							break;
+						case 'interview':
+							$read_more = 'Play now';
+							break;
+						case 'news':
+							$read_more = 'Read now';
+							break;
 						default:
 							$read_more = 'Read now';
 							break;

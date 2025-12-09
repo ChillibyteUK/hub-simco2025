@@ -11969,7 +11969,7 @@ header .dropdown-toggle:focus-visible {
 .read-more.video:before {
   background-image: url("../img/icon-play-now.svg");
 }
-.read-more.podcast:before {
+.read-more.interview:before, .read-more.podcast:before {
   background-image: url("../img/icon-podcast.svg");
 }
 
