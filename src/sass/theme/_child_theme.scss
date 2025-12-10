@@ -275,6 +275,11 @@ textarea::placeholder {
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  
+  input[type="checkbox"] {
+    accent-color: #152634 !important;
+  }
+  
   .gform-field-label.gform-field-label--type-inline.gfield_consent_label {
     font-size: 14px;
     .gfield_required.gfield_required_text {

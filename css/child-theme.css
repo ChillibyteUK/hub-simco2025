@@ -13757,6 +13757,9 @@ textarea::placeholder {
   gap: 0.5rem;
   align-items: center;
 }
+.ginput_container.ginput_container_consent input[type=checkbox] {
+  accent-color: #152634 !important;
+}
 .ginput_container.ginput_container_consent .gform-field-label.gform-field-label--type-inline.gfield_consent_label {
   font-size: 14px;
 }
