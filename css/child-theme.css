@@ -12489,11 +12489,17 @@ a.image-16x9 img {
 
 .hub-team {
   --_color: var(--col-simco-gold);
-  --_color-hsl: var(--col-simco-gold-hsl);
+  --_bg-color: var(--col-light-gold);
+}
+.hub-team .hub-team__name-holder::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath fill='%237A6B44' d='M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z'/%3E%3C/svg%3E");
 }
 .hub-team.hub-team--simcap {
   --_color: var(--col-simco-red);
-  --_color-hsl: var(--col-simco-red-hsl);
+  --_bg-color: #9A2634;
+}
+.hub-team.hub-team--simcap .hub-team__name-holder::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath fill='%239A2634' d='M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z'/%3E%3C/svg%3E");
 }
 .hub-team__grid {
   display: grid;
@@ -12538,7 +12544,7 @@ a.image-16x9 img {
   border-radius: 8px;
 }
 .hub-team__card:hover .hub-team__name-holder, .hub-team__card.active .hub-team__name-holder {
-  background-color: hsl(var(--_color-hsl)/0.4);
+  background-color: var(--_bg-color);
   color: var(--col-black);
 }
 .hub-team__card[aria-expanded=true] .hub-team__name-holder::after {
@@ -12554,7 +12560,6 @@ a.image-16x9 img {
 }
 .hub-team__name-holder::after {
   content: "";
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 24 24'%3E%3Cpath fill='%237A6B44' d='M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 48px 48px;
