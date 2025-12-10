@@ -7,12 +7,12 @@
     position: absolute;
     top: -100px;
     left: 0;
-    background: var(--col-mid-blue, #47658D);
+    background: var(--col-simco-gold);
     color: var(--col-white, #fff);
     padding: 1rem 1.5rem;
     text-decoration: none;
     z-index: 10000;
-    font-weight: 700;
+    font-weight: var(--fw-medium);
     border-radius: 0 0 0.5rem 0;
     
     &:focus {
@@ -71,6 +71,9 @@ select:focus:not(:focus-visible),
     outline: none !important;
     box-shadow: 0 0 0 3px var(--col-simco-gold, #AB965F), 
                 0 0 0 6px rgba(171, 150, 95, 0.25) !important;
+}
+.skip-link.screen-reader-text:focus-visible {
+color: black;
 }
 
 // Navigation links

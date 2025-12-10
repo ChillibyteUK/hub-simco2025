@@ -10,6 +10,7 @@
         border: none;
         border-bottom: 3px solid var(--col-simco-gold);
     }
+    
     .accordion-button {
         padding: 1rem;
         font-size: var(--fs-h3);
@@ -18,21 +19,36 @@
         background-color: transparent;
         display: flex;
         gap: 2rem;
-        transition: background-color var(--transition);
+        transition: background-color var(--transition), color var(--transition), font-weight var(--transition);
+        cursor: pointer;
+        border: none;
+        width: 100%;
+        text-align: left;
+        
         &:hover {
             background-color: var(--col-lightest-gold);
         }
-        &:not(.collapsed) {
-            box-shadow: none;
-            font-weight: var(--fw-bold);
-            color: var(--col-dark-gold);
+    }
+    
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: none;
+        
+        &.is-open {
+            max-height: none;
         }
+    }
+    
+    .accordion-item:has(.is-open) .accordion-button {
+        font-weight: var(--fw-bold);
+        color: var(--col-dark-gold);
     }
 
     .accordion-body {
         padding: 0;
         border-top: none;
-        transition: border-color var(--transition);
+        
         &__inner {
             margin-bottom: 1rem;
             border-left:  10px solid var(--col-light-gold);

@@ -98,6 +98,27 @@ add_action(
     20
 );
 
+/**
+ * Enqueue accordion scroll script.
+ */
+add_action(
+    'wp_enqueue_scripts',
+    function () {
+        $rel = '/js/accordion-scroll.js';
+        $abs = get_stylesheet_directory() . $rel;
+        if ( file_exists( $abs ) ) {
+            wp_enqueue_script(
+                'hub-accordion-scroll',
+                get_stylesheet_directory_uri() . $rel,
+                array(),
+                filemtime( $abs ),
+                true
+            );
+        }
+    },
+    20
+);
+
 
 
 if ( function_exists( 'acf_add_options_page' ) ) {

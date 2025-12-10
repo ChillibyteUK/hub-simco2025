@@ -46,6 +46,11 @@ body {
   }
 }
 
+// Gravity Forms checkbox spacing
+.gform-field-label--type-inline {
+  margin-left: 0.5rem;
+}
+
 #breadcrumbs {
   font-size: var(--text-sm);
   a {
@@ -228,13 +233,13 @@ input[type="checkbox"] {
   cursor: pointer !important;
   
   &:checked {
-    background-color: #47658D !important;
-    border-color: #47658D !important;
+    background-color: #152634 !important;
+    border-color: #152634 !important;
   }
   
   &:focus-visible {
     outline: none !important;
-    box-shadow: 0 0 0 2px rgba(71, 101, 141, 0.3) !important;
+    box-shadow: 0 0 0 2px rgba(21, 38, 52, 0.3) !important;
   }
 }
 
@@ -248,8 +253,8 @@ input[type="checkbox"] {
   cursor: pointer !important;
   
   &:checked {
-    background-color: #47658D !important;
-    border-color: #47658D !important;
+    background-color: #152634 !important;
+    border-color: #152634 !important;
   }
 }
 
@@ -274,6 +279,19 @@ textarea::placeholder {
     font-size: 14px;
     .gfield_required.gfield_required_text {
       display: none !important;
+    }
+  }
+}
+
+.gfield_checkbox {
+  .gchoice  {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    .gfield-choice-input {
+      width: 40px !important;
+      height: 40px !important;
+      accent-color: #152634 !important;
     }
   }
 }

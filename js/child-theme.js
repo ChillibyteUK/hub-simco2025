@@ -7167,6 +7167,25 @@
 	          el.setAttribute('aria-labelledby', newId);
 	        });
 	      });
+
+	      // Handle dropdown toggle behavior - close other dropdowns when opening one
+	      const dropdownToggles = mobileMenu.querySelectorAll('[data-bs-toggle="dropdown"]');
+	      dropdownToggles.forEach(function (toggle) {
+	        toggle.addEventListener('show.bs.dropdown', function (e) {
+	          // Close all other open dropdowns
+	          dropdownToggles.forEach(function (otherToggle) {
+	            if (otherToggle !== toggle && otherToggle.classList.contains('show')) {
+	              const otherDropdown = bootstrap.Dropdown.getInstance(otherToggle);
+	              if (otherDropdown) {
+	                otherDropdown.hide();
+	              }
+	            }
+	          });
+	        });
+
+	        // Prevent dropdown from closing when clicking items inside it
+	        toggle.setAttribute('data-bs-auto-close', 'false');
+	      });
 	    }
 	  }
 	})();

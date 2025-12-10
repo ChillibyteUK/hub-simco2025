@@ -40,7 +40,7 @@ $search_q      = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q
       		</select>
     	</div>
 		<div class="col-12 col-lg-3">
-			<button id="team-filter-reset" type="button" class="btn btn-light w-100">Reset Filters</button>
+			<button id="team-filter-reset" type="button" class="btn btn-light w-100 no-arrow">Reset filters</button>
 		</div>
   	</div>
   	<div class="visually-hidden" aria-live="polite" id="team-filter-status"></div>

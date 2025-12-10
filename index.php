@@ -64,13 +64,6 @@ get_header();
             if ( ! empty( $all_categories ) ) {
                 ?>
                 <div class="row mb-5 index-filters">
-                    <div class="col-12 col-lg-6 mb-3 mb-lg-0">
-                        <form role="search" method="get" class="d-flex gap-2 align-items-center" action="<?= esc_url( home_url( '/' ) ); ?>">
-                            <label for="search-input" class="visually-hidden">Search posts</label>
-                            <input type="search" class="form-control" id="search-input" name="s" placeholder="Search posts..." autocomplete="off" value="<?= esc_attr( get_search_query() ); ?>" aria-label="Search posts">
-                            <button type="submit" class="btn btn--mid-blue search-button">Search</button>
-                        </form>
-                    </div>
                     <div class="col-12 col-md-6 col-lg-3 mb-3 mb-lg-0">
                         <label for="category-filter" class="visually-hidden">Filter by category</label>
                         <select class="form-select filter-select" id="category-filter" data-filter-type="category" aria-label="Filter by category">
@@ -100,6 +93,13 @@ get_header();
                             }
                             ?>
                         </select>
+                    </div>
+					<div class="col-12 col-lg-6 mb-3 mb-lg-0">
+                        <form role="search" method="get" class="d-flex gap-2 align-items-center" action="<?= esc_url( home_url( '/' ) ); ?>">
+                            <label for="search-input" class="visually-hidden">Search posts</label>
+                            <input type="search" class="form-control" id="search-input" name="s" placeholder="Search posts..." autocomplete="off" value="<?= esc_attr( get_search_query() ); ?>" aria-label="Search posts">
+                            <button type="submit" class="btn btn--mid-blue search-button">Search</button>
+                        </form>
                     </div>
                 </div>
                 <?php

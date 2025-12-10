@@ -1,3 +1,27 @@
+// Skip to content link styling
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  padding: 1rem;
+  background-color: var(--col-dark-gold);
+  color: var(--col-white);
+  text-decoration: none;
+  font-weight: var(--fw-medium);
+  
+  // Override visually-hidden on focus
+  &:focus {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    outline: 2px solid var(--col-simco-gold);
+    outline-offset: 2px;
+  }
+}
+
 header {
   background-color: var(--col-white);
   transition: var(--transition);

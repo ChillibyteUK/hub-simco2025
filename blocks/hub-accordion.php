@@ -31,17 +31,15 @@ $accordion_id = 'accordion-' . uniqid();
 		<div class="accordion" id="<?= esc_attr( $accordion_id ); ?>">
 			<?php
 			foreach ( $items as $i => $it ) {
-				$collapsed = ( 0 === $i ) ? '' : 'collapsed';
-				$show      = ( 0 === $i ) ? 'show' : '';
-				$expanded  = ( 0 === $i ) ? 'true' : 'false';
+				$open = ( 0 === $i ) ? 'is-open' : '';
 				?>
 			<div class="accordion-item mb-3" data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
-				<h3 class="accordion-header" id="heading-<?= esc_attr( $accordion_id . '-' . $i ); ?>">
-					<button class="accordion-button px-0 mb-3 <?= esc_attr( $collapsed ); ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<?= esc_attr( $accordion_id . '-' . $i ); ?>" aria-expanded="<?= esc_attr( $expanded ); ?>" aria-controls="collapse-<?= esc_attr( $accordion_id . '-' . $i ); ?>">
+				<h3 class="accordion-header mb-0">
+					<button class="accordion-button px-0 py-3" type="button" data-toggle-content="#content-<?= esc_attr( $accordion_id . '-' . $i ); ?>">
 						<?= esc_html( $it['title'] ?? '' ); ?>
 					</button>
 				</h3>
-				<div id="collapse-<?= esc_attr( $accordion_id . '-' . $i ); ?>" class="accordion-collapse collapse <?= esc_attr( $show ); ?>" aria-labelledby="heading-<?= esc_attr( $accordion_id . '-' . $i ); ?>" data-bs-parent="#<?= esc_attr( $accordion_id ); ?>">
+				<div id="content-<?= esc_attr( $accordion_id . '-' . $i ); ?>" class="accordion-content <?= esc_attr( $open ); ?>">
 					<div class="accordion-body">
 						<div class="accordion-body__inner"><?= wp_kses_post( $it['content'] ?? '' ); ?></div>
 					</div>

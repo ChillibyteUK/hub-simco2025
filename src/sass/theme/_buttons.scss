@@ -77,6 +77,12 @@
       }
   }
 }
+.no-arrow {
+  padding-right: var(--btn-px);
+  &::after {
+      display: none;
+  }
+}
 
 .btn-light {
   background-color: var(--col-light-gold);

@@ -115,7 +115,6 @@ if ( session_status() === PHP_SESSION_NONE ) {
 
 <body <?php body_class( is_front_page() ? 'homepage' : '' ); ?>
     <?php understrap_body_attributes(); ?>>
-    <a class="skip-link screen-reader-text" href="#main" style="display:none"><?php esc_html_e( 'Skip to content', 'hub-sequoia2025' ); ?></a>
     <?php
 	do_action( 'wp_body_open' );
 	if ( ! is_user_logged_in() ) {
@@ -135,6 +134,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 		<div class="container gap-4">
             <div class="d-flex justify-content-between w-100 w-lg-auto align-items-center py-0 py-lg-0">
                 <div class="logo-container"><a href="/" class="logo navbar-brand" aria-label="SIMCo Homepage"></a></div>
+				    <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'hub-sequoia2025' ); ?></a>
                 <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -160,7 +160,7 @@ if ( session_status() === PHP_SESSION_NONE ) {
 				?>
             </div>
             <!-- Mobile Offcanvas Navigation -->
-            <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar" data-bs-backdrop="false" data-bs-scroll="true">
+            <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="offcanvasNavbar" data-bs-backdrop="false" data-bs-scroll="true" data-bs-dismiss="false">
                 <div class="offcanvas-body">
 					<?php
 					wp_nav_menu(
