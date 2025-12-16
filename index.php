@@ -49,7 +49,7 @@ get_header();
 		}
 	}
 	?>
-    <section class="latest_posts mt-5">
+    <section class="latest_posts mt-5" id="latest-posts">
         <div class="container pb-5">
             <?php
             // Get all categories for filter buttons.
@@ -70,11 +70,11 @@ get_header();
                             <option value="all" selected>All Categories</option>
                             <?php
 							foreach ( $all_categories as $category ) {
-								// Hide "Research PDF" - it's combined with "Research"
+								// Hide "Research PDF" - it's combined with "Research".
 								if ( 'research' === $category->slug ) {
 									continue;
 								}
-								// Map research-text to research in the dropdown
+								// Map research-text to research in the dropdown.
 								$display_slug = ( 'research-text' === $category->slug ) ? 'research' : $category->slug;
 								?>
                                 <option value="<?= esc_attr( $display_slug ); ?>"><?= esc_html( $category->name ); ?></option>
@@ -139,7 +139,7 @@ get_header();
 						}
 						// Convert to space separated list.
 						$categories = implode( ' ', wp_list_pluck( $categories, 'slug' ) );
-						// Map both research and research-text to research for filtering
+						// Map both research and research-text to research for filtering.
 						$categories = str_replace( array( 'research-text', 'research' ), 'research', $categories );
 					}
 
@@ -162,7 +162,7 @@ get_header();
                     $catname = str_replace( ' PDF', '', $catname );
 
 					$catslug = $first_category->slug;
-					// Map research-text to research for switch statement
+					// Map research-text to research for switch statement.
 					if ( 'research-text' === $catslug ) {
 						$catslug = 'research';
 					}

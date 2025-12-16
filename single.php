@@ -28,7 +28,7 @@ if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) {
 </section>
 <div class="container">
 	<div class="py-4">
-		<a class="left-arrow" href="/insights/">Back to Insights</a>
+		<a class="left-arrow" href="/insights/#latest-posts">Back to Insights</a>
 	</div>
 	<div class="row g-5">
 		<div class="col-md-3">
