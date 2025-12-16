@@ -8,12 +8,12 @@
 defined( 'ABSPATH' ) || exit;
 
 $background = get_field( 'background' );
-$bg         = ! empty( $background ) && 'Yes' === $background[0] ? 'has-lightest-gold-background-color' : '';
+$bg         = ! empty( $background ) && 'Yes' === $background[0] ? 'has-lightest-gold-background-color py-5' : '';
 
 // Get Gutenberg classes.
 $classes = isset( $block['className'] ) ? $block['className'] : '';
 if ( empty( $classes ) ) {
-	$classes = 'py-5';
+	$classes = '';
 }
 
 ?>
