@@ -49,7 +49,8 @@ get_header();
 		}
 	}
 	?>
-    <section class="latest_posts mt-5" id="latest-posts">
+	<a id="latest-posts" class="anchor"></a>
+    <section class="latest_posts mt-5">
         <div class="container pb-5">
             <?php
             // Get all categories for filter buttons.
