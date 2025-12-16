@@ -12662,7 +12662,7 @@ a.image-16x9 img {
 }
 
 .stat_spinner {
-  background-color: var(--col-simco-gold);
+  background-color: var(--col-mid-gold);
   color: var(--col-black);
 }
 .stat_spinner__grid {
