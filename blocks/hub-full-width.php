@@ -9,10 +9,11 @@ defined( 'ABSPATH' ) || exit;
 
 $bg = get_field( 'bg_colour' ) ? 'has-' . get_field( 'bg_colour' ) . '-background-color' : '';
 $fg = get_field( 'fg_colour' ) ? 'has-' . get_field( 'fg_colour' ) . '-color' : '';
-$sl = get_field( 'has_slant' ) ? 'has-slanted-bg' : 'py-5';
+
+$classes = $block['className'] ? $block['className'] : 'py-5';
 
 ?>
-<section class="full-width <?= esc_attr( $bg . ' ' . $fg . ' ' . $sl ); ?>">
+<section class="full-width <?= esc_attr( $bg . ' ' . $fg . ' ' . $classes ); ?>">
     <div class="container" data-aos="fade-up">
 		<?php
 		if ( get_field( 'title' ) ) {
