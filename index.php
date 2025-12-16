@@ -70,6 +70,10 @@ get_header();
                             <option value="all" selected>All Categories</option>
                             <?php
 							foreach ( $all_categories as $category ) {
+								// Hide "Research PDF" - it's combined with "Research"
+								if ( 'research-pdf' === $category->slug ) {
+									continue;
+								}
 								?>
                                 <option value="<?= esc_attr( $category->slug ); ?>"><?= esc_html( $category->name ); ?></option>
                             	<?php
@@ -133,6 +137,8 @@ get_header();
 						}
 						// Convert to space separated list.
 						$categories = implode( ' ', wp_list_pluck( $categories, 'slug' ) );
+						// Map research-pdf to research for filtering
+						$categories = str_replace( 'research-pdf', 'research', $categories );
 					}
 
 					$plink  = get_permalink();
