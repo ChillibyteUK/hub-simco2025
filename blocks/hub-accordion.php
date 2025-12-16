@@ -12,7 +12,7 @@ $accordion_id = 'accordion-' . uniqid();
 
 ?>
 <section class="accordion-block <?= esc_attr( $classes ); ?>">
-	<div class="container" data-aos="fade-up">
+	<div class="container">
 		<?php
 		if ( get_field( 'title' ) ) {
 			?>
@@ -31,15 +31,14 @@ $accordion_id = 'accordion-' . uniqid();
 		<div class="accordion" id="<?= esc_attr( $accordion_id ); ?>">
 			<?php
 			foreach ( $items as $i => $it ) {
-				$open = ( 0 === $i ) ? 'is-open' : '';
 				?>
-			<div class="accordion-item mb-3" data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
+			<div class="accordion-item mb-3" data-aos="fade">
 				<h3 class="accordion-header mb-0">
 					<button class="accordion-button px-0 py-3" type="button" data-toggle-content="#content-<?= esc_attr( $accordion_id . '-' . $i ); ?>">
 						<?= esc_html( $it['title'] ?? '' ); ?>
 					</button>
 				</h3>
-				<div id="content-<?= esc_attr( $accordion_id . '-' . $i ); ?>" class="accordion-content <?= esc_attr( $open ); ?>">
+				<div id="content-<?= esc_attr( $accordion_id . '-' . $i ); ?>" class="accordion-content is-open">
 					<div class="accordion-body">
 						<div class="accordion-body__inner"><?= wp_kses_post( $it['content'] ?? '' ); ?></div>
 					</div>

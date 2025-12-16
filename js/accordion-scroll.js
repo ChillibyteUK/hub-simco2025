@@ -22,17 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		const isOpening = !target.classList.contains('is-open');
 
-		// Close all other open items in the same accordion
-		const accordion = button.closest('.accordion');
-		if (accordion) {
-			accordion.querySelectorAll('.accordion-content.is-open').forEach(function(item) {
-				if (item !== target) {
-					item.classList.remove('is-open');
-				}
-			});
-		}
-
-		// Toggle the content
+		// Toggle the content (no closing of other items)
 		target.classList.toggle('is-open');
 
 		// Scroll to the button immediately if opening
