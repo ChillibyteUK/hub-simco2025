@@ -2,6 +2,7 @@
  * Simple accordion with scroll-to-top
  */
 document.addEventListener('DOMContentLoaded', function() {
+	// Custom accordion (non-Bootstrap): scroll on open
 	document.addEventListener('click', function(e) {
 		const button = e.target.closest('[data-toggle-content]');
 		if (!button) return;
@@ -31,6 +32,20 @@ document.addEventListener('DOMContentLoaded', function() {
 			const y = header.getBoundingClientRect().top + window.pageYOffset - navHeight;
 			window.scrollTo({ top: y, behavior: 'smooth' });
 		}
+	});
+
+	// Bootstrap accordion: scroll when a collapse is opening
+	document.addEventListener('show.bs.collapse', function(e) {
+		const collapseEl = e.target;
+		if (!collapseEl) return;
+		const item = collapseEl.closest('.accordion-item');
+		if (!item) return;
+		const button = item.querySelector('.accordion-header .accordion-button') || item.querySelector('.accordion-button');
+		if (!button) return;
+		const header = button.closest('.accordion-header') || button;
+		const navHeight = 105;
+		const y = header.getBoundingClientRect().top + window.pageYOffset - navHeight;
+		window.scrollTo({ top: y, behavior: 'smooth' });
 	});
 });
 
