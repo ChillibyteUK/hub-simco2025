@@ -19,7 +19,7 @@ if ( empty( $classes ) ) {
 ?>
 <section class="full-width <?= esc_attr( $classes ); ?>">
     <div class="container <?= esc_attr( $bg ); ?>">
-		<div class="p-5" data-aos="fade-up">
+		<div class="px-5" data-aos="fade-up">
 			<div class="row align-items-center">
 				<div class="col-md-2 mb-4 mb-md-0 ps-0">
 					<?php
