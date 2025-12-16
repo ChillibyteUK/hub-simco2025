@@ -77,8 +77,8 @@ $modal_id = 'disclaimer-modal-' . uniqid();
 					<div class=""><?= wp_kses_post( get_field( 'screen_1_post_country_select', 'option' ) ); ?></div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn--simco-red" id="country-back">Back</button>
-                    <button type="button" class="btn btn--mid-blue" id="country-continue" disabled>Continue</button>
+                    <button type="button" class="btn btn-navy" id="country-back">Back</button>
+                    <button type="button" class="btn btn-light" id="country-continue" disabled>Continue</button>
                 </div>
             </div>
 
@@ -93,7 +93,7 @@ $modal_id = 'disclaimer-modal-' . uniqid();
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="access-denied-back">Back</button>
+                    <button type="button" class="btn btn-navy" id="access-denied-back">Back</button>
                 </div>
             </div>
 
@@ -118,8 +118,8 @@ $modal_id = 'disclaimer-modal-' . uniqid();
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn--simco-red" id="disclaimer-back-btn">Back</button>
-                    <button type="button" class="btn btn--mid-blue" id="disclaimer-accept" disabled>Accept & Continue</button>
+                    <button type="button" class="btn btn-navy" id="disclaimer-back-btn">Back</button>
+                    <button type="button" class="btn btn-light" id="disclaimer-accept" disabled>Accept & Continue</button>
                 </div>
             </div>
         </div>
