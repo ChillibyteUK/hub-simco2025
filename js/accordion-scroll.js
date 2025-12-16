@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 	});
 
-	// Bootstrap accordion: scroll when a collapse is opening
-	document.addEventListener('show.bs.collapse', function(e) {
+	// Bootstrap accordion: scroll after a collapse has finished opening
+	document.addEventListener('shown.bs.collapse', function(e) {
 		const collapseEl = e.target;
 		if (!collapseEl) return;
 		const item = collapseEl.closest('.accordion-item');
