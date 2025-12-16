@@ -32,7 +32,7 @@ $accordion_id = 'accordion-' . uniqid();
 			<?php
 			foreach ( $items as $i => $it ) {
 				?>
-			<div class="accordion-item mb-3" data-aos="fade">
+			<div class="accordion-item mb-3">
 				<h3 class="accordion-header mb-0">
 					<button class="accordion-button px-0 py-3" type="button" data-toggle-content="#content-<?= esc_attr( $accordion_id . '-' . $i ); ?>">
 						<?= esc_html( $it['title'] ?? '' ); ?>
