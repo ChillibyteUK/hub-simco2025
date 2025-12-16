@@ -1,4 +1,9 @@
 .icon-accordion-block {
+    // Disable Bootstrap collapse animation for snappier scroll-to-top alignment
+    .accordion-collapse {
+        transition: none !important;
+    }
+
     .accordion-item {
         border: none;
     }

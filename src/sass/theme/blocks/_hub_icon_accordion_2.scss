@@ -1,4 +1,9 @@
 .hub-icon-accordion-2 {
+    // Disable Bootstrap collapse animation for snappier scroll-to-top alignment
+    .accordion-collapse {
+        transition: none !important;
+    }
+
     &__icon {
         width: 90px;
         height: 90px;
