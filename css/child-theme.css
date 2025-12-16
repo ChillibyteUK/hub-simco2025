@@ -13854,6 +13854,10 @@ main:has(.has-watermark) {
   background-position: bottom right;
 }
 
+.gquiz-correct-choice {
+  color: #007a00 !important;
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #0d6efd;
