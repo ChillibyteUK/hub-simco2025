@@ -10,8 +10,14 @@ defined( 'ABSPATH' ) || exit;
 $background = get_field( 'background' );
 $bg         = ! empty( $background ) && 'Yes' === $background[0] ? 'has-lightest-gold-background-color' : '';
 
+// Get Gutenberg classes.
+$classes = isset( $block['className'] ) ? $block['className'] : '';
+if ( empty( $classes ) ) {
+	$classes = 'py-5';
+}
+
 ?>
-<section class="full-width">
+<section class="full-width <?= esc_attr( $classes ); ?>">
     <div class="container <?= esc_attr( $bg ); ?>">
 		<div class="p-5" data-aos="fade-up">
 			<div class="row align-items-center">
