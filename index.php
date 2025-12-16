@@ -143,7 +143,7 @@ get_header();
 
 					$plink  = get_permalink();
 					$target = '_self';
-					if ( 'research' === $first_category->slug ) {
+					if ( 'research-pdf' === $first_category->slug ) {
 						$plink  = wp_get_attachment_url( get_field( 'pdf', get_the_ID() ) );
 						$target = '_blank';
 					}
@@ -160,6 +160,10 @@ get_header();
                     $catname = str_replace( ' PDF', '', $catname );
 
 					$catslug = $first_category->slug;
+					// Map research-pdf to research for switch statement
+					if ( 'research-pdf' === $catslug ) {
+						$catslug = 'research';
+					}
 
 					switch ( $catslug ) {
 						case 'research':
