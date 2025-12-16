@@ -10,7 +10,11 @@ defined( 'ABSPATH' ) || exit;
 $bg = get_field( 'bg_colour' ) ? 'has-' . get_field( 'bg_colour' ) . '-background-color' : '';
 $fg = get_field( 'fg_colour' ) ? 'has-' . get_field( 'fg_colour' ) . '-color' : '';
 
-$classes = $block['className'] ? $block['className'] : 'py-5';
+// Get Gutenberg classes.
+$classes = isset( $block['className'] ) ? $block['className'] : '';
+if ( empty( $classes ) ) {
+	$classes = 'py-5';
+}
 
 ?>
 <section class="full-width <?= esc_attr( $bg . ' ' . $fg . ' ' . $classes ); ?>">
