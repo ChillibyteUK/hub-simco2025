@@ -71,7 +71,7 @@ get_header();
                             <?php
 							foreach ( $all_categories as $category ) {
 								// Hide "Research PDF" - it's combined with "Research"
-								if ( 'research-pdf' === $category->slug ) {
+								if ( 'research' === $category->slug ) {
 									continue;
 								}
 								?>
@@ -137,13 +137,13 @@ get_header();
 						}
 						// Convert to space separated list.
 						$categories = implode( ' ', wp_list_pluck( $categories, 'slug' ) );
-						// Map research-pdf to research for filtering
-						$categories = str_replace( 'research-pdf', 'research', $categories );
+						// Map both research and research-text to research for filtering
+						$categories = str_replace( array( 'research-text', 'research' ), 'research', $categories );
 					}
 
 					$plink  = get_permalink();
 					$target = '_self';
-					if ( 'research-pdf' === $first_category->slug ) {
+					if ( 'research' === $first_category->slug ) {
 						$plink  = wp_get_attachment_url( get_field( 'pdf', get_the_ID() ) );
 						$target = '_blank';
 					}
@@ -160,8 +160,8 @@ get_header();
                     $catname = str_replace( ' PDF', '', $catname );
 
 					$catslug = $first_category->slug;
-					// Map research-pdf to research for switch statement
-					if ( 'research-pdf' === $catslug ) {
+					// Map research-text to research for switch statement
+					if ( 'research-text' === $catslug ) {
 						$catslug = 'research';
 					}
 
