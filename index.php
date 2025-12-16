@@ -74,8 +74,10 @@ get_header();
 								if ( 'research' === $category->slug ) {
 									continue;
 								}
+								// Map research-text to research in the dropdown
+								$display_slug = ( 'research-text' === $category->slug ) ? 'research' : $category->slug;
 								?>
-                                <option value="<?= esc_attr( $category->slug ); ?>"><?= esc_html( $category->name ); ?></option>
+                                <option value="<?= esc_attr( $display_slug ); ?>"><?= esc_html( $category->name ); ?></option>
                             	<?php
 							}
 							?>
