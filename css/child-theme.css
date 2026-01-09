@@ -13040,7 +13040,7 @@ a.image-16x9 img {
 }
 .three-col-link-cards__card-logo, .three-col-link-cards__card-logo--placeholder {
   margin-bottom: 0.5rem;
-  max-height: 100px;
+  max-height: 140px;
   width: auto;
   -o-object-fit: contain;
   object-fit: contain;
