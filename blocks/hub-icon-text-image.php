@@ -30,6 +30,7 @@ if ( $block_id ) {
 		<div class="row">
 			<div class="col-lg-6 p-5 <?= esc_attr( $text_order ); ?>"">
 				<div class="" data-aos="fade-up">
+					<div class="d-flex gap-3 align-items-center">
 					<?php
 					if ( get_field( 'icon' ) ) {
 						echo wp_get_attachment_image(
@@ -48,6 +49,7 @@ if ( $block_id ) {
 						<?php
 					}
 					?>
+					</div>
 					<?= wp_kses_post( get_field( 'content' ) ); ?>
 				</div>
 			</div>
