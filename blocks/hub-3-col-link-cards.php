@@ -40,20 +40,6 @@ defined( 'ABSPATH' ) || exit;
 						} else {
 							echo '<div class="three-col-link-cards__card-logo--placeholder"></div>';
 						}
-						$image = get_sub_field( 'image' );
-						if ( $image ) {
-							echo wp_get_attachment_image(
-								$image,
-								'full',
-								false,
-								array(
-									'class' => 'three-col-link-cards__card-image',
-									'alt'   => esc_attr( get_sub_field( 'title' ) ),
-								)
-							);
-						} else {
-							echo '<div class="three-col-link-cards__card-image--placeholder"></div>';
-						}
 						?>
 						<div class="three-col-link-cards__card-body">
 							<h3><?php the_sub_field( 'title' ); ?></h3>
