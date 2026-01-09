@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 			$icon   = get_sub_field( 'icon' );
 			?>
 			<a href="<?= esc_url( $url ); ?>" target="<?= esc_attr( $target ); ?>" class="download-icon-list__item d-flex align-items-center mb-3">
-				<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/download-icon.svg' ); ?>" alt="<?= esc_attr( get_sub_field( 'title' ) ); ?>" class="download-icon-list__item-icon me-3" />
+				<img src="<?= esc_url( get_stylesheet_directory_uri() . '/img/download-icon.svg' ); ?>" alt="<?= esc_attr( get_sub_field( 'title' ) ); ?>" class="download-icon-list__item-icon me-2" />
 				<span class="download-icon-list__item-title"><?= esc_html( get_sub_field( 'title' ) ); ?></span>
 			</a>
 			<?php
