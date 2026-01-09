@@ -13,7 +13,7 @@
 		display: flex;
         flex-direction: column;
         justify-content: center;
-		flex: 1 1 calc(33.333% - 2rem); // 3 items per row
+		flex: 1 1 calc(20% - 2rem); // 5 items per row
 		min-width: 150px; // Ensures readability on small screens
 		max-width: 300px; // Prevents items getting too wide
 		

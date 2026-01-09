@@ -12676,7 +12676,7 @@ a.image-16x9 img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  flex: 1 1 calc(33.333% - 2rem);
+  flex: 1 1 calc(20% - 2rem);
   min-width: 150px;
   max-width: 300px;
 }
