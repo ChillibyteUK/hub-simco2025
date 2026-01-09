@@ -13238,7 +13238,7 @@ a.image-16x9 img {
 }
 
 .insights-pushthrough {
-  min-height: 500px;
+  min-height: 400px;
   display: flex;
   align-items: center;
   position: relative;
