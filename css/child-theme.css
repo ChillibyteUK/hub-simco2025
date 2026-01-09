@@ -13221,7 +13221,7 @@ a.image-16x9 img {
   color: var(--col-simco-navy);
 }
 .fund-info__value {
-  font-size: var(--fs-ticker);
+  font-size: var(--fs-h1);
   font-weight: var(--fw-bold);
   color: var(--col-simco-navy);
   line-height: 1;
