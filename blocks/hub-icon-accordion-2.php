@@ -59,9 +59,12 @@ $accordion_id = 'accordion-' . uniqid();
 					<?php
 					$c = 0;
 					foreach ( $items as $i => $it ) {
-						$collapsed = ( 0 === $i ) ? '' : 'collapsed';
-						$show      = ( 0 === $i ) ? 'show' : '';
-						$expanded  = ( 0 === $i ) ? 'true' : 'false';
+						// $collapsed = ( 0 === $i ) ? '' : 'collapsed';
+						// $show      = ( 0 === $i ) ? 'show' : '';
+						// $expanded  = ( 0 === $i ) ? 'true' : 'false';
+						$collapsed = 'collapsed';
+						$show      = '';
+						$expanded  = 'false';
 						++$c;
 						?>
 					<div class="accordion-item mb-3" data-aos="fade-up" data-aos-delay="<?= esc_attr( 100 * ( $i + 1 ) ); ?>">
