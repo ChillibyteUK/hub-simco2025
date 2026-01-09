@@ -10,7 +10,6 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <section class="contact">
 	<div class="container py-5">
-		<h2 class="mb-4">Contact us</h2>
 		<div class="row g-4">
 			<div class="col-md-6 pt-2">
 				<a href="<?= esc_url( get_field( 'map_embed_code', 'option' ) ); ?>" target="_blank" rel="noopener noreferrer">
