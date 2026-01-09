@@ -136,7 +136,7 @@
         {
           "name": "ticker",
           "slug": "ticker",
-          "size": "clamp(3rem, 2rem + 4vw, 5rem)"
+          "size": "clamp(2.25rem, 1.9rem + 2.6vw, 4rem)"
         },
         {
           "name": "h1",
