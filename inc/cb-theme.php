@@ -188,7 +188,7 @@ function hub_theme_enqueue() {
     $the_theme = wp_get_theme();
 
 	// jQuery needed by Gravity Forms and Cookie plugins.
-    wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.6.3.min.js', array(), null, true );
+    wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.6.3.min.js', array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 
     // phpcs:disable
     // wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox-plus-jquery.min.js', array(), $the_theme->get('Version'), true);
