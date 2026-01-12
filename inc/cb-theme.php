@@ -234,9 +234,9 @@ function add_defer_to_scripts( $tag, $handle ) {
 
     // Defer jQuery when it's loaded (for Gravity Forms pages).
     // Note: This may break some plugins if they expect jQuery immediately.
-    if ( in_array( $handle, array( 'jquery-core', 'jquery-migrate' ), true ) ) {
-        return str_replace( ' src', ' defer src', $tag );
-    }
+    // if ( in_array( $handle, array( 'jquery-core', 'jquery-migrate' ), true ) ) {
+    //     return str_replace( ' src', ' defer src', $tag );
+    // }
 
     return $tag;
 }
