@@ -186,9 +186,12 @@ add_action( 'widgets_init', 'widgets_init', 11 );
  */
 function hub_theme_enqueue() {
     $the_theme = wp_get_theme();
+
+	// jQuery needed by Gravity Forms and Cookie plugins.
+    wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.6.3.min.js', array(), null, true );
+
     // phpcs:disable
     // wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox-plus-jquery.min.js', array(), $the_theme->get('Version'), true);
-    // wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.6.3.min.js', array(), null, true);
     // wp_enqueue_script('parallax', get_stylesheet_directory_uri() . '/js/parallax.min.js', array('jquery'), null, true);
     // wp_enqueue_style( 'splide-stylesheet', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css', array(), null );
     // wp_enqueue_script( 'splide-scripts', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js', array(), null, true );
@@ -199,24 +202,6 @@ function hub_theme_enqueue() {
     // wp_deregister_script( 'jquery' ); // needed by gravity forms
     // phpcs:enable
 
-    // Deregister jQuery unless Gravity Forms is on the page.
-    $post   = get_post();
-    $has_gf = false;
-
-    if ( $post && class_exists( 'GFForms' ) ) {
-        // Check for shortcode, Gutenberg block, or ACF blocks that contain forms.
-        $has_gf = has_shortcode( $post->post_content, 'gravityform' ) ||
-            has_shortcode( $post->post_content, 'gravityforms' ) ||
-            has_block( 'gravityforms/form', $post ) ||
-            has_block( 'acf/hub-contact', $post ) ||
-            has_block( 'acf/hub-careers-form', $post ) ||
-            has_block( 'acf/hub-quiz-holder', $post );
-    }
-
-    if ( ! $has_gf ) {
-        wp_deregister_script( 'jquery' );
-        wp_deregister_script( 'jquery-migrate' );
-    }
 }
 add_action( 'wp_enqueue_scripts', 'hub_theme_enqueue' );
 
