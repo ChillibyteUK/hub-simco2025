@@ -187,10 +187,7 @@ add_action( 'widgets_init', 'widgets_init', 11 );
 function hub_theme_enqueue() {
     $the_theme = wp_get_theme();
 
-	// jQuery needed by Gravity Forms and Cookie plugins.
-    wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.6.3.min.js', array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-
-    // phpcs:disable
+	// phpcs:disable
     // wp_enqueue_script('lightbox-scripts', get_stylesheet_directory_uri() . '/js/lightbox-plus-jquery.min.js', array(), $the_theme->get('Version'), true);
     // wp_enqueue_script('parallax', get_stylesheet_directory_uri() . '/js/parallax.min.js', array('jquery'), null, true);
     // wp_enqueue_style( 'splide-stylesheet', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css', array(), null );
